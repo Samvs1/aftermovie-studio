@@ -137,8 +137,10 @@ def lyric_lines(A, G, warn):
             continue
         t0 = float(ws[0]["t"])
         t1 = float(max(w.get("t_end", w["t"] + 0.3) for w in ws))
-        cap = max(3.0, 0.9 * len(ws))           # a line spread wider than this is a failed alignment, not a hold
-        if t1 - t0 > cap:
+        cap = max(3.0, 0.9 * len(ws))
+        # a line spread this wide without forced alignment is a failed estimate; force-aligned lines are trusted (slow
+        # songs hold words for seconds: "Sweet disposition" is sung over ~8 s)
+        if t1 - t0 > cap and not all("fa" in w for w in ws):
             warn.append(f"words of \"{Lr['text']}\" are spread over {t1 - t0:.0f} s from {t0:.1f} s: check the alignment "
                         f"(align_words.py) before trusting its word times")
             t1 = t0 + cap
