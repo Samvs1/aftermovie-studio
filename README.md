@@ -11,7 +11,15 @@ You bring the photos, the song and the stories; **Claude** (in Claude Code) dire
 3. Install **Claude Code** (the director; needs a Claude plan): open PowerShell and run
    `irm https://claude.ai/install.ps1 | iex`, then run `claude` once to log in.
 
-An NVIDIA graphics card makes rendering faster, but it isn't required. To update later: `git pull`.
+An NVIDIA graphics card makes rendering and the song analysis much faster (setup installs the CUDA build of PyTorch
+when it finds one), but it isn't required. To update later: `git pull`.
+
+## How Claude "hears" the song
+Claude can't listen, so the studio writes the song down for it: `projects/<project>/song/<slug>/` holds a song map
+(named sections, the big moments, and every bar with its chord, loudness, what the voice / drums / bass / other
+instruments do and which words are sung), the timed lyric with its melody, and a picture of the whole song in lanes.
+Claude reads it, writes `song-story.md` (what the song is about and how its arc can carry your trip) with you, and
+cuts to it. `studio.py song <project>` remakes it.
 
 ## What's in the repo
 The studio (app, engine, skills, fonts, face models) plus each project's small files: `project.json`, the
@@ -33,7 +41,11 @@ unzip its photos/music into `projects/<project>/` and run `Analyse` in the studi
      with *Use this one* and drop its MP3 in. (Or in Claude Code: `/aftermovie-songs <your-project>`.)
    - **The brief**: what it was, the vibe, story order, the people, inside jokes, what to never show,
      credit lines, an ending note. Rough notes are fine.
-   - **Analyse**: straightens scans, finds faces, analyses the song (beats, sections, lyrics). A few minutes.
+   - **Analyse**: straightens scans, finds faces, analyses the song (stems, beats, lyrics, melody, chords, sections:
+     the song folder). A few minutes. Songs without synced lyrics online are transcribed from the vocals (check the text).
+   - **The song**: see the song the way Claude reads it, playing along: sections, loud and quiet, the big moments,
+     melody and bass notes, chords, every beat and bar, what the voice / drums / bass / other do, and each sung word.
+     Listen to one instrument alone (M V D B O), switch on a beat click (K), slow it down, click anywhere to jump.
    - **Who's who**: name the face groups; mark the main cast.
    - **Make the film**: open Claude Code in this folder and type `/aftermovie <your-project>`. Claude looks at
      every photo, asks a few questions, writes a plan, builds the edit and sends previews back to the studio.

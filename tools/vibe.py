@@ -14,7 +14,44 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from am.common import ROOT, CACHE, PHOTOS, project  # noqa: E402
 
 
+def song_read_kit(slug, m):
+    """The song from the song kit (song/<slug>/song-map.json): named sections, the big moments, the voice, the lyric."""
+    t, mu, vo = m["tempo"], m["music"], m["vocals"]
+    out = [f"## Song: {m.get('artist', '')} – {m.get('title', '')}".rstrip(" –"),
+           f"- full map, timed lyrics and lanes picture: `song/{slug}/` (start with README.md, song-map.md, overview.png)",
+           f"- {t['bpm']:.0f} BPM ({'slow' if t['bpm'] < 85 else 'mid' if t['bpm'] < 115 else 'upbeat' if t['bpm'] < 135 else 'fast'}), "
+           f"bar = {t['bar_s']:.2f} s, {m['key']['name']}, {t['grid']}",
+           f"- the music runs {mu['start']:.1f}–{mu['end']:.1f} s of a {m['duration']:.0f} s file"
+           + (f" (before it: {mu['before']['kind']})" if mu.get("before") else "")
+           + (f" (after it: {mu['after']['kind']})" if mu.get("after") else ""),
+           f"- loudness {m['loudness']['integrated_lufs']} LUFS, range {m['loudness']['range_lu']} LU"]
+    if vo.get("range"):
+        out.append(f"- voice: sung in {vo['sung_bars'] * 100:.0f}% of bars, range {vo['range'][0]}–{vo['range'][1]}, "
+                   f"first word at {vo['first']:.1f} s")
+    out.append("- structure: " + " → ".join(f"{s['name']} ({s['t0']:.0f}s, {s['bar1'] - s['bar0']} bars, {s['loud']:.0f} LUFS)"
+                                         for s in m["sections"]))
+    big = [e for e in m["moments"] if e["stars"] >= 3]
+    if big:
+        out.append("- the big moments: " + "; ".join(f"{e['t']:.1f}s ({e['pos']}) {e['text']}" for e in big))
+    seen, uniq = set(), []
+    for x in m.get("lyrics", []):
+        if x["text"].lower() not in seen:
+            seen.add(x["text"].lower())
+            uniq.append(x["text"])
+    if uniq:
+        out.append("- lyric (unique lines): " + " / ".join(uniq[:40]))
+    sp = os.path.join(ROOT, "song", slug, "song-story.md")
+    if os.path.exists(sp) and "_2–4 sentences" not in open(sp, encoding="utf-8").read():
+        out.append(f"- song story: written (`song/{slug}/song-story.md`)")
+    else:
+        out.append(f"- song story: not written yet (`song/{slug}/song-story.md`): what is the song about, and this group's version of it?")
+    return out
+
+
 def song_read(slug):
+    kp = os.path.join(ROOT, "song", slug, "song-map.json")
+    if os.path.exists(kp):
+        return song_read_kit(slug, json.load(open(kp, encoding="utf-8")))
     d = json.load(open(os.path.join(CACHE, "audio", f"{slug}.json"), encoding="utf-8"))
     db, be = np.array(d["downbeats"]), np.array(d.get("bar_energy", []))
     n = len(db)

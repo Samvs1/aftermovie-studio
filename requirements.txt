@@ -1,6 +1,6 @@
 # Aftermovie Studio (Python 3.11-3.13, Windows). Installed by setup.ps1 into .venv
-# CPU builds of PyTorch (works on every PC; renders still use an NVIDIA GPU for encoding when there is one)
---extra-index-url https://download.pytorch.org/whl/cpu
+# setup.ps1 adds the PyTorch index itself: CUDA 12.6 builds when an NVIDIA GPU is present (stems, beats, pitch,
+# lyric alignment and the music tagger run on the GPU), CPU builds otherwise.
 numpy==2.5.4
 scipy==1.18.1
 opencv-contrib-python==5.0.0.93
@@ -15,3 +15,6 @@ torch==2.14.1
 torchaudio==2.11.0
 demucs==4.1.0
 beat-this @ https://github.com/CPJKU/beat_this/archive/main.zip
+# song kit (tools/song_kit.py): vocal + bass pitch, and the CLAP music tagger / Whisper fallback
+torchcrepe==0.0.24
+transformers==5.21.0

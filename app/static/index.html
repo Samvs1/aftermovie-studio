@@ -143,6 +143,48 @@ video{width:100%;border-radius:12px;background:#000;max-height:64vh}
 .prog div{height:100%;background:var(--acc);width:0;transition:width .2s}
 .hint{font-size:13px;color:var(--mut);margin-top:6px}
 img.sheet{width:100%;border-radius:10px;margin-top:14px}
+/* the song viewer */
+.sv-facts{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13px;color:var(--mut);margin:2px 0 12px}
+.sv-facts b{color:var(--fg);font-weight:600}
+.sv-now{display:grid;grid-template-columns:minmax(150px,auto) 1fr minmax(170px,auto);gap:16px;align-items:center;background:#0b0b0c;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px;min-height:72px}
+.sv-now .big{font:22px Anton,Impact,sans-serif;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.sv-now .big i{display:inline-block;width:12px;height:12px;border-radius:3px}
+.sv-now .pos{font:13px SpaceMono,monospace;color:var(--acc);margin-top:2px}
+.sv-now .ly{font-size:19px;line-height:1.35}
+.sv-now .ly span{color:#5d5d63}
+.sv-now .ly span.on{color:var(--fg)}
+.sv-now .ly span.now{color:var(--acc)}
+.sv-now .ly small{display:block;font-size:12px;color:var(--mut)}
+.sv-now .nx{font-size:12.5px;color:var(--mut);text-align:right;line-height:1.5}
+.sv-ctl{margin:6px 0 10px;gap:7px}
+.sv-ctl .chip{font-size:12.5px;padding:4px 10px}
+.sv-ctl .t{font:13px SpaceMono,monospace;min-width:130px}
+.sv-ctl .sep{width:1px;height:22px;background:var(--line)}
+canvas.sv{width:100%;display:block;border-radius:10px;background:#101114;cursor:crosshair}
+#sv-ov{height:58px;margin-bottom:6px}
+#sv-cv{height:560px}
+.sv-hov{font:12px SpaceMono,monospace;color:var(--mut);min-height:18px;margin:5px 0 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sv-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.sv-tbl td{padding:5px 6px;border-top:1px solid var(--line);vertical-align:top}
+.sv-tbl tr{cursor:pointer}
+.sv-tbl tr:hover td{background:#26262a}
+.sv-tbl tr.on td{background:#2b2814}
+.sv-scroll{max-height:330px;overflow:auto;margin-top:6px}
+.sv-dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.stars{color:var(--acc);white-space:nowrap;letter-spacing:-1px}
+.sv-ly{max-height:640px;overflow:auto;font-size:14px;position:relative;margin-top:6px}
+.sv-ly h4{margin:12px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:600}
+.sv-ly .l{display:flex;gap:9px;padding:3px 5px;border-radius:6px;cursor:pointer}
+.sv-ly .l:hover{background:#26262a}
+.sv-ly .l.on{background:#2b2814}
+.sv-ly .l .ts{font:12px SpaceMono,monospace;color:var(--acc);flex:none;padding-top:2px}
+.sv-ly .l small{display:block;color:var(--mut);font-size:12px}
+.sv-md{font-size:14px}
+.sv-md h2{font-size:24px;margin:4px 0}.sv-md h3{font:600 15px system-ui;margin:14px 0 4px;color:var(--acc)}
+.sv-md table{border-collapse:collapse;width:100%;font-size:13px;margin:6px 0}
+.sv-md td,.sv-md th{border:1px solid var(--line);padding:4px 7px;text-align:left;vertical-align:top}
+.sv-md blockquote{margin:6px 0;padding-left:10px;border-left:3px solid var(--line);color:var(--mut)}
+.sv-md p{margin:6px 0}
 </style>
 </head>
 <body>
@@ -164,12 +206,13 @@ function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add
 const fmt = t => { t = Math.max(0, t); return Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0") + "." + Math.floor((t % 1) * 10); };
 
 let S = null, step = "upload", poll = null;
-const STEPS = [["upload", "Photos & song"], ["brief", "The brief"], ["analyse", "Analyse"], ["people", "Who's who"], ["make", "Make the film"], ["review", "Review"]];
+const STEPS = [["upload", "Photos & song"], ["brief", "The brief"], ["analyse", "Analyse"], ["song", "The song"], ["people", "Who's who"], ["make", "Make the film"], ["review", "Review"]];
 
 function go(hash) { location.hash = hash; }
 window.onhashchange = route;
 async function route() {
   clearInterval(poll);
+  svStop();
   const h = location.hash.slice(1).split("/");
   if (!h[0]) return home();
   step = h[1] || "upload";
@@ -201,13 +244,14 @@ async function load(name) {
   $("#crumb").innerHTML = "/ " + esc(S.project.title || name);
   const done = {upload: S.photos.length > 0 && S.music.length > 0, brief: !!(S.project.occasion || S.project.vibe || S.project.people_notes),
                 analyse: !!S.project.analysis, people: !!(S.project.status || {}).people_named, make: S.versions.length > 0,
-                review: !!(S.project.status || {}).approved, trip: !!S.trip && S.trip.steps.some(s => s.note)};
+                review: !!(S.project.status || {}).approved, trip: !!S.trip && S.trip.steps.some(s => s.note),
+                song: (S.songs || []).some(s => s.story_written)};
   const steps = S.trip ? [STEPS[0], ["trip", "The trip"], ...STEPS.slice(1)] : STEPS;
   if (step === "trip" && !S.trip) step = "upload";
   $("#main").innerHTML = `<div class="layout"><nav class="steps">${steps.map(([k, l], i) =>
       `<div class="${k === step ? "on" : ""}" onclick="go('${name}/${k}')"><span class="dot ${done[k] ? "done" : ""}">${done[k] ? "&#10003;" : i + 1}</span>${l}</div>`).join("")}</nav>
     <section class="panel" id="pane"></section></div>`;
-  ({upload: vUpload, trip: vTrip, brief: vBrief, analyse: vAnalyse, people: vPeople, make: vMake, review: vReview})[step]();
+  ({upload: vUpload, trip: vTrip, brief: vBrief, analyse: vAnalyse, song: vSong, people: vPeople, make: vMake, review: vReview})[step]();
 }
 const refresh = () => load(S.name);
 
@@ -440,7 +484,7 @@ function vAnalyse() {
   <ul class="steplist" id="sl-ingest"></ul><pre class="log" id="lg-ingest" style="display:none"></pre>
   <div id="res">${a ? `<div class="box" style="margin-top:14px"><b>Done.</b> ${a.photos} photos &middot; ${(S.clusters || []).length} face groups &middot; song ${Math.floor(a.duration / 60)}:${String(Math.floor(a.duration % 60)).padStart(2, "0")}, ${Math.round(a.tempo)} BPM ${a.constant_grid ? "(steady click)" : "(live band timing)"} &middot; lyrics ${a.lyrics_lines ? `&#10003; ${a.lyrics_lines} lines` : "not found (captions will follow the beat instead of words)"}
     ${photoAdvice(a)}
-    <div class="row" style="margin-top:12px"><button onclick="go('${S.name}/people')">Next: who's who &rarr;</button></div></div>` : ""}</div>`;
+    <div class="row" style="margin-top:12px">${(S.songs || []).length ? `<button onclick="go('${S.name}/song')">See the song &rarr;</button>` : ""}<button class="${(S.songs || []).length ? "ghost" : ""}" onclick="go('${S.name}/people')">Next: who's who &rarr;</button></div></div>` : ""}</div>`;
   watchJob('ingest');
 }
 function photoAdvice(a) {
@@ -647,6 +691,429 @@ function addNote() {
 }
 async function noteEdit(id, ch) { S.notes = await post(`/api/p/${S.name}/note-edit`, {id, ...ch}); vReview(); }
 async function approveCut() { await post(`/api/p/${S.name}/approve`, {version: cur.version}); toast("Approved. Tell Claude to render the final."); refresh(); }
+
+// ---------------------------------------------------------------- the song: what Claude "hears" (song kit viewer)
+// Reads song/<slug>/song-map.json + envelopes.json (tools/song_kit.py) and draws the same lanes as overview.png,
+// playing along: sections, loud & quiet with the moments, melody + bass notes, chords, beats, the four stems, lyrics.
+const SV = {slug: null, mapUrl: null, m: null, env: null, story: "", src: "mix", zoom: 16, follow: true, click: false, rate: 1,
+            w0: 0, raf: 0, ctx: null, sched: -1, hover: null, dirty: true, lastLine: null, lastSec: null};
+const SEC_COL = {chorus: "#e8734a", "pre-chorus": "#d9a441", "post-chorus": "#d98a41", refrain: "#d98a41", verse: "#5b8fd9",
+                 bridge: "#a46fd9", intro: "#6c7a89", outro: "#6c7a89", instrumental: "#3fae8f", break: "#2f6f60"};
+const PC = {C: 0, "B#": 0, "C#": 1, Db: 1, D: 2, "D#": 3, Eb: 3, E: 4, Fb: 4, F: 5, "E#": 5, "F#": 6, Gb: 6, G: 7, "G#": 8, Ab: 8,
+            A: 9, "A#": 10, Bb: 10, B: 11, Cb: 11};
+const SV_LANES = [["sections", 26], ["loud & quiet", 74], ["notes", 96], ["chords", 26], ["beats", 28], ["voice", 44],
+                  ["drums", 44], ["bass", 44], ["other", 44], ["lyrics", 58]];
+const SV_LX = 108;                                     // the lanes' label column (px)
+const SV_STEM_LANE = {vocals: "voice", drums: "drums", bass: "bass", other: "other"};
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const bsearch = (arr, t) => { let lo = 0, hi = arr.length; while (lo < hi) { const mid = (lo + hi) >> 1; if (arr[mid] <= t) lo = mid + 1; else hi = mid; } return lo; };
+const secCol = s => SEC_COL[(s.label || "").split(" ")[0]] || "#6c7a89";
+function chordCol(c, a = 1) {
+  const r = (c.match(/^[A-G][b#]?/) || ["C"])[0], minor = /^[A-G][b#]?m/.test(c);
+  return `hsla(${((PC[r] ?? 0) * 7 % 12) * 30},${minor ? 36 : 58}%,${minor ? 48 : 55}%,${a})`;    // circle of fifths = hue
+}
+function svStop() { const a = $("#sv-au"); if (a) a.pause(); cancelAnimationFrame(SV.raf); SV.raf = 0; }
+function svIndex() {
+  const m = SV.m, near = t => { const i = bsearch(m.beats, t); return i > 0 && (i >= m.beats.length || t - m.beats[i - 1] < m.beats[i] - t) ? i - 1 : i; };
+  SV.bt = m.bars.map(b => b.t);
+  SV.dbi = m.bars.map(b => near(b.t));
+  SV.dbset = new Set(SV.dbi);
+  SV.ct = m.chords.map(c => c.t);
+  SV.lt = m.lyrics.map(x => x.t);
+  const pct = (xs, p) => xs.length ? xs[clamp(Math.round(p * (xs.length - 1)), 0, xs.length - 1)] : 0;
+  const vs = m.notes.vocal.filter(n => n.in_lyric !== false).map(n => n.midi).sort((a, b) => a - b);
+  const bs = m.notes.bass.map(n => n.midi).sort((a, b) => a - b);
+  [SV.vlo, SV.vhi] = vs.length ? [pct(vs, .01), pct(vs, .99) + 1] : [48, 72];
+  [SV.blo, SV.bhi] = bs.length ? [pct(bs, .01), pct(bs, .99) + 1] : [28, 52];
+  SV.lineSec = {};
+  m.sections.forEach(s => s.lines.forEach(li => SV.lineSec[li] = s));
+}
+function svPos(t) {
+  const m = SV.m, B = m.beats, bs = m.tempo.beat_s;
+  if (!B.length || t < B[0] - 2 * bs || t > m.music.grid_end + 0.5 * bs) return null;
+  const i = clamp(bsearch(SV.bt, t + 0.03) - 1, 0, m.bars.length - 1);
+  let jb = bsearch(B, t + 0.03) - 1, k;
+  if (jb < 0) { k = (t - B[0]) / bs; jb = 0; } else k = (t - B[jb]) / (jb + 1 < B.length ? B[jb + 1] - B[jb] : bs);
+  k += jb - SV.dbi[i];
+  return [i, Math.abs(k) < 0.05 ? 0 : k];
+}
+const svPosStr = t => { const p = svPos(t); return p ? `${p[0]}:${Math.round(p[1] * 10) / 10}` : "–"; };
+function svSection(t) {
+  const m = SV.m, mu = m.music, s = m.sections.find(s => t >= s.t0 && t < s.t1);
+  if (s) return {name: s.name, col: secCol(s), s};
+  if (mu.before && t < mu.before.t1) return {name: "before the music", col: "#3a3a40", note: mu.before.kind};
+  if (mu.tail && t >= mu.tail.t0 && t < mu.tail.t1) return {name: "after the last bar", col: "#3a3a40", note: "no beat grid"};
+  if (mu.after && t >= mu.after.t0) return {name: "after the music", col: "#3a3a40", note: mu.after.kind};
+  return {name: "", col: "#3a3a40"};
+}
+function svChord(t) { const c = SV.m.chords[bsearch(SV.ct, t) - 1]; return c && t < c.end && c.chord !== "N" ? c.chord : ""; }
+const svCur = () => (S.songs || []).find(s => s.slug === SV.slug);
+const svMix = () => `/p/${S.name}/music/${encodeURIComponent(SV.m.file)}`;
+const svLen = () => SV.zoom ? SV.zoom * SV.m.tempo.bar_s : SV.m.music.end - SV.m.music.start + 2;
+function svCenter(t, at = 0.3) {
+  const len = svLen();
+  SV.w0 = SV.zoom ? clamp(t - len * at, 0, Math.max(0, SV.m.duration - len)) : Math.max(0, SV.m.music.start - 1);
+}
+function chordsTxt(c) {
+  if (c.loop) return c.loop.join(" ") + (c.repeats >= 1.5 ? ` ×${c.repeats}` : "");
+  const seq = (c.bars || []).filter((x, i, a) => x && x !== a[i - 1]);
+  return seq.slice(0, 7).join(" ") + (seq.length > 7 ? " …" : "");
+}
+function mdHtml(src) {
+  const inl = s => esc(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+                         .replace(/(^|[\s(])[*_]([^*_]+)[*_](?=[\s).,;:!?]|$)/g, "$1<i>$2</i>");
+  const out = []; let para = [], rows = null;
+  const flushP = () => { if (para.length) out.push(`<p>${inl(para.join(" "))}</p>`); para = []; };
+  const flushT = () => { if (rows) out.push(`<table>${rows.map((r, i) => `<tr>${r.map(c => i ? `<td>${inl(c)}</td>` : `<th>${inl(c)}</th>`).join("")}</tr>`).join("")}</table>`); rows = null; };
+  for (const line of src.split(/\r?\n/)) {
+    const l = line.trim();
+    if (l.startsWith("|")) { flushP(); const cells = l.replace(/^\||\|$/g, "").split("|").map(c => c.trim()); if (!cells.every(c => /^:?-+:?$/.test(c))) (rows = rows || []).push(cells); continue; }
+    flushT();
+    const h = l.match(/^(#{1,4})\s+(.*)/);
+    if (!l) flushP();
+    else if (h) { flushP(); out.push(`<h${h[1].length + 1}>${inl(h[2])}</h${h[1].length + 1}>`); }
+    else if (l.startsWith(">")) { flushP(); out.push(`<blockquote>${inl(l.replace(/^>\s?/, ""))}</blockquote>`); }
+    else if (/^[-*]\s/.test(l)) { flushP(); out.push(`<div>&bull; ${inl(l.slice(2))}</div>`); }
+    else para.push(l);
+  }
+  flushP(); flushT();
+  return out.join("");
+}
+
+async function vSong() {
+  svStop();
+  if (SV.project !== S.name) Object.assign(SV, {project: S.name, slug: null, m: null, mapUrl: null});   // another project
+  const songs = S.songs || [];
+  if (!songs.length) {
+    $("#pane").innerHTML = `<h2>The song</h2><p class="mut">This page shows the song the way Claude reads it before cutting to it: the sections, where it builds and drops, the melody, the chords, every beat, what the voice, drums, bass and other instruments do, and when each word is sung. It appears after <b>Analyse</b>.</p>
+      ${S.project.analysis ? `<div class="row"><button id="go-song" onclick="startJob('song')">Make the song map</button><button class="ghost small" id="stop-song" onclick="stopJob()" style="display:none">Stop</button></div><ul class="steplist" id="sl-song"></ul><pre class="log" id="lg-song" style="display:none"></pre>`
+        : `<button onclick="go('${S.name}/analyse')">Go to Analyse</button>`}`;
+    if (S.project.analysis) watchJob("song");
+    return;
+  }
+  const cur = songs.find(s => s.slug === SV.slug) || songs.find(s => s.slug === (S.project.song || {}).slug) || songs[0];
+  if (!SV.m || SV.mapUrl !== cur.map) {
+    $("#pane").innerHTML = `<h2>The song</h2><p class="mut"><span class="spin"></span> loading the song map&hellip;</p>`;
+    const [m, env, story] = await Promise.all([api(cur.map), api(cur.env),
+      cur.docs["song-story.md"] ? fetch(cur.docs["song-story.md"]).then(r => r.text()) : Promise.resolve("")]);
+    Object.assign(SV, {slug: cur.slug, mapUrl: cur.map, m, env, story, src: "mix", sched: -1, lastLine: null, lastSec: null});
+    svIndex();
+    svCenter(m.music.start, 0.02);
+  }
+  const m = SV.m, t = m.tempo, mu = m.music, vo = m.vocals, lm = m.lyrics_meta || {};
+  const stemChips = [["mix", "Mix", "M"], ["vocals", "Voice", "V"], ["drums", "Drums", "D"], ["bass", "Bass", "B"], ["other", "Other", "O"]]
+    .filter(([k]) => k === "mix" || cur.stems[k]);
+  let lyr = "", sec = null;
+  for (const x of m.lyrics) {
+    const s = SV.lineSec[x.i];
+    if (s !== sec) { sec = s; lyr += `<h4>${esc(s ? s.name : "")}</h4>`; }
+    const mel = [x.contour, x.peak ? `peak ${x.peak.note}${x.peak.word ? ` on “${x.peak.word}”` : ""}` : "",
+                 ...(x.words || []).filter(w => (w.held || 0) >= 0.6).slice(0, 2).map(w => `holds “${w.w}” ${w.held.toFixed(1)} s`)].filter(Boolean);
+    lyr += `<div class="l" data-t="${Math.max(0, x.t - 0.6)}" data-li="${x.i}"><span class="ts">${fmt(x.t)}</span><div>${esc(x.text)}${x.repeat ? ` <span class="org">×${x.repeat + 1}</span>` : ""}<small>${esc(x.pos || "")}${mel.length ? " · " + esc(mel.join("; ")) : ""}</small></div></div>`;
+  }
+  const src = (lm.source || "").startsWith("transcribed") ? `<span style="color:var(--bad)">transcribed from the vocals: check the words</span>` : lm.source ? `${esc(lm.source)}, aligned to the singing` : "";
+  $("#pane").innerHTML = `<h2>The song</h2>
+  <p class="mut" style="margin-top:0">The song the way Claude reads it before cutting to it. <b>Space</b> play/pause &middot; <b>&larr; &rarr;</b> a bar &middot; <b>[ ]</b> a section &middot; <b>M V D B O</b> hear the mix or one instrument alone &middot; <b>K</b> beat click &middot; click the lanes to jump, scroll to look around.</p>
+  ${songs.length > 1 ? `<div class="vtabs">${songs.map(s => `<span class="chip ${s.slug === cur.slug ? "on" : ""}" onclick="svSong('${esc(s.slug)}')">${esc(s.slug)}</span>`).join("")}</div>` : ""}
+  <div class="sv-facts"><span><b>${esc(m.artist ? m.artist + " – " : "")}${esc(m.title || m.slug)}</b></span><span><b>${t.bpm}</b> BPM &middot; bar ${t.bar_s.toFixed(2)} s</span>
+    <span>key <b>${esc(m.key.name)}</b></span><span>music <b>${fmt(mu.start)}–${fmt(mu.end)}</b> of ${fmt(m.duration)}</span>
+    <span><b>${m.loudness.integrated_lufs}</b> LUFS &middot; range ${m.loudness.range_lu} LU</span>${vo.range ? `<span>voice <b>${vo.range[0]}–${vo.range[1]}</b></span>` : ""}
+    <span>${m.sections.length} sections &middot; <b>${m.moments.filter(x => x.stars >= 3).length}</b> big moments</span></div>
+  <div class="sv-now"><div><div class="big" id="sv-sec">&nbsp;</div><div class="pos" id="sv-pos">&nbsp;</div></div><div class="ly" id="sv-ly"></div><div class="nx" id="sv-nx"></div></div>
+  <div class="row sv-ctl"><button class="small" id="sv-play" onclick="svToggle()" style="min-width:84px">&#9654; Play</button><span class="t" id="sv-t">0:00.0</span><span class="sep"></span>
+    ${stemChips.map(([k, l, key]) => `<span class="chip ${SV.src === k ? "on" : ""}" data-src="${k}" title="${key}" onclick="svSource('${k}')">${l}</span>`).join("")}
+    <span class="sep"></span>${[0.5, 0.75, 1].map(r => `<span class="chip ${SV.rate === r ? "on" : ""}" data-rate="${r}" onclick="svRate(${r})">${r}&times;</span>`).join("")}
+    <span class="sep"></span>${[[4, "4 bars"], [8, "8"], [16, "16"], [32, "32"], [0, "whole song"]].map(([z, l]) => `<span class="chip ${SV.zoom === z ? "on" : ""}" data-zoom="${z}" onclick="svZoom(${z})">${l}</span>`).join("")}
+    <span class="sep"></span><span class="chip ${SV.follow ? "on" : ""}" id="sv-follow" onclick="svFollow(!SV.follow)">follow</span><span class="chip ${SV.click ? "on" : ""}" id="sv-click" onclick="svClick()" title="K">beat click</span></div>
+  <canvas class="sv" id="sv-ov"></canvas><canvas class="sv" id="sv-cv"></canvas><div class="sv-hov" id="sv-hov">&nbsp;</div>
+  <audio id="sv-au" preload="auto" src="${SV.src === "mix" || !cur.stems[SV.src] ? svMix() : cur.stems[SV.src]}"></audio>
+  <div class="box" style="margin-bottom:16px"><b>Sections</b> <span class="mut">click to jump &middot; V D B O = how much is sung / drums / bass / other, 0-9</span>
+      <table class="sv-tbl" id="sv-secs">${mu.before ? `<tr data-t="0"><td class="mut" colspan="2"><span class="sv-dot" style="background:#3a3a40"></span>before the music</td><td>0:00.0</td><td class="mut" colspan="5">${esc(mu.before.kind)}</td></tr>` : ""}
+      ${m.sections.map((s, i) => `<tr data-t="${s.t0}" data-si="${i}"><td style="white-space:nowrap"><span class="sv-dot" style="background:${secCol(s)}"></span><b>${esc(s.name)}</b></td><td class="mut" style="white-space:nowrap">bars ${s.bar0}–${s.bar1 - 1}</td><td>${fmt(s.t0)}</td><td class="mut" style="white-space:nowrap">${Math.round(s.t1 - s.t0)} s</td><td class="mut" style="white-space:nowrap">${s.loud} LUFS</td><td style="font:12px SpaceMono,monospace;white-space:nowrap">${s.voice} ${s.drums} ${s.bass} ${s.other}</td><td class="mut">${esc(chordsTxt(s.chords))}</td><td>${esc(s.first_line)}</td></tr>`).join("")}
+      ${mu.tail ? `<tr data-t="${mu.tail.t0}"><td class="mut" colspan="2"><span class="sv-dot" style="background:#3a3a40"></span>after the last bar</td><td>${fmt(mu.tail.t0)}</td><td class="mut" colspan="5">${esc(mu.tail.kind)}</td></tr>` : ""}
+      ${mu.after ? `<tr data-t="${mu.after.t0}"><td class="mut" colspan="2"><span class="sv-dot" style="background:#3a3a40"></span>after the music</td><td>${fmt(mu.after.t0)}</td><td class="mut" colspan="5">${esc(mu.after.kind)}</td></tr>` : ""}</table></div>
+  <div class="cards2"><div class="box"><b>Moments</b> <span class="mut">where to cut, hold or reveal; <span class="stars">★★★</span> = the song's own peaks and turns</span>
+      <div class="sv-scroll" style="max-height:640px"><table class="sv-tbl" id="sv-mom">${m.moments.map(e => `<tr data-t="${Math.max(0, e.t - 1.5)}"><td>${fmt(e.t)}</td><td class="mut">${esc(e.pos)}</td><td class="stars">${"★".repeat(e.stars)}</td><td>${esc(e.text)}</td></tr>`).join("")}</table></div></div>
+    <div class="box"><b>Lyrics</b> <span class="mut">${src}</span><div class="sv-ly" id="sv-lyr">${lyr || '<p class="mut">No lyrics: sections are named by sound.</p>'}</div></div></div>
+  <div class="box sv-md" style="margin-top:16px">${cur.story_written ? mdHtml(SV.story) : `<b>Song story</b><p class="mut">Not written yet. During <code>/aftermovie ${esc(S.name)}</code> Claude writes it with you: what the song is about, its arc section by section, the lines that could carry a moment, and your trip's version of it. Your own associations with the song come first.</p>`}</div>
+  <div class="row" style="margin-top:12px">${Object.entries(cur.docs).map(([f, u]) => `<a href="${u}" target="_blank">${esc(f)}</a>`).join("")}
+    <span class="sp" style="flex:1"></span><button class="ghost small" id="go-song" onclick="startJob('song')">Remake the song map</button><button class="ghost small" id="stop-song" onclick="stopJob()" style="display:none">Stop</button></div>
+  <ul class="steplist" id="sl-song"></ul><pre class="log" id="lg-song" style="display:none"></pre>`;
+  svWire();
+  watchJob("song");
+}
+function svSong(slug) { SV.slug = slug; SV.m = null; vSong(); }
+
+function svWire() {
+  const a = $("#sv-au"), cv = $("#sv-cv"), ov = $("#sv-ov");
+  a.playbackRate = SV.rate;
+  a.onplay = a.onpause = () => { $("#sv-play").innerHTML = a.paused ? "&#9654; Play" : "&#10074;&#10074; Pause"; SV.sched = -1; SV.dirty = true; };
+  a.onseeked = () => { SV.dirty = true; };
+  const rows = id => $(id).onclick = e => { const r = e.target.closest("[data-t]"); if (r) svSeek(+r.dataset.t, true); };
+  rows("#sv-secs"); rows("#sv-mom"); rows("#sv-lyr");
+  const tAt = (el, x) => {
+    if (el === ov) return x / el.clientWidth * SV.m.duration;
+    const [w0, w1] = [SV.w0, SV.w0 + svLen()], LX = SV_LX;
+    return x < LX ? null : w0 + (x - LX) / (el.clientWidth - LX - 8) * (w1 - w0);
+  };
+  for (const el of [cv, ov]) {
+    el.onmousemove = e => { SV.hover = tAt(el, e.offsetX); SV.dirty = true; svHover(); };
+    el.onmouseleave = () => { SV.hover = null; SV.dirty = true; $("#sv-hov").innerHTML = "&nbsp;"; };
+    el.onclick = e => { const t = tAt(el, e.offsetX); if (t != null) svSeek(t, false, el === ov); };
+  }
+  cv.addEventListener("wheel", e => {
+    e.preventDefault(); svFollow(false);
+    const len = svLen(), px = (cv.clientWidth - SV_LX - 8) / len;
+    SV.w0 = clamp(SV.w0 + (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) / px * 0.5, 0, Math.max(0, SV.m.duration - len));
+    SV.dirty = true;
+  }, {passive: false});
+  document.onkeydown = e => {
+    if (step !== "song" || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || e.ctrlKey || e.metaKey || e.altKey) return;
+    const k = e.key, m = SV.m, now = a.currentTime;
+    if (k === " ") { e.preventDefault(); svToggle(); }
+    else if (k === "ArrowRight" || k === "ArrowLeft") {
+      e.preventDefault();
+      const i = clamp(bsearch(SV.bt, now + 0.03) - 1, 0, m.bars.length - 1);
+      const j = k === "ArrowRight" ? i + 1 : (now - m.bars[i].t > 0.4 ? i : i - 1);
+      svSeek(m.bars[clamp(j, 0, m.bars.length - 1)].t, !a.paused);
+    } else if (k === "]" || k === "[") {
+      const st = m.sections.map(s => s.t0), i = bsearch(st, now + 0.05) - 1;
+      const j = k === "]" ? i + 1 : (i >= 0 && now - st[i] > 1 ? i : i - 1);
+      svSeek(st[clamp(j, 0, st.length - 1)], !a.paused);
+    } else if ({m: "mix", v: "vocals", d: "drums", b: "bass", o: "other"}[k.toLowerCase()]) svSource({m: "mix", v: "vocals", d: "drums", b: "bass", o: "other"}[k.toLowerCase()]);
+    else if (k.toLowerCase() === "k") svClick();
+  };
+  SV.dirty = true;
+  SV.raf = requestAnimationFrame(svLoop);
+}
+function svToggle() { const a = $("#sv-au"); if (!a) return; if (a.paused) { if (SV.ctx) SV.ctx.resume(); a.play(); } else a.pause(); }
+function svSeek(t, play, recenter) {
+  const a = $("#sv-au"); if (!a) return;
+  t = clamp(t, 0, SV.m.duration - 0.05);
+  a.currentTime = t; SV.sched = -1;
+  const len = svLen();
+  if (recenter || play || t < SV.w0 || t > SV.w0 + len) svCenter(t, play ? 0.3 : 0.25);
+  if (play) a.play();
+  SV.dirty = true;
+}
+function svSource(k) {
+  const a = $("#sv-au"), cur = svCur(); if (!a || !cur || (k !== "mix" && !cur.stems[k])) return;
+  const t = a.currentTime, playing = !a.paused;
+  SV.src = k;
+  a.src = k === "mix" ? svMix() : cur.stems[k];
+  a.addEventListener("loadedmetadata", () => { a.currentTime = t; a.playbackRate = SV.rate; if (playing) a.play(); }, {once: true});
+  document.querySelectorAll(".sv-ctl [data-src]").forEach(c => c.classList.toggle("on", c.dataset.src === k));
+  SV.dirty = true;
+}
+function svRate(r) { SV.rate = r; const a = $("#sv-au"); if (a) a.playbackRate = r; SV.sched = -1; document.querySelectorAll(".sv-ctl [data-rate]").forEach(c => c.classList.toggle("on", +c.dataset.rate === r)); }
+function svZoom(z) { SV.zoom = z; svCenter($("#sv-au").currentTime, 0.3); SV.dirty = true; document.querySelectorAll(".sv-ctl [data-zoom]").forEach(c => c.classList.toggle("on", +c.dataset.zoom === z)); }
+function svFollow(on) { SV.follow = on; const c = $("#sv-follow"); if (c) c.classList.toggle("on", on); }
+function svClick() {
+  SV.click = !SV.click; SV.sched = -1;
+  if (SV.click) { SV.ctx = SV.ctx || new (window.AudioContext || window.webkitAudioContext)(); SV.ctx.resume(); }
+  const c = $("#sv-click"); if (c) c.classList.toggle("on", SV.click);
+}
+function svClicks(a) {                     // a click on every beat (accent on the downbeat), scheduled 150 ms ahead
+  if (!SV.click || !SV.ctx || a.paused) { SV.sched = -1; return; }
+  const ctx = SV.ctx, t = a.currentTime, rate = a.playbackRate || 1, B = SV.m.beats;
+  if (SV.sched < t - 0.05 || SV.sched > t + 0.5) SV.sched = t;
+  const until = t + 0.15 * rate;
+  for (let j = bsearch(B, SV.sched); j < B.length && B[j] <= until; j++) {
+    const when = ctx.currentTime + (B[j] - t) / rate, acc = SV.dbset.has(j);
+    const o = ctx.createOscillator(), gn = ctx.createGain();
+    o.frequency.value = acc ? 1760 : 1100;
+    gn.gain.setValueAtTime(0.0001, when);
+    gn.gain.exponentialRampToValueAtTime(acc ? 0.45 : 0.22, when + 0.002);
+    gn.gain.exponentialRampToValueAtTime(0.0001, when + 0.05);
+    o.connect(gn).connect(ctx.destination); o.start(when); o.stop(when + 0.06);
+  }
+  SV.sched = until;
+}
+function svLoop() {
+  const a = $("#sv-au"), cv = $("#sv-cv");
+  if (!a || !cv || !SV.m) { SV.raf = 0; return; }
+  const t = a.currentTime, playing = !a.paused;
+  if (playing && SV.follow && SV.zoom) { svCenter(t, 0.3); SV.dirty = true; }
+  if (playing || SV.dirty) { svDraw(t); svOverview(t); svNow(t); SV.dirty = false; }
+  svClicks(a);
+  SV.raf = requestAnimationFrame(svLoop);
+}
+function svHover() {
+  const t = SV.hover; if (t == null) return;
+  const sc = svSection(t), ch = svChord(t), m = SV.m;
+  const mo = m.moments.find(e => Math.abs(e.t - t) < svLen() / 120);
+  const ln = m.lyrics[bsearch(SV.lt, t) - 1], w = ln && t < ln.end + 0.3 ? [...ln.words].reverse().find(w => w.t <= t) : null;
+  $("#sv-hov").textContent = `${fmt(t)}  ·  bar ${svPosStr(t)}  ·  ${sc.name || "–"}${ch ? "  ·  " + ch : ""}${w ? `  ·  “${w.w}”${w.note ? " " + w.note : ""}` : ""}${mo ? `  ·  ${"★".repeat(mo.stars)} ${mo.text}` : ""}`;
+}
+function svNow(t) {
+  const m = SV.m, sc = svSection(t), p = svPos(t), ch = svChord(t);
+  $("#sv-t").textContent = `${fmt(t)} / ${fmt(m.duration)}`;
+  $("#sv-sec").innerHTML = `<i style="background:${sc.col}"></i>${esc(sc.name || " ")}`;
+  const where = !p ? "" : p[1] < 0 ? `${Math.ceil(-p[1] - 1e-6)} beat${Math.ceil(-p[1] - 1e-6) > 1 ? "s" : ""} before bar ${p[0]}` : `bar ${p[0]} : beat ${Math.floor(p[1] + 1e-6) + 1}`;
+  $("#sv-pos").textContent = p ? `${where}${ch ? "   ·   " + ch : ""}` : (sc.note || " ");
+  const li = bsearch(SV.lt, t + 0.15) - 1, ln = m.lyrics[li], nx = m.lyrics[li + 1];
+  let html = "";
+  if (ln && t <= ln.end + 0.8) html = ln.words.map((w, k) => { const end = k + 1 < ln.words.length ? ln.words[k + 1].t : ln.end + 0.3; return `<span class="${t >= end ? "on" : t >= w.t ? "now" : ""}">${esc(w.w)}</span>`; }).join(" ");
+  else if (nx) html = `<small>next line in ${(nx.t - t).toFixed(1)} s</small><span>${esc(nx.text)}</span>`;
+  $("#sv-ly").innerHTML = html;
+  const big = m.moments.find(e => e.stars >= 3 && e.t > t + 0.05), ns = m.sections.find(s => s.t0 > t + 0.05);
+  $("#sv-nx").innerHTML = (ns ? `next: <b>${esc(ns.name)}</b> in ${(ns.t0 - t).toFixed(1)} s<br>` : "") + (big ? `<span class="stars">★★★</span> in ${(big.t - t).toFixed(1)} s: ${esc(big.text)}` : "");
+  const curLine = ln && t <= ln.end + 0.8 ? ln.i : null;
+  if (curLine !== SV.lastLine) {
+    SV.lastLine = curLine;
+    document.querySelectorAll("#sv-lyr .l.on").forEach(e => e.classList.remove("on"));
+    const el = curLine != null && $(`#sv-lyr .l[data-li="${curLine}"]`), box = $("#sv-lyr");
+    if (el) { el.classList.add("on"); if (!$("#sv-au").paused) box.scrollTop = el.offsetTop - box.clientHeight / 3; }
+  }
+  const si = sc.s ? m.sections.indexOf(sc.s) : -1;
+  if (si !== SV.lastSec) {
+    SV.lastSec = si;
+    document.querySelectorAll("#sv-secs tr").forEach(r => r.classList.toggle("on", r.dataset.si !== undefined && +r.dataset.si === si));
+  }
+}
+function svCanvas(cv) {
+  const dpr = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+  if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+  const g = cv.getContext("2d");
+  g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+  return [g, W, H];
+}
+function svText(g, text, x0, x1, y, color, font, minX = 0) {   // centred in [x0, x1] when it fits
+  g.font = font; const w = g.measureText(text).width, a = Math.max(x0, minX), b = x1;
+  if (b - a < w + 6) return;
+  g.fillStyle = color; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(text, (a + b) / 2, y);
+}
+function svDraw(now) {
+  const [g, W, H] = svCanvas($("#sv-cv")), m = SV.m, E = SV.env;
+  const w0 = SV.w0, span = svLen(), w1 = w0 + span, LX = SV_LX, RX = 8, pxs = (W - LX - RX) / span;
+  const X = t => LX + (t - w0) * pxs, fg = "#e8e6e1", dim = "#6f7278", acc = "#ffd23f";
+  const gap = 4, k = (H - 6) / SV_LANES.reduce((s, l) => s + l[1] + gap, 0), lane = {};
+  let y = 3;
+  for (const [name, h0] of SV_LANES) {
+    const h = h0 * k; lane[name] = [y, h];
+    g.fillStyle = SV_STEM_LANE[SV.src] === name ? acc : "#c9c7c2"; g.font = "12px SpaceMono, Consolas, monospace";
+    g.textAlign = "right"; g.textBaseline = "middle"; g.fillText(name, LX - 10, y + h / 2);
+    g.fillStyle = "rgba(255,255,255,.025)"; g.fillRect(LX, y, W - LX - RX, h);
+    y += h + gap * k;
+  }
+  g.save(); g.beginPath(); g.rect(LX, 0, W - LX - RX, H); g.clip();
+  const env = (arr, y0, h, fill, line, lo = 0, hi = 1) => {
+    const f = E.fps, i0 = Math.max(0, Math.floor(w0 * f) - 1), i1 = Math.min(arr.length - 1, Math.ceil(w1 * f) + 1);
+    if (i1 <= i0) return;
+    const Y = v => y0 + h - clamp((v - lo) / (hi - lo), 0, 1) * (h - 3);
+    g.beginPath(); g.moveTo(X(i0 / f), y0 + h);
+    for (let i = i0; i <= i1; i++) g.lineTo(X(i / f), Y(arr[i]));
+    g.lineTo(X(i1 / f), y0 + h); g.closePath(); g.fillStyle = fill; g.fill();
+    g.beginPath(); for (let i = i0; i <= i1; i++) (i === i0 ? g.moveTo : g.lineTo).call(g, X(i / f), Y(arr[i]));
+    g.strokeStyle = line; g.lineWidth = 1; g.stroke();
+  };
+  // sections (+ the stretches without a beat)
+  { const [y0, h] = lane.sections, mu = m.music;
+    const grey = (a, b, txt) => { if (b < w0 || a > w1) return; g.fillStyle = "#26262a"; g.fillRect(X(a), y0 + 2, X(b) - X(a), h - 4); svText(g, txt, X(a), X(b), y0 + h / 2, dim, "11px system-ui", LX); };
+    if (mu.before) grey(mu.before.t0, mu.before.t1, mu.before.kind);
+    if (mu.tail) grey(mu.tail.t0, mu.tail.t1, "no beat grid");
+    if (mu.after) grey(mu.after.t0, mu.after.t1, mu.after.kind);
+    for (const s of m.sections) {
+      if (s.t1 < w0 || s.t0 > w1) continue;
+      g.fillStyle = secCol(s); g.fillRect(X(s.t0) + 1, y0 + 2, X(s.t1) - X(s.t0) - 2, h - 4);
+      svText(g, s.name, X(s.t0), Math.min(X(s.t1), W - RX), y0 + h / 2, "#101114", "bold 12px system-ui", LX);
+    } }
+  // loud & quiet + the moments
+  { const [y0, h] = lane["loud & quiet"], ref = m.loudness.integrated_lufs;
+    env(E.loudness_lufs, y0 + 12, h - 12, "rgba(232,115,74,.42)", "#e8734a", ref - 24, ref + 6);
+    let lastX = -1e9;
+    for (const e of m.moments) {
+      if (e.t < w0 || e.t > w1 || (e.stars < 2 && span > 70)) continue;
+      const x = X(e.t);
+      g.strokeStyle = e.stars >= 3 ? acc : "rgba(232,230,225,.4)"; g.lineWidth = e.stars >= 3 ? 1.5 : 1;
+      g.beginPath(); g.moveTo(x, y0 + 12); g.lineTo(x, y0 + h); g.stroke();
+      g.fillStyle = e.stars >= 3 ? acc : "#b9b7b2"; g.textAlign = "left"; g.textBaseline = "top"; g.font = "11px system-ui";
+      const lab = "★".repeat(e.stars) + (span <= 80 ? " " + e.short : "");
+      if (x - lastX > 14) { g.fillText(lab, x + 2, y0); lastX = x + g.measureText(lab).width + 4; }
+    } }
+  // notes: the melody (top, grey = off the lyric: backing vocals or bleed) and the bass line (bottom, blue)
+  { const [y0, h] = lane.notes;
+    const vy = n => y0 + 4 + (1 - clamp((n - SV.vlo) / (SV.vhi - SV.vlo), 0, 1)) * h * 0.56;
+    const by = n => y0 + h * 0.7 + (1 - clamp((n - SV.blo) / (SV.bhi - SV.blo), 0, 1)) * h * 0.26;
+    g.textAlign = "left"; g.textBaseline = "bottom"; g.font = "10px system-ui";
+    for (const n of m.notes.vocal) {
+      if (n.end < w0 || n.t > w1) continue;
+      const off = n.in_lyric === false, yy = vy(n.midi);
+      g.fillStyle = off ? "rgba(111,114,120,.55)" : (now >= n.t && now < n.end ? acc : fg);
+      g.fillRect(X(n.t), yy, Math.max(1.5, n.dur * pxs), 3);
+      if (!off && span <= 40 && n.dur * pxs > 22) { g.fillStyle = "#b9b7b2"; g.fillText(n.name, X(n.t), yy - 1); }
+    }
+    for (const n of m.notes.bass) {
+      if (n.end < w0 || n.t > w1) continue;
+      const yy = by(n.midi);
+      g.fillStyle = now >= n.t && now < n.end ? acc : "#7fb2ff"; g.fillRect(X(n.t), yy, Math.max(1.5, n.dur * pxs), 3);
+      if (span <= 40 && n.dur * pxs > 26) { g.fillStyle = "#7fb2ff"; g.fillText(n.name, X(n.t), yy - 1); }
+    } }
+  // chords
+  { const [y0, h] = lane.chords;
+    for (const c of m.chords) {
+      if (c.end < w0 || c.t > w1 || c.chord === "N") continue;
+      g.fillStyle = chordCol(c.chord, .85); g.fillRect(X(c.t), y0 + 2, X(c.end) - X(c.t) - 1, h - 4);
+      if ((X(c.end) - X(c.t)) > 30) { g.fillStyle = "#101114"; g.font = "bold 12px system-ui"; g.textAlign = "left"; g.textBaseline = "middle"; g.fillText(c.chord, Math.max(X(c.t), LX) + 4, y0 + h / 2); }
+    } }
+  // beats + bar numbers (= F.bar(n))
+  { const [y0, h] = lane.beats, B = m.beats, barPx = m.tempo.bar_s * pxs, every = barPx > 24 ? 1 : barPx > 7 ? 4 : 8;
+    g.strokeStyle = dim; g.lineWidth = 1; g.beginPath();
+    for (let j = Math.max(0, bsearch(B, w0) - 1); j < B.length && B[j] <= w1; j++) if (!SV.dbset.has(j)) { g.moveTo(X(B[j]), y0 + h * .55); g.lineTo(X(B[j]), y0 + h); }
+    g.stroke();
+    g.strokeStyle = fg; g.fillStyle = fg; g.font = "11px SpaceMono, Consolas, monospace"; g.textAlign = "left"; g.textBaseline = "top";
+    for (const b of m.bars) {
+      if (b.t < w0 || b.t > w1) continue;
+      g.beginPath(); g.moveTo(X(b.t), y0 + h * .3); g.lineTo(X(b.t), y0 + h); g.stroke();
+      if (b.i % every === 0) g.fillText(b.i, X(b.t) + 2, y0);
+    } }
+  // the four stems
+  for (const [name, key] of [["voice", "voice"], ["drums", "drums"], ["bass", "bass"], ["other", "other"]]) {
+    const [y0, h] = lane[name], on = SV_STEM_LANE[SV.src] === name;
+    env(E[key], y0, h, on ? "rgba(255,210,63,.25)" : "rgba(232,230,225,.14)", on ? acc : "#cfcdc8");
+  }
+  // lyrics: every word at its sung time when zoomed in (three rows, a word only where it fits), the line when zoomed out
+  { const [y0, h] = lane.lyrics, wordMode = pxs >= 38, ends = [-1e9, -1e9, -1e9];
+    g.textAlign = "left"; g.textBaseline = "top";
+    for (const x of m.lyrics) {
+      if (x.end < w0 || x.t > w1) continue;
+      const x0 = X(x.t), x1 = X(Math.max(x.end, x.t + 0.3));
+      g.fillStyle = "rgba(168,164,156,.2)"; g.fillRect(x0, y0 + 2, x1 - x0, h - 4);
+      if (wordMode) {
+        g.font = "12px system-ui";
+        x.words.forEach((w, i) => {
+          const end = i + 1 < x.words.length ? x.words[i + 1].t : x.end + 0.3, wx = X(w.t) + 1, ww = g.measureText(w.w).width;
+          const row = [0, 1, 2].find(r => wx > ends[r] + 3);
+          if (row === undefined) return;
+          ends[row] = wx + ww;
+          g.fillStyle = now >= w.t && now < end ? acc : fg;
+          g.fillText(w.w, wx, y0 + 4 + row * (h - 18) / 2);
+        });
+      } else if (x1 - x0 >= 46) {                // the line, cut to its block (it is in the lyrics panel in full)
+        g.save(); g.beginPath(); g.rect(x0, y0, Math.max(0, x1 - x0 - 2), h); g.clip();
+        g.font = "11.5px system-ui"; g.fillStyle = now >= x.t && now < x.end + 0.3 ? acc : "#d8d6d0";
+        g.fillText(x.text, Math.max(x0, LX) + 3, y0 + h / 2 - 7);
+        g.restore();
+      }
+    } }
+  g.restore();
+  // playhead + hover
+  if (now >= w0 && now <= w1) { g.strokeStyle = acc; g.lineWidth = 2; g.beginPath(); g.moveTo(X(now), 0); g.lineTo(X(now), H); g.stroke(); }
+  if (SV.hover != null && SV.hover >= w0 && SV.hover <= w1) { g.strokeStyle = "rgba(255,255,255,.35)"; g.lineWidth = 1; g.setLineDash([3, 3]); g.beginPath(); g.moveTo(X(SV.hover), 0); g.lineTo(X(SV.hover), H); g.stroke(); g.setLineDash([]); }
+}
+function svOverview(now) {
+  const [g, W, H] = svCanvas($("#sv-ov")), m = SV.m, E = SV.env, D = m.duration, X = t => t / D * W, mu = m.music;
+  for (const r of [mu.before, mu.tail, mu.after].filter(Boolean)) { g.fillStyle = "#26262a"; g.fillRect(X(r.t0), 4, X(r.t1) - X(r.t0), 16); }
+  for (const s of m.sections) { g.fillStyle = secCol(s); g.fillRect(X(s.t0) + .5, 4, X(s.t1) - X(s.t0) - 1, 16); }
+  const L = E.loudness_lufs, ref = m.loudness.integrated_lufs, f = E.fps;
+  g.beginPath(); g.moveTo(0, H);
+  for (let i = 0; i < L.length; i += 2) g.lineTo(X(i / f), H - clamp((L[i] - (ref - 24)) / 30, 0, 1) * (H - 26));
+  g.lineTo(W, H); g.closePath(); g.fillStyle = "rgba(232,115,74,.45)"; g.fill();
+  g.fillStyle = "#ffd23f";
+  for (const e of m.moments) if (e.stars >= 3) { const x = X(e.t); g.beginPath(); g.moveTo(x - 4, 22); g.lineTo(x + 4, 22); g.lineTo(x, 29); g.fill(); }
+  if (SV.zoom) { g.strokeStyle = "rgba(255,255,255,.7)"; g.lineWidth = 1; g.strokeRect(X(SV.w0) + .5, 1.5, X(SV.w0 + svLen()) - X(SV.w0) - 1, H - 3); }
+  g.strokeStyle = "#ffd23f"; g.lineWidth = 2; g.beginPath(); g.moveTo(X(now), 0); g.lineTo(X(now), H); g.stroke();
+}
 
 async function doctor() {
   $("#main").innerHTML = `<h1>Install check</h1><pre class="log" style="max-height:none">checking&hellip;</pre>`;

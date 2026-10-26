@@ -28,5 +28,9 @@ projects/*/*
 projects/*/out/*
 !projects/*/out/*.md
 !projects/*/out/*.json
+# the song folder: only its markdown (song-map, lyrics, song-story; the rest is remade by `studio.py song`)
+!projects/*/song/
+projects/*/song/*/*
+!projects/*/song/*/*.md
 # the public-domain style-sample photos are small and needed to re-render app/static/styles
 !projects/_style-samples/photos/
