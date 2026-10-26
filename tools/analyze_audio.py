@@ -120,8 +120,11 @@ def beat_this_cached(slug, y):
     cache = json.load(open(path)) if os.path.exists(path) else {}
     if slug not in cache:
         from beat_this.inference import Audio2Beats
-        a2b = Audio2Beats(checkpoint_path="final0", device="cpu", dbn=False)
+        from am import device as D
+        a2b = Audio2Beats(checkpoint_path="final0", device=D.pick(1.0), dbn=False)
         b, d = a2b(y, SR)
+        del a2b
+        D.release()
         cache[slug] = {"beats": np.round(b, 4).tolist(), "downbeats": np.round(d, 4).tolist()}
         json.dump(cache, open(path, "w"))
     return np.array(cache[slug]["beats"]), np.array(cache[slug]["downbeats"])
@@ -272,7 +275,7 @@ def analyze(slug):
     vocal_onsets = peaks(v_on, 0.18, 0.09, 0.08)
 
     # ---------------- lyrics
-    lyrics, meta = [], None
+    lyrics, meta, best = [], None, None
     lp = os.path.join(CACHE, "lyrics", f"{slug}_search.json")
     if os.path.exists(lp):
         cands = [c for c in json.load(open(lp, encoding="utf-8")) if c.get("syncedLyrics")]
@@ -280,7 +283,6 @@ def analyze(slug):
         for v in vocal_onsets:
             on_frames[int(v["t"] / DT)] = v["s"]
         on_s = np.convolve(on_frames, np.ones(int(0.12 / DT)), "same")
-        best = None
         for c in cands[:15]:
             lines = [(t, s) for t, s in parse_lrc(c["syncedLyrics"]) if s]
             if len(lines) < 6:
@@ -307,6 +309,9 @@ def analyze(slug):
             z = (sc[j] - np.median(pos)) / (np.std(pos) + 1e-9)
             if best is None or z > best[0]:
                 best = (z, float(offs[j]), c, lines)
+        if best is None:          # LRCLIB has no usable synced lyrics for it: carry on without (this used to crash)
+            print("   lyrics: no synced lyrics among the LRCLIB results (transcribe_lyrics.py can transcribe them)")
+    if best is not None:
         z, off, c, lines = best
         meta = {"source": "lrclib", "id": c["id"], "album": c.get("albumName"), "offset": round(off, 3), "match_z": round(float(z), 2)}
         print(f"   lyrics: lrclib {c['id']} '{c.get('albumName')}' offset {off:+.2f}s z={z:.1f}")
@@ -339,6 +344,18 @@ def analyze(slug):
                     acc += sy
             lyrics.append({"t": round(t0, 3), "end": round(float(t1), 3), "text": s,
                            "words": [{"w": w, "t": tt} for w, tt in zip(words, wt)]})
+    tp = os.path.join(CACHE, "lyrics", f"{slug}_transcribed.json")
+    if best is None and os.path.exists(tp):      # no synced LRC: the Whisper transcription (transcribe_lyrics.py)
+        tr = json.load(open(tp, encoding="utf-8"))
+        lyrics = [{"t": x["t"], "end": x["end"], "text": x["text"], "words": [{"w": w["w"], "t": w["t"]} for w in x["words"]]}
+                  for x in tr["lines"]]
+        meta = {"source": f"transcribed ({tr.get('model')})", "match_z": None}
+        print(f"   lyrics: {len(lyrics)} transcribed lines ({tr.get('model')}): check them, they can contain mishearings")
+    if lyrics:
+        from am.common import project
+        from fix_lyrics import apply_text                 # project.json lyrics_fix.text: corrected words, before alignment
+        for line in apply_text(lyrics, project().get("lyrics_fix")):
+            print("   lyrics_fix:", line)
 
     # ---------------- events
     kicks = peaks(kick, 0.3, 0.15)

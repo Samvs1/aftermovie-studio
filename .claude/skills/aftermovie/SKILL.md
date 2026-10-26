@@ -26,14 +26,29 @@ review notes from the web app, per version), any `projects/<p>/out/*_notes.md`, 
 No song yet? Suggest some first with the `aftermovie-songs` skill (the web app's "Need a song?" button does the
 same headlessly); the user picks one and adds its MP3.
 
-## 1. Analysis
-Needs `cache/photos.json` and `cache/audio/<slug>.json`. If missing (or photos were added since):
-`studio.py ingest <p>` (run in the background; 3-6 min; progress in `cache/status.json`). Lyrics need the song's
-artist + title in project.json (`song`). Check `cache/audio/<slug>.png` style facts via
-`studio.py run <p> song_map.py <slug>`: tempo, constant grid or live band, sections, lyrics match_z (> 4 is good).
+## 1. Analysis: read the song before anything else
+Needs `cache/photos.json`, `cache/audio/<slug>.json` and the **song folder `song/<slug>/`**. If missing (or photos
+were added since): `studio.py ingest <p>` (run in the background; ~2-4 min with the GPU; progress in
+`cache/status.json`). `studio.py song <p>` remakes just the song folder (~40 s). Lyrics need the song's artist + title in
+project.json (`song`); with no synced lyrics on LRCLIB, ingest transcribes the vocal stem with Whisper (set
+`song.language`, e.g. `"nl"`, for non-English songs).
+
+You can't hear the song, so the song folder is your ears. Read it in this order:
+1. `song/<slug>/README.md` (notation: `17:2.5` = `F.beat(17, 2.5)`; V D B O; LUFS; stars), then `report.json`
+   `warnings` and `confidence` (lyrics source + match_z > 4 is good, share of words aligned, key margin).
+2. `song-map.md`: at a glance (tempo, key, **where the music really starts and ends**: music-video rips open and
+   close with film), the named sections, the **moments** (★★★ = the song's own peaks and turns), then bar by bar.
+3. Look at `overview.png` (the whole song in lanes); open `pages/bars_*.png` for any stretch you will cut tightly.
+4. `lyrics.md`: when each line is sung, the hook, the melody (peak notes, held words: holds are where a photo can stay).
+Section names are inferred from repetition + lyric; if the bars say otherwise, trust the bars and say so.
+The user sees the same data on the studio's **The song** page (it plays along, solos stems, clicks the beat): point
+them there with a time or a bar when you ask about a moment ("listen to 2:17, bar 43: the drums come back").
 If the aligner gets a line wrong in a way you confirmed on the vocal stem (a long held first note it skips, a word it
-puts late), write the repair as data in project.json `lyrics_fix` (`held_lines`, `words`: see `tools/fix_lyrics.py`).
-`align_words.py` applies it after every ingest, so the fix never has to be remembered. Never patch cache files by hand.
+puts late), write the repair as data in project.json `lyrics_fix` (`held_lines`, `words`; `text` for misheard
+transcribed words: see `tools/fix_lyrics.py`), re-run ingest (or `analyze_audio.py` + `align_words.py` + `song`).
+The fix is applied on every run, so it never has to be remembered. Never patch cache files by hand.
+**Transcribed lyrics** (`lyrics_meta.source` starts with "transcribed") can mishear: show the user `lyrics.md` and
+fix the text with them before any caption quotes it.
 
 ## 2. People
 `cache/cast.json` comes from the web app's Who's who page (`people: {id: {name, nick, from, city, credit, core, clusters}}`).
@@ -81,11 +96,14 @@ before the ruins"}]`. Read the brief's free-text `musts` and translate it into t
 If the user said "just make it", skip and decide sensibly, then list your assumptions.
 
 ## 4b. Vibe read + three directions (the creative heart; do this before any treatment)
-1. `studio.py vibe <p>` → read `cache/vibe.md`: the song's tempo feel, energy shape (intro, builds, peak,
-   breaks, stop-time silences, ending) and lyric; the photos' light, palette, people, film vs phone; the trip.
+1. `studio.py vibe <p>` → read `cache/vibe.md`: the song's tempo feel, structure, big moments and lyric (from the
+   song folder); the photos' light, palette, people, film vs phone; the trip.
    Also read the brief's creative fields: `adventurous` (classic | bold | wild), `style_leanings`, `references`.
-   Listen to the lyric's *meaning*, not just its words: what is the song about, and what would this group's
-   version of that be?
+   **Write `song/<slug>/song-story.md`** (the skeleton is there; it is never overwritten): what the song is about,
+   the arc section by section (feeling + what the film could do), the lines that could carry a moment, where it
+   peaks and breathes, and this trip's / group's version of it. Read the lyric's *meaning*, not just its words. Ask
+   the user one question about the song (why this song, what it means to them or the trip) and put their answer in
+   it: their associations win over your reading. The directions and the treatment build on this file.
 2. Look again at the photos with the vibe in mind (shot log + sheets) and pick the 5-10 images that could carry
    a signature moment (a face, a sky, a gesture, a colour).
 3. Propose **three contrasting directions** from `stylebook.md` (or invented): one close to the brief, one bold,
@@ -104,13 +122,16 @@ If the user said "just make it", skip and decide sensibly, then list your assump
    (`{"id", "note"}`); the user's note can steer it ("B, but less text").
 
 ## 5. Song plan + treatment (check in before building)
-- `studio.py run <p> song_map.py <slug>`: per-bar map with aligned sung words. Word times come from forced
-  alignment on the vocal stem (`align_words.py`), not LRC interpolation (that ran ~0.6 s late).
+- Plan on `song/<slug>/song-map.md` (sections, moments, bar by bar) and `song-story.md`. Word times come from forced
+  alignment on the vocal stem (`align_words.py`), not LRC interpolation (that ran ~0.6 s late). Holds (held notes,
+  a cappella bars, drop-outs) are where a landscape can breathe; ★★★ moments get the film's signature ideas.
+  `studio.py run <p> song_map.py <slug> --segments "in,out,at"` still prints each bar's *film* time for an edit with a join.
 - Length: the whole song from its first note, or **at most ONE join** between musically identical passages
   (same lyric, same bar position, cut in a vocal gap): `cache/joins_<slug>.txt` (`find_joins.py`). Never skip
   phrases with beat-aligned jumps. After the song ends: silence (no reprise).
 - Write `projects/<p>/out/treatment.md` **in the chosen direction's language**: concept, the 3-5 signature
-  moments (each tied to a musical event: the drop, a stop-time, the last chorus, the ending), structure per
+  moments (each tied to a musical event from the song map's moments, with its `bar:beat`: the drop, a stop-time,
+  the last chorus, the ending), structure per
   section in bars (table: film time | music/lyric | picture), the device budget (no device over ~30% of shots;
   at least one device this group hasn't seen in earlier films), look/type/motion, photo choices. Structure follows
   the song's energy shape: quiet intros get space, builds get acceleration, drops get the boldest idea, the

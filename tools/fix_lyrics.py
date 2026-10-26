@@ -8,14 +8,37 @@ project.json "lyrics_fix" (write it when a song's aligned words are wrong in a w
       LRC line start (snapped to a beat within 0.15 s); later words keep their times only while they stay in order.
   "words": [{"w": "saw", "near": 87.0, "t": 86.62, "why": "the aligner puts it late"}]
       Exact song times for single words: the word w aligned nearest to song time `near` gets time t.
+  "text": [{"from": "She sees me walking", "to": "She sees them walking"}]
+      Corrections to the words themselves (a Whisper transcription mishears; an LRC has a typo). analyze_audio.py
+      applies them when it builds the lyric, before align_words.py aligns it, so the corrected words get aligned.
 Running it twice changes nothing.
 """
+import re
 import json, os, sys
 
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from am.common import CACHE, project  # noqa: E402
+
+
+def apply_text(lyrics, rules):
+    """Text corrections (rules["text"]) on analyze_audio's lyric lines, in place. A changed line keeps its start; its
+    words take the old words' times by position (align_words.py re-times them). Returns what changed."""
+    done = []
+    for r in (rules or {}).get("text") or []:
+        pat = re.compile(re.escape(r["from"]), re.I)
+        for L in lyrics:
+            if not pat.search(L["text"]):
+                continue
+            new = pat.sub(r["to"], L["text"])
+            old_t = [w["t"] for w in L["words"]] or [L["t"]]
+            nw = new.split()
+            L["text"] = new
+            L["words"] = [{"w": w, "t": old_t[min(len(old_t) - 1, int(i * len(old_t) / max(1, len(nw))))]}
+                          for i, w in enumerate(nw)]
+            done.append(f"{L['t']:7.2f}  text: {r['from']!r} -> {r['to']!r}")
+    return done
 
 
 def apply(path, rules):

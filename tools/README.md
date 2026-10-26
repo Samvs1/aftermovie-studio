@@ -20,7 +20,7 @@ studio.py polarsteps <p> <export.zip> [--list | --trip ID]     import a Polarste
 - Change log: every build that changes the EDL writes `out/<v>_changes.json` (shots new / changed / retimed / removed).
 - Regression: `check.py` rebuilds every finished film into `cache/check/` and compares stills with `cache/golden/`.
 - First-draft builder: `templates/build_template.py`.
-- Planning: `song_map.py <slug>`.
+- Planning: the song folder `song/<slug>/` (`song_kit.py`); `song_map.py <slug> --segments ...` for film time per bar.
 
 ## Rebuild and re-render a film
 ```
@@ -42,11 +42,13 @@ whole film. `--full` ignores the cache; finals always render in one pass.
 | photo rotation, faces, embeddings | `analyze_photos.py` | `cache/photos.json` (+ manual `cache/rotation_overrides.json`) |
 | face clusters → people | `cluster_faces.py`, `cast.py` | `cache/face_clusters.json`, `cache/cast.json` (names), `cache/faces_people.json` |
 | shot log | `shotlog.py` | `out/shot_log.md`, `out/shot_log.html` |
-| stems (analysis only) | `separate.py` | `cache/stems/<song>/` |
+| stems (analysis only) | `separate.py` (htdemucs_ft on the GPU, htdemucs on the CPU) | `cache/stems/<song>/` + `model.txt` |
 | synced lyrics (LRCLIB) | `fetch_lyrics.py <slug> "<artist>" "<title>"` | `cache/lyrics/<slug>_search.json` |
-| music analysis | `analyze_audio.py` | `cache/audio/<song>.json` + `.png` |
+| lyrics when LRCLIB has none | `transcribe_lyrics.py <slug> [--language nl]` (Whisper on the vocal stem) | `cache/lyrics/<slug>_transcribed.json` |
+| music analysis | `analyze_audio.py` (applies `lyrics_fix.text`) | `cache/audio/<song>.json` + `.png` |
 | sung word onsets | `align_words.py <slug>` (forced alignment on the vocal stem) | rewrites `lyrics[].words[].t` (keeps `t_lrc`), then applies project.json `lyrics_fix` (`fix_lyrics.py`) |
 | single-join finder | `find_joins.py <slug>` | ranked joins between identical passages + vocal-gap cut points |
+| the song folder | `song_kit.py [slug]` (`studio.py song <p>`) | `song/<slug>/`: README, song-map.md/.json, lyrics.md, song-story.md, overview.png, pages/, envelopes.json, report.json |
 
 ## EDL reference
 All coordinates are in 1920×1080 design pixels, and all times are in film seconds.

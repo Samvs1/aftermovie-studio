@@ -22,7 +22,7 @@ LOCK = threading.Lock()
 
 # ------------------------------------------------------------------ project data
 def pdir(name):
-    if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,60}", name or ""):
+    if not re.fullmatch(r"_?[a-z0-9][a-z0-9-]{0,60}", name or ""):          # "_name": internal, by URL only
         raise ValueError("bad project name")
     d = os.path.join(studio.PROJECTS, name)
     if not os.path.isfile(os.path.join(d, "project.json")):
@@ -143,9 +143,30 @@ def project_state(name):
     gp = os.path.join(d, "out", "style_gallery.jpg")
     gallery = f"/p/{name}/out/style_gallery.jpg?v={int(os.path.getmtime(gp))}" if os.path.exists(gp) else ""
     return {"name": name, "engine": ENGINE, "project": pj, "trip": trip, "directions": directions, "gallery": gallery, "photos": photos, "videos": videos, "music": music, "clusters": clusters,
+            "songs": song_folders(name, d),
             "versions": versions, "notes": jload(os.path.join(d, "review", "notes.json"), []), "files": files,
             "captions": jload(os.path.join(d, "review", "captions.json"), {}),
             "job": job_state(name)}
+
+
+def song_folders(name, d):
+    """The song kit's folders (song/<slug>/) with the URLs the song viewer needs: data, story, the stems to solo."""
+    out, sd = [], os.path.join(d, "song")
+    for slug in sorted(os.listdir(sd)) if os.path.isdir(sd) else []:
+        mp = os.path.join(sd, slug, "song-map.json")
+        if not os.path.isfile(mp):
+            continue
+        v, q = int(os.path.getmtime(mp)), urllib.parse.quote(slug)
+        base = f"/p/{name}/song/{q}"
+        item = {"slug": slug, "map": f"{base}/song-map.json?v={v}", "env": f"{base}/envelopes.json?v={v}",
+                "docs": {f: f"{base}/{f}" for f in ("song-map.md", "lyrics.md", "song-story.md", "overview.png", "report.json")
+                         if os.path.exists(os.path.join(sd, slug, f))},
+                "stems": {k: f"/p/{name}/cache/stems/{q}/{k}.wav" for k in ("vocals", "drums", "bass", "other")
+                          if os.path.exists(os.path.join(d, "cache", "stems", slug, f"{k}.wav"))}}
+        sp = os.path.join(sd, slug, "song-story.md")
+        item["story_written"] = os.path.exists(sp) and "_2–4 sentences" not in open(sp, encoding="utf-8").read()
+        out.append(item)
+    return out
 
 
 # ------------------------------------------------------------------ background jobs (one per project)
@@ -525,6 +546,9 @@ class H(BaseHTTPRequestHandler):
                     return self.send_json({"ok": True})
                 if act == "songs":
                     start_job(name, "songs", ["songs", name])
+                    return self.send_json({"ok": True})
+                if act == "song":                                  # remake the song folder (song kit)
+                    start_job(name, "song", ["song", name])
                     return self.send_json({"ok": True})
                 if act == "gallery":
                     start_job(name, "gallery", ["gallery", name])

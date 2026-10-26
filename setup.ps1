@@ -25,13 +25,16 @@ if (Have "ffmpeg") { Write-Host "ffmpeg found" } else {
     $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
 
-Step "Python packages (first time: ~3 GB, 5-15 minutes)"
+Step "Python packages (first time: ~3-5 GB, 5-15 minutes)"
 if (-not (Test-Path ".venv\Scripts\python.exe")) {
     $rest = @($py | Select-Object -Skip 1)
     & $py[0] @rest -m venv .venv
 }
 & .venv\Scripts\python.exe -m pip install --upgrade pip
-& .venv\Scripts\python.exe -m pip install -r requirements.txt
+# PyTorch: the CUDA 12.6 build when there is an NVIDIA card (stems, pitch, lyrics and the tagger run on the GPU), else CPU
+if (Have "nvidia-smi") { $torchIndex = "https://download.pytorch.org/whl/cu126"; Write-Host "NVIDIA GPU found: CUDA build of PyTorch (~2.6 GB)" }
+else { $torchIndex = "https://download.pytorch.org/whl/cpu"; Write-Host "no NVIDIA GPU: CPU build of PyTorch" }
+& .venv\Scripts\python.exe -m pip install -r requirements.txt --extra-index-url $torchIndex
 
 Step "Face models"
 New-Item -ItemType Directory -Force models | Out-Null

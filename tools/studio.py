@@ -2,7 +2,8 @@
 
   python tools/studio.py new <name> [--title "..."]      create projects/<name>/ (photos/, music/, cache/, out/, project.json)
   python tools/studio.py list                            list projects
-  python tools/studio.py ingest <project> [--force]      photos -> faces -> music analysis (progress in cache/status.json)
+  python tools/studio.py ingest <project> [--force]      photos -> faces -> music analysis -> song folder (progress in cache/status.json)
+  python tools/studio.py song <project> [slug]           (re)make song/<slug>/: the song map, timed lyrics, lanes picture (tools/song_kit.py)
   python tools/studio.py polarsteps <project> <export.zip> [--list | --trip ID]   import a Polarsteps trip (photos, steps, route)
   python tools/studio.py songs <project>                 song suggestions: Claude looks at the photos (headless), every song verified
   python tools/studio.py moodboard <project>             just the contact sheets + context used for picking songs
@@ -18,7 +19,7 @@
   python tools/studio.py stills <project> <version> t1,t2,...
   python tools/studio.py final <project> [version]       1080p master + share copy + QA (only after the preview is approved)
   python tools/studio.py run <project> <tool.py> [args]   run any tool inside a project (song_map.py, find_joins.py, qa.py, ...)
-  python tools/studio.py serve [--port 8765]             the local web app (upload, brief, who's who, review)
+  python tools/studio.py serve [--port 8765]             the local web app (upload, brief, who's who, the song, review)
   python tools/studio.py doctor                          check the install (ffmpeg, GPU, models, Claude Code)
   python tools/studio.py check [project ...] [--update]  regression check: finished films still build the same EDL and look the same
 
@@ -225,7 +226,8 @@ def cmd_list(a):
 def cmd_ingest(a):
     pdir = project_dir(a.project)
     steps = ["preparing photos", "finding faces & orientation", "grouping faces", "separating the song (stems)",
-             "fetching lyrics", "analysing beats & sections", "aligning sung words", "finding a clean edit point"]
+             "fetching lyrics", "analysing beats & sections", "aligning sung words", "finding a clean edit point",
+             "mapping the song (melody, chords, structure)"]
     st = Status(pdir, "ingest", steps)
     log = st.d["log"]
     try:
@@ -252,7 +254,14 @@ def cmd_ingest(a):
                 except Exception as e:
                     log.append(f"lyrics lookup failed ({e}); continuing without lyrics")
             else:
-                log.append("no artist/title known: skipping lyrics (fill in the song on the brief page)")
+                log.append("no artist/title known: skipping the lyrics lookup (fill in the song on the brief page)")
+            sp_ = os.path.join(pdir, "cache", "lyrics", f"{slug}_search.json")
+            synced = lyr and any(c.get("syncedLyrics") for c in json.load(open(sp_, encoding="utf-8")))
+            if not synced:               # no synced LRC (often local or non-English songs): Whisper on the vocal stem
+                log.append("no synced lyrics found: transcribing the vocals with Whisper (check the text!)")
+                lang = (load_project(pdir).get("song") or {}).get("language")
+                run(pdir, ["transcribe_lyrics.py", slug] + (["--language", lang] if lang else []), log, check=False)
+                lyr = os.path.exists(os.path.join(pdir, "cache", "lyrics", f"{slug}_transcribed.json"))
             st.step(5)
             run(pdir, ["analyze_audio.py", slug], log)
             st.step(6)
@@ -263,6 +272,8 @@ def cmd_ingest(a):
             jl = []
             run(pdir, ["find_joins.py", slug, "--top", "8"], jl, check=False)
             open(jp, "w", encoding="utf-8").write("\n".join(jl))
+            st.step(8)
+            run(pdir, ["song_kit.py", slug], log, check=False)          # -> song/<slug>/ for the director
             d = json.load(open(os.path.join(pdir, "cache", "audio", f"{slug}.json"), encoding="utf-8"))
             pj = load_project(pdir)
             pj["song"] = dict(pj.get("song") or {}, file=f, artist=artist, title=title, slug=slug)
@@ -597,6 +608,12 @@ def cmd_final(a):
     save_project(pdir, pj)
 
 
+def cmd_song(a):
+    """(Re)make the song folder (song/<slug>/): what the director reads instead of listening."""
+    pdir = project_dir(a.project)
+    run(pdir, ["song_kit.py"] + ([a.slug] if a.slug else []) + (["--no-tags"] if a.no_tags else []) + (["--cpu"] if a.cpu else []))
+
+
 def cmd_run(a):
     """Run any tool inside a project, e.g.  studio.py run my-trip song_map.py my_song --segments "0,180,0.8" """
     pdir = project_dir(a.project)
@@ -634,7 +651,18 @@ def cmd_doctor(a):
     line("(optional) NVIDIA encoder", has_nvenc(), "(renders use the CPU without it: slower, same look)")
     for m in ("face_detection_yunet_2023mar.onnx", "face_recognition_sface_2021dec.onnx"):
         line(f"model {m}", os.path.exists(os.path.join(ENGINE, "models", m)))
-    for mod in ("cv2", "librosa", "torch", "torchaudio", "demucs", "beat_this", "scipy", "PIL", "fontTools", "soundfile"):
+    try:
+        import torch
+        if torch.cuda.is_available():
+            p = torch.cuda.get_device_properties(0)
+            line("(optional) GPU for the audio models", True, f"{p.name}, {p.total_memory / 2 ** 30:.0f} GB (torch {torch.__version__})")
+        else:
+            line("(optional) GPU for the audio models", False, f"torch {torch.__version__} has no CUDA: stems, pitch and "
+                 "lyrics run on the CPU (slower). With an NVIDIA card: setup.ps1 installs the CUDA build")
+    except Exception as e:
+        line("module torch", False, str(e)[:60])
+    for mod in ("cv2", "librosa", "torch", "torchaudio", "demucs", "beat_this", "torchcrepe", "transformers", "scipy", "PIL",
+                "fontTools", "soundfile"):
         try:
             __import__(mod)
             line(f"module {mod}", True)
@@ -665,6 +693,8 @@ def main():
         p = sp.add_parser(c); p.add_argument("project"); p.add_argument("version", nargs="?")
     p = sp.add_parser("stills"); p.add_argument("project"); p.add_argument("version"); p.add_argument("times")
     p = sp.add_parser("polarsteps"); p.add_argument("project"); p.add_argument("export"); p.add_argument("--trip"); p.add_argument("--list", action="store_true")
+    p = sp.add_parser("song"); p.add_argument("project"); p.add_argument("slug", nargs="?")
+    p.add_argument("--no-tags", action="store_true"); p.add_argument("--cpu", action="store_true")
     p = sp.add_parser("run"); p.add_argument("project"); p.add_argument("tool"); p.add_argument("args", nargs=argparse.REMAINDER)
     p = sp.add_parser("serve"); p.add_argument("--port", type=int, default=8765); p.add_argument("--no-browser", action="store_true")
     sp.add_parser("doctor")

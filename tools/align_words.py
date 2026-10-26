@@ -21,8 +21,10 @@ import librosa
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from am.common import CACHE  # noqa: E402
+from am import device as D  # noqa: E402
 
 SR = 16000
+DEV = D.pick(1.5)
 MIN_SCORE = 0.02
 
 
@@ -59,10 +61,10 @@ def chunk_align(voc, lines, model, tok, aligner, max_span=30.0, gap=5.5):
                     trans.append(n)
                     owners.append((i, k))
             trans.append("*")
-        seg = torch.tensor(voc[int(t0 * SR):int(t1 * SR)])[None]
+        seg = torch.tensor(voc[int(t0 * SR):int(t1 * SR)])[None].to(DEV)
         with torch.inference_mode():
             em, _ = model(seg)
-            spans = aligner(em[0], tok(trans))
+            spans = aligner(em[0].cpu(), tok(trans))
         ratio = seg.size(1) / em.size(1) / SR
         j = 0
         for ti, tk in enumerate(trans):
@@ -90,7 +92,7 @@ def main():
     d = json.load(open(path, encoding="utf-8"))
     voc, _ = librosa.load(os.path.join(CACHE, "stems", a.slug, "vocals.wav"), sr=SR, mono=True)
     bundle = torchaudio.pipelines.MMS_FA
-    model = bundle.get_model(with_star=True)
+    model = bundle.get_model(with_star=True).to(DEV)                # ~1.3 GB of VRAM on the GPU
     tok = bundle.get_tokenizer()
     aligner = bundle.get_aligner()
     lines = d.get("lyrics") or []
@@ -111,13 +113,13 @@ def main():
         t0 = lrc[0] - 1.2
         nxt = lines[li + 1]["words"][0].get("t_lrc", lines[li + 1]["words"][0]["t"]) if li + 1 < len(lines) and lines[li + 1].get("words") else lrc[-1] + 3
         t1 = max(nxt + 0.35, lrc[-1] + 1.0)
-        seg = torch.tensor(voc[max(0, int(t0 * SR)):int(t1 * SR)])[None]
+        seg = torch.tensor(voc[max(0, int(t0 * SR)):int(t1 * SR)])[None].to(DEV)
         words = [norm(w["w"]) for w in ws]
         keep = [i for i, w in enumerate(words) if w]
         transcript = ["*"] + [words[i] for i in keep] + ["*"]
         with torch.inference_mode():
             em, _ = model(seg)
-            spans = aligner(em[0], tok(transcript))
+            spans = aligner(em[0].cpu(), tok(transcript))
         ratio = seg.size(1) / em.size(1) / SR
         prev = -1.0
         for k, i in enumerate(keep):
