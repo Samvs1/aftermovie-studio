@@ -1,0 +1,407 @@
+{
+ "meta": {
+  "version": "dir_c",
+  "title": "Oman directions",
+  "song": "music/OneRepublic - I Lived (Official Music Video).mp3",
+  "analysis": "onerepublic_i_lived",
+  "fps": 30,
+  "duration": 7.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     52.9,
+     307.0
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "punchy",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.008,
+  "vignette": 0.0,
+  "halation": 0.0,
+  "flicker": 0.0,
+  "weave": 0.0
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "c_1",
+   "layers": [
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960,
+     "y": 540,
+     "w": 1920,
+     "h": 1080,
+     "color": "#e85d2a",
+     "motif": "stripes",
+     "cell": 96,
+     "colors": [
+      "#13a3a1",
+      "#fbf6ea"
+     ],
+     "prot": 0.0
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 540,
+     "w": 800,
+     "h": 1020,
+     "color": "#141414"
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960,
+     "y": 540,
+     "w": 760,
+     "h": 980,
+     "color": "#e85d2a",
+     "motif": "star8",
+     "cell": 84,
+     "colors": [
+      "#d7261e",
+      "#fbf6ea",
+      "#0f8a4a"
+     ],
+     "hole": [
+      70,
+      70,
+      620,
+      840
+     ]
+    },
+    {
+     "type": "photo",
+     "src": "ps020_8251e70c-3dca-479a-90da-7d54c0e3729f_fd14db18-985f-4ae3-81d1-8c39cb249453.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      650.0,
+      120.0,
+      620,
+      840
+     ]
+    },
+    {
+     "type": "sticker",
+     "text": "🧃",
+     "font": "emoji",
+     "size": 150,
+     "x": 470,
+     "y": 250,
+     "t": 1.0,
+     "rot": -12
+    },
+    {
+     "type": "sticker",
+     "text": "🐪",
+     "font": "emoji",
+     "size": 170,
+     "x": 1480,
+     "y": 850,
+     "t": 1.0,
+     "rot": 8
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1500,
+     "y": 270,
+     "w": 420,
+     "h": 180,
+     "color": "#f2a516",
+     "rot": 4
+    },
+    {
+     "type": "text",
+     "text": "ﻥﺎﻤﻋ",
+     "x": 1500,
+     "y": 262,
+     "t0": 0,
+     "t1": 9999,
+     "size": 120,
+     "font": "arabic_heavy",
+     "color": "#141414",
+     "fade_out": 0,
+     "rot": 4
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 520,
+     "y": 900,
+     "w": 444.0,
+     "h": 60.0,
+     "color": "#ffffff",
+     "rot": -5
+    },
+    {
+     "type": "shape",
+     "kind": "circle",
+     "x": 314.5,
+     "y": 900,
+     "w": 10.799999999999999,
+     "h": 10.799999999999999,
+     "color": "#d7261e",
+     "rot": -5
+    },
+    {
+     "type": "text",
+     "text": "TOM · BRUSSELS → NIZWA",
+     "x": 527.5,
+     "y": 900,
+     "t0": 0,
+     "t1": 9999,
+     "size": 30,
+     "font": "mono",
+     "color": "#141414",
+     "fade_out": 0,
+     "rot": -5
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.5,
+   "sync": "c_2",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f2a516",
+     "paper": false
+    },
+    {
+     "type": "grid",
+     "rows": 4,
+     "cols": 6,
+     "gap": 16,
+     "box": [
+      0,
+      0,
+      1920,
+      1080
+     ],
+     "cells": [
+      {
+       "src": "ps012_8dc98a82-af8c-4b73-b668-9184501cb034_8c8dbbd9-485b-427c-96b5-a823380b3f1a.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps012_9eb7a8f5-ed97-4c63-a7ea-9ea8f9a4a642_aa5cd01f-8450-4aa4-a0bb-b362b92d3a00.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps015_a7ee1f0b-b477-4f4e-ad35-0f9647084f51_373a717a-4651-4a5c-861f-7bd168b45f1c.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps012_d5a90cbe-eb4b-43d3-98f8-0406b5605b9c_050de6ba-b65e-4eac-9913-e8be3092bad1.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps013_1fe8f462-17bc-4e1b-9741-d26107aa471c_16508b0f-8613-4e5c-8a30-fb164537a86e.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps011_4f049531-9ab7-4025-8443-79c5f6e8522e_ad975dc4-925c-4b96-91f1-11be66525881.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps016_f9a0c547-f3de-4369-89f1-c444cc256a8f_bb4bbe57-9ca1-4b10-8428-5f37896130c0.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps012_259e0888-d75c-4eb3-bd63-16fedeeb0cf4_dc736b1f-aff2-40c6-a47f-b71b73f47008.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps012_88b41985-5b28-4050-ad56-76313de7740f_2903450b-1b3a-4fcd-aa52-f4160d923dad.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps013_633ec52b-3a86-44b1-a6ac-38086b513dad_d9582378-60a1-4d61-94a0-0a6a280ddbac.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps015_f96bed97-8393-4f78-973a-070a23478cd4_43ef9177-d3e1-4f56-8532-d8a0fc419c66.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps012_ca2abc69-b0b6-4dc2-a301-183345ed1337_4ae0c423-b24e-4eae-87ea-fc79926a122d.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps010_3e081978-a7a7-45f1-90d2-ff330e4f5585_59a269e4-382f-46a9-9107-928774523eaa.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps012_0be203f6-bfcf-4d32-bf5b-b0ca09667bc0_a12eb389-c516-4d21-8681-060ca814e1f5.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps005_e453f459-aeb7-41a5-98b2-43ea31bb7227_f76a4059-0b2c-4f14-b71a-0947c4d4fa66.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps014_1533a3bc-6611-4b27-884c-9f15f644cece_2c020a34-401a-45dd-a365-bd515c5327d4.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps019_bac0098a-8b17-4598-93a1-9877b0c3c9cc_102f0236-6fd1-4950-9804-b3d2758d78f6.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps013_5af91b19-c75c-48d9-8086-9497c8e317f6_318782db-209e-4fdc-af70-39707d9103b5.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps024_b2d2f2dd-da59-4c63-8345-a23152697b0e_eeb3b4d8-4344-4c0d-ae71-2bf503c820de.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps012_4994d98f-1ca6-4801-b721-7e6be9470ae5_5ddfb736-510d-4cb1-9308-ee58fd7e4205.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps024_c5eab1e2-d12a-4155-89c1-3fd5da269d7f_415f30d2-43c7-4e2e-b6fb-05aa12605816.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps010_75be1e28-cf78-44f9-9695-8e558e19b289_c83f9e13-209e-49d4-ab61-72a6d7c64c60.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps013_4b721036-cdef-4432-af62-b557a7bd1236_258a1d9e-6910-4fc2-86be-e4c31851df39.jpg.jpg",
+       "zoom": 1.05
+      },
+      {
+       "src": "ps016_73b93d89-1345-46e8-a65c-511e7a779303_6057adcc-f426-4490-93fd-f3fb83729655.jpg.jpg",
+       "zoom": 1.05
+      }
+     ]
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 560,
+     "w": 1920,
+     "h": 210,
+     "color": "#d7261e",
+     "rot": -2
+    },
+    {
+     "type": "text",
+     "text": "I SAW SO MANY PLACES",
+     "x": 960,
+     "y": 555,
+     "t0": 0,
+     "t1": 9999,
+     "size": 150,
+     "font": "anton",
+     "color": "#fbf6ea",
+     "fade_out": 0,
+     "rot": -2
+    },
+    {
+     "type": "sticker",
+     "text": "🧃",
+     "font": "emoji",
+     "size": 130,
+     "x": 1700,
+     "y": 380,
+     "t": 4.0,
+     "rot": 14
+    },
+    {
+     "type": "sticker",
+     "text": "🐟",
+     "font": "emoji",
+     "size": 120,
+     "x": 260,
+     "y": 760,
+     "t": 4.0,
+     "rot": -10
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1290,
+     "y": 720,
+     "w": 707.8,
+     "h": 56.0,
+     "color": "#ffffff",
+     "rot": 3
+    },
+    {
+     "type": "shape",
+     "kind": "circle",
+     "x": 951.5,
+     "y": 720,
+     "w": 10.08,
+     "h": 10.08,
+     "color": "#d7261e",
+     "rot": 3
+    },
+    {
+     "type": "text",
+     "text": "15 DAYS · 5,227 KM · 0 RESTAURANTS OPEN",
+     "x": 1297.0,
+     "y": 720,
+     "t0": 0,
+     "t1": 9999,
+     "size": 28,
+     "font": "mono",
+     "color": "#141414",
+     "fade_out": 0,
+     "rot": 3
+    }
+   ]
+  }
+ ]
+}

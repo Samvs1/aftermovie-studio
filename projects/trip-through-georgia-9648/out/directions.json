@@ -1,0 +1,44 @@
+[
+ {
+  "id": "a",
+  "name": "A: Field notes",
+  "concept": "The trip as a travel sketchbook. Every stop starts as a pencil drawing and floods with the photo's real colour on the downbeat, like watercolour. One red ink line, your real GPS route, runs through every page from Tbilisi and back. No taped prints, no kraft paper: drawing, not scrapbook.",
+  "references": "Pixar's Up (Ellie's adventure book), Urban Sketchers travel journals, Christoph Niemann's sketchbook animations",
+  "look": "cream dot-grid pages; photos as graphite drawings that bloom into colour on the beat (a new sketch look); golden grade, almost no grain",
+  "type": "pencil handwriting for dates, places and your jokes ('Rule 1: no offroad.' / 'Yes, no offroad.'), fine mono for coordinates, km and altitude",
+  "motion": "a page turn per chapter; the red route draws itself between stops on the 8ths; colour blooms land on downbeats; km and altitude count up",
+  "signature": "the brass climax (2:37): the book riffles, one page per bar, each drawing colouring in on its downbeat; the final chorus opens the double page with the whole loop in red ink",
+  "frames": [
+   "out/directions/a_1.png",
+   "out/directions/a_2.png"
+  ]
+ },
+ {
+  "id": "b",
+  "name": "B: Two words",
+  "concept": "Georgia speaks in its own beautiful alphabet, and you knew exactly two words of it. Every place lands first in giant Georgian letters with the photo inside them, then in English. A counter in the corner reads WORDS UNDERSTOOD: 0 and only clicks up on gamarjoba and madloba.",
+  "references": "Saul Bass title sequences, Swiss poster typography (Müller-Brockmann), the frontal, centred tableaux of Sergei Parajanov (Tbilisi's own film-maker)",
+  "look": "black-and-white photos on off-white paper, Georgian flag red as the only colour; clean and flat, no grain",
+  "type": "heavy Georgian letters as windows onto the photos, Anton for the English, Space Mono for the counter and dates",
+  "motion": "hard cuts on downbeats; place names slam in on the sung syllable; photos slice in on the snare; the hook 'I will hold on hope' stacks word by word",
+  "signature": "the brass climax (2:37): საქართველო (Sakartvelo, Georgia in Georgian) fills the frame with a new photo through its letters every bar, then the camera flies through the last letter into full-screen Vardzia. The end: მადლობა, then 'Thank you Georgia', and the counter hits 2",
+  "frames": [
+   "out/directions/b_1.png",
+   "out/directions/b_2.png"
+  ]
+ },
+ {
+  "id": "c",
+  "name": "C: Out of the cave",
+  "concept": "The song is about walking out of the cave, so the film starts inside one. Every photo is projected onto torch-lit rock, with the days and the khinkali scratched into the wall. It gets lighter verse by verse, turns upside down on 'see the world hanging upside down', and walks out into full-colour daylight on the brass climax.",
+  "references": "Plato's allegory of the cave, Werner Herzog's Cave of Forgotten Dreams, Lotte Reiniger's shadow films",
+  "look": "two worlds: inside, ochre-and-charcoal photos on a rock wall (your own Prometheus cave shots) lit by a flickering torch; outside, after the climax, clean full colour and big skies",
+  "type": "almost none: tally marks and words scratched in chalk on the rock (khinkali, gamarjoba, 'no offroad' crossed out); after the exit, no text until the thank-you",
+  "motion": "slow torch-lit pushes; cuts land like flame flickers on the beat; the whole frame turns 180° on 'upside down'; the exit is a push through the Vardzia arch",
+  "signature": "the brass climax (2:37): the Vardzia doorway of light grows until we step through it; after more than two minutes underground, the rest of the song is one full-colour landscape per bar (larches, cliffs, the swords)",
+  "frames": [
+   "out/directions/c_1.png",
+   "out/directions/c_2.png"
+  ]
+ }
+]

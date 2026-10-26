@@ -1,0 +1,53 @@
+{
+ "title": "Demo: quick automatic draft",
+ "occasion": "test trip",
+ "when_where": "Amsterdam, 2026",
+ "group_name": "",
+ "language": "English",
+ "vibe": "bittersweet",
+ "text_amount": "medium",
+ "length": "the whole song (or one clean cut if it's long)",
+ "song": {
+  "file": "The Temper Trap - Sweet Disposition _Official Video_.mp3",
+  "artist": "The Temper Trap",
+  "title": "Sweet Disposition",
+  "slug": "the_temper_trap_sweet_disposition_offici"
+ },
+ "chapters": [
+  {
+   "id": "the_boat_day",
+   "label": "the boat day"
+  },
+  {
+   "id": "the_attic",
+   "label": "the attic"
+  },
+  {
+   "id": "the_last_night",
+   "label": "the last night"
+  }
+ ],
+ "people_notes": "",
+ "jokes": "",
+ "avoid": "",
+ "credits": "",
+ "ending_note": "thanks for everything\nsee you soon",
+ "editor": "sam",
+ "extra": "",
+ "status": {
+  "stage": "preview ready",
+  "people_named": true,
+  "preview": "out/draft_preview_share.mp4",
+  "version": "draft"
+ },
+ "created": "2026-10-24",
+ "analysis": {
+  "photos": 16,
+  "song_slug": "the_temper_trap_sweet_disposition_offici",
+  "tempo": 130.435,
+  "duration": 234.568,
+  "constant_grid": false,
+  "lyrics_lines": 38,
+  "lyrics_match_z": 4.19
+ }
+}

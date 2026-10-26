@@ -1,0 +1,407 @@
+{
+ "meta": {
+  "version": "style_samples_golden",
+  "title": "Style samples",
+  "song": "music/none.mp3",
+  "analysis": "time_to_pretend",
+  "fps": 30,
+  "duration": 16.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     0.0,
+     258.81
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "golden",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.012,
+  "vignette": 0.26,
+  "halation": 0.06,
+  "flicker": 0.005,
+  "weave": 0.3
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "super8",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "4170e1b4.jpg",
+     "zoom": [
+      1.08,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "faded",
+      "amount": 0.7
+     }
+    },
+    {
+     "type": "text",
+     "text": "la playa, agosto",
+     "x": 960,
+     "y": 975,
+     "t0": 0,
+     "t1": 9999,
+     "size": 48,
+     "font": "playfair_italic",
+     "color": "#fff3dc",
+     "shadow": 4,
+     "fade_out": 0
+    }
+   ],
+   "fx": [
+    {
+     "type": "light_leak",
+     "amount": 0.36,
+     "seed": 3
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.0,
+   "sync": "haze",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "4ebd654b.jpg",
+     "zoom": [
+      1.04,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "faded",
+      "amount": 0.5
+     }
+    },
+    {
+     "type": "photo",
+     "src": "eef24149.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      560,
+      -120,
+      860,
+      1300
+     ],
+     "blend": "screen",
+     "opacity": 0.8,
+     "feather": 300,
+     "look": {
+      "name": "faded",
+      "amount": 0.6
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 975,
+     "w": 1920,
+     "h": 150,
+     "color": "#1a1020",
+     "alpha": 0.45
+    },
+    {
+     "type": "text",
+     "text": "and the light stayed",
+     "x": 960,
+     "y": 968,
+     "t0": 0,
+     "t1": 9999,
+     "size": 50,
+     "font": "playfair_italic",
+     "color": "#fff6e8",
+     "shadow": 4,
+     "fade_out": 0
+    }
+   ],
+   "fx": [
+    {
+     "type": "light_leak",
+     "amount": 0.32,
+     "seed": 11,
+     "colors": [
+      "#ff9a3c",
+      "#ffd29a",
+      "#ff6f91",
+      "#ffe0b0"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S004",
+   "t0": 7.0,
+   "t1": 10.0,
+   "sync": "infrared",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "de57e2d7.jpg",
+     "zoom": [
+      1.04,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "infrared"
+     }
+    },
+    {
+     "type": "text",
+     "text": "a different planet, apparently",
+     "x": 100,
+     "y": 980,
+     "t0": 0,
+     "t1": 9999,
+     "size": 42,
+     "font": "inter",
+     "color": "#ffffff",
+     "anchor": "lm",
+     "shadow": 4,
+     "fade_out": 0
+    }
+   ]
+  },
+  {
+   "id": "S005",
+   "t0": 10.0,
+   "t1": 13.0,
+   "sync": "wes",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f4c7c3",
+     "paper": false
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 560,
+     "w": 700,
+     "h": 860,
+     "color": "#fdf0e6"
+    },
+    {
+     "type": "photo",
+     "src": "b8621f3b.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      675,
+      175,
+      570,
+      760
+     ],
+     "look": {
+      "name": "faded",
+      "amount": 0.6
+     }
+    },
+    {
+     "type": "text",
+     "text": "PART III",
+     "x": 960,
+     "y": 92,
+     "t0": 0,
+     "t1": 9999,
+     "size": 70,
+     "font": "bebas",
+     "color": "#9b2335",
+     "fade_out": 0
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 700,
+     "y": 92,
+     "w": 260,
+     "h": 4,
+     "color": "#9b2335"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1220,
+     "y": 92,
+     "w": 260,
+     "h": 4,
+     "color": "#9b2335"
+    },
+    {
+     "type": "text",
+     "text": "THE COVERED BRIDGE",
+     "x": 960,
+     "y": 1010,
+     "t0": 0,
+     "t1": 9999,
+     "size": 54,
+     "font": "bebas",
+     "color": "#9b2335",
+     "fade_out": 0
+    },
+    {
+     "type": "shape",
+     "kind": "circle",
+     "x": 400,
+     "y": 560,
+     "w": 34,
+     "h": 34,
+     "color": "#9b2335"
+    },
+    {
+     "type": "shape",
+     "kind": "circle",
+     "x": 1520,
+     "y": 560,
+     "w": 34,
+     "h": 34,
+     "color": "#9b2335"
+    }
+   ]
+  },
+  {
+   "id": "S006",
+   "t0": 13.0,
+   "t1": 16.5,
+   "sync": "minimal",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "f2c185df.jpg",
+     "zoom": [
+      1.04,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "faded",
+      "amount": 0.35
+     }
+    },
+    {
+     "type": "text",
+     "text": "we drove until the road ran out.",
+     "x": 960,
+     "y": 1012,
+     "t0": 0,
+     "t1": 9999,
+     "size": 40,
+     "font": "playfair_italic",
+     "color": "#f4ecd8",
+     "fade_out": 0,
+     "post": true
+    }
+   ],
+   "fx": [
+    {
+     "type": "letterbox",
+     "h": 140
+    }
+   ]
+  }
+ ]
+}

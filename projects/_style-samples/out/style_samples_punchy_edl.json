@@ -1,0 +1,624 @@
+{
+ "meta": {
+  "version": "style_samples_punchy",
+  "title": "Style samples",
+  "song": "music/none.mp3",
+  "analysis": "time_to_pretend",
+  "fps": 30,
+  "duration": 19.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     0.0,
+     258.81
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "punchy",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.012,
+  "vignette": 0.26,
+  "halation": 0.06,
+  "flicker": 0.005,
+  "weave": 0.3
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "vhs",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1ca339fd.jpg",
+     "zoom": [
+      1.04,
+      1.07
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "osd",
+     "icon": "play",
+     "text": "PLAY",
+     "x": 90,
+     "y": 92,
+     "size": 46,
+     "post": true
+    },
+    {
+     "type": "text",
+     "text": "SP  0:14:22",
+     "x": 1830,
+     "y": 92,
+     "t0": 0,
+     "t1": 9999,
+     "size": 40,
+     "font": "mono",
+     "color": "#ffffff",
+     "anchor": "rm",
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0,
+     "post": true
+    },
+    {
+     "type": "rect",
+     "x": 711.2,
+     "y": 937.56,
+     "w": 497.6,
+     "h": 72.0,
+     "color": "#000000",
+     "alpha": 0.82,
+     "show": [
+      1.1,
+      10.0
+     ],
+     "post": true
+    },
+    {
+     "type": "text",
+     "text": "[CROWD CHEERING]",
+     "x": 707.2,
+     "y": 975,
+     "t0": 1.1,
+     "t1": 10.0,
+     "size": 48,
+     "font": "mono",
+     "color": "#ffffff",
+     "anim": "type",
+     "dur": 0.192,
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0.0,
+     "post": true
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.9
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.0,
+   "sync": "kinetic",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "c0c2c54c.jpg",
+     "zoom": [
+      1.06,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "bw",
+      "contrast": 1.4
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 540,
+     "w": 1920,
+     "h": 1080,
+     "color": "#000000",
+     "alpha": 0.4
+    },
+    {
+     "type": "lyric_type",
+     "words": [
+      {
+       "w": "WE'RE",
+       "t": 4.1
+      },
+      {
+       "w": "NOT",
+       "t": 4.25
+      },
+      {
+       "w": "LEAVING",
+       "t": 4.4
+      },
+      {
+       "w": "YET",
+       "t": 4.55
+      }
+     ],
+     "mode": "stack",
+     "font": "anton",
+     "size": 200,
+     "color": "#ffffff",
+     "x": 960,
+     "y": 540,
+     "maxw": 1500,
+     "accent": "#ffd23f",
+     "line_gap": 0.9
+    }
+   ]
+  },
+  {
+   "id": "S004",
+   "t0": 7.0,
+   "t1": 10.0,
+   "sync": "swiss",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f2f0eb",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "09969a96.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      110,
+      110,
+      1040,
+      860
+     ],
+     "look": {
+      "name": "bleach",
+      "amount": 0.6
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1480,
+     "y": 150,
+     "w": 560,
+     "h": 10,
+     "color": "#e63312"
+    },
+    {
+     "type": "text",
+     "text": "07",
+     "x": 1220,
+     "y": 330,
+     "t0": 0,
+     "t1": 9999,
+     "size": 300,
+     "font": "anton",
+     "color": "#e63312",
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "Somewhere\nbetween\ncities",
+     "x": 1226,
+     "y": 640,
+     "t0": 0,
+     "t1": 9999,
+     "size": 88,
+     "font": "narrow",
+     "color": "#111111",
+     "anchor": "lm",
+     "align": "left",
+     "line_gap": 0.95,
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "VIENNA   48.21°N 16.37°E",
+     "x": 1228,
+     "y": 880,
+     "t0": 0,
+     "t1": 9999,
+     "size": 28,
+     "font": "mono_regular",
+     "color": "#444444",
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "06:12   DAY 07 / 14",
+     "x": 1228,
+     "y": 924,
+     "t0": 0,
+     "t1": 9999,
+     "size": 28,
+     "font": "mono_regular",
+     "color": "#444444",
+     "anchor": "lm",
+     "fade_out": 0
+    }
+   ]
+  },
+  {
+   "id": "S005",
+   "t0": 10.0,
+   "t1": 11.6,
+   "sync": "nouvelle a",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "c150cab8.jpg",
+     "zoom": [
+      1.0,
+      1.02
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "bw",
+      "contrast": 1.45
+     }
+    },
+    {
+     "type": "text",
+     "text": "— chapitre deux —",
+     "x": 840,
+     "y": 790,
+     "t0": 0,
+     "t1": 9999,
+     "size": 42,
+     "font": "playfair_italic",
+     "color": "#f4f1ea",
+     "shadow": 4,
+     "fade_out": 0
+    }
+   ]
+  },
+  {
+   "id": "S006",
+   "t0": 11.6,
+   "t1": 13.0,
+   "sync": "nouvelle b",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ],
+   "in": {
+    "type": "iris",
+    "close": true,
+    "dur": 1.2,
+    "cx": 0.44
+   }
+  },
+  {
+   "id": "S007",
+   "t0": 13.0,
+   "t1": 16.0,
+   "sync": "club",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "55a73433.jpg",
+     "zoom": [
+      1.15,
+      1.2
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "ALL\nNIGHT",
+     "x": 960,
+     "y": 545,
+     "t0": 0,
+     "t1": 9999,
+     "size": 230,
+     "font": "anton",
+     "color": "#ffffff",
+     "line_gap": 0.82,
+     "stroke": 6,
+     "stroke_color": "#000000",
+     "fade_out": 0,
+     "post": true
+    }
+   ],
+   "fx": [
+    {
+     "type": "kaleido",
+     "n": 6,
+     "spin": 0.3
+    },
+    {
+     "type": "look",
+     "look": {
+      "name": "thermal"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S008",
+   "t0": 16.0,
+   "t1": 19.5,
+   "sync": "y2k",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "ba4d5fb4.jpg",
+     "zoom": [
+      1.02,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "chrome"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 703.0,
+     "y": 190.0,
+     "w": 46,
+     "h": 5,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 680.0,
+     "y": 213.0,
+     "w": 5,
+     "h": 46,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1217.0,
+     "y": 190.0,
+     "w": 46,
+     "h": 5,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1240.0,
+     "y": 213.0,
+     "w": 5,
+     "h": 46,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 703.0,
+     "y": 610.0,
+     "w": 46,
+     "h": 5,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 680.0,
+     "y": 587.0,
+     "w": 5,
+     "h": 46,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1217.0,
+     "y": 610.0,
+     "w": 46,
+     "h": 5,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1240.0,
+     "y": 587.0,
+     "w": 5,
+     "h": 46,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 990,
+     "w": 1920,
+     "h": 180,
+     "color": "#000000",
+     "alpha": 0.45
+    },
+    {
+     "type": "seven",
+     "text": "'03 7 21",
+     "x": 1600,
+     "y": 985,
+     "h": 70,
+     "opacity": 1.0
+    },
+    {
+     "type": "text",
+     "text": "1/60   F2.8   ISO 400",
+     "x": 100,
+     "y": 985,
+     "t0": 0,
+     "t1": 9999,
+     "size": 32,
+     "font": "mono",
+     "color": "#ffffff",
+     "anchor": "lm",
+     "shadow": 3,
+     "fade_out": 0
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1760,
+     "y": 92,
+     "w": 96,
+     "h": 44,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1760,
+     "y": 92,
+     "w": 84,
+     "h": 32,
+     "color": "#3a3a3a"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1815,
+     "y": 92,
+     "w": 10,
+     "h": 20,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1730,
+     "y": 92,
+     "w": 16,
+     "h": 24,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1752,
+     "y": 92,
+     "w": 16,
+     "h": 24,
+     "color": "#ffffff"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1774,
+     "y": 92,
+     "w": 16,
+     "h": 24,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}

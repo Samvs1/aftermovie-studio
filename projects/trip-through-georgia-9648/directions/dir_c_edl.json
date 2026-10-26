@@ -1,0 +1,482 @@
+{
+ "meta": {
+  "version": "dir_c",
+  "title": "Georgia directions",
+  "song": "music/Mumford & Sons - The Cave (Official Music Video).mp3",
+  "analysis": "mumford_sons_the_cave",
+  "fps": 30,
+  "duration": 7.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     40.12,
+     245.3
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "punchy",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.016,
+  "vignette": 0.3,
+  "halation": 0.05,
+  "flicker": 0.008,
+  "weave": 0.2
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "c_1",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "ps015_4d5462d8-fa9f-48f6-bfd4-bb64031cec4c_6a893da6-5539-4b2b-a474-3ea8b69fe506.jpg.jpg",
+     "zoom": [
+      1.12,
+      1.12
+     ],
+     "focus": "center",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "tritone",
+      "shadow": "#070403",
+      "mid": "#4a3020",
+      "high": "#b48c66",
+      "contrast": 1.2
+     }
+    },
+    {
+     "type": "photo",
+     "src": "ps007_6cf21eab-9aed-492f-86e6-c27097d1d0a6_4f93b9ec-6ab7-408b-91d9-095cfbac97eb.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      430,
+      150,
+      1060,
+      795
+     ],
+     "look": {
+      "name": "tritone",
+      "shadow": "#1a0f08",
+      "mid": "#a5612e",
+      "high": "#f6dcae",
+      "contrast": 1.15
+     },
+     "blend": "screen",
+     "opacity": 0.92,
+     "feather": 170
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1474.0,
+       857.0
+      ],
+      [
+       1483.6,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1501.5,
+       857.0
+      ],
+      [
+       1508.7,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1529.0,
+       857.0
+      ],
+      [
+       1533.8,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1556.5,
+       857.0
+      ],
+      [
+       1558.9,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1464.0,
+       924.08
+      ],
+      [
+       1576.0,
+       874.2
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1625.6,
+       857.0
+      ],
+      [
+       1625.6,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1653.1,
+       857.0
+      ],
+      [
+       1650.6999999999998,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1680.6,
+       857.0
+      ],
+      [
+       1675.8,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1708.1,
+       857.0
+      ],
+      [
+       1700.8999999999999,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1609.6,
+       924.08
+      ],
+      [
+       1721.6,
+       874.2
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1777.2,
+       857.0
+      ],
+      [
+       1767.6000000000001,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1791.2,
+       857.0
+      ],
+      [
+       1800.8,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1818.7,
+       857.0
+      ],
+      [
+       1825.9,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1846.2,
+       857.0
+      ],
+      [
+       1851.0,
+       943.0
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1755.2,
+       924.08
+      ],
+      [
+       1867.2,
+       874.2
+      ]
+     ],
+     "t0": 1.0,
+     "dur": 0.01,
+     "color": "#d9cbb2",
+     "width": 6,
+     "post": true
+    },
+    {
+     "type": "text",
+     "text": "khinkali",
+     "x": 1585,
+     "y": 808,
+     "t0": 0,
+     "t1": 9999,
+     "size": 74,
+     "font": "caveat",
+     "color": "#d9cbb2",
+     "rot": -5,
+     "fade_out": 0,
+     "post": true
+    }
+   ],
+   "fx": [
+    {
+     "type": "torch",
+     "amount": 0.82,
+     "cx": 0.48,
+     "cy": 0.46,
+     "r": 0.62,
+     "color": "#ffb066",
+     "warmth": 0.3
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.5,
+   "sync": "c_2",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#050403",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "ps023_f46e6921-1b2c-431e-ae4b-228d064b7187_4ae0f0ed-bb62-4a1a-98b3-5d86c0a471b3.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.02
+     ],
+     "focus": "center",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      555,
+      0,
+      810,
+      1080
+     ],
+     "feather": 70
+    }
+   ],
+   "fx": [
+    {
+     "type": "torch",
+     "amount": 0.35,
+     "cx": 0.5,
+     "cy": 0.55,
+     "r": 0.7,
+     "color": "#ffd6a0",
+     "warmth": 0.08,
+     "flicker": 0.3
+    }
+   ]
+  }
+ ]
+}

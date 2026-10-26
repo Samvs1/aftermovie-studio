@@ -1,0 +1,76 @@
+{
+ "title": "Elevate 2026",
+ "occasion": "the graduate-program year in Amsterdam, ending with the Elevate event",
+ "when_where": "Amsterdam, September 2026",
+ "group_name": "the Bad Bananas",
+ "language": "English",
+ "vibe": "bittersweet, jokey",
+ "text_amount": "medium",
+ "editor": "sam",
+ "song": {
+  "file": "The Temper Trap - Sweet Disposition (Official Video).mp3",
+  "artist": "The Temper Trap",
+  "title": "Sweet Disposition",
+  "slug": "sweet_disposition"
+ },
+ "chapters": [
+  {
+   "id": "canal",
+   "label": "Canal boat"
+  },
+  {
+   "id": "bridge",
+   "label": "Bridge, daytime"
+  },
+  {
+   "id": "attic",
+   "label": "The attic (house party)"
+  },
+  {
+   "id": "dinner",
+   "label": "Red restaurant"
+  },
+  {
+   "id": "karaoke",
+   "label": "Karaoke (Elevate starts)"
+  },
+  {
+   "id": "hotel",
+   "label": "Hotel suite (suits)"
+  },
+  {
+   "id": "club",
+   "label": "Club (teal)"
+  },
+  {
+   "id": "lounge",
+   "label": "Lounge bar"
+  },
+  {
+   "id": "terrace",
+   "label": "Terrace (video)"
+  },
+  {
+   "id": "bus",
+   "label": "Night coach"
+  },
+  {
+   "id": "pier",
+   "label": "Harbour sunset"
+  },
+  {
+   "id": "street",
+   "label": "Night streets"
+  }
+ ],
+ "films": {
+  "cool_kids": "final: out/cool_kids.mp4",
+  "time_to_pretend": "final: out/time_to_pretend.mp4",
+  "sweet_disposition": "planned (see CLAUDE.md in this folder)"
+ },
+ "status": {
+  "stage": "2 films final",
+  "approved": "time_to_pretend"
+ },
+ "_note": "Context, people, jokes, credit lines and plans live in this folder's CLAUDE.md."
+}

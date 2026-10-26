@@ -1,0 +1,2200 @@
+{
+ "version": "fieldnotes",
+ "at": "2026-10-25 21:00",
+ "duration": 214.502,
+ "origins": {
+  "lyric": "sung in the song",
+  "credit": "credit line, verbatim",
+  "brief": "from the brief, verbatim",
+  "name": "a name",
+  "place": "a place / step name",
+  "answer": "the user's answer in chat",
+  "note": "from a step note / the brief, reworded",
+  "fact": "a fact (date, count, data)",
+  "invented": "a joke Claude wrote",
+  "?": "no source given"
+ },
+ "trusted": [
+  "brief",
+  "credit",
+  "lyric",
+  "name",
+  "place"
+ ],
+ "musts": {
+  "missing": [],
+  "order": []
+ },
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 5.14,
+   "t_still": 2.46,
+   "still": "out/board/fieldnotes/S001.jpg",
+   "bar": null,
+   "lyric": "",
+   "sync": "intro: blank sketchbook; the title writes itself on the first strum, 'this book belongs to Tom & Sam' + km 0 on bar 0",
+   "photos": [],
+   "starred": [],
+   "captions": [
+    {
+     "key": "trip through georgia|",
+     "shot": "S001",
+     "t0": 0.9,
+     "t1": 5.14,
+     "text": "Trip through\nGeorgia",
+     "layer": "text",
+     "origin": "brief",
+     "basis": "",
+     "joke": "",
+     "photos": [],
+     "check": false
+    },
+    {
+     "key": "12 10 — 23 10 2026|",
+     "shot": "S001",
+     "t0": 1.74,
+     "t1": 5.14,
+     "text": "12.10. — 23.10.2026",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [],
+     "check": true
+    },
+    {
+     "key": "this book belongs to|",
+     "shot": "S001",
+     "t0": 1.74,
+     "t1": 5.14,
+     "text": "this book belongs to",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [],
+     "check": true
+    },
+    {
+     "key": "tom sam|",
+     "shot": "S001",
+     "t0": 1.74,
+     "t1": 5.14,
+     "text": "Tom & Sam",
+     "layer": "text",
+     "origin": "brief",
+     "basis": "",
+     "joke": "",
+     "photos": [],
+     "check": false
+    },
+    {
+     "key": "km 0|",
+     "shot": "S001",
+     "t0": 1.74,
+     "t1": 5.14,
+     "text": "km 0",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S002",
+   "t0": 5.14,
+   "t1": 10.68,
+   "t_still": 10.56,
+   "still": "out/board/fieldnotes/S002.jpg",
+   "bar": 1,
+   "lyric": "It's empty in the valley of your heart",
+   "sync": "'It's empty in the VALLEY of your heart': the old-town rooftops sketch themselves in, colour floods in on 'valley'",
+   "photos": [
+    "ps005_960715df-dad6-4b11-acda-cdd0edfbe4ae_c9af6853-8d60-416a-aa0f-6ffa4f6b1a6e.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "tbilisi 12 —13 10|ps005_960715df-dad6-4b11-acda-cdd0edfbe4ae_c9af6853-8d60-416a-aa0f-6ffa4f6b1a6e.jpg.jpg",
+     "shot": "S002",
+     "t0": 5.14,
+     "t1": 10.68,
+     "text": "Tbilisi  ·  12.—13.10.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_960715df-dad6-4b11-acda-cdd0edfbe4ae_c9af6853-8d60-416a-aa0f-6ffa4f6b1a6e.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S003",
+   "t0": 10.68,
+   "t1": 14.04,
+   "t_still": 13.92,
+   "still": "out/board/fieldnotes/S003.jpg",
+   "bar": 2,
+   "lyric": "The sun, it rises slowly as you walk",
+   "sync": "'The SUN, it rises slowly as you walk': the first colour of the film, blooming slowly over the line",
+   "photos": [
+    "ps005_fc8cc08e-8a8f-41ed-9d21-5670c4c1d398_8833065e-4eaa-4408-9390-2784239bbd86.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S004",
+   "t0": 14.04,
+   "t1": 20.83,
+   "t_still": 16.51,
+   "still": "out/board/fieldnotes/S004.jpg",
+   "bar": 3,
+   "lyric": "Away from all the fears And all the faults you've left behind",
+   "sync": "'Away from all the fears': the Chronicles; 'And all the faults': the two of you on its stairs + your note; the page holds through 'you've left behind'",
+   "photos": [
+    "ps005_29ca1488-4fe4-4493-b431-be58736ee21c_18845778-6cea-4a85-896f-ffef9cc00326.jpg.jpg",
+    "ps005_8a56c134-2931-49f4-a1b9-ea384bde8187_1bfe7006-2856-4016-b086-e80e9c56a554.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "chronicles of georgia|ps005_29ca1488-4fe4-4493-b431-be58736ee21c_18845778-6cea-4a85-896f-ffef9cc00326.jpg.jpg,ps005_8a56c134-2931-49f4-a1b9-ea384bde8187_1bfe7006-2856-4016-b086-e80e9c56a554.jpg.jpg",
+     "shot": "S004",
+     "t0": 14.04,
+     "t1": 20.83,
+     "text": "Chronicles of Georgia",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_29ca1488-4fe4-4493-b431-be58736ee21c_18845778-6cea-4a85-896f-ffef9cc00326.jpg.jpg",
+      "ps005_8a56c134-2931-49f4-a1b9-ea384bde8187_1bfe7006-2856-4016-b086-e80e9c56a554.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "thx keti for the tour|ps005_29ca1488-4fe4-4493-b431-be58736ee21c_18845778-6cea-4a85-896f-ffef9cc00326.jpg.jpg,ps005_8a56c134-2931-49f4-a1b9-ea384bde8187_1bfe7006-2856-4016-b086-e80e9c56a554.jpg.jpg",
+     "shot": "S004",
+     "t0": 15.74,
+     "t1": 20.83,
+     "text": "Thx Keti for the tour!",
+     "layer": "text",
+     "origin": "note",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_29ca1488-4fe4-4493-b431-be58736ee21c_18845778-6cea-4a85-896f-ffef9cc00326.jpg.jpg",
+      "ps005_8a56c134-2931-49f4-a1b9-ea384bde8187_1bfe7006-2856-4016-b086-e80e9c56a554.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S005",
+   "t0": 20.83,
+   "t1": 27.62,
+   "t_still": 26.22,
+   "still": "out/board/fieldnotes/S005.jpg",
+   "bar": 5,
+   "lyric": "The harvest left no food for you to eat You cannibal, you meat-eater, you see",
+   "sync": "'The harvest left NO FOOD': Tom on his phone at an empty plate, 'food?' + arrow; 'MEAT-EATER': the meat platter sketches in on 'You' and floods with colour on 'meat-eater'",
+   "photos": [
+    "ps005_0374c5d4-7863-465f-9177-a370a272bc1a_6ae319b3-7064-4b1c-b8fd-12885a70909d.jpg.jpg",
+    "ps005_ef8eedba-1e1c-476c-929f-e2623ea7e751_669b5dbe-4c58-4bf2-a7ae-0512391af8da.mp4"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "food|ps005_0374c5d4-7863-465f-9177-a370a272bc1a_6ae319b3-7064-4b1c-b8fd-12885a70909d.jpg.jpg,ps005_ef8eedba-1e1c-476c-929f-e2623ea7e751_669b5dbe-4c58-4bf2-a7ae-0512391af8da.mp4",
+     "shot": "S005",
+     "t0": 21.69,
+     "t1": 27.62,
+     "text": "food?",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_0374c5d4-7863-465f-9177-a370a272bc1a_6ae319b3-7064-4b1c-b8fd-12885a70909d.jpg.jpg",
+      "ps005_ef8eedba-1e1c-476c-929f-e2623ea7e751_669b5dbe-4c58-4bf2-a7ae-0512391af8da.mp4"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S006",
+   "t0": 27.62,
+   "t1": 32.28,
+   "t_still": 27.87,
+   "still": "out/board/fieldnotes/S006.jpg",
+   "bar": 7,
+   "lyric": "But I have seen the same I know the shame in your defeat",
+   "sync": "'But I have seen the same': a night page, the lamp and the TV tower over the cathedral courtyard across the spread",
+   "photos": [
+    "ps005_7bd5c374-8eb6-4261-b721-63d48172813c_070ad9e0-c06b-4ea7-ad9a-93fb482c5e37.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S007",
+   "t0": 32.28,
+   "t1": 40.34,
+   "t_still": 38.84,
+   "still": "out/board/fieldnotes/S007.jpg",
+   "bar": 9,
+   "lyric": "But I will hold on hope And",
+   "sync": "chorus 1 'But I will hold on HOPE': Sameba drawn in white pencil on 'But', blooming gold on 'hope'",
+   "photos": [
+    "ps005_25219215-12b5-4b28-866d-1554c58935bc_3201cca1-1518-4a4e-8cdd-5b53f2829f06.jpg.jpg",
+    "ps005_a4599bca-0ae0-4604-9fed-2787ecdf61d2_b91d0630-4d03-4aa9-8b82-5b8ae4e686c1.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "trinity church|ps005_25219215-12b5-4b28-866d-1554c58935bc_3201cca1-1518-4a4e-8cdd-5b53f2829f06.jpg.jpg,ps005_a4599bca-0ae0-4604-9fed-2787ecdf61d2_b91d0630-4d03-4aa9-8b82-5b8ae4e686c1.jpg.jpg",
+     "shot": "S007",
+     "t0": 38.22,
+     "t1": 40.34,
+     "text": "Trinity church",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_25219215-12b5-4b28-866d-1554c58935bc_3201cca1-1518-4a4e-8cdd-5b53f2829f06.jpg.jpg",
+      "ps005_a4599bca-0ae0-4604-9fed-2787ecdf61d2_b91d0630-4d03-4aa9-8b82-5b8ae4e686c1.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S008",
+   "t0": 40.34,
+   "t1": 45.86,
+   "t_still": 44.07,
+   "still": "out/board/fieldnotes/S008.jpg",
+   "bar": 11,
+   "lyric": "I won't let you choke On the noose around your neck And",
+   "sync": "'And I won't let you choke': back to day, the Dry Bridge market; the drinking horn lands on 'noose'",
+   "photos": [
+    "ps005_ec25bcc0-41ad-4c85-9134-abed747b4be8_fee3b320-8c85-420d-ae57-9ba3d41ea185.jpg.jpg",
+    "ps005_f31b70b4-7efc-48a8-a623-8d37ec221bb3_c6335ce6-3c3c-4ce7-ae8f-106f8b6c4f6e.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "dry bridge market|ps005_ec25bcc0-41ad-4c85-9134-abed747b4be8_fee3b320-8c85-420d-ae57-9ba3d41ea185.jpg.jpg,ps005_f31b70b4-7efc-48a8-a623-8d37ec221bb3_c6335ce6-3c3c-4ce7-ae8f-106f8b6c4f6e.jpg.jpg",
+     "shot": "S008",
+     "t0": 40.34,
+     "t1": 45.86,
+     "text": "Dry bridge market",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ec25bcc0-41ad-4c85-9134-abed747b4be8_fee3b320-8c85-420d-ae57-9ba3d41ea185.jpg.jpg",
+      "ps005_f31b70b4-7efc-48a8-a623-8d37ec221bb3_c6335ce6-3c3c-4ce7-ae8f-106f8b6c4f6e.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S009",
+   "t0": 45.86,
+   "t1": 50.52,
+   "t_still": 46.4,
+   "still": "out/board/fieldnotes/S009.jpg",
+   "bar": 13,
+   "lyric": "I'll find strength in pain And",
+   "sync": "'And I'll find strength in pain': the panorama from the hike, half coloured, slow push",
+   "photos": [
+    "ps005_8f91d0bb-277d-46e1-b5e4-c961993f698d_74b49c01-7fe7-4ae8-9035-6a6e632bc7cc.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "tbilisi hike|ps005_8f91d0bb-277d-46e1-b5e4-c961993f698d_74b49c01-7fe7-4ae8-9035-6a6e632bc7cc.jpg.jpg",
+     "shot": "S009",
+     "t0": 45.86,
+     "t1": 50.52,
+     "text": "Tbilisi hike",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_8f91d0bb-277d-46e1-b5e4-c961993f698d_74b49c01-7fe7-4ae8-9035-6a6e632bc7cc.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S010",
+   "t0": 50.52,
+   "t1": 56.04,
+   "t_still": 53.616,
+   "still": "out/board/fieldnotes/S010.jpg",
+   "bar": 14,
+   "lyric": "I will change my ways I'll know my name as it's called again",
+   "sync": "'And I will CHANGE MY WAYS': before (khachapuri hair) -> the Mafia Barbershop on 'ways' -> after on 'know'; 'my NAME': red 'Sam?'",
+   "photos": [
+    "ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg",
+    "ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg",
+    "ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "before|ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg,ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg,ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg",
+     "shot": "S010",
+     "t0": 50.52,
+     "t1": 56.04,
+     "text": "before",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg",
+      "ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg",
+      "ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "during|ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg,ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg,ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg",
+     "shot": "S010",
+     "t0": 51.78,
+     "t1": 56.04,
+     "text": "during",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg",
+      "ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg",
+      "ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "after|ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg,ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg,ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg",
+     "shot": "S010",
+     "t0": 52.42,
+     "t1": 56.04,
+     "text": "after",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg",
+      "ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg",
+      "ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "sam|ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg,ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg,ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg",
+     "shot": "S010",
+     "t0": 53.28,
+     "t1": 56.04,
+     "text": "Sam?",
+     "layer": "text",
+     "origin": "name",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps001_bbe56000-a63e-4971-a46b-5cde898905bd_67cc9f4b-d330-430d-9eb1-73f06939fb4a.jpg.jpg",
+      "ps005_7ba94618-2910-4495-b1bd-233edbc85d5d_2c2e6fd2-6855-4c1a-8f25-442a2a982974.jpg.jpg",
+      "ps005_86f17c4d-cb97-4412-9d70-25162dbfd946_2906292e-78f6-4f7a-a4a1-e6dd9af7ab67.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S011",
+   "t0": 56.04,
+   "t1": 61.054,
+   "t_still": 58.363,
+   "still": "out/board/fieldnotes/S011.jpg",
+   "bar": 18,
+   "lyric": "",
+   "sync": "bar 18: rental rule no. 1: NO OFFROAD; the road sketches itself in pencil -> KICK DRUM IN (bar 19): red 'Yes, no offroad.' and the colour floods the picture: a tyre stuck in a pothole in the road",
+   "photos": [
+    "ps013_566fc4a2-e87e-4c24-89f0-766e6928ced6_1d25b066-35ae-4f43-a894-0e47693b0157.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "rental rule no 1|ps013_566fc4a2-e87e-4c24-89f0-766e6928ced6_1d25b066-35ae-4f43-a894-0e47693b0157.jpg.jpg",
+     "shot": "S011",
+     "t0": 56.04,
+     "t1": 61.05,
+     "text": "rental rule no. 1:",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps013_566fc4a2-e87e-4c24-89f0-766e6928ced6_1d25b066-35ae-4f43-a894-0e47693b0157.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "no offroad|ps013_566fc4a2-e87e-4c24-89f0-766e6928ced6_1d25b066-35ae-4f43-a894-0e47693b0157.jpg.jpg",
+     "shot": "S011",
+     "t0": 56.04,
+     "t1": 61.05,
+     "text": "NO OFFROAD.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps013_566fc4a2-e87e-4c24-89f0-766e6928ced6_1d25b066-35ae-4f43-a894-0e47693b0157.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "yes no offroad|ps013_566fc4a2-e87e-4c24-89f0-766e6928ced6_1d25b066-35ae-4f43-a894-0e47693b0157.jpg.jpg",
+     "shot": "S011",
+     "t0": 57.69,
+     "t1": 61.05,
+     "text": "Yes, no offroad.",
+     "layer": "text",
+     "origin": "brief",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps013_566fc4a2-e87e-4c24-89f0-766e6928ced6_1d25b066-35ae-4f43-a894-0e47693b0157.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S012",
+   "t0": 61.054,
+   "t1": 66.104,
+   "t_still": 63.519,
+   "still": "out/board/fieldnotes/S012.jpg",
+   "bar": 21,
+   "lyric": "",
+   "sync": "bars 21-23: 14.10., your 'Gamarjoba' lunch stop: Sam and the cat; the khinkali lands on bar 22 with your note and the khinkali tally (day 3)",
+   "photos": [
+    "ps006_833105ff-3105-412a-9bb2-236f92d37bed_c26aa0ef-3620-42f5-98ac-261b6f7c6c8c.jpg.jpg",
+    "ps006_af8b5c63-cbc5-4aa2-bb9a-feba0dbdfd3e_e0cf72d0-7789-453f-90c2-299dddab720c.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "14 10 gamarjoba|ps006_833105ff-3105-412a-9bb2-236f92d37bed_c26aa0ef-3620-42f5-98ac-261b6f7c6c8c.jpg.jpg,ps006_af8b5c63-cbc5-4aa2-bb9a-feba0dbdfd3e_e0cf72d0-7789-453f-90c2-299dddab720c.jpg.jpg",
+     "shot": "S012",
+     "t0": 61.05,
+     "t1": 66.1,
+     "text": "14.10.  ·  Gamarjoba",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps006_833105ff-3105-412a-9bb2-236f92d37bed_c26aa0ef-3620-42f5-98ac-261b6f7c6c8c.jpg.jpg",
+      "ps006_af8b5c63-cbc5-4aa2-bb9a-feba0dbdfd3e_e0cf72d0-7789-453f-90c2-299dddab720c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "amai dit eten was crazy goed|ps006_833105ff-3105-412a-9bb2-236f92d37bed_c26aa0ef-3620-42f5-98ac-261b6f7c6c8c.jpg.jpg,ps006_af8b5c63-cbc5-4aa2-bb9a-feba0dbdfd3e_e0cf72d0-7789-453f-90c2-299dddab720c.jpg.jpg",
+     "shot": "S012",
+     "t0": 62.75,
+     "t1": 66.1,
+     "text": "Amai dit eten was crazy goed",
+     "layer": "text",
+     "origin": "note",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps006_833105ff-3105-412a-9bb2-236f92d37bed_c26aa0ef-3620-42f5-98ac-261b6f7c6c8c.jpg.jpg",
+      "ps006_af8b5c63-cbc5-4aa2-bb9a-feba0dbdfd3e_e0cf72d0-7789-453f-90c2-299dddab720c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "khinkali|ps006_833105ff-3105-412a-9bb2-236f92d37bed_c26aa0ef-3620-42f5-98ac-261b6f7c6c8c.jpg.jpg,ps006_af8b5c63-cbc5-4aa2-bb9a-feba0dbdfd3e_e0cf72d0-7789-453f-90c2-299dddab720c.jpg.jpg",
+     "shot": "S012",
+     "t0": 62.75,
+     "t1": 66.1,
+     "text": "khinkali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps006_833105ff-3105-412a-9bb2-236f92d37bed_c26aa0ef-3620-42f5-98ac-261b6f7c6c8c.jpg.jpg",
+      "ps006_af8b5c63-cbc5-4aa2-bb9a-feba0dbdfd3e_e0cf72d0-7789-453f-90c2-299dddab720c.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S013",
+   "t0": 66.104,
+   "t1": 70.313,
+   "t_still": 68.575,
+   "still": "out/board/fieldnotes/S013.jpg",
+   "bar": 24,
+   "lyric": "",
+   "sync": "bars 24-25: the flag over the Gudauri valley fills the page; your selfie lands on a loose page on bar 25, on the left, so the flag stays in view",
+   "photos": [
+    "ps007_63dedbd7-b5f7-4b98-ac76-219db2aa938e_d549c527-2a37-4cb0-a669-6b30863e9587.jpg.jpg",
+    "ps007_6cf21eab-9aed-492f-86e6-c27097d1d0a6_4f93b9ec-6ab7-408b-91d9-095cfbac97eb.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "gudauri|ps007_63dedbd7-b5f7-4b98-ac76-219db2aa938e_d549c527-2a37-4cb0-a669-6b30863e9587.jpg.jpg,ps007_6cf21eab-9aed-492f-86e6-c27097d1d0a6_4f93b9ec-6ab7-408b-91d9-095cfbac97eb.jpg.jpg",
+     "shot": "S013",
+     "t0": 66.1,
+     "t1": 70.31,
+     "text": "Gudauri",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps007_63dedbd7-b5f7-4b98-ac76-219db2aa938e_d549c527-2a37-4cb0-a669-6b30863e9587.jpg.jpg",
+      "ps007_6cf21eab-9aed-492f-86e6-c27097d1d0a6_4f93b9ec-6ab7-408b-91d9-095cfbac97eb.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S014",
+   "t0": 70.313,
+   "t1": 73.662,
+   "t_still": 72.35,
+   "still": "out/board/fieldnotes/S014.jpg",
+   "bar": 26,
+   "lyric": "'Cause I have other things to fill my time",
+   "sync": "''Cause I have other things to FILL my time': two stray dogs asleep in Gergeti; 'z z z' on 'fill'",
+   "photos": [
+    "ps008_b8fcae4c-0215-4c2b-9283-ca1cb0521aeb_a35ff82d-556f-4571-ae40-0701b89bcbb7.jpg.jpg",
+    "ps008_cb4e658e-7de8-4e2e-8158-2cebf56f49c6_b75f1cd4-42c8-4ebe-81e3-85cb1fd4e584.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "z z z|ps008_b8fcae4c-0215-4c2b-9283-ca1cb0521aeb_a35ff82d-556f-4571-ae40-0701b89bcbb7.jpg.jpg,ps008_cb4e658e-7de8-4e2e-8158-2cebf56f49c6_b75f1cd4-42c8-4ebe-81e3-85cb1fd4e584.jpg.jpg",
+     "shot": "S014",
+     "t0": 71.98,
+     "t1": 73.66,
+     "text": "z z z",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps008_b8fcae4c-0215-4c2b-9283-ca1cb0521aeb_a35ff82d-556f-4571-ae40-0701b89bcbb7.jpg.jpg",
+      "ps008_cb4e658e-7de8-4e2e-8158-2cebf56f49c6_b75f1cd4-42c8-4ebe-81e3-85cb1fd4e584.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S015",
+   "t0": 73.662,
+   "t1": 78.306,
+   "t_still": 76.57,
+   "still": "out/board/fieldnotes/S015.jpg",
+   "bar": 28,
+   "lyric": "You take what is yours and I'll take mine Now let me at the truth",
+   "sync": "'You take what is yours and I'll take MINE': dinner, an evening page; your label 'Vlees'; Sam behind the meat tower, red 'mine.' + arrow",
+   "photos": [
+    "ps009_a0c3bcb4-577f-4564-8c96-c911826a406c_4f3a4fd2-3907-4275-a2eb-a59c71ddd649.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "vlees|ps009_a0c3bcb4-577f-4564-8c96-c911826a406c_4f3a4fd2-3907-4275-a2eb-a59c71ddd649.jpg.jpg",
+     "shot": "S015",
+     "t0": 73.66,
+     "t1": 78.31,
+     "text": "Vlees",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps009_a0c3bcb4-577f-4564-8c96-c911826a406c_4f3a4fd2-3907-4275-a2eb-a59c71ddd649.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "mine|ps009_a0c3bcb4-577f-4564-8c96-c911826a406c_4f3a4fd2-3907-4275-a2eb-a59c71ddd649.jpg.jpg",
+     "shot": "S015",
+     "t0": 76.2,
+     "t1": 78.31,
+     "text": "mine.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps009_a0c3bcb4-577f-4564-8c96-c911826a406c_4f3a4fd2-3907-4275-a2eb-a59c71ddd649.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S016",
+   "t0": 78.306,
+   "t1": 82.945,
+   "t_still": 81.262,
+   "still": "out/board/fieldnotes/S016.jpg",
+   "bar": 31,
+   "lyric": "Which will refresh my broken mind",
+   "sync": "'Which will REFRESH my broken mind': Gergeti Trinity under Kazbek, pencil -> colour on 'refresh'; 2,170 m counts up, the red route Tbilisi -> Gergeti draws itself, km 214",
+   "photos": [
+    "ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "gergeti trinity|ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg",
+     "shot": "S016",
+     "t0": 78.31,
+     "t1": 82.94,
+     "text": "Gergeti Trinity",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "under kazbek n m up|ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg",
+     "shot": "S016",
+     "t0": 79.14,
+     "t1": 82.94,
+     "text": "under Kazbek, {n} m up",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "42 6645 n 44 6180 e|ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg",
+     "shot": "S016",
+     "t0": 78.31,
+     "t1": 82.94,
+     "text": "42.6645° N   44.6180° E",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "km n|ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg",
+     "shot": "S016",
+     "t0": 80.54,
+     "t1": 82.94,
+     "text": "km {n}",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "tbilisi|ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg",
+     "shot": "S016",
+     "t0": 79.44,
+     "t1": 82.94,
+     "text": "Tbilisi",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps008_d08ffc54-2b65-4b87-a7de-04c7527ce03d_aaa1988d-2c82-4c0c-8a8a-cbb4d619b515.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S017",
+   "t0": 82.945,
+   "t1": 86.747,
+   "t_still": 85.189,
+   "still": "out/board/fieldnotes/S017.jpg",
+   "bar": 34,
+   "lyric": "So tie me to a post and block my ears",
+   "sync": "'So tie me to a POST': 15.10., your label 'The border': Sam's stop hand at the sign, Tom at the other sign on 'post'",
+   "photos": [
+    "ps011_1b2bbf7f-35f1-4e40-83ce-6a3d149a6d0d_bb859c30-cb76-47b3-a2fb-7ad7cb43ee89.jpg.jpg",
+    "ps011_eebf83ba-5125-468d-8961-22968ce7e9c5_62b15da9-743d-4335-a104-bd0c7502049a.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "15 10 the border|ps011_1b2bbf7f-35f1-4e40-83ce-6a3d149a6d0d_bb859c30-cb76-47b3-a2fb-7ad7cb43ee89.jpg.jpg,ps011_eebf83ba-5125-468d-8961-22968ce7e9c5_62b15da9-743d-4335-a104-bd0c7502049a.jpg.jpg",
+     "shot": "S017",
+     "t0": 82.94,
+     "t1": 86.75,
+     "text": "15.10.  ·  The border",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps011_1b2bbf7f-35f1-4e40-83ce-6a3d149a6d0d_bb859c30-cb76-47b3-a2fb-7ad7cb43ee89.jpg.jpg",
+      "ps011_eebf83ba-5125-468d-8961-22968ce7e9c5_62b15da9-743d-4335-a104-bd0c7502049a.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "khinkali|ps011_1b2bbf7f-35f1-4e40-83ce-6a3d149a6d0d_bb859c30-cb76-47b3-a2fb-7ad7cb43ee89.jpg.jpg,ps011_eebf83ba-5125-468d-8961-22968ce7e9c5_62b15da9-743d-4335-a104-bd0c7502049a.jpg.jpg",
+     "shot": "S017",
+     "t0": 82.94,
+     "t1": 86.75,
+     "text": "khinkali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps011_1b2bbf7f-35f1-4e40-83ce-6a3d149a6d0d_bb859c30-cb76-47b3-a2fb-7ad7cb43ee89.jpg.jpg",
+      "ps011_eebf83ba-5125-468d-8961-22968ce7e9c5_62b15da9-743d-4335-a104-bd0c7502049a.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S018",
+   "t0": 86.747,
+   "t1": 90.3025,
+   "t_still": 87.162,
+   "still": "out/board/fieldnotes/S018.jpg",
+   "bar": 36,
+   "lyric": "I can see widows and orphans through my tears",
+   "sync": "'I can see widows and orphans through my tears': Dariali monastery, tiny under its mountain, fills the page (a landscape hold)",
+   "photos": [
+    "ps010_9541d80f-d28d-4390-898c-12c49d1bd85d_773c005e-2f01-443d-b97f-5bb9c93534fe.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "dariali|ps010_9541d80f-d28d-4390-898c-12c49d1bd85d_773c005e-2f01-443d-b97f-5bb9c93534fe.jpg.jpg",
+     "shot": "S018",
+     "t0": 86.75,
+     "t1": 90.3,
+     "text": "Dariali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps010_9541d80f-d28d-4390-898c-12c49d1bd85d_773c005e-2f01-443d-b97f-5bb9c93534fe.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S019",
+   "t0": 90.3025,
+   "t1": 92.616,
+   "t_still": 91.093,
+   "still": "out/board/fieldnotes/S019.jpg",
+   "bar": 38,
+   "lyric": "I know my call despite my faults",
+   "sync": "'I know my call despite my faults': Tom and Sam on the giant stone heads, both up for the whole line",
+   "photos": [
+    "ps012_a74efc20-96ec-426c-bd6e-35d00249bc9d_4901eef2-38c9-461c-8b2a-54788e93b47c.jpg.jpg",
+    "ps012_f365f4e2-56f8-42d1-99f7-6fe0e4e6984c_8c714246-686c-4d6d-9fb2-38f0a43843d9.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S020",
+   "t0": 92.616,
+   "t1": 98.072,
+   "t_still": 94.814,
+   "still": "out/board/fieldnotes/S020.jpg",
+   "bar": 39,
+   "lyric": "And despite my growing fears But",
+   "sync": "'And despite my GROWING fears': the larches fill the page and flood with orange by bar 41; Sam leaping the river on a loose page, a pencil arc traces the jump on 'growing'; the page holds through the instrumental",
+   "photos": [
+    "ps012_11fd3879-afa2-4bda-ad32-c200002d35be_b9c3d03a-d3aa-451d-8275-61605721690f.jpg.jpg",
+    "ps012_f2baba40-d0e7-4542-b63c-04e5949ad7b0_24abd457-147b-4c66-86e5-4b43b1294833.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "orange hike|ps012_11fd3879-afa2-4bda-ad32-c200002d35be_b9c3d03a-d3aa-451d-8275-61605721690f.jpg.jpg,ps012_f2baba40-d0e7-4542-b63c-04e5949ad7b0_24abd457-147b-4c66-86e5-4b43b1294833.jpg.jpg",
+     "shot": "S020",
+     "t0": 92.62,
+     "t1": 98.07,
+     "text": "orange hike",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps012_11fd3879-afa2-4bda-ad32-c200002d35be_b9c3d03a-d3aa-451d-8275-61605721690f.jpg.jpg",
+      "ps012_f2baba40-d0e7-4542-b63c-04e5949ad7b0_24abd457-147b-4c66-86e5-4b43b1294833.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S021",
+   "t0": 98.072,
+   "t1": 101.428,
+   "t_still": 99.684,
+   "still": "out/board/fieldnotes/S021.jpg",
+   "bar": 43,
+   "lyric": "I will hold on hope And",
+   "sync": "chorus 2 'But I will hold on hope': 16.10., your label 'Stalin top G'; Sam's thumbs-up, Tom's hand on heart",
+   "photos": [
+    "ps013_76698fd2-2482-4fe7-91b6-d6c0d466d08c_022bd3f4-9fcf-4e7b-9db6-079abe598d22.jpg.jpg",
+    "ps013_b14d20f2-869e-49bb-bd29-56e331a61376_21ecbcce-dac3-402a-b14a-3b5fe6eec0fc.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "16 10 stalin top g ⚒️|ps013_76698fd2-2482-4fe7-91b6-d6c0d466d08c_022bd3f4-9fcf-4e7b-9db6-079abe598d22.jpg.jpg,ps013_b14d20f2-869e-49bb-bd29-56e331a61376_21ecbcce-dac3-402a-b14a-3b5fe6eec0fc.jpg.jpg",
+     "shot": "S021",
+     "t0": 98.07,
+     "t1": 101.43,
+     "text": "16.10.  ·  Stalin top G ⚒️",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps013_76698fd2-2482-4fe7-91b6-d6c0d466d08c_022bd3f4-9fcf-4e7b-9db6-079abe598d22.jpg.jpg",
+      "ps013_b14d20f2-869e-49bb-bd29-56e331a61376_21ecbcce-dac3-402a-b14a-3b5fe6eec0fc.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "khinkali|ps013_76698fd2-2482-4fe7-91b6-d6c0d466d08c_022bd3f4-9fcf-4e7b-9db6-079abe598d22.jpg.jpg,ps013_b14d20f2-869e-49bb-bd29-56e331a61376_21ecbcce-dac3-402a-b14a-3b5fe6eec0fc.jpg.jpg",
+     "shot": "S021",
+     "t0": 98.07,
+     "t1": 101.43,
+     "text": "khinkali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps013_76698fd2-2482-4fe7-91b6-d6c0d466d08c_022bd3f4-9fcf-4e7b-9db6-079abe598d22.jpg.jpg",
+      "ps013_b14d20f2-869e-49bb-bd29-56e331a61376_21ecbcce-dac3-402a-b14a-3b5fe6eec0fc.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S022",
+   "t0": 101.428,
+   "t1": 104.795,
+   "t_still": 103.039,
+   "still": "out/board/fieldnotes/S022.jpg",
+   "bar": 45,
+   "lyric": "I won't let you choke",
+   "sync": "'And I won't let you choke': the statue, Stalin's railway carriage on beat 3",
+   "photos": [
+    "ps013_6a4fe9fe-f292-4c1c-a6a6-e147ef9092fd_71285bb3-364d-46f4-8345-65e260710e5b.jpg.jpg",
+    "ps013_97334adf-a039-4835-b00f-792d26588f02_1eacb810-f6db-476e-8907-66f560684b56.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S023",
+   "t0": 104.795,
+   "t1": 108.167,
+   "t_still": 105.045,
+   "still": "out/board/fieldnotes/S023.jpg",
+   "bar": 47,
+   "lyric": "On the noose around your neck And I'll",
+   "sync": "bars 47-48: the Lenin & Stalin carpet across the spread",
+   "photos": [
+    "ps013_b26a68f3-9e83-4789-9d1f-c7af2f16a0c6_04afec0e-2951-4eb0-ba5f-5f18bb3dbfee.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S024",
+   "t0": 108.167,
+   "t1": 111.478,
+   "t_still": 108.417,
+   "still": "out/board/fieldnotes/S024.jpg",
+   "bar": 49,
+   "lyric": "find strength in pain And",
+   "sync": "'And I'll find strength in pain': the rock-cut tunnel stairs at Uplistsikhe fill the page, slow push",
+   "photos": [
+    "ps014_1077251c-6258-424b-8184-c62024b03833_ae2e35ad-9698-4651-8e25-436c46b861d7.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S025",
+   "t0": 111.478,
+   "t1": 116.567,
+   "t_still": 113.982,
+   "still": "out/board/fieldnotes/S025.jpg",
+   "bar": 50,
+   "lyric": "I will change my ways I'll know my name as it's",
+   "sync": "'And I will change my ways': your label 'Crazy city', the cave town; Sam on the rock on bar 51",
+   "photos": [
+    "ps014_1070d09a-14c0-4731-a9ec-4f51d95eeb5e_f526524f-2974-4d15-bd05-c4195d07ecd1.jpg.jpg",
+    "ps014_424d9ffd-a6b8-44c7-9b37-b9fb5c247a78_92ef5859-9985-4dbb-b9c9-9e7d76a8d585.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "crazy city|ps014_1070d09a-14c0-4731-a9ec-4f51d95eeb5e_f526524f-2974-4d15-bd05-c4195d07ecd1.jpg.jpg,ps014_424d9ffd-a6b8-44c7-9b37-b9fb5c247a78_92ef5859-9985-4dbb-b9c9-9e7d76a8d585.jpg.jpg",
+     "shot": "S025",
+     "t0": 111.48,
+     "t1": 116.57,
+     "text": "Crazy city",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps014_1070d09a-14c0-4731-a9ec-4f51d95eeb5e_f526524f-2974-4d15-bd05-c4195d07ecd1.jpg.jpg",
+      "ps014_424d9ffd-a6b8-44c7-9b37-b9fb5c247a78_92ef5859-9985-4dbb-b9c9-9e7d76a8d585.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S026",
+   "t0": 116.567,
+   "t1": 119.98,
+   "t_still": 116.817,
+   "still": "out/board/fieldnotes/S026.jpg",
+   "bar": 52,
+   "lyric": "called again",
+   "sync": "'I'll know my name as it's called again': Tom small on the Uplistsikhe plateau",
+   "photos": [
+    "ps014_769c9e93-1cc1-4fe7-8a6a-1ce62b0ef502_83e43877-b404-4fbe-88c0-1e9e687ac103.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S027",
+   "t0": 119.98,
+   "t1": 125.45,
+   "t_still": 124.16,
+   "still": "out/board/fieldnotes/S027.jpg",
+   "bar": 53,
+   "lyric": "So come out of your cave walking on your hands",
+   "sync": "verse 3 'So come out of your CAVE': 17.10., Prometheus cave; Tom's cave selfie blooms on 'cave'",
+   "photos": [
+    "ps015_53001b21-07f9-4b62-ac77-0589161cf2b2_edfa7fb9-f5fb-43a4-9d1c-352b5334407c.jpg.jpg",
+    "ps015_7cb69298-d084-4156-9e41-45a4ec6739d3_19c1bc48-787a-4bd6-b194-e4d601dd362c.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "17 10 prometheus cave|ps015_53001b21-07f9-4b62-ac77-0589161cf2b2_edfa7fb9-f5fb-43a4-9d1c-352b5334407c.jpg.jpg,ps015_7cb69298-d084-4156-9e41-45a4ec6739d3_19c1bc48-787a-4bd6-b194-e4d601dd362c.jpg.jpg",
+     "shot": "S027",
+     "t0": 119.98,
+     "t1": 125.45,
+     "text": "17.10.  ·  Prometheus cave",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps015_53001b21-07f9-4b62-ac77-0589161cf2b2_edfa7fb9-f5fb-43a4-9d1c-352b5334407c.jpg.jpg",
+      "ps015_7cb69298-d084-4156-9e41-45a4ec6739d3_19c1bc48-787a-4bd6-b194-e4d601dd362c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "khinkali|ps015_53001b21-07f9-4b62-ac77-0589161cf2b2_edfa7fb9-f5fb-43a4-9d1c-352b5334407c.jpg.jpg,ps015_7cb69298-d084-4156-9e41-45a4ec6739d3_19c1bc48-787a-4bd6-b194-e4d601dd362c.jpg.jpg",
+     "shot": "S027",
+     "t0": 119.98,
+     "t1": 125.45,
+     "text": "khinkali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps015_53001b21-07f9-4b62-ac77-0589161cf2b2_edfa7fb9-f5fb-43a4-9d1c-352b5334407c.jpg.jpg",
+      "ps015_7cb69298-d084-4156-9e41-45a4ec6739d3_19c1bc48-787a-4bd6-b194-e4d601dd362c.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S028",
+   "t0": 125.45,
+   "t1": 130.94,
+   "t_still": 125.965,
+   "still": "out/board/fieldnotes/S028.jpg",
+   "bar": 54,
+   "lyric": "And see the world hanging upside down You can understand dependence",
+   "sync": "'And see the world hanging UPSIDE DOWN': the stalactite hall drawn upside down; on 'up-side-down' the whole book turns 180° (lifted off the desk mid-turn) and the cave hangs the right way, 'this way up'",
+   "photos": [
+    "ps015_68543805-db8a-4622-aa49-56d8f834370b_79951ce0-0395-4b69-83e2-891db7f56233.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "this way up|ps015_68543805-db8a-4622-aa49-56d8f834370b_79951ce0-0395-4b69-83e2-891db7f56233.jpg.jpg",
+     "shot": "S028",
+     "t0": 125.45,
+     "t1": 130.94,
+     "text": "this way up",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps015_68543805-db8a-4622-aa49-56d8f834370b_79951ce0-0395-4b69-83e2-891db7f56233.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S029",
+   "t0": 130.94,
+   "t1": 133.48,
+   "t_still": 131.73,
+   "still": "out/board/fieldnotes/S029.jpg",
+   "bar": 56,
+   "lyric": "When you know the maker's",
+   "sync": "'When you know the maker's land': still underground, a black page: the lit cave halls, both up for the whole line",
+   "photos": [
+    "ps015_8fbb7b1e-a493-44cd-bdb5-deae26bdc81b_e0a72601-b556-4ac3-a8d1-21e802a7daf8.jpg.jpg",
+    "ps015_b8c93094-31ae-4f9f-80f8-e1ab43c42408_ccf3b002-9b92-43be-9408-f5c4dc68d546.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S030",
+   "t0": 133.48,
+   "t1": 136.4795,
+   "t_still": 134.27,
+   "still": "out/board/fieldnotes/S030.jpg",
+   "bar": 57,
+   "lyric": "land",
+   "sync": "'land': Khoni, the Kinchkha falls and the pool (both up for the whole page)",
+   "photos": [
+    "ps016_12138d7a-aa2d-4dcc-b562-d3ef6b761bfb_ed188b08-93d4-432d-9df6-60d168078ffe.jpg.jpg",
+    "ps016_b2ef88db-1b30-4f33-9209-2e61516520c3_74a50219-f42d-4517-a3da-a577fb5fccd3.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "khoni|ps016_12138d7a-aa2d-4dcc-b562-d3ef6b761bfb_ed188b08-93d4-432d-9df6-60d168078ffe.jpg.jpg,ps016_b2ef88db-1b30-4f33-9209-2e61516520c3_74a50219-f42d-4517-a3da-a577fb5fccd3.jpg.jpg",
+     "shot": "S030",
+     "t0": 133.48,
+     "t1": 136.48,
+     "text": "Khoni",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps016_12138d7a-aa2d-4dcc-b562-d3ef6b761bfb_ed188b08-93d4-432d-9df6-60d168078ffe.jpg.jpg",
+      "ps016_b2ef88db-1b30-4f33-9209-2e61516520c3_74a50219-f42d-4517-a3da-a577fb5fccd3.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S031",
+   "t0": 136.4795,
+   "t1": 139.84,
+   "t_still": 136.87,
+   "still": "out/board/fieldnotes/S031.jpg",
+   "bar": 57,
+   "lyric": "So make your siren's call",
+   "sync": "'So make your SIREN'S call': Tom crouched on the white rock in the pool, red 'siren.' + arrow",
+   "photos": [
+    "ps016_c2830548-d2d0-4132-bbe6-7df9949fc26c_94f96974-5322-4a41-8a3e-0d68bd4bfdf7.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "siren|ps016_c2830548-d2d0-4132-bbe6-7df9949fc26c_94f96974-5322-4a41-8a3e-0d68bd4bfdf7.jpg.jpg",
+     "shot": "S031",
+     "t0": 136.48,
+     "t1": 139.84,
+     "text": "siren.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps016_c2830548-d2d0-4132-bbe6-7df9949fc26c_94f96974-5322-4a41-8a3e-0d68bd4bfdf7.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S032",
+   "t0": 139.84,
+   "t1": 143.43,
+   "t_still": 140.09,
+   "still": "out/board/fieldnotes/S032.jpg",
+   "bar": 58,
+   "lyric": "And sing all you want",
+   "sync": "'And SING all you want': Tom under the icy waterfall (clip 8.6 s ->)",
+   "photos": [
+    "ps016_4269dbb6-09a1-4446-a089-1af67a50d843_d3ba3fc8-251b-46e1-8474-f8efd009b23e.mp4",
+    "ps016_b84d2cab-34a9-4d9a-81a1-45fca69e90e5_ed4f5377-aa96-45d7-9199-043692b0b6e2.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S033",
+   "t0": 143.43,
+   "t1": 149.528,
+   "t_still": 147.03,
+   "still": "out/board/fieldnotes/S033.jpg",
+   "bar": 60,
+   "lyric": "I will not hear what you have to say 'Cause I need freedom now",
+   "sync": "'I will NOT HEAR what you have to say': 18.10., the Kutaisi market; the phrasebook: gamarjoba on 'hear', madloba on 'say', line 3 stays empty ('?')",
+   "photos": [
+    "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "18 10 kutaisi|ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg",
+     "shot": "S033",
+     "t0": 143.43,
+     "t1": 149.53,
+     "text": "18.10.  ·  Kutaisi",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "georgian|ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg",
+     "shot": "S033",
+     "t0": 143.43,
+     "t1": 149.53,
+     "text": "Georgian",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "1 gamarjoba hello|ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg",
+     "shot": "S033",
+     "t0": 144.26,
+     "t1": 149.53,
+     "text": "1.  gamarjoba  =  hello",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "2 madloba thank you|ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg",
+     "shot": "S033",
+     "t0": 145.95,
+     "t1": 149.53,
+     "text": "2.  madloba  =  thank you",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "3|ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg",
+     "shot": "S033",
+     "t0": 146.56,
+     "t1": 149.53,
+     "text": "3.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "khinkali|ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg",
+     "shot": "S033",
+     "t0": 143.43,
+     "t1": 149.53,
+     "text": "khinkali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S034",
+   "t0": 149.528,
+   "t1": 153.533,
+   "t_still": 151.848,
+   "still": "out/board/fieldnotes/S034.jpg",
+   "bar": 64,
+   "lyric": "And I need to know how",
+   "sync": "'Cause I need freedom NOW': Sam driving the rental; the red route so far draws itself to Kutaisi, km counts up",
+   "photos": [
+    "ps016_fc9b221b-4a1f-4ed9-80c1-45b9eab27b78_e3d170bf-d785-448c-8484-2a2149f52aae.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "km n|ps016_fc9b221b-4a1f-4ed9-80c1-45b9eab27b78_e3d170bf-d785-448c-8484-2a2149f52aae.jpg.jpg",
+     "shot": "S034",
+     "t0": 151.13,
+     "t1": 153.53,
+     "text": "km {n}",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps016_fc9b221b-4a1f-4ed9-80c1-45b9eab27b78_e3d170bf-d785-448c-8484-2a2149f52aae.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "tbilisi|ps016_fc9b221b-4a1f-4ed9-80c1-45b9eab27b78_e3d170bf-d785-448c-8484-2a2149f52aae.jpg.jpg",
+     "shot": "S034",
+     "t0": 149.73,
+     "t1": 153.53,
+     "text": "Tbilisi",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps016_fc9b221b-4a1f-4ed9-80c1-45b9eab27b78_e3d170bf-d785-448c-8484-2a2149f52aae.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S035",
+   "t0": 153.533,
+   "t1": 157.144,
+   "t_still": 155.162,
+   "still": "out/board/fieldnotes/S035.jpg",
+   "bar": 66,
+   "lyric": "To live my life as it's meant to be",
+   "sync": "'To LIVE MY LIFE as it's meant to be': Tskaltubo starts with the NO ENTRY tape; red 'Yes, no entry.' on 'life'",
+   "photos": [
+    "ps020_5dea4ec9-2119-4ac7-bda0-0de8e74dbc3c_9afb54d8-288d-4cb0-a417-9c0c67c26aaa.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "tskaltubo|ps020_5dea4ec9-2119-4ac7-bda0-0de8e74dbc3c_9afb54d8-288d-4cb0-a417-9c0c67c26aaa.jpg.jpg",
+     "shot": "S035",
+     "t0": 153.53,
+     "t1": 157.14,
+     "text": "Tskaltubo",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps020_5dea4ec9-2119-4ac7-bda0-0de8e74dbc3c_9afb54d8-288d-4cb0-a417-9c0c67c26aaa.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "yes no entry|ps020_5dea4ec9-2119-4ac7-bda0-0de8e74dbc3c_9afb54d8-288d-4cb0-a417-9c0c67c26aaa.jpg.jpg",
+     "shot": "S035",
+     "t0": 154.57,
+     "t1": 157.14,
+     "text": "Yes, no entry.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps020_5dea4ec9-2119-4ac7-bda0-0de8e74dbc3c_9afb54d8-288d-4cb0-a417-9c0c67c26aaa.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S036",
+   "t0": 157.144,
+   "t1": 160.499,
+   "t_still": 157.814,
+   "still": "out/board/fieldnotes/S036.jpg",
+   "bar": 69,
+   "lyric": "",
+   "sync": "brass bars 69-70 (page turn on the downbeat): Tom and a stray dog at the abandoned station (clip 6.0 s ->), the station",
+   "photos": [
+    "ps018_b49c4504-6c6b-4bc1-8bc0-8787e7a85bab_859d2f4f-b4c3-4427-afb3-36845de2ee28.mp4",
+    "ps018_b6ab3f6d-972b-4722-af1d-aea2ca798228_3418cea1-992d-4789-801e-590ac7a63e6c.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S037",
+   "t0": 160.499,
+   "t1": 163.878,
+   "t_still": 161.169,
+   "still": "out/board/fieldnotes/S037.jpg",
+   "bar": 71,
+   "lyric": "",
+   "sync": "bars 71-72: the two of you in the sanatorium: Sam in the window, Tom on the broken landing",
+   "photos": [
+    "ps020_86efc188-dba0-4710-ae14-693395f7cb3d_e02b3d7b-ed21-481d-9907-2881db882159.jpg.jpg",
+    "ps020_d3bb59b3-e32a-4d07-8e4b-671f0187fae7_bec06252-cf5e-4248-a224-64db6d9237e9.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S038",
+   "t0": 163.878,
+   "t1": 167.245,
+   "t_still": 164.548,
+   "still": "out/board/fieldnotes/S038.jpg",
+   "bar": 73,
+   "lyric": "",
+   "sync": "bars 73-74: the tree inside the rotunda fills the page",
+   "photos": [
+    "ps020_1bd83b7e-37cb-4e40-b4f7-39cfc9a7e4f5_365f2403-fdbd-486f-a179-824fb653fcc2.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [],
+   "flags": []
+  },
+  {
+   "id": "S039",
+   "t0": 167.245,
+   "t1": 170.629,
+   "t_still": 168.406,
+   "still": "out/board/fieldnotes/S039.jpg",
+   "bar": 75,
+   "lyric": "",
+   "sync": "bars 75-76: 19.10., Batumi's upside-down house: 'not the book this time.'",
+   "photos": [
+    "ps021_450fb940-034b-4ebe-99f9-ce82aa86d9e5_48b1d29e-e62e-4e47-903d-05f2a2fb3bc5.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "19 10 batumi|ps021_450fb940-034b-4ebe-99f9-ce82aa86d9e5_48b1d29e-e62e-4e47-903d-05f2a2fb3bc5.jpg.jpg",
+     "shot": "S039",
+     "t0": 167.25,
+     "t1": 170.63,
+     "text": "19.10.  ·  Batumi",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps021_450fb940-034b-4ebe-99f9-ce82aa86d9e5_48b1d29e-e62e-4e47-903d-05f2a2fb3bc5.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "not the book this time|ps021_450fb940-034b-4ebe-99f9-ce82aa86d9e5_48b1d29e-e62e-4e47-903d-05f2a2fb3bc5.jpg.jpg",
+     "shot": "S039",
+     "t0": 167.69,
+     "t1": 170.63,
+     "text": "not the book this time.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps021_450fb940-034b-4ebe-99f9-ce82aa86d9e5_48b1d29e-e62e-4e47-903d-05f2a2fb3bc5.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "khinkali|ps021_450fb940-034b-4ebe-99f9-ce82aa86d9e5_48b1d29e-e62e-4e47-903d-05f2a2fb3bc5.jpg.jpg",
+     "shot": "S039",
+     "t0": 167.25,
+     "t1": 170.63,
+     "text": "khinkali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps021_450fb940-034b-4ebe-99f9-ce82aa86d9e5_48b1d29e-e62e-4e47-903d-05f2a2fb3bc5.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S040",
+   "t0": 170.629,
+   "t1": 175.714,
+   "t_still": 173.094,
+   "still": "out/board/fieldnotes/S040.jpg",
+   "bar": 77,
+   "lyric": "",
+   "sync": "bars 77-79: Abastumani, a night page: Sam at the eyepiece and Tom under the big telescope; the moon they were looking at lands between them on bar 78",
+   "photos": [
+    "ps022_0e6e14ab-c409-4199-a32d-9ac553da402b_30755e52-d242-458a-baaa-0baf97d5f8b2.jpg.jpg",
+    "ps022_3d49272f-4f6d-4c25-b1a1-eba193a61f5e_1b9e916c-9267-4e55-b9a3-506862019b7d.jpg.jpg",
+    "ps022_7e6e127e-1d91-4ffb-a2dd-194bd78ba0be_a1d72f4e-2a40-4520-ba54-0458fbf22831.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "abastumani|ps022_0e6e14ab-c409-4199-a32d-9ac553da402b_30755e52-d242-458a-baaa-0baf97d5f8b2.jpg.jpg,ps022_3d49272f-4f6d-4c25-b1a1-eba193a61f5e_1b9e916c-9267-4e55-b9a3-506862019b7d.jpg.jpg,ps022_7e6e127e-1d91-4ffb-a2dd-194bd78ba0be_a1d72f4e-2a40-4520-ba54-0458fbf22831.jpg.jpg",
+     "shot": "S040",
+     "t0": 170.63,
+     "t1": 175.71,
+     "text": "Abastumani",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps022_0e6e14ab-c409-4199-a32d-9ac553da402b_30755e52-d242-458a-baaa-0baf97d5f8b2.jpg.jpg",
+      "ps022_3d49272f-4f6d-4c25-b1a1-eba193a61f5e_1b9e916c-9267-4e55-b9a3-506862019b7d.jpg.jpg",
+      "ps022_7e6e127e-1d91-4ffb-a2dd-194bd78ba0be_a1d72f4e-2a40-4520-ba54-0458fbf22831.jpg.jpg"
+     ],
+     "check": false
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S041",
+   "t0": 175.714,
+   "t1": 179.087,
+   "t_still": 176.404,
+   "still": "out/board/fieldnotes/S041.jpg",
+   "bar": 80,
+   "lyric": "",
+   "sync": "bars 80-81: 20.10., Vardzia: the arch, and the whole cliff of caves",
+   "photos": [
+    "ps023_281a0117-3b96-4700-9740-be9b7848469f_72f534e8-a1eb-4ab1-b804-6f0e42b7e7ee.jpg.jpg",
+    "ps023_f46e6921-1b2c-431e-ae4b-228d064b7187_4ae0f0ed-bb62-4a1a-98b3-5d86c0a471b3.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "20 10 vardzia|ps023_281a0117-3b96-4700-9740-be9b7848469f_72f534e8-a1eb-4ab1-b804-6f0e42b7e7ee.jpg.jpg,ps023_f46e6921-1b2c-431e-ae4b-228d064b7187_4ae0f0ed-bb62-4a1a-98b3-5d86c0a471b3.jpg.jpg",
+     "shot": "S041",
+     "t0": 175.71,
+     "t1": 179.09,
+     "text": "20.10.  ·  Vardzia",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps023_281a0117-3b96-4700-9740-be9b7848469f_72f534e8-a1eb-4ab1-b804-6f0e42b7e7ee.jpg.jpg",
+      "ps023_f46e6921-1b2c-431e-ae4b-228d064b7187_4ae0f0ed-bb62-4a1a-98b3-5d86c0a471b3.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "khinkali|ps023_281a0117-3b96-4700-9740-be9b7848469f_72f534e8-a1eb-4ab1-b804-6f0e42b7e7ee.jpg.jpg,ps023_f46e6921-1b2c-431e-ae4b-228d064b7187_4ae0f0ed-bb62-4a1a-98b3-5d86c0a471b3.jpg.jpg",
+     "shot": "S041",
+     "t0": 175.71,
+     "t1": 179.09,
+     "text": "khinkali",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps023_281a0117-3b96-4700-9740-be9b7848469f_72f534e8-a1eb-4ab1-b804-6f0e42b7e7ee.jpg.jpg",
+      "ps023_f46e6921-1b2c-431e-ae4b-228d064b7187_4ae0f0ed-bb62-4a1a-98b3-5d86c0a471b3.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S042",
+   "t0": 179.087,
+   "t1": 200.952,
+   "t_still": 197.25,
+   "still": "out/board/fieldnotes/S042.jpg",
+   "bar": 82,
+   "lyric": "And I will hold on hope And I won't let you choke On the noose around your neck And I'll find strength in pain And I will change my ways I'll know my name as it's called again",
+   "sync": "final chorus: the checklist page (one line per sung phrase, red ticks; the khinkali tally completes 12 strokes; 'we made it.'; Tom signs on 'my', Sam on 'name') while the right page paints the last days, one per 2-3 bars",
+   "photos": [
+    "ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg",
+    "ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg",
+    "ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg",
+    "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+    "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+    "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "survived|ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg,ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg,ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg,ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg,ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg,ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 179.09,
+     "t1": 200.95,
+     "text": "survived:",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg",
+      "ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg",
+      "ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg",
+      "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+      "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "the roads|ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg,ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg,ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg,ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg,ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg,ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 180.88,
+     "t1": 200.95,
+     "text": "the roads",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg",
+      "ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg",
+      "ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg",
+      "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+      "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "sketchy hotels|ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg,ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg,ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg,ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg,ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg,ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 182.14,
+     "t1": 200.95,
+     "text": "sketchy hotels",
+     "layer": "text",
+     "origin": "brief",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg",
+      "ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg",
+      "ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg",
+      "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+      "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "taxi drivers|ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg,ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg,ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg,ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg,ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 185.95,
+     "t1": 200.95,
+     "text": "taxi drivers",
+     "layer": "text",
+     "origin": "brief",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg",
+      "ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg",
+      "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+      "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "khinkali every day|ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg,ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg,ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg,ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg,ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 189.1,
+     "t1": 200.95,
+     "text": "khinkali, every day",
+     "layer": "text",
+     "origin": "brief",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg",
+      "ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg",
+      "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+      "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "we made it|ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg,ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg,ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 193.83,
+     "t1": 200.95,
+     "text": "we made it.",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+      "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "tom|ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 196.36,
+     "t1": 200.95,
+     "text": "Tom",
+     "layer": "text",
+     "origin": "name",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "sam|ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 196.78,
+     "t1": 200.95,
+     "text": "Sam",
+     "layer": "text",
+     "origin": "name",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "21 10 borjomi hike|ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg",
+     "shot": "S042",
+     "t0": 179.09,
+     "t1": 184.1,
+     "text": "21.10.  ·  Borjomi Hike",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps024_97c2da12-8347-49b0-92fe-f41edbd98ef3_5ef7c274-4ae4-432b-b59f-72f5f610c8d5.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "22 10 big chill|ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg",
+     "shot": "S042",
+     "t0": 184.16,
+     "t1": 189.14,
+     "text": "22.10.  ·  Big chill",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps024_e10c48ab-4033-4e8f-af3b-f985c618beb0_605df1da-82d0-487c-9ab3-091750339094.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "23 10 sword mountain|ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg,ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg,ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg,ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg",
+     "shot": "S042",
+     "t0": 189.19,
+     "t1": 200.9,
+     "text": "23.10.  ·  Sword mountain",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps026_70ff1fa9-60eb-45d5-af4f-4cb4c20d6589_e19106b5-db41-4935-ad63-177323796262.jpg.jpg",
+      "ps026_79d27472-f89a-40ed-aa82-ba636d836142_562f1041-ac7e-4a08-969d-db7e0d690868.jpg.jpg",
+      "ps026_b34f2853-0701-4cf1-8b51-267c43eb7655_afcd1a0c-c56b-44ac-8f0c-7ab97a3f6538.jpg.jpg",
+      "ps026_cd3fae9a-8dcd-4b2d-af68-754d32e021f7_2d264cbf-35bb-46fb-ab9a-1e40d6552443.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": "S043",
+   "t0": 200.952,
+   "t1": 214.502,
+   "t_still": 210.878,
+   "still": "out/board/fieldnotes/S043.jpg",
+   "bar": 93,
+   "lyric": "",
+   "sync": "the last chord: a page turn on the band's last hit; the whole loop draws itself in red ink over the ring-out, a small painting lands per beat; silence: 'madloba!', 'Thank you Georgia', '— Tom + Sam'",
+   "photos": [
+    "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+    "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+    "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+    "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+    "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+    "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+   ],
+   "starred": [],
+   "captions": [
+    {
+     "key": "russia|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 201.47,
+     "t1": 214.5,
+     "text": "Russia",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "turkey|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 201.47,
+     "t1": 214.5,
+     "text": "Turkey",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "armenia|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 201.47,
+     "t1": 214.5,
+     "text": "Armenia",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "azerbaijan|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 201.47,
+     "t1": 214.5,
+     "text": "Azerbaijan",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "black sea|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 201.47,
+     "t1": 214.5,
+     "text": "Black Sea",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "tbilisi|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 201.38,
+     "t1": 214.5,
+     "text": "Tbilisi",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "kazbegi|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 202.22,
+     "t1": 214.5,
+     "text": "Kazbegi",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "gori|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 203.07,
+     "t1": 214.5,
+     "text": "Gori",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "kutaisi|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 203.91,
+     "t1": 214.5,
+     "text": "Kutaisi",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "batumi|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 204.76,
+     "t1": 214.5,
+     "text": "Batumi",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "vardzia|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 205.18,
+     "t1": 214.5,
+     "text": "Vardzia",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "borjomi|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 205.6,
+     "t1": 214.5,
+     "text": "Borjomi",
+     "layer": "text",
+     "origin": "place",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "12 10 — 23 10 2026 26 stops 1 564 km|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 204.34,
+     "t1": 214.5,
+     "text": "12.10. — 23.10.2026  ·  26 stops  ·  1,564 km",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "madloba|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 207.3,
+     "t1": 214.5,
+     "text": "madloba!",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    },
+    {
+     "key": "thank you georgia|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 208.57,
+     "t1": 214.5,
+     "text": "Thank you Georgia",
+     "layer": "text",
+     "origin": "brief",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": false
+    },
+    {
+     "key": "— tom sam|ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg,ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg,ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg,ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg,ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg,ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg",
+     "shot": "S043",
+     "t0": 210.26,
+     "t1": 214.5,
+     "text": "— Tom + Sam",
+     "layer": "text",
+     "origin": "?",
+     "basis": "",
+     "joke": "",
+     "photos": [
+      "ps005_ad25b53b-c37c-4d42-a546-8df7e26c9d74_b0f71cfd-1461-4dc1-b4ea-09fd9fb2b791.jpg.jpg",
+      "ps012_363e04de-9e64-4b3d-a52c-10cdf01dd148_7b5f3772-ca17-4cad-91a8-5a0e7c5e02c7.jpg.jpg",
+      "ps017_269e4978-f13f-4ec1-8efb-3254de574447_0a8397a5-3b83-4276-b8f4-9a2e74faaf2d.jpg.jpg",
+      "ps021_757eb4c3-7cb7-4038-bb34-090dee9c729b_c471b52d-71d9-43c4-b92f-7c412da455b8.jpg.jpg",
+      "ps023_3615762c-6234-4005-8ee6-98ee11bf6f3d_c720ca69-efef-412a-8993-c3cef6e4496a.jpg.jpg",
+      "ps026_edc73161-defa-4913-916e-08aaa91b470a_d94799c7-abed-477b-9a04-62bfdfeee42c.jpg.jpg"
+     ],
+     "check": true
+    }
+   ],
+   "flags": []
+  }
+ ]
+}

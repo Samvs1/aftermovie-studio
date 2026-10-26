@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aftermovie Studio</title>
+<style>
+@font-face{font-family:Anton;src:url(/fonts/Anton-Regular.ttf)}
+@font-face{font-family:Caveat;src:url("/fonts/Caveat[wght].ttf");font-weight:400 700}
+@font-face{font-family:SpaceMono;src:url(/fonts/SpaceMono-Regular.ttf)}
+:root{--bg:#0f0f10;--panel:#18181a;--card:#202023;--line:#2c2c30;--fg:#ececec;--mut:#9a9aa0;--acc:#ffd23f;--acc2:#ff5c9d;--ok:#5bd68a;--bad:#ff6b5b}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--acc)}
+button,.btn{font:inherit;border:0;border-radius:10px;padding:10px 16px;background:var(--acc);color:#111;font-weight:700;cursor:pointer}
+button.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+button.small{padding:5px 10px;font-size:13px;border-radius:8px}
+button:disabled{opacity:.45;cursor:default}
+input,textarea,select{font:inherit;width:100%;background:#121214;color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+textarea{min-height:84px;resize:vertical}
+label{display:block;margin:14px 0 6px;color:var(--mut);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+header{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(15,15,16,.92);backdrop-filter:blur(6px);z-index:5}
+header .logo{font-family:Anton,Impact,sans-serif;font-size:24px;letter-spacing:.02em;cursor:pointer}
+header .logo span{color:var(--acc)}
+header .crumb{color:var(--mut)}
+header .sp{flex:1}
+main{max-width:1240px;margin:0 auto;padding:24px 18px 80px}
+h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:40px;margin:6px 0 4px;letter-spacing:.01em}
+h2{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:28px;margin:0 0 6px}
+.hand{font-family:Caveat,cursive;font-size:24px;color:var(--acc)}
+.mut{color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.pcard{background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;border:1px solid var(--line);transition:transform .12s}
+.pcard:hover{transform:translateY(-2px);border-color:#444}
+.pcard .cov{height:150px;background:#000 center/cover no-repeat;display:grid;place-items:center;color:#444;font-family:Anton;font-size:40px}
+.pcard .b{padding:12px 14px}
+.pcard .t{font-weight:700;font-size:17px}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;background:#2a2a2e;color:var(--mut);margin-top:6px}
+.new{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:18px;border:2px dashed #3a3a40;border-radius:14px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:24px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}}
+nav.steps{position:sticky;top:84px;align-self:start;display:flex;flex-direction:column;gap:6px}
+nav.steps div{padding:10px 12px;border-radius:10px;cursor:pointer;color:var(--mut);display:flex;gap:10px;align-items:center}
+nav.steps div.on{background:var(--card);color:var(--fg)}
+nav.steps .dot{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;background:#2a2a2e;color:var(--mut);flex:none}
+nav.steps .dot.done{background:var(--ok);color:#111}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.drop{border:2px dashed #3d3d44;border-radius:14px;padding:34px;text-align:center;cursor:pointer;transition:.15s}
+.drop.over{border-color:var(--acc);background:#1d1c14}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:16px}
+.thumbs .th{position:relative;aspect-ratio:1;background:#000 center/contain no-repeat;border-radius:8px}
+.thumbs .th button{position:absolute;top:4px;right:4px;padding:1px 7px;font-size:12px;background:rgba(0,0,0,.65);color:#fff;border-radius:6px;display:none}
+.thumbs .th:hover button{display:block}
+.thumbs .th button.star{right:auto;left:4px;color:#fff}
+.thumbs .th button.star.on{display:block;background:var(--acc);color:#111}
+.rtabs{display:flex;gap:6px;margin:0 0 14px;border-bottom:1px solid var(--line)}
+.rtabs div{padding:8px 14px;cursor:pointer;color:var(--mut);border-bottom:2px solid transparent;margin-bottom:-1px}
+.rtabs div.on{color:var(--fg);border-color:var(--acc)}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.bcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.bcard.bad{border-color:var(--bad)}
+.bcard .im{position:relative;cursor:pointer}
+.bcard .im img{width:100%;aspect-ratio:16/9;display:block;background:#000}
+.bcard .im .tc{position:absolute;left:6px;bottom:6px;font:12px SpaceMono,monospace;background:rgba(0,0,0,.7);padding:1px 6px;border-radius:5px;color:var(--acc)}
+.bcard .bd{padding:9px 11px 11px;font-size:13px}
+.bcard .ly{color:var(--mut);font-style:italic;margin:2px 0 6px}
+.bcard .fl{color:var(--bad);margin:3px 0}
+.cap{display:flex;gap:6px;align-items:flex-start;padding:5px 0;border-top:1px solid var(--line)}
+.cap .ct{flex:1;white-space:pre-wrap}
+.cap .ct small{display:block;color:var(--mut)}
+.cap.no .ct{color:var(--bad);text-decoration:line-through}
+.cap.yes .ct{color:var(--ok)}
+.org{font-size:11px;padding:1px 6px;border-radius:99px;background:#2a2a2e;color:var(--mut);white-space:nowrap}
+.org.chk{background:#4a3d12;color:var(--acc)}
+.org.unk{background:#4a1d18;color:#ffb0a6}
+.cap button{padding:2px 8px;font-size:12px;border-radius:6px}
+.cap button.sel{outline:2px solid var(--fg)}
+.chg{display:flex;gap:8px;align-items:baseline;padding:3px 0;font-size:13px}
+.chg .w{font-size:11px;padding:0 6px;border-radius:99px;background:#2a2a2e;color:var(--mut)}
+.note .fx{display:inline-block;width:100%;color:var(--ok);font-size:13px;margin-top:3px}
+.thumbs .th .f{position:absolute;left:4px;bottom:4px;font-size:11px;background:rgba(0,0,0,.6);padding:0 5px;border-radius:5px}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:99px;border:1px solid var(--line);cursor:pointer;color:var(--mut);user-select:none}
+.chip.on{background:var(--acc);color:#111;border-color:var(--acc);font-weight:700}
+.steplist{list-style:none;padding:0;margin:16px 0}
+.steplist li{padding:7px 0;display:flex;gap:10px;align-items:center;color:var(--mut)}
+.steplist li.now{color:var(--fg);font-weight:700}
+.steplist li.done{color:var(--ok)}
+.spin{width:14px;height:14px;border:2px solid #555;border-top-color:var(--acc);border-radius:50%;animation:s 1s linear infinite;display:inline-block}
+@keyframes s{to{transform:rotate(360deg)}}
+pre.log{background:#0b0b0c;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:12px/1.5 SpaceMono,Consolas,monospace;color:#bbb;max-height:220px;overflow:auto;white-space:pre-wrap}
+.cl{display:grid;grid-template-columns:1fr;gap:10px;background:var(--card);border-radius:12px;padding:12px;margin-bottom:12px;border:1px solid var(--line)}
+.cl .faces{display:flex;gap:6px;overflow-x:auto}
+.cl .faces img{width:78px;height:78px;border-radius:8px;object-fit:cover;flex:none}
+.cl .f5{display:grid;grid-template-columns:1.2fr .8fr .9fr 1fr 1fr 1.6fr;gap:8px}
+@media(max-width:900px){.cl .f5{grid-template-columns:1fr 1fr}}
+.cl.ignored{opacity:.45}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.cards2{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+code.cmd{display:block;background:#0b0b0c;border:1px solid var(--line);padding:12px;border-radius:10px;font:15px SpaceMono,Consolas,monospace;color:var(--acc);margin:8px 0}
+video{width:100%;border-radius:12px;background:#000;max-height:64vh}
+.vtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.vtabs .chip{font-size:13px}
+.styles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:4px}
+.sty{position:relative;background:#151517;border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color .15s,transform .15s}
+.sty:hover{border-color:#55555c;transform:translateY(-1px)}
+.sty.on{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
+.sty.on::after{content:"\2713";position:absolute;top:7px;left:7px;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.sty img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#000}
+.sty .zm{position:absolute;top:7px;right:7px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;display:flex;align-items:center;justify-content:center;opacity:.85}
+.sty .zm:hover{opacity:1;background:rgba(0,0,0,.85)}
+.sty .b{padding:8px 10px 10px;font-size:12.5px;line-height:1.38}
+.sty .b b{display:block;font-size:14px;margin-bottom:3px}
+.sty .b span{display:block;color:#c9c9ce}
+.sty .b i{display:block;color:var(--mut);margin-top:5px;font-size:11.5px}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;display:flex;align-items:center;justify-content:center;padding:24px}
+.lbin{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:min(1100px,94vw)}
+.lbin img{display:block;width:100%;max-height:72vh;object-fit:contain;background:#000}
+.gal summary{cursor:pointer;color:var(--acc);margin:10px 0 6px}
+.gal img{width:100%;border-radius:8px;display:block}
+.dirs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+@media(max-width:1000px){.dirs{grid-template-columns:1fr}}
+.dir{background:#151517;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.dir.on{border-color:var(--ok);box-shadow:0 0 0 1px var(--ok)}
+.dir .frames{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#000}
+.dir .frames img{width:100%;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in;display:block}
+.songs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:900px){.songs{grid-template-columns:1fr}}
+.song{background:#151517;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.song.on{border-color:var(--ok)}
+.note{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:10px;background:var(--card);margin-bottom:8px}
+.note .ts{font:13px SpaceMono,monospace;background:#2a2a2e;padding:2px 7px;border-radius:6px;cursor:pointer;color:var(--acc);flex:none}
+.note .tx{flex:1;white-space:pre-wrap}
+.note.done .tx{text-decoration:line-through;color:var(--mut)}
+.qa{font-size:13px;color:var(--mut);margin:10px 0 0;padding-left:18px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#2a2a2e;color:var(--fg);padding:10px 16px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
+.prog{height:6px;background:#2a2a2e;border-radius:4px;overflow:hidden;margin:6px 0}
+.prog div{height:100%;background:var(--acc);width:0;transition:width .2s}
+.hint{font-size:13px;color:var(--mut);margin-top:6px}
+img.sheet{width:100%;border-radius:10px;margin-top:14px}
+</style>
+</head>
+<body>
+<header><div class="logo" onclick="go('')">AFTERMOVIE <span>STUDIO</span></div><div class="crumb" id="crumb"></div><div class="sp"></div>
+<button class="ghost small" onclick="doctor()">Check install</button></header>
+<main id="main"></main>
+<div class="toast" id="toast"></div>
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const api = async (path, opts = {}) => {
+  const r = await fetch(path, {headers: {"Content-Type": "application/json"}, ...opts});
+  const j = await r.json();
+  if (!r.ok || j.error) throw new Error(j.error || r.statusText);
+  return j;
+};
+const post = (path, body) => api(path, {method: "POST", body: JSON.stringify(body || {})});
+function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add("on"); clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove("on"), 2600); }
+const fmt = t => { t = Math.max(0, t); return Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0") + "." + Math.floor((t % 1) * 10); };
+
+let S = null, step = "upload", poll = null;
+const STEPS = [["upload", "Photos & song"], ["brief", "The brief"], ["analyse", "Analyse"], ["people", "Who's who"], ["make", "Make the film"], ["review", "Review"]];
+
+function go(hash) { location.hash = hash; }
+window.onhashchange = route;
+async function route() {
+  clearInterval(poll);
+  const h = location.hash.slice(1).split("/");
+  if (!h[0]) return home();
+  step = h[1] || "upload";
+  if (step === "review" && h[2]) rtab = h[2] === "board" ? "board" : "film";      // #project/review/board opens the storyboard
+  await load(h[0]);
+}
+
+// ---------------------------------------------------------------- home
+async function home() {
+  $("#crumb").textContent = "";
+  const ps = await api("/api/projects");
+  $("#main").innerHTML = `<h1>Your aftermovies</h1><p class="mut">Photos + one song + a little context &rarr; a music-locked film. Every cut lands on the beat.</p>
+  <div class="grid" style="margin-top:20px">
+    <div class="new"><div class="hand">a new one</div><input id="nn" placeholder="Name, e.g. Summer in Lisbon">
+      <button onclick="newProject()">Start an aftermovie</button></div>
+    ${ps.map(p => `<div class="pcard" onclick="go('${p.name}')"><div class="cov" style="${p.cover ? `background-image:url('${p.cover}')` : ""}">${p.cover ? "" : "&#9654;"}</div>
+      <div class="b"><div class="t">${esc(p.title)}</div><div class="mut">${p.photos} photos${p.song ? " &middot; " + esc(p.song) : ""}</div><span class="tag">${esc(p.stage)}</span></div></div>`).join("")}
+  </div>`;
+}
+async function newProject() {
+  const n = $("#nn").value.trim(); if (!n) return toast("Give it a name first");
+  const r = await post("/api/projects", {name: n, title: n}); go(r.name);
+}
+
+// ---------------------------------------------------------------- project shell
+async function load(name) {
+  S = await api("/api/p/" + name);
+  await stylesReady;
+  $("#crumb").innerHTML = "/ " + esc(S.project.title || name);
+  const done = {upload: S.photos.length > 0 && S.music.length > 0, brief: !!(S.project.occasion || S.project.vibe || S.project.people_notes),
+                analyse: !!S.project.analysis, people: !!(S.project.status || {}).people_named, make: S.versions.length > 0,
+                review: !!(S.project.status || {}).approved, trip: !!S.trip && S.trip.steps.some(s => s.note)};
+  const steps = S.trip ? [STEPS[0], ["trip", "The trip"], ...STEPS.slice(1)] : STEPS;
+  if (step === "trip" && !S.trip) step = "upload";
+  $("#main").innerHTML = `<div class="layout"><nav class="steps">${steps.map(([k, l], i) =>
+      `<div class="${k === step ? "on" : ""}" onclick="go('${name}/${k}')"><span class="dot ${done[k] ? "done" : ""}">${done[k] ? "&#10003;" : i + 1}</span>${l}</div>`).join("")}</nav>
+    <section class="panel" id="pane"></section></div>`;
+  ({upload: vUpload, trip: vTrip, brief: vBrief, analyse: vAnalyse, people: vPeople, make: vMake, review: vReview})[step]();
+}
+const refresh = () => load(S.name);
+
+// ---------------------------------------------------------------- 1. upload
+function vUpload() {
+  const song = S.project.song || {};
+  $("#pane").innerHTML = `<h2>Photos &amp; song</h2><p class="mut">Drop everything in: photos (JPG, PNG, HEIC), short video clips, and the song (MP3). Disposable scans and phone shots can be mixed.</p>
+  <div class="drop" id="drop"><div class="hand" style="font-size:30px">drop photos, clips &amp; the song here</div><div class="mut">or click to choose files</div>
+    <input type="file" id="fi" multiple accept="image/*,video/*,audio/*,.heic" style="display:none"></div>
+  <div id="up"></div>
+  <div class="box" style="margin-top:16px"><div class="row"><b>Travelled with Polarsteps?</b><span class="mut">Import a trip: its photos, the route, places, dates and your step texts.</span></div>
+    ${S.trip ? `<p>&#10003; Imported <b>${esc(S.trip.trip.name)}</b>: ${S.trip.steps.length} steps, ${S.trip.trip.photos} photos. <a href="#${S.name}/trip">Add context per step &rarr;</a></p>` : ""}
+    <details style="margin:8px 0"><summary class="mut" style="cursor:pointer">How to get your Polarsteps export</summary>
+      <ol class="mut"><li>On a computer, open <b>polarsteps.com</b> and log in</li><li>Go to <b>Account settings &rarr; Download my data</b></li>
+      <li>Polarsteps emails you a download link (can take a while): save the <b>.zip</b></li><li>Drop that zip here and pick the trip</li></ol></details>
+    <div class="drop" id="pdrop" style="padding:18px"><span class="hand" style="font-size:24px">drop the Polarsteps .zip here</span><input type="file" id="pfi" accept=".zip" style="display:none"></div>
+    <div id="pres"></div><ul class="steplist" id="sl-trip"></ul><pre class="log" id="lg-trip" style="display:none"></pre></div>
+  <div class="box" style="margin-top:16px"><div class="row"><b>Need a song?</b><span class="mut">Claude looks at your photos (and the trip or brief) and suggests songs that fit the vibe. Takes 1-3 minutes.</span></div>
+    <div class="row" style="margin-top:10px"><input id="taste" style="flex:1;min-width:240px" placeholder="Optional: songs or artists you like, or a mood (&quot;more upbeat&quot;, &quot;no English&quot;)" value="${esc(S.project.music_taste)}">
+      <button id="go-songs" data-off="${S.photos.length < 5 ? 1 : 0}" ${S.photos.length < 5 ? "disabled" : ""} onclick="suggestSongs()">${(S.project.song_suggestions || {}).items ? "Suggest again" : "Suggest songs"}</button>
+      <button class="ghost small" id="stop-songs" onclick="stopJob()" style="display:none">Stop</button></div>
+    ${S.photos.length < 5 ? '<p class="hint">Add at least 5 photos first.</p>' : ""}
+    <ul class="steplist" id="sl-songs"></ul><pre class="log" id="lg-songs" style="display:none"></pre>${songCards()}</div>
+  <div class="two" style="margin-top:18px"><div><label>Song file</label><div>${S.music.length ? S.music.map(esc).join("<br>") : '<span class="mut">no song yet</span>'}</div></div>
+    <div class="row" style="gap:10px"><div style="flex:1"><label>Artist</label><input id="sa" value="${esc(song.artist)}"></div>
+      <div style="flex:1"><label>Title</label><input id="st" value="${esc(song.title)}"></div></div></div>
+  <p class="hint">Artist + title let the studio find the synced lyrics, so captions can land on the sung words.</p>
+  <div class="row" style="margin-top:20px"><b>${S.photos.length} photos</b>${S.videos.length ? `<span class="mut">+ ${S.videos.length} clip(s)</span>` : ""}
+    <span class="mut">&middot; star (&#9733;) the ones that must be in the film${musts().length ? `: ${musts().length} starred` : ""}</span></div>
+  <div class="thumbs">${S.photos.map(p => `<div class="th" style="background-image:url('${p.thumb}')" title="${esc(p.name)}">${starBtn(p.name)}<button onclick="del('${esc(p.name)}')">&#10005;</button>${p.analysed ? `<span class="f">${p.faces} face${p.faces === 1 ? "" : "s"}</span>` : ""}</div>`).join("")}
+    ${S.videos.map(v => `<div class="th" style="display:grid;place-items:center;background:#222">${starBtn(v.name)}<span class="mut">&#9654; ${esc(v.name)}</span><button onclick="del('${esc(v.name)}')">&#10005;</button></div>`).join("")}</div>
+  <div class="row" style="margin-top:22px"><button onclick="go('${S.name}/brief')">Next: the brief &rarr;</button></div>`;
+  const d = $("#drop"), fi = $("#fi");
+  d.onclick = () => fi.click();
+  fi.onchange = () => upload([...fi.files]);
+  d.ondragover = e => { e.preventDefault(); d.classList.add("over"); };
+  d.ondragleave = () => d.classList.remove("over");
+  d.ondrop = e => { e.preventDefault(); d.classList.remove("over"); upload([...e.dataTransfer.files]); };
+  const saveSong = () => post(`/api/p/${S.name}/brief`, {song: {artist: $("#sa").value, title: $("#st").value}}).then(() => toast("Song saved"));
+  $("#sa").onchange = saveSong; $("#st").onchange = saveSong;
+  const pd = $("#pdrop"), pfi = $("#pfi");
+  pd.onclick = () => pfi.click();
+  pfi.onchange = () => pfi.files[0] && polarstepsUpload(pfi.files[0]);
+  pd.ondragover = e => { e.preventDefault(); pd.classList.add("over"); };
+  pd.ondragleave = () => pd.classList.remove("over");
+  pd.ondrop = e => { e.preventDefault(); pd.classList.remove("over"); const f = [...e.dataTransfer.files].find(f => /\.zip$/i.test(f.name)); f ? polarstepsUpload(f) : toast("Drop the .zip from Polarsteps"); };
+  watchJob(["trip", "songs"]);
+}
+function songCards() {
+  const sg = S.project.song_suggestions;
+  if (!sg || !sg.items || !sg.items.length) return "";
+  const cur = (S.project.song || {});
+  const mmss = d => d ? `${Math.floor(d / 60)}:${String(Math.round(d % 60)).padStart(2, "0")}` : "";
+  return `<p class="mut" style="margin:12px 0 6px">Suggestions from ${esc(sg.at)} &middot; listen, pick one, then drop its MP3 above.</p><div class="songs">` +
+    sg.items.map((it, i) => {
+      const c = it.check || {}, q = encodeURIComponent(`${it.artist} ${it.title}`);
+      const on = cur.title && cur.title.toLowerCase() === String(it.title).toLowerCase();
+      return `<div class="song ${on ? "on" : ""}"><div><b>${esc(it.title)}</b> <span class="mut">&middot; ${esc(it.artist)}</span></div>
+        <div class="mut" style="font-size:13px">${esc(it.energy || "")}${c.duration ? " &middot; " + mmss(c.duration) : ""}${c.found ? (c.synced ? " &middot; lyrics &#10003;" : " &middot; no synced lyrics") : c.found === false ? ' &middot; <span style="color:var(--bad)">couldn\'t verify this song</span>' : ""}</div>
+        <p style="margin:8px 0">${esc(it.why)}</p><div class="chips" style="gap:5px">${(it.tags || []).map(t => `<span class="tag" style="margin:0">${esc(t)}</span>`).join("")}</div>
+        <details style="margin-top:8px"><summary class="mut" style="cursor:pointer">How it would cut</summary><p class="mut">${esc(it.structure || "")}</p><p class="mut">${esc(it.fit || "")}</p>${it.lyric_hooks ? `<p class="mut"><i>Gag idea:</i> ${esc(it.lyric_hooks)}</p>` : ""}</details>
+        <div class="row" style="margin-top:10px"><a href="https://www.youtube.com/results?search_query=${q}" target="_blank">&#9654; Listen</a><a href="https://open.spotify.com/search/${q}" target="_blank">Spotify</a>
+          <span style="flex:1"></span>${on ? '<span class="tag" style="background:var(--ok);color:#111">chosen</span>' : `<button class="small" onclick="useSong(${i})">Use this one</button>`}</div></div>`;
+    }).join("") + "</div>";
+}
+async function suggestSongs() {
+  await post(`/api/p/${S.name}/brief`, {music_taste: $("#taste").value});
+  startJob("songs");
+}
+async function useSong(i) {
+  const it = S.project.song_suggestions.items[i];
+  await post(`/api/p/${S.name}/brief`, {song: {artist: it.artist, title: it.title}});
+  toast(`Now drop the MP3 of "${it.title}" above`);
+  refresh();
+}
+function polarstepsUpload(f) {
+  const r = $("#pres");
+  r.innerHTML = `<p>Uploading ${esc(f.name)}&hellip;</p><div class="prog"><div id="ppb"></div></div>`;
+  const x = new XMLHttpRequest();
+  x.open("PUT", `/api/p/${S.name}/polarsteps-upload?filename=${encodeURIComponent(f.name)}`);
+  x.upload.onprogress = e => { $("#ppb").style.width = (e.loaded / e.total * 100) + "%"; };
+  x.onload = () => {
+    let j = {}; try { j = JSON.parse(x.responseText); } catch (e) {}
+    if (x.status >= 400 || j.error) { r.innerHTML = `<p style="color:var(--bad)">${esc(j.error || "upload failed")}</p>`; return; }
+    r.innerHTML = `<p>Which trip?</p>` + j.trips.map(t => `<div class="note"><span class="tx"><b>${esc(t.name)}</b> <span class="mut">${esc(t.start)} &rarr; ${esc(t.end)} &middot; ${t.steps} steps &middot; ${t.media} photos/clips</span></span>
+      <button class="small" onclick='importTrip(${JSON.stringify(j.zip)}, ${JSON.stringify(String(t.id || t.name))})'>Import</button></div>`).join("");
+  };
+  x.onerror = () => r.innerHTML = `<p style="color:var(--bad)">upload failed</p>`;
+  x.send(f);
+}
+async function importTrip(zip, trip) {
+  try { await post(`/api/p/${S.name}/polarsteps-import`, {zip, trip}); $("#pres").innerHTML = "<p>Importing&hellip;</p>"; watchJob("trip"); } catch (e) { toast(e.message); }
+}
+
+// ---------------------------------------------------------------- the trip (Polarsteps steps + your context)
+function vTrip() {
+  const T = S.trip.trip;
+  $("#pane").innerHTML = `<h2>The trip</h2>
+  <p><b>${esc(T.name)}</b> <span class="mut">&middot; ${esc(T.start)} &rarr; ${esc(T.end)} &middot; ${T.days || "?"} days &middot; ${(T.country_names || []).map(esc).join(", ")} &middot; ~${T.km || "?"} km &middot; ${T.photos} photos</span></p>
+  <p class="mut">Each step is a moment in the film. Give it a short name for the screen and a line about what happened. Your Polarsteps text is filled in where you wrote one. Empty is fine: Claude asks about the important ones. Leave a step out to skip its photos.</p>
+  <div id="stl">${S.trip.steps.map(s => `<div class="cl ${s.skip ? "ignored" : ""}" data-id="${esc(s.id)}">
+    <div class="row" style="justify-content:space-between"><b>${esc(s.date_label || s.date)} &middot; ${esc(s.place)}${s.country ? `, ${esc(s.country)}` : ""}</b>
+      <span class="mut">${s.photos} photo${s.photos === 1 ? "" : "s"}${s.weather_temp != null ? ` &middot; ${Math.round(s.weather_temp)}&deg;C` : ""}</span></div>
+    <div class="faces">${s.thumbs.map(u => `<img src="${u}" style="width:110px;height:82px">`).join("")}</div>
+    <div class="two"><div><label>On screen</label><input data-k="label" value="${esc(s.label)}" placeholder="${esc(s.place)}"></div>
+      <div><label>Leave out</label><select data-k="skip"><option value="">use this step</option><option value="1" ${s.skip ? "selected" : ""}>leave its photos out</option></select></div></div>
+    <label>What happened here?</label><textarea data-k="note" placeholder="Who was there, what was funny, what you'll remember, a line someone said...">${esc(s.note)}</textarea>
+    <label>Who's in it / who did what</label><input data-k="who" value="${esc(s.who)}" placeholder="e.g. Tom drove, Sam cooked, both of us got lost"></div>`).join("")}</div>
+  <div class="row"><button onclick="saveSteps(true)">Save &amp; continue &rarr;</button><span class="mut" id="ssv"></span></div>`;
+  document.querySelectorAll("#stl input,#stl textarea,#stl select").forEach(el => el.onchange = () => saveSteps());
+}
+async function saveSteps(next) {
+  const body = {};
+  document.querySelectorAll("#stl .cl").forEach(el => {
+    const v = {}; el.querySelectorAll("[data-k]").forEach(i => v[i.dataset.k] = i.dataset.k === "skip" ? !!i.value : i.value);
+    body[el.dataset.id] = v; el.classList.toggle("ignored", v.skip);
+  });
+  await post(`/api/p/${S.name}/steps`, body);
+  $("#ssv").textContent = "saved";
+  if (next === true) go(S.name + "/brief");
+}
+async function upload(files) {
+  const up = $("#up");
+  let done = 0;
+  up.innerHTML = `<p>Uploading ${files.length} file(s)&hellip;</p><div class="prog"><div id="pb"></div></div><div class="mut" id="pf"></div>`;
+  for (const f of files) {
+    $("#pf").textContent = f.name;
+    await new Promise((res) => {
+      const x = new XMLHttpRequest();
+      x.open("PUT", `/api/p/${S.name}/upload?filename=${encodeURIComponent(f.name)}`);
+      x.upload.onprogress = e => { $("#pb").style.width = ((done + e.loaded / e.total) / files.length * 100) + "%"; };
+      x.onload = x.onerror = () => { if (x.status >= 400) toast("Skipped " + f.name); res(); };
+      x.send(f);
+    });
+    done++;
+  }
+  toast(`Uploaded ${done} file(s)`);
+  refresh();
+}
+async function del(name) { await post(`/api/p/${S.name}/delete`, {name}); refresh(); }
+const musts = () => S.project.must_use || [];
+const starBtn = n => `<button class="star ${musts().includes(n) ? "on" : ""}" title="must be in the film" onclick='star(${JSON.stringify(n)})'>&#9733;</button>`;
+async function star(name) {
+  const r = await post(`/api/p/${S.name}/must`, {name, on: !musts().includes(name)});
+  S.project.must_use = r.must_use; vUpload();
+}
+
+// ---------------------------------------------------------------- 2. brief
+let STYLE_INFO = ["scrapbook", "VHS rockumentary", "kinetic lyrics", "Swiss editorial", "risograph zine", "Super 8",
+  "French New Wave", "travel poster", "dream pop haze", "club strobe", "cyanotype", "infrared", "Y2K digicam", "collage chaos",
+  "symmetry / Wes-ish", "cinematic minimal", "diary sketchbook", "maps & motion"].map(n => ({key: n, name: n, title: n, line: "", fits: "", img: ""}));
+const stylesReady = fetch("/static/styles/styles.json").then(r => r.json()).then(d => { STYLE_INFO = d; }).catch(() => {});
+const ZOOM_ICON = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></svg>`;
+function styleCards(p) {
+  const on = (p.style_leanings || "").split(",").map(x => x.trim());
+  return `<div class="styles" id="lean">${STYLE_INFO.map(st => `<div class="sty ${on.includes(st.name) ? "on" : ""}" data-k="${esc(st.key)}" data-v="${esc(st.name)}">
+    ${st.img ? `<img src="${st.img}" loading="lazy" alt="">` : ""}<span class="zm" title="see it bigger">${ZOOM_ICON}</span>
+    <div class="b"><b>${esc(st.title)}</b>${st.line ? `<span>${esc(st.line)}</span>` : ""}${st.fits ? `<i>fits: ${esc(st.fits)}</i>` : ""}</div></div>`).join("")}</div>`;
+}
+function styleBox(k) {
+  const st = STYLE_INFO.find(x => x.key === k); if (!st || !st.img) return;
+  const card = document.querySelector(`#lean .sty[data-k="${CSS.escape(k)}"]`), on = card && card.classList.contains("on");
+  const d = document.createElement("div"); d.className = "lb";
+  d.innerHTML = `<div class="lbin"><img src="${st.img}" alt=""><div class="row" style="justify-content:space-between;padding:14px 18px;gap:20px">
+    <div><b style="font-size:20px">${esc(st.title)}</b><div>${esc(st.line)}</div><div class="mut" style="font-size:13px">fits: ${esc(st.fits)}</div></div>
+    <button id="lbt">${on ? "Remove" : "I like this one"}</button></div></div>`;
+  d.onclick = e => { if (e.target === d) d.remove(); };
+  document.body.appendChild(d);
+  $("#lbt").onclick = () => { if (card) { card.classList.toggle("on"); saveBrief(); } d.remove(); };
+}
+function galleryBlock() {
+  const ok = !!S.project.analysis;
+  return `<div style="margin-top:14px"><div class="row"><button class="ghost" id="go-gallery" data-off="${ok ? 0 : 1}" ${ok ? "" : "disabled"} onclick="startJob('gallery')">${S.gallery ? "Render the effects again" : "Try every effect on my photos"}</button>
+    <button class="ghost small" id="stop-gallery" onclick="stopJob()" style="display:none">Stop</button>
+    <span class="mut" style="font-size:13px">${ok ? "about 2 minutes: every look, layer and transition the studio has, on your own photos" : "available after the Analyse step"}</span></div>
+    <ul class="steplist" id="sl-gallery"></ul><pre class="log" id="lg-gallery" style="display:none"></pre>
+    ${S.gallery ? `<details class="gal"><summary>Your photos, every effect (click to open)</summary><a href="${S.gallery}" target="_blank"><img src="${S.gallery}" alt=""></a></details>` : ""}</div>`;
+}
+const VIBES = ["bittersweet", "jokey", "cinematic", "cozy", "hype", "romantic", "nostalgic", "chaotic"];
+function vBrief() {
+  const p = S.project, vibes = (p.vibe || "").split(",").map(s => s.trim()).filter(Boolean);
+  const F = (k, l, ph, area, hint) => `<label>${l}</label>${area ? `<textarea id="b_${k}" placeholder="${esc(ph)}">${esc(p[k])}</textarea>` : `<input id="b_${k}" placeholder="${esc(ph)}" value="${esc(p[k])}">`}${hint ? `<div class="hint">${hint}</div>` : ""}`;
+  $("#pane").innerHTML = `<h2>The brief</h2><p class="mut">Whatever you write here, Claude reads before directing. Rough notes are fine; it will ask about anything unclear.</p>
+  <div class="two"><div>${F("title", "Film title (optional)", "e.g. COOL KIDS / 27 EXPOSURES — or leave blank")}</div><div>${F("occasion", "What was it?", "a trip, a wedding, a graduation, a summer…")}</div>
+  <div>${F("when_where", "When & where", "Lisbon, July 2026")}</div><div>${F("group_name", "Group name / nickname", "e.g. the Night Owls")}</div></div>
+  <label>Vibe</label><div class="chips" id="vibes">${VIBES.map(v => `<span class="chip ${vibes.includes(v) ? "on" : ""}" data-v="${v}">${v}</span>`).join("")}</div>
+  <div class="box" style="margin-top:16px"><b>Creative direction</b> <span class="mut">How far should the film go? Claude proposes three directions with style frames from your own photos; you pick one.</span>
+    <label>How adventurous?</label><div class="chips" id="adv">${[["classic", "classic: clean, timeless"], ["bold", "bold: a strong look"], ["wild", "wild: surprise me"]].map(([v, l]) => `<span class="chip ${(p.adventurous || "bold") === v ? "on" : ""}" data-v="${v}">${l}</span>`).join("")}</div>
+    <label>Leaning towards (optional)</label><div class="hint" style="margin:0 0 6px">Click the styles you like (as many as you want). These are examples on public photos so you can see the idea; Claude makes its three directions from your own photos.</div>
+    ${styleCards(p)}${galleryBlock()}
+    ${F("references", "References (optional)", "films, music videos, designers, a vibe: 'a 70s travel poster', '90s skate video', 'Euphoria', 'Wes Anderson'...")}</div>
+  <div class="two"><div><label>Text on screen</label><select id="b_text_amount">${["none", "minimal", "medium", "lots"].map(o => `<option ${p.text_amount === o ? "selected" : ""}>${o}</option>`).join("")}</select></div>
+  <div>${F("language", "Language of the text", "English")}</div></div>
+  <label>Story order</label><textarea id="b_chapters" placeholder="one chapter per line, in the order it happened&#10;arrival + beach&#10;the house party&#10;the boat day&#10;last night">${esc((p.chapters || []).map(c => c.label).join("\n"))}</textarea>
+  ${F("people_notes", "The people", "Who's who, where everyone is from or going next, little facts…", true, "You can name faces on the Who's who step after the analysis.")}
+  ${F("jokes", "Inside jokes", "one per line: the story + the line people quote", true)}
+  ${F("musts", "Must-haves", "moments that have to be in it, people who should be in a scene together, what must come before what (e.g. 'the NO ENTRY sign before the abandoned buildings')", true, "Star must-use photos on the first step too. Claude turns this into checks the edit has to pass.")}
+  ${F("avoid", "Never show / never mention", "work stuff, an ex, a certain photo…", true)}
+  ${F("credits", "Credit lines (optional)", "Name: one funny line each, used word for word", true)}
+  ${F("ending_note", "Ending note", "a few short lines shown in silence at the end", true)}
+  <div class="two"><div>${F("editor", "Signed by", "your name")}</div><div>${F("length", "Length", "the whole song")}</div></div>
+  ${F("extra", "Anything else", "references you love, songs moments, must-use photos…", true)}
+  <div class="row" style="margin-top:20px"><button onclick="saveBrief(true)">Save &amp; continue &rarr;</button><span class="mut" id="saved"></span></div>`;
+  document.querySelectorAll("#vibes .chip").forEach(c => c.onclick = () => { c.classList.toggle("on"); saveBrief(); });
+  document.querySelectorAll("#lean .sty").forEach(c => c.onclick = e => {
+    if (e.target.closest(".zm")) return styleBox(c.dataset.k);
+    c.classList.toggle("on"); saveBrief();
+  });
+  watchJob("gallery");
+  document.querySelectorAll("#adv .chip").forEach(c => c.onclick = () => { document.querySelectorAll("#adv .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); saveBrief(); });
+  document.querySelectorAll("#pane input,#pane textarea,#pane select").forEach(el => el.onchange = () => saveBrief());
+}
+async function saveBrief(next) {
+  const b = {};
+  ["title", "occasion", "when_where", "group_name", "text_amount", "language", "people_notes", "jokes", "musts", "avoid", "credits", "ending_note", "editor", "length", "extra", "chapters", "references"]
+    .forEach(k => { const el = $("#b_" + k); if (el) b[k] = el.value; });
+  b.vibe = [...document.querySelectorAll("#vibes .chip.on")].map(c => c.dataset.v).join(", ");
+  b.style_leanings = [...document.querySelectorAll("#lean .sty.on")].map(c => c.dataset.v).join(", ");
+  const adv = document.querySelector("#adv .chip.on"); if (adv) b.adventurous = adv.dataset.v;
+  await post(`/api/p/${S.name}/brief`, b);
+  $("#saved").textContent = "saved";
+  if (next === true) go(S.name + "/analyse");
+}
+
+// ---------------------------------------------------------------- 3. analyse
+function vAnalyse() {
+  const a = S.project.analysis;
+  $("#pane").innerHTML = `<h2>Analyse</h2><p class="mut">Straightens sideways scans, finds and groups faces, separates the song into stems, finds the beats, sections and a clean edit point, and lines the lyrics up with the singing. A few minutes; the song part takes the longest.</p>
+  <div class="row"><button id="go-ingest" onclick="startJob('ingest')">Analyse photos &amp; song</button><button class="ghost small" id="stop-ingest" onclick="stopJob()" style="display:none">Stop</button></div>
+  <ul class="steplist" id="sl-ingest"></ul><pre class="log" id="lg-ingest" style="display:none"></pre>
+  <div id="res">${a ? `<div class="box" style="margin-top:14px"><b>Done.</b> ${a.photos} photos &middot; ${(S.clusters || []).length} face groups &middot; song ${Math.floor(a.duration / 60)}:${String(Math.floor(a.duration % 60)).padStart(2, "0")}, ${Math.round(a.tempo)} BPM ${a.constant_grid ? "(steady click)" : "(live band timing)"} &middot; lyrics ${a.lyrics_lines ? `&#10003; ${a.lyrics_lines} lines` : "not found (captions will follow the beat instead of words)"}
+    ${photoAdvice(a)}
+    <div class="row" style="margin-top:12px"><button onclick="go('${S.name}/people')">Next: who's who &rarr;</button></div></div>` : ""}</div>`;
+  watchJob('ingest');
+}
+function photoAdvice(a) {
+  if (!a.tempo || !a.duration) return "";
+  const bars = Math.round(a.duration * a.tempo / 240), n = S.photos.length;   // one photo per bar is the sweet spot
+  if (n < bars * 0.6) return `<p class="hint">The song has about <b>${bars} bars</b> and the edit works best at roughly one photo per bar. You have ${n}, so add more photos, or let Claude use a clean shorter cut of the song.</p>`;
+  if (n > bars * 1.6) return `<p class="hint">About <b>${bars} bars</b> of music for ${n} photos: the best ~${Math.round(bars * 1.2)} will be used (each photo once).</p>`;
+  return `<p class="hint">About ${bars} bars of music for ${n} photos: a good fit.</p>`;
+}
+async function startJob(kind) {
+  try { await post(`/api/p/${S.name}/${kind}`); toast("Started"); watchJob(kind); } catch (e) { toast(e.message); }
+}
+async function stopJob() { await post(`/api/p/${S.name}/stop`); toast("Stopping"); }
+let jobKinds = [];
+function renderJob(j) {
+  jobKinds.forEach(k => {                                   // one job per project: lock every start button while it runs
+    const g = $("#go-" + k), st = $("#stop-" + k);
+    if (g) g.disabled = !!j.running || g.dataset.off === "1";
+    if (st) st.style.display = j.running && j.job === k ? "" : "none";
+  });
+  if (!j.job || !jobKinds.includes(j.job)) return;          // another step's job: no steps/log here
+  const sl = $("#sl-" + j.job), lg = $("#lg-" + j.job);
+  if (sl && j.steps) sl.innerHTML = j.steps.map((s, i) => `<li class="${i < j.i || j.state === "done" ? "done" : i === j.i && j.running ? "now" : ""}">${i < j.i || j.state === "done" ? "&#10003;" : i === j.i && j.running ? '<span class="spin"></span>' : "&middot;"} ${esc(s)}</li>`).join("");
+  if (lg && j.log && j.log.length) { lg.style.display = ""; lg.textContent = j.log.join("\n"); lg.scrollTop = 1e9; }
+}
+let sawRunning = false;
+function watchJob(kinds) {
+  jobKinds = [].concat(kinds || []);
+  clearInterval(poll);
+  const tick = async () => {
+    const j = await api(`/api/p/${S.name}/job`);
+    renderJob(j);
+    if (j.running) { sawRunning = true; return; }
+    clearInterval(poll);
+    if (sawRunning) {                       // only react to a job we watched finish (no reload loops)
+      sawRunning = false;
+      if (j.returncode === 0) { toast("Finished"); refresh(); } else toast("Something went wrong: see the log");
+    }
+  };
+  tick(); poll = setInterval(tick, 1500);
+}
+
+// ---------------------------------------------------------------- 4. who's who
+function vPeople() {
+  if (!S.clusters.length) { $("#pane").innerHTML = `<h2>Who's who</h2><p class="mut">Run the analysis first: faces seen in at least two photos show up here as groups.</p>`; return; }
+  $("#pane").innerHTML = `<h2>Who's who</h2><p class="mut">Each row is one face group. Give everyone a name. Same name twice = the same person (the grouping isn't perfect). <b>Main cast</b> get credits, intros and "where are they now"; <b>extras</b> only appear in group shots.</p>
+  <div id="cls">${S.clusters.map(c => `<div class="cl ${c.role === "ignore" ? "ignored" : ""}" data-c="${c.cluster}"><div class="faces">${c.crops.map(u => `<img src="${u}">`).join("")}<span class="mut" style="align-self:center;padding-left:6px">in ${c.photos} photos</span></div>
+    <div class="f5"><input data-k="name" placeholder="Name" value="${esc(c.name)}"><input data-k="nick" placeholder="Nickname" value="${esc(c.nick)}">
+    <select data-k="role">${[["core", "main cast"], ["extra", "extra"], ["ignore", "not a person / skip"]].map(([v, l]) => `<option value="${v}" ${(c.role || "core") === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+    <input data-k="from" placeholder="From" value="${esc(c.from)}"><input data-k="city" placeholder="Now lives in" value="${esc(c.city)}"><input data-k="credit" placeholder="Credit line (optional)" value="${esc(c.credit)}"></div></div>`).join("")}</div>
+  <div class="row"><button onclick="saveCast()">Save names</button><span class="mut" id="cr"></span></div>
+  ${S.files.cast_sheet ? `<img class="sheet" src="${S.files.cast_sheet}?${Date.now()}">` : ""}`;
+  document.querySelectorAll(".cl select").forEach(s => s.onchange = () => s.closest(".cl").classList.toggle("ignored", s.value === "ignore"));
+}
+async function saveCast() {
+  const body = {};
+  document.querySelectorAll(".cl").forEach(el => { const v = {}; el.querySelectorAll("[data-k]").forEach(i => v[i.dataset.k] = i.value); body[el.dataset.c] = v; });
+  $("#cr").innerHTML = '<span class="spin"></span> matching faces&hellip;';
+  const r = await post(`/api/p/${S.name}/cast`, body);
+  toast(`${r.people} people saved`); refresh();
+}
+
+// ---------------------------------------------------------------- 5. make
+function vMake() {
+  const cmd = `/aftermovie ${S.name}`;
+  $("#pane").innerHTML = `<h2>Make the film</h2>${directionsPanel()}
+  <div class="cards2"><div class="box"><div class="hand">recommended</div><h2 style="font-size:24px">Direct it with Claude</h2>
+    <p>Claude looks at every photo, asks you about anything unclear (jokes, people, the story), writes a treatment, builds the edit and sends previews here for review. This is the full-quality route.</p>
+    <ol class="mut" style="padding-left:18px"><li>Open <b>Claude Code</b> in the studio folder:<code class="cmd" style="font-size:12px">${esc(S.engine)}</code></li><li>Type:</li></ol>
+    <code class="cmd">${esc(cmd)}</code><button class="small" onclick="navigator.clipboard.writeText('${cmd}');toast('Copied')">Copy command</button></div>
+  <div class="box"><h2 style="font-size:24px">Quick automatic draft</h2><p class="mut">No director: one photo per bar in story order, prints for portraits, flashes on section changes, your ending note in silence. Good for a first feel of the music and the photos; no jokes or lyric gags.</p>
+    <div class="row"><button id="go-draft" onclick="startJob('draft')">Make a quick draft</button><button class="ghost small" id="stop-draft" onclick="stopJob()" style="display:none">Stop</button></div>
+    <ul class="steplist" id="sl-draft"></ul><pre class="log" id="lg-draft" style="display:none"></pre></div></div>
+  <div class="row" style="margin-top:18px">${S.files.treatment ? `<a href="${S.files.treatment}" target="_blank">Treatment</a>` : ""}${S.files.shotlog ? `<a href="${S.files.shotlog}" target="_blank">Shot log</a>` : ""}
+    ${S.versions.length ? `<button onclick="go('${S.name}/review')">Review previews &rarr;</button>` : ""}</div>`;
+  watchJob('draft');
+}
+
+function directionsPanel() {
+  const ds = S.directions || [], chosen = (S.project.direction || {});
+  if (!ds.length) return `<div class="box" style="margin-bottom:16px"><b>Directions</b> <span class="mut">When you run <code>/aftermovie ${esc(S.name)}</code>, Claude reads the vibe of your song and photos and proposes three different directions here, each with style frames made from your own photos. You pick one.</span></div>`;
+  return `<div class="box" style="margin-bottom:16px"><b>Directions</b> <span class="mut">Three ways this film could look. Pick one (add a note to steer it), then tell Claude.</span>
+    <div class="dirs">${ds.map(d => `<div class="dir ${chosen.id === d.id ? "on" : ""}">
+      <div class="frames">${d.frames.map(f => `<img src="${f}" onclick="window.open('${f}')">`).join("")}</div>
+      <div style="padding:12px 14px"><div><b style="font-size:18px">${esc(d.name)}</b></div><p style="margin:6px 0">${esc(d.concept || "")}</p>
+      <p class="mut" style="font-size:13px;margin:4px 0">${d.references ? `<i>refs:</i> ${esc(d.references)}<br>` : ""}${d.look ? `<i>look:</i> ${esc(d.look)}<br>` : ""}${d.type ? `<i>type:</i> ${esc(d.type)}<br>` : ""}${d.motion ? `<i>motion:</i> ${esc(d.motion)}<br>` : ""}${d.signature ? `<i>signature moment:</i> ${esc(d.signature)}` : ""}</p>
+      ${chosen.id === d.id ? `<span class="tag" style="background:var(--ok);color:#111">chosen</span>${chosen.note ? ` <span class="mut">"${esc(chosen.note)}"</span>` : ""}` :
+        `<div class="row"><input id="dn-${esc(d.id)}" placeholder="note (optional): 'but less text'" style="flex:1"><button class="small" onclick="pickDirection('${esc(d.id)}')">Choose this one</button></div>`}</div></div>`).join("")}</div>
+    ${chosen.id ? `<p class="hint">Now tell Claude: <b>"I picked a direction"</b>.</p>` : ""}</div>`;
+}
+async function pickDirection(id) {
+  const el = $("#dn-" + id);
+  await post(`/api/p/${S.name}/direction`, {id, note: el ? el.value : ""});
+  toast("Direction chosen. Tell Claude in Claude Code."); refresh();
+}
+
+// ---------------------------------------------------------------- 6. review
+let cur = null, rtab = "film", curRound = null, BOARD = null, bfilter = "all", pendingSeek = null;
+function vReview() {
+  if (!S.versions.length) { $("#pane").innerHTML = `<h2>Review</h2><p class="mut">No previews yet. Make a draft or ask Claude to direct the film.</p>`; return; }
+  cur = cur && S.versions.find(v => v.version === cur.version) || S.versions.find(v => v.play) || S.versions[0];
+  $("#pane").innerHTML = `<h2>Review</h2><div class="vtabs">${S.versions.map(v => `<span class="chip ${v.version === cur.version ? "on" : ""}" onclick="pick('${esc(v.version)}')">${esc(v.version)}${v.final ? " &#9733;" : ""}</span>`).join("")}</div>
+  <div class="rtabs"><div class="${rtab === "film" ? "on" : ""}" onclick="setTab('film')">Film</div>
+    <div class="${rtab === "board" ? "on" : ""}" onclick="setTab('board')">Storyboard &amp; captions${cur.board ? "" : ' <span class="mut">(not made yet)</span>'}</div></div>
+  <div id="rbody"></div>`;
+  rtab === "board" ? vBoard() : vFilm();
+}
+function setTab(t) { rtab = t; vReview(); }
+function pick(v) { cur = S.versions.find(x => x.version === v); curRound = null; BOARD = null; vReview(); }
+function seek(t) {
+  if (rtab !== "film") { pendingSeek = t; return setTab("film"); }
+  const v = $("#vid"); if (v) { v.currentTime = Math.max(0, t - 1); v.play(); }
+}
+
+// ---- the film: newest render (or an earlier round), notes, what changed
+function vFilm() {
+  const rounds = (cur.rounds || []).filter(r => r.kind === "preview" && r.video);
+  const latest = rounds.length ? rounds[rounds.length - 1].n : null;
+  const r = curRound != null && rounds.find(x => x.n === curRound);
+  const src = r ? r.video : cur.play;
+  const notes = S.notes.filter(n => n.version === cur.version).sort((a, b) => a.t - b.t);
+  const approved = (S.project.status || {}).approved === cur.version;
+  const ch = cur.changes;
+  $("#rbody").innerHTML = `
+  ${rounds.length > 1 ? `<div class="chips" style="margin-bottom:10px">${rounds.map(x => `<span class="chip ${(r ? r.n : latest) === x.n ? "on" : ""}" onclick="pickRound(${x.n === latest ? "null" : x.n})">round ${x.n}${x.n === latest ? " (newest)" : ""}</span>`).join("")}</div>` : ""}
+  ${src ? `<video id="vid" controls preload="metadata" src="${src}"></video>` : `<p class="mut">This version has an edit but no rendered preview yet.</p>`}
+  <p class="hint" style="margin-top:4px">${r ? `Playing round ${r.n} from ${esc(r.at)}, for comparison. Notes still go on the newest round.` : cur.play_kind === "final" ? "Playing the final film." : latest ? `Playing the newest preview (round ${latest}).` : ""}</p>
+  <div class="row" style="margin-top:6px"><button onclick="addNote()">+ Note at <span id="nt">0:00.0</span></button><span class="mut">or press <b>N</b> while watching. Notes go straight to Claude.</span><span class="sp" style="flex:1"></span>
+    ${approved ? `<span class="tag" style="background:var(--ok);color:#111">approved</span>` : `<button class="ghost" onclick="approveCut()">Approve this cut</button>`}</div>
+  <div id="nbox"></div>
+  <div style="margin-top:14px">${notes.map(n => `<div class="note ${n.done ? "done" : ""}"><span class="ts" onclick="seek(${n.t})">${fmt(n.t)}</span><span class="tx">${n.round ? `<span class="tag" style="margin:0 6px 0 0">r${n.round}</span>` : ""}${esc(n.text)}${n.fix ? `<span class="fx">fixed: ${esc(n.fix)}</span>` : ""}</span>
+    <button class="ghost small" onclick="noteEdit(${n.id},{done:${!n.done}})">${n.done ? "undo" : "&#10003;"}</button><button class="ghost small" onclick="noteEdit(${n.id},{delete:true})">&#10005;</button></div>`).join("") || '<p class="mut">No notes yet.</p>'}</div>
+  ${notes.length ? `<p class="hint">Done reviewing? In Claude Code say: <b>"I left notes on ${esc(cur.version)}"</b></p>` : ""}
+  ${ch && ch.shots ? `<details class="box" style="margin-top:14px" ${notes.some(n => n.done) ? "open" : ""}><summary style="cursor:pointer"><b>What changed in the last build</b> <span class="mut">${esc(ch.at)} &middot; ${esc(ch.summary)}</span></summary>
+    <div style="margin-top:8px">${ch.shots.map(c => `<div class="chg"><span style="padding:1px 6px;border-radius:6px;background:#2a2a2e;cursor:pointer;color:var(--acc);font:12px SpaceMono,monospace" onclick="seek(${c.t})">${fmt(c.t)}</span><span class="w">${esc(c.what)}</span><span>${esc(c.detail)}</span></div>`).join("")}</div></details>` : ""}
+  ${cur.qa ? `<ul class="qa">${cur.qa.map(l => `<li>${esc(l)}</li>`).join("")}</ul>` : ""}
+  <div class="row" style="margin-top:12px">${cur.final ? `<a href="${cur.final}" download>Download the 1080p film</a>` : ""}${cur.final_share ? `<a href="${cur.final_share}" download>Download the small copy (group chat)</a>` : ""}${cur.notes ? `<a href="${cur.notes}" target="_blank">Edit notes</a>` : ""}</div>`;
+  const v = $("#vid");
+  if (v) {
+    v.ontimeupdate = () => $("#nt").textContent = fmt(v.currentTime);
+    if (pendingSeek != null) { const t = pendingSeek; pendingSeek = null; v.addEventListener("loadedmetadata", () => { v.currentTime = Math.max(0, t - 1); v.play(); }, {once: true}); }
+  }
+  document.onkeydown = e => { if (step === "review" && rtab === "film" && e.key.toLowerCase() === "n" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); addNote(); } };
+}
+function pickRound(n) { curRound = n; vFilm(); }
+
+// ---- the storyboard: a still per shot, every line on screen and where it came from; tick or veto each line
+async function vBoard() {
+  const el = $("#rbody");
+  if (!cur.board) { el.innerHTML = `<p class="mut">No storyboard for this version yet. Claude makes one with every preview (or ask for <code>studio.py board ${esc(S.name)} ${esc(cur.version)}</code>).</p>`; return; }
+  if (!BOARD || BOARD._url !== cur.board) { el.innerHTML = '<p class="mut"><span class="spin"></span> loading&hellip;</p>'; BOARD = await (await fetch(cur.board)).json(); BOARD._url = cur.board; }
+  const B = BOARD, dec = S.captions || {};
+  const lines = B.shots.flatMap(s => s.captions);
+  const st = c => (dec[c.key] || {}).ok;
+  const toCheck = lines.filter(c => c.check && st(c) == null).length, vetoed = lines.filter(c => st(c) === false).length, ok = lines.filter(c => st(c) === true).length;
+  const flagged = B.shots.filter(s => s.flags.length).length;
+  const m = B.musts || {missing: [], order: []};
+  const show = B.shots.filter(s => bfilter === "all" || (bfilter === "check" && s.captions.some(c => c.check && st(c) == null)) ||
+    (bfilter === "vetoed" && s.captions.some(c => st(c) === false)) || (bfilter === "flags" && s.flags.length));
+  el.innerHTML = `<p class="mut" style="margin-top:0">Made ${esc(B.at)} from the edit itself: one still per shot, the lyric under it, and every line of text with where it came from.
+    Lines from the song or your own words are trusted; <b>tick or veto the rest</b> (is it true? on the right photo? about the right person?). Claude reads your vetoes.</p>
+  <div class="row" style="margin-bottom:10px"><span><b>${toCheck}</b> to check</span><span class="mut">&middot;</span><span style="color:var(--ok)">${ok} ok</span><span class="mut">&middot;</span><span style="color:var(--bad)">${vetoed} vetoed</span>
+    ${flagged ? `<span class="mut">&middot;</span><span style="color:var(--bad)">${flagged} shots flagged by the checks</span>` : ""}</div>
+  ${m.missing.length || m.order.length ? `<div class="box" style="border-color:var(--bad);margin-bottom:10px">${m.missing.map(x => `<div style="color:var(--bad)">&#9733; missing: ${esc(x)}</div>`).join("")}${m.order.map(([r, w]) => `<div style="color:var(--bad)">order: ${esc(r)}: ${esc(w)}</div>`).join("")}</div>` : ""}
+  <div class="chips" style="margin-bottom:12px">${[["all", "all shots"], ["check", "lines to check"], ["vetoed", "vetoed"], ["flags", "flagged"]].map(([k, l]) => `<span class="chip ${bfilter === k ? "on" : ""}" onclick="bfilter='${k}';vBoard()">${l}</span>`).join("")}</div>
+  <div class="bgrid">${show.map(s => `<div class="bcard ${s.flags.length || s.captions.some(c => st(c) === false) ? "bad" : ""}">
+    <div class="im" onclick="seek(${s.t0})" title="play from here"><img loading="lazy" src="/p/${S.name}/${s.still}?v=${encodeURIComponent(B.at)}"><span class="tc">${fmt(s.t0)}</span></div>
+    <div class="bd"><div class="row" style="gap:6px"><b>${esc(s.id)}</b><span class="mut">${(s.t1 - s.t0).toFixed(1)}s${s.bar != null ? ` &middot; bar ${s.bar}` : ""} &middot; ${s.photos.length} photo${s.photos.length === 1 ? "" : "s"}</span>${s.starred.length ? `<span style="color:var(--acc)">&#9733;${s.starred.length}</span>` : ""}</div>
+      ${s.lyric ? `<div class="ly">&ldquo;${esc(s.lyric)}&rdquo;</div>` : ""}
+      ${s.flags.map(f => `<div class="fl">&#9888; ${esc(f)}</div>`).join("")}
+      ${s.captions.map(c => capRow(c, B)).join("")}</div></div>`).join("") || '<p class="mut">Nothing here.</p>'}</div>`;
+}
+function capRow(c, B) {
+  const d = (S.captions || {})[c.key] || {}, k = encodeURIComponent(c.key);
+  const cls = c.origin === "?" ? "unk" : c.check ? "chk" : "";
+  return `<div class="cap ${d.ok === false ? "no" : d.ok ? "yes" : ""}" data-k="${k}"><div class="ct">${esc(c.text)}<small><span class="org ${cls}" title="${esc(B.origins[c.origin] || "")}">${esc(c.origin === "?" ? "no source" : c.origin)}</span>${c.basis ? " " + esc(c.basis) : ""}${c.joke ? ` &middot; joke: ${esc(c.joke)}` : ""}${d.ok === false && d.comment ? `<br><b>you:</b> ${esc(d.comment)}` : ""}</small></div>
+    ${c.check || d.ok != null ? `<button class="ghost ${d.ok ? "sel" : ""}" title="true and on the right photo" onclick="capSet('${k}', true)">&#10003;</button><button class="ghost ${d.ok === false ? "sel" : ""}" title="wrong: tell Claude why" onclick="capVeto('${k}')">&#10005;</button>` : ""}</div>`;
+}
+const capByKey = k => BOARD.shots.flatMap(s => s.captions).find(c => c.key === decodeURIComponent(k));
+async function capSet(k, ok, comment) {
+  const c = capByKey(k), d = (S.captions || {})[c.key] || {};
+  const val = ok === true && d.ok === true ? null : ok;               // tick again = undecided
+  S.captions = await post(`/api/p/${S.name}/caption`, {key: c.key, ok: val, comment: comment || "", text: c.text, version: cur.version});
+  vBoard();
+}
+function capVeto(k) {
+  const row = document.querySelector(`.cap[data-k="${k}"]`);
+  if (!row || row.nextElementSibling && row.nextElementSibling.classList.contains("vwhy")) return;
+  const d = (S.captions || {})[decodeURIComponent(k)] || {};
+  row.insertAdjacentHTML("afterend", `<div class="vwhy row" style="gap:6px;padding:4px 0"><input placeholder="what's wrong? e.g. 'it wasn't a highway', 'Tom drove'" style="flex:1;padding:5px 8px" value="${esc(d.comment || "")}"><button class="small">Veto</button></div>`);
+  const box = row.nextElementSibling, inp = box.querySelector("input");
+  inp.focus();
+  const go = () => capSet(k, false, inp.value.trim());
+  box.querySelector("button").onclick = go;
+  inp.onkeydown = e => { if (e.key === "Enter") go(); if (e.key === "Escape") box.remove(); };
+}
+function addNote() {
+  const v = $("#vid"); const t = v ? v.currentTime : 0; if (v) v.pause();
+  $("#nbox").innerHTML = `<div class="box" style="margin-top:10px"><b>${fmt(t)}</b> <textarea id="ntx" placeholder="What should change here? e.g. 'caption comes too late', 'swap this photo', 'love this'"></textarea>
+    <div class="row" style="margin-top:8px"><button class="small" id="nsave">Save note</button><button class="ghost small" onclick="$('#nbox').innerHTML=''">Cancel</button></div></div>`;
+  $("#ntx").focus();
+  $("#nsave").onclick = async () => { const tx = $("#ntx").value.trim(); if (!tx) return; S.notes = await post(`/api/p/${S.name}/note`, {version: cur.version, t, text: tx}); vReview(); toast("Note saved"); };
+  $("#ntx").onkeydown = e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) $("#nsave").click(); };
+}
+async function noteEdit(id, ch) { S.notes = await post(`/api/p/${S.name}/note-edit`, {id, ...ch}); vReview(); }
+async function approveCut() { await post(`/api/p/${S.name}/approve`, {version: cur.version}); toast("Approved. Tell Claude to render the final."); refresh(); }
+
+async function doctor() {
+  $("#main").innerHTML = `<h1>Install check</h1><pre class="log" style="max-height:none">checking&hellip;</pre>`;
+  const r = await api("/api/doctor"); $("#main pre").textContent = r.text;
+}
+route();
+</script>
+</body>
+</html>

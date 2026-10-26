@@ -1,0 +1,44 @@
+[
+ {
+  "id": "a",
+  "name": "A — Won't stop 'til it's over",
+  "concept": "One long golden memory: letterboxed and hushed through the verses, the frame snaps open to full screen on the climax.",
+  "references": "Super 8 home movies, Call Me by Your Name, The Temper Trap's own sun-bleached video",
+  "look": "golden grade + faded, light leaks on downbeats, 2.39 letterbox that opens at 'won't stop'",
+  "type": "tiny Playfair italic: one sung word per photo ('a moment', 'a love', ...)",
+  "motion": "slow pushes, dissolves, double exposures of faces over skies; one hard cut at the climax",
+  "signature": "the litany ('a moment, a love, a dream, aloud...') one photo per sung word, then the letterbox bursting open on 'won't stop 'til it's over'",
+  "frames": [
+   "out/directions/a_1.png",
+   "out/directions/a_2.png"
+  ]
+ },
+ {
+  "id": "b",
+  "name": "B — A kiss, a cry",
+  "concept": "Black-and-white editorial: every word of the litany becomes a giant window onto a different photo; the chorus stacks in huge type.",
+  "references": "Swiss poster typography, Saul Bass title sequences, Apple's black-and-white typographic ads",
+  "look": "punchy black & white, one red accent",
+  "type": "Anton knockouts and stacked kinetic lyrics on the sung syllables; mono index numbers (04 / 08)",
+  "motion": "hard cuts on downbeats, slices on the drums, a zoom-through the last word into colour",
+  "signature": "'won't stop 'til it's over' builds word by word, then the camera dives through the O into the only colour shot of the film",
+  "frames": [
+   "out/directions/b_1.png",
+   "out/directions/b_2.png"
+  ]
+ },
+ {
+  "id": "c",
+  "name": "C — Blood's still young",
+  "concept": "A risograph tour zine of the summer: torn two-ink collages pile up on the beat, and the climax turns into a riso kaleidoscope.",
+  "references": "DIY punk zines, risograph print studios, 90s skate-video editing",
+  "look": "riso in fluoro pink + blue (green at the drop), xerox for contrast, misregistration",
+  "type": "Anton stamps, page numbers ('No. 6'), ransom-note place names",
+  "motion": "collage builds per 8th, filmstrip scrolls, kaleido + strobe at the climax",
+  "signature": "the drop: the whole frame folds into a kaleidoscope of the group hug with 'WON'T STOP' stamped in the centre",
+  "frames": [
+   "out/directions/c_1.png",
+   "out/directions/c_2.png"
+  ]
+ }
+]

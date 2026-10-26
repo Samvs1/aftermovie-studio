@@ -1,0 +1,35 @@
+[
+ {
+  "id": "a",
+  "name": "A: Golden hour",
+  "concept": "A widescreen road movie that chases the sun. In Ramadan every day revolved around one moment, sunset, so the film does too: 2.39:1 letterbox, warm light, slow pushes, and the story told in quiet subtitles like a travel documentary. The bars snap open the moment the first chorus hits.",
+  "references": "David Lean's Lawrence of Arabia (widescreen desert), Wim Wenders' road movies (Paris, Texas), the travel montages in The Secret Life of Walter Mitty",
+  "look": "2.39:1 letterbox in the verses, full frame from the first chorus on; golden grade, soft halation, light grain; light leaks on downbeats",
+  "type": "small Playfair italic subtitles in the lower bar (the story: Ramadan, the strangers who paid, the burned feet); day + place in fine mono in the top bar; the title in English and Arabic (Oman, inshallah / عمان، إن شاء الله)",
+  "motion": "slow pushes and drifts, cuts on downbeats, dissolves into sunsets; whip pans and freeze-frames for the chaos (sand throws, dune tumbles, cliff jumps)",
+  "signature": "First chorus: the bars snap open to full frame on 'I, I did it all': Sam, then Tom, arms wide on the same Jebel Shams rock, side by side. Verse 2, 'and when that sun goes down': four sunsets in a row, horizon-matched, the sun one notch lower each beat, then 'hope you raise your cup' is the tea in the Bedouin tent: iftar.",
+  "frames": ["out/directions/a_1.png", "out/directions/a_2.png"]
+ },
+ {
+  "id": "b",
+  "name": "B: Arches",
+  "concept": "Oman frames everything in arches: forts, souqs, the Grand Mosque. So does the film. Every photo appears through a pointed arch cut into warm stone, every place is named in English and Arabic, and the arches multiply into arcades as the song builds, until the last chorus flies down an endless arcade of your trip.",
+  "references": "Nizwa Fort and the Sultan Qaboos Grand Mosque themselves, Islamic geometric design (girih tiles, mashrabiya), Wes Anderson's symmetry, Saul Bass title sequences",
+  "look": "sandstone, marble and turquoise panels sampled from your photos with a faint eight-point-star pattern; photos in natural colour inside carved arches; no grain",
+  "type": "tall Bebas capitals with the Arabic name mirrored on the other side (MUTTRAH | مطرح); Space Mono for day + coordinates; lyric hooks as big symmetrical words",
+  "motion": "everything centred and symmetrical; arches open on downbeats, iris-through-the-arch transitions into the next photo, arcades slide one arch per beat in the choruses",
+  "signature": "Final chorus: a flight down an arcade of arches (like the mosque corridor), a new photo in every arch on every beat, out through the last arch into the Istanbul sunset. Bridge whoa-ohs (Eid): your Grand Mosque dome photo spins into an eight-point-star kaleidoscope with the Eid-fair photos inside it.",
+  "frames": ["out/directions/b_1.png", "out/directions/b_2.png"]
+ },
+ {
+  "id": "c",
+  "name": "C: Souq pop",
+  "concept": "The trip as loud Gulf pop art after Hassan Hajjaj: portraits framed in bold tile borders, saturated colour blocks, stickers and price-tag captions. Verses stay calm with one framed photo; every chorus fills the frame to bursting, layer by layer on the beat, then cuts to one quiet photo. The Suntop juice box (Ramadan contraband) is the running gag.",
+  "references": "Hassan Hajjaj ('My Rock Stars', 'Kesh Angels'), Gulf packaging and shop signs, M.I.A.-era collage sleeves",
+  "look": "punchy saturated grade; flat fields in Omani red, green and white plus turquoise and saffron; geometric tile borders and Bedouin-tent stripes drawn in code",
+  "type": "Anton slams for the hooks, Space Mono price tags for the facts (km, 38 °C, meals strangers paid for), heavy Arabic on colour blocks; die-cut stickers (juice box, camel, fish)",
+  "motion": "layers slap on per 8th note, stickers pop on beats, hard cuts, zoom punches and strobe on the bridge; one big quiet photo after every burst",
+  "signature": "'I owned every second / I saw so many places': the souq wall, tiles of every place stacking up like a market stall, one per 8th, until the screen is full; on 'I swear I lived' it all drops away to one photo of you two on the canyon edge.",
+  "frames": ["out/directions/c_1.png", "out/directions/c_2.png"]
+ }
+]

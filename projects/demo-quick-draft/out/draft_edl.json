@@ -1,0 +1,843 @@
+{
+ "meta": {
+  "version": "draft",
+  "title": "Smoke Test",
+  "song": "music/The Temper Trap - Sweet Disposition _Official Video_.mp3",
+  "analysis": "the_temper_trap_sweet_disposition_offici",
+  "fps": 30,
+  "duration": 251.368
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     0.0,
+     234.568
+    ],
+    "at": 0.8
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [
+   {
+    "type": "drop",
+    "t": 5.58,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 20.444,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 35.328,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 50.224,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 51.147,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 65.09,
+    "db": -21
+   }
+  ],
+  "fx": []
+ },
+ "grade": {
+  "preset": "consumer_film",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.012,
+  "vignette": 0.26,
+  "halation": 0.06,
+  "flicker": 0.005,
+  "weave": 0.3
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.84,
+   "sync": "pre-roll",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#050505",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.84,
+   "t1": 5.58,
+   "sync": "intro: title on the first downbeat",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f3eee2",
+     "paper": true
+    },
+    {
+     "type": "text",
+     "text": "Smoke Test",
+     "x": 960.0,
+     "y": 470,
+     "t0": 1.84,
+     "t1": 5.58,
+     "size": 120,
+     "font": "playfair",
+     "color": "#1f2a44",
+     "anim": "fade",
+     "dur": 0.6
+    },
+    {
+     "type": "text",
+     "text": "Amsterdam, 2026",
+     "x": 960.0,
+     "y": 620,
+     "t0": 2.78,
+     "t1": 5.58,
+     "size": 54,
+     "font": "caveat",
+     "color": "#c8371f",
+     "anim": "write",
+     "dur": 0.5
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 5.58,
+   "t1": 13.04,
+   "sync": "bar 2",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f3eee2",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000051838.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      650.0,
+      146.3,
+      620,
+      787.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 5.44,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S004",
+   "t0": 13.04,
+   "t1": 20.444,
+   "sync": "bar 6",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052087.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S005",
+   "t0": 20.444,
+   "t1": 27.886,
+   "sync": "bar 10",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f3eee2",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000052196.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      650.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 20.304,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S006",
+   "t0": 27.886,
+   "t1": 35.328,
+   "sync": "bar 14",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052394.jpg",
+     "zoom": [
+      1.1,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S007",
+   "t0": 35.328,
+   "t1": 42.764,
+   "sync": "bar 18",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f3eee2",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000052743.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      650.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 35.188,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S008",
+   "t0": 42.764,
+   "t1": 50.224,
+   "sync": "bar 22",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052753.jpg",
+     "zoom": [
+      1.08,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       -0.05,
+       0
+      ],
+      [
+       0.05,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S009",
+   "t0": 50.224,
+   "t1": 57.666,
+   "sync": "bar 26",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f3eee2",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000053175.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      250.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 50.084,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000053410.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1050.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 51.007,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S010",
+   "t0": 57.666,
+   "t1": 65.09,
+   "sync": "bar 30",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053556.jpg",
+     "zoom": [
+      1.08,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0.05,
+       0
+      ],
+      [
+       -0.05,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S011",
+   "t0": 65.09,
+   "t1": 72.538,
+   "sync": "bar 34",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f3eee2",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000054136.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      650.0,
+      128.3,
+      620,
+      823.4
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 64.95,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S012",
+   "t0": 72.538,
+   "t1": 79.986,
+   "sync": "bar 38",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0011.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S013",
+   "t0": 79.986,
+   "t1": 87.387,
+   "sync": "bar 42",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0013.jpg",
+     "zoom": [
+      1.1,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S014",
+   "t0": 87.387,
+   "t1": 94.8,
+   "sync": "bar 46",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0019.jpg",
+     "zoom": [
+      1.08,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       -0.05,
+       0
+      ],
+      [
+       0.05,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S015",
+   "t0": 94.8,
+   "t1": 102.225,
+   "sync": "bar 50",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0020.jpg",
+     "zoom": [
+      1.08,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0.05,
+       0
+      ],
+      [
+       -0.05,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S016",
+   "t0": 102.225,
+   "t1": 109.615,
+   "sync": "bar 54",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0036.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S017",
+   "t0": 109.615,
+   "t1": 236.376,
+   "sync": "ending: hold through the last chord",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0035.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Smoke Test",
+     "x": 960.0,
+     "y": 960,
+     "t0": 110.215,
+     "t1": 235.368,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 9,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -2,
+     "anim": "write",
+     "dur": 0.5
+    }
+   ],
+   "in": {
+    "type": "dissolve",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "S018",
+   "t0": 236.376,
+   "t1": 251.368,
+   "sync": "silence: the thank-you note",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#efe8d8",
+     "paper": true
+    },
+    {
+     "type": "text",
+     "text": "thanks for everything",
+     "x": 960.0,
+     "y": 200,
+     "t0": 236.376,
+     "t1": 251.368,
+     "size": 60,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.9,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "see you soon",
+     "x": 960.0,
+     "y": 305,
+     "t0": 238.232,
+     "t1": 251.368,
+     "size": 60,
+     "font": "caveat",
+     "color": "#c8371f",
+     "anim": "write",
+     "dur": 0.9,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "— sam",
+     "x": 1400,
+     "y": 950,
+     "t0": 240.088,
+     "t1": 251.368,
+     "size": 80,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.5,
+     "rot": -4,
+     "fade_out": 0.0
+    }
+   ],
+   "in": {
+    "type": "dip_black",
+    "dur": 0.8,
+    "align": "start"
+   }
+  }
+ ]
+}

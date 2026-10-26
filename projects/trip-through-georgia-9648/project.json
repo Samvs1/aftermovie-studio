@@ -1,0 +1,549 @@
+{
+ "title": "Trip through Georgia",
+ "occasion": "a roadtrip",
+ "when_where": "Georgia · October 2026",
+ "group_name": "",
+ "language": "English",
+ "vibe": "nostalgic",
+ "text_amount": "medium",
+ "length": "full song (~3:32): Sam chose it over the 3-min cap on 2026-10-24",
+ "song": {
+  "file": "Mumford & Sons - The Cave (Official Music Video).mp3",
+  "artist": "Mumford & Sons",
+  "title": "The Cave",
+  "slug": "mumford_sons_the_cave"
+ },
+ "chapters": [
+  {
+   "id": "s01_tbilisi",
+   "label": "Tbilisi",
+   "when": "12 Oct–13 Oct",
+   "steps": [
+    "275205857",
+    "275242594",
+    "275300684",
+    "275436420",
+    "275551750"
+   ]
+  },
+  {
+   "id": "s06_chanadirtkari_stepantsmi",
+   "label": "Chanadirtkari → Stepantsminda",
+   "when": "14 Oct",
+   "steps": [
+    "275628348",
+    "275689250",
+    "275689441",
+    "275892570"
+   ]
+  },
+  {
+   "id": "s10_kazbegi_municipality",
+   "label": "Kazbegi Municipality",
+   "when": "15 Oct",
+   "steps": [
+    "275892509",
+    "275892387"
+   ]
+  },
+  {
+   "id": "s12_kazbegi_gori",
+   "label": "Kazbegi → Gori",
+   "when": "15 Oct–16 Oct",
+   "steps": [
+    "275892321",
+    "276151132"
+   ]
+  },
+  {
+   "id": "s14_gori_municipality_bangve",
+   "label": "Gori Municipality → Bangveti",
+   "when": "16 Oct–17 Oct",
+   "steps": [
+    "276150964",
+    "276388211"
+   ]
+  },
+  {
+   "id": "s16_khoni_kutaisi",
+   "label": "Khoni → Kutaisi",
+   "when": "17 Oct–18 Oct",
+   "steps": [
+    "276387910",
+    "276541862"
+   ]
+  },
+  {
+   "id": "s18_tskaltubo",
+   "label": "Tskaltubo",
+   "when": "18 Oct",
+   "steps": [
+    "276542399",
+    "276542247",
+    "276542589"
+   ]
+  },
+  {
+   "id": "s21_batumi_city_abastumani",
+   "label": "Batumi City → Abastumani",
+   "when": "19 Oct",
+   "steps": [
+    "276854947",
+    "276901346"
+   ]
+  },
+  {
+   "id": "s23_vardzia_cave_city",
+   "label": "Vardzia Cave City",
+   "when": "20 Oct",
+   "steps": [
+    "277058084"
+   ]
+  },
+  {
+   "id": "s24_borjomi_mtskheta_municip",
+   "label": "Borjomi → Mtskheta Municipality",
+   "when": "21 Oct–23 Oct",
+   "steps": [
+    "277287847",
+    "277437551",
+    "277743175"
+   ]
+  }
+ ],
+ "people_notes": "Tom and Sam hitting the road again with a rental car",
+ "jokes": "When we got the rental car they told us we were not allowed to offroad. To be fair, we never had a choice since half this country is offroad (the roads were so bad that it was offroading). So when the rental says: No offroad, we said 'Yes no offroad' (but we drove offroad a lot)\nI think we ate Khinkali every day\nGAMARJOBA and MADLOBA were the only words we knew and spoke (nobody spoke english in this country)\nFrom sketchy hotels to rude taxi drivers trying to scam us we made it",
+ "avoid": "",
+ "credits": "",
+ "ending_note": "Thank you Georgia",
+ "editor": "Tom + Sam",
+ "extra": "",
+ "status": {
+  "stage": "final",
+  "people_named": true,
+  "shotlog": true,
+  "treatment": "out/treatment.md: approved by Sam 2026-10-24",
+  "preview": "out/fieldnotes_share.mp4",
+  "version": "fieldnotes",
+  "georgia": {
+   "approved": "georgia",
+   "approved_at": "2026-10-24 22:41",
+   "approved_how": "Sam in chat: render the final version",
+   "final": "out/georgia.mp4",
+   "share": "out/georgia_share.mp4"
+  },
+  "fieldnotes_round2": {
+   "approved": "fieldnotes",
+   "approved_at": "2026-10-25 12:18",
+   "approved_how": "Sam in chat: its good, ship it",
+   "final": "(deleted 2026-10-25: superseded by round 3)",
+   "share": "out/rounds/fieldnotes_r2.mp4"
+  },
+  "approved": "fieldnotes",
+  "approved_at": "2026-10-25 17:26",
+  "approved_how": "Sam in chat: Perfect. Ship it (round 3)",
+  "final": "out/fieldnotes.mp4",
+  "share": "out/fieldnotes_share.mp4"
+ },
+ "created": "2026-10-24",
+ "steps": {
+  "275205857": {
+   "label": "Chap",
+   "note": "",
+   "skip": false
+  },
+  "275242594": {
+   "label": "Chronicles of Georgia",
+   "note": "Thx Keti for the tour!",
+   "skip": false
+  },
+  "275300684": {
+   "label": "Trinity church",
+   "note": "",
+   "skip": false
+  },
+  "275436420": {
+   "label": "Dry bridge market",
+   "note": "",
+   "skip": false
+  },
+  "275551750": {
+   "label": "Tbilisi hike",
+   "note": "",
+   "skip": false
+  },
+  "275628348": {
+   "label": "Gamarjoba",
+   "note": "Amai dit eten was crazy goed",
+   "skip": false
+  },
+  "275689250": {
+   "label": "Viewpoint",
+   "note": "",
+   "skip": false
+  },
+  "275689441": {
+   "label": "Gergeti Trinity Church",
+   "note": "Skwa",
+   "skip": false
+  },
+  "275892570": {
+   "label": "Vlees",
+   "note": "",
+   "skip": false
+  },
+  "275892509": {
+   "label": "Monastery complex",
+   "note": "",
+   "skip": false
+  },
+  "275892387": {
+   "label": "The border 🇷🇺",
+   "note": "",
+   "skip": false
+  },
+  "275892321": {
+   "label": "Orange hike",
+   "note": "",
+   "skip": false
+  },
+  "276151132": {
+   "label": "Stalin top G ⚒️",
+   "note": "",
+   "skip": false
+  },
+  "276150964": {
+   "label": "Crazy city",
+   "note": "",
+   "skip": false
+  },
+  "276388211": {
+   "label": "Prometheus cave",
+   "note": "",
+   "skip": false
+  },
+  "276387910": {
+   "label": "Hiking",
+   "note": "",
+   "skip": false
+  },
+  "276541862": {
+   "label": "Kutaisi explore",
+   "note": "",
+   "skip": false
+  },
+  "276542399": {
+   "label": "Abandoned railway station",
+   "note": "",
+   "skip": false
+  },
+  "276542247": {
+   "label": "Exploring Stalin’s Sanitarium",
+   "note": "",
+   "skip": false
+  },
+  "276542589": {
+   "label": "More abandoned soviet stuff",
+   "note": "",
+   "skip": false
+  },
+  "276854947": {
+   "label": "Batumi Explore",
+   "note": "",
+   "skip": false
+  },
+  "276901346": {
+   "label": "Astro Observatory",
+   "note": "",
+   "skip": false
+  },
+  "277058084": {
+   "label": "Vardzia Cave City",
+   "note": "",
+   "skip": false
+  },
+  "277287847": {
+   "label": "Borjomi Hike",
+   "note": "",
+   "skip": false
+  },
+  "277437551": {
+   "label": "Big chill",
+   "note": "Spa dagje",
+   "skip": false
+  },
+  "277743175": {
+   "label": "Sword mountain",
+   "note": "",
+   "skip": false
+  }
+ },
+ "trip": {
+  "source": "polarsteps",
+  "id": "29389030",
+  "name": "Georgia (the country) 🇬🇪 ",
+  "imported": "2026-10-24"
+ },
+ "music_taste": "",
+ "song_suggestions": {
+  "at": "2026-10-24 21:26",
+  "items": [
+   {
+    "artist": "Of Monsters and Men",
+    "title": "Mountain Sound",
+    "why": "The Kazbegi stretch is the heart of these photos: golden larches over the rushing river, mist hanging in the valley and a lone horse grazing on the slope, and this song is literally about running through the woods into the mountains. Its stomping gang vocals match the bright, wide-open shots like the Georgian flag at the Gudauri viewpoint.",
+    "tags": [
+     "folk-pop",
+     "mountains",
+     "sunny",
+     "stomping",
+     "road trip"
+    ],
+    "energy": "mid",
+    "structure": "Short intro carries the title over Tbilisi at night and the gold-lit Trinity cathedral; the shout-along choruses drive the mountain and monastery run; the last big chorus goes over the Kazbegi autumn hikes and the song ends on a clean final hit.",
+    "fit": "whole song (~3:30); pick the best ~100 photos and hold the landscapes",
+    "lyric_hooks": "'Hold your horses now' as a handwritten arrow to the grazing horse in Kazbegi; 'deep into the mountain sound' over the misty valley.",
+    "check": {
+     "found": null,
+     "note": "lyrics database unreachable (offline?)"
+    }
+   },
+   {
+    "artist": "Mumford & Sons",
+    "title": "The Cave",
+    "why": "A lot of the highlights are underground or carved into rock: the stalactites in Prometheus cave, the honeycombed Vardzia cliff, the rock city near Gori and the cave clips. The song starts quiet and builds into a galloping banjo stomp, the same arc as a trip that goes from hushed church interiors to big mountain hikes.",
+    "tags": [
+     "folk",
+     "building",
+     "anthemic",
+     "earthy"
+    ],
+    "energy": "mid",
+    "structure": "Quiet voice-and-guitar opening for the title and Tbilisi; kick drum and banjo come in for the mountain road; the full-band final chorus is the Vardzia cliff reveal, and the song lands on a last strum.",
+    "fit": "whole song (~3:40); pick ~105 photos",
+    "lyric_hooks": "'So come out of your cave walking on your hands' as a speech bubble on the clip of the friend standing in the rock-cut cave mouth.",
+    "check": {
+     "found": true,
+     "artist": "Mumford & Sons",
+     "title": "The Cave",
+     "album": "Sigh No More",
+     "duration": 218,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Arcade Fire",
+    "title": "Wake Up",
+    "why": "The church shots (Sameba glowing gold against the black sky, Gergeti, the candlelit interior with headscarved worshippers) call for a choir, and the wordless 'whoa-oh' chant works as one. The line about turning the summer into dust fits an October trip full of yellow larches and dry autumn hills.",
+    "tags": [
+     "anthem",
+     "choir",
+     "euphoric",
+     "big sky"
+    ],
+    "energy": "mid",
+    "structure": "Guitar swell and chant intro under the title card; verses and chants over Tbilisi and Kazbegi; the switch into the fast, stomping coda is the road-trip reveal (the driving shot, Kutaisi, Tskaltubo, Batumi), and the coda ends the song.",
+    "fit": "whole song (~5:35, ~160 photos)",
+    "lyric_hooks": "'Before they turn the summer into dust' handwritten over the golden larch hike by the river.",
+    "check": {
+     "found": true,
+     "artist": "Arcade Fire",
+     "title": "Wake Up",
+     "album": "The Suburbs",
+     "duration": 335,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Sufjan Stevens",
+    "title": "Chicago",
+    "why": "The driving shot, 8,677 km and a route that zigzags across the whole country are this song's story: a road trip in a van with your friends. Its long string-and-horn passages leave room to hold the big views, like the Borjomi forest gorge and the green ridge with the giant sword.",
+    "tags": [
+     "indie folk",
+     "road trip",
+     "strings",
+     "wistful",
+     "uplifting"
+    ],
+    "energy": "mid",
+    "structure": "Strings and piano open for the title; the repeating 'all things go' choruses are ideal for steady one-photo-per-bar runs; the layered choir finale goes over Sword mountain and the last day.",
+    "fit": "whole song (~6:00, ~180 photos), the closest to the length guide without a cut",
+    "lyric_hooks": "'Drove to Chicago' with 'Chicago' crossed out and 'Kazbegi' scribbled in over the driving shot; 'we slept in parking lots — I don't mind' over the rental car.",
+    "check": {
+     "found": true,
+     "artist": "Sufjan Stevens",
+     "title": "Chicago",
+     "album": "Sufjan Stevens Essentials",
+     "duration": 365,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Tame Impala",
+    "title": "Let It Happen",
+    "why": "The Tskaltubo urbex run (peeling colonnades at Stalin's sanatorium, the spiralling stairwells, the overgrown railway station) and the dark observatory domes need something hypnotic and a little strange. At almost eight minutes it is the only pick that can carry nearly all 228 photos at one per bar with no cut.",
+    "tags": [
+     "psychedelic",
+     "hypnotic",
+     "urbex",
+     "long-form",
+     "groove"
+    ],
+    "energy": "mid",
+    "structure": "The groove intro carries the title over Tbilisi at night; the skipping-CD stutter in the middle is the drop into the abandoned sanatorium; the strings and vocoder section is the big reveal (Vardzia, Sword mountain), and the outro rides home to the end card.",
+    "fit": "whole song (~7:45, nearly all photos), or one cut to about 5:00 between two identical groove passages",
+    "lyric_hooks": "'Let it happen' handwritten as the friend peers down the Tskaltubo stairwell; the stutter can 'stick' on the Stalin statue in Gori.",
+    "check": {
+     "found": true,
+     "artist": "Tame Impala",
+     "title": "Let It Happen",
+     "album": "Sad Girl Day",
+     "duration": 467,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Fleet Foxes",
+    "title": "Mykonos",
+    "why": "The ancient stone places (the rock-cut town near Gori, Vardzia's cliff caves, the monastery arches framing the valley) suit Fleet Foxes' stacked, church-like harmonies. Its 'vision of a gentle coast' line gives the Batumi day its own moment.",
+    "tags": [
+     "harmonies",
+     "ancient",
+     "warm",
+     "indie folk"
+    ],
+    "energy": "calm",
+    "structure": "Finger-picked opening for the title; it builds into the harmony chorus; the big 'brother, you don't need to turn me away' section is the reveal, and the coda gives a natural ending.",
+    "fit": "whole song (~4:30, ~135 photos)",
+    "lyric_hooks": "'I was waiting down at the ancient gate' over the Vardzia and rock-city doorways; 'Mykonos' crossed out to 'Batumi' on the gentle-coast line.",
+    "check": {
+     "found": true,
+     "artist": "Fleet Foxes",
+     "title": "Mykonos",
+     "album": "Fleet Foxes",
+     "duration": 275,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Avicii",
+    "title": "Levels",
+    "why": "The food and city shots have a cheeky 'top G' energy that suits a festival drop: the bubbling khachapuri, the tower of mtsvadi skewers, the drinking horn at the Dry Bridge market, the Mafia barbershop. Its repeated build-ups also work as an altitude gag as the trip climbs from Tbilisi to Gudauri and Gergeti.",
+    "tags": [
+     "party",
+     "festival",
+     "euphoric",
+     "drops"
+    ],
+    "energy": "high",
+    "structure": "The synth-riff intro carries the title; the Etta James 'good feeling' vocal sets up each drop; the first drop hits the Kazbegi mountains, the last one Sword mountain, and the song ends fast.",
+    "fit": "radio edit (~3:20, ~95 photos) for a punchy short cut, or the longer original mix for more photos",
+    "lyric_hooks": "'Oh, sometimes I get a good feeling' next to the khachapuri ('amai dit eten was crazy goed'); an altimeter counting up on every build.",
+    "check": {
+     "found": true,
+     "artist": "Avicii",
+     "title": "Levels\u001fLevels",
+     "album": "Levels",
+     "duration": 202,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Katie Melua",
+    "title": "Nine Million Bicycles",
+    "why": "Katie Melua was born in Kutaisi, one of this trip's stops, which gives the film a real Georgian link. Its 'that's a fact' counting lines suit the trip stats, and 'twelve billion light years from the edge' was made for the Abastumani observatory telescope shots.",
+    "tags": [
+     "gentle",
+     "Georgian-born",
+     "warm",
+     "wink"
+    ],
+    "energy": "calm",
+    "structure": "Gentle opening for the title; each verse is a 'fact', so use them as chapters (Tbilisi, the mountains, the observatory); the soft last chorus ends on the final photo and the stats card.",
+    "fit": "whole song (~3:15, ~90 photos with longer holds), best for a shorter highlights cut",
+    "lyric_hooks": "'There are nine million bicycles in Beijing, that's a fact' rewritten as '8,677 km through Georgia, that's a fact' with a count-up; 'twelve billion light years from the edge, that's a guess' over the Abastumani telescope.",
+    "check": {
+     "found": null,
+     "note": "lyrics database unreachable (offline?)"
+    }
+   }
+  ]
+ },
+ "analysis": {
+  "photos": 200,
+  "song_slug": "mumford_sons_the_cave",
+  "tempo": 141.588,
+  "duration": 275.737,
+  "constant_grid": false,
+  "lyrics_lines": 44,
+  "lyrics_match_z": 5.9
+ },
+ "interview": {
+  "length": "Full song from the first strum (song 40.2 s; the MP3 opens with 40 s of the music video's spoken intro, left out), no join, ~3:32 with the thank-you.",
+  "km": "Stats card: ~1,560 km driven (GPS route inside Georgia; Polarsteps 8,677 km includes the flights).",
+  "offroad": "Use what is there: contract note RULE 1: NO OFFROAD -> \"Yes, no offroad.\" over Sam driving (#109) -> the tyre in a Gori pothole (#72) as the punchline.",
+  "ending": "\"Madloba!\" big, then \"Thank you Georgia\" verbatim, typed in the silence after the last chord.",
+  "left_out": "#190 (a stranger in a lab coat, lab selfie): not from this trip.",
+  "upside_down": "Sam: whatever flows smoothest -> keep date order: the Prometheus print turns 180 deg on the lyric; Batumi upside-down house later: \"still upside down\".",
+  "no_entry": "Sam went into the abandoned building past the NO ENTRY tape: \"Yes, no entry.\" callback OK.",
+  "vendor_bubble": "Georgian-script bubble OK (spells bla bla bla; the point is that nobody can read it).",
+  "skwa_chap": "\"Skwa\" = filler word like \"bam\"; \"Chap\" = Flemish for food. Neither goes on screen."
+ },
+ "style_leanings": "diary sketchbook, maps & motion",
+ "adventurous": "bold",
+ "references": "",
+ "direction": {
+  "id": "a",
+  "note": "",
+  "at": "2026-10-25 11:03"
+ },
+ "v2": {
+  "version": "fieldnotes",
+  "direction": "a",
+  "treatment": "out/treatment_fieldnotes.md",
+  "stage": "final",
+  "started": "2026-10-25",
+  "answers": {
+   "treatment": "approved by Sam 2026-10-25",
+   "lunch_note": "verbatim Flemish: Amai dit eten was crazy goed",
+   "invented_jokes": "none vetoed (Sam?, mine., siren., pothole = highway, empty plate, not the book this time)"
+  },
+  "preview": "out/fieldnotes_preview_share.mp4",
+  "notes": "out/fieldnotes_notes.md",
+  "builder": "build_fieldnotes.py",
+  "approved_at": "2026-10-25 12:18",
+  "approved_how": "Sam in chat: its good, ship it",
+  "final": "out/fieldnotes.mp4",
+  "share": "out/fieldnotes_share.mp4"
+ },
+ "rounds": {
+  "fieldnotes": [
+   {
+    "n": 2,
+    "kind": "preview",
+    "at": "2026-10-25 12:18",
+    "video": "out/rounds/fieldnotes_r2.mp4",
+    "qa": []
+   },
+   {
+    "n": 3,
+    "kind": "final",
+    "at": "2026-10-25 17:26",
+    "video": "",
+    "qa": []
+   }
+  ]
+ }
+}

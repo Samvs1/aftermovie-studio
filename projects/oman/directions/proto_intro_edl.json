@@ -1,0 +1,803 @@
+{
+ "meta": {
+  "version": "proto_intro",
+  "title": "Oman, inshallah",
+  "song": "music/OneRepublic - I Lived - Lyrics Video (Native Album).mp3",
+  "analysis": "onerepublic_i_lived_lyrics_video",
+  "fps": 30,
+  "duration": 20.604
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     1.21,
+     234.2
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [
+   {
+    "type": "stamp",
+    "t": 0.104,
+    "db": -22
+   },
+   {
+    "type": "stamp",
+    "t": 2.104,
+    "db": -22
+   },
+   {
+    "type": "stamp",
+    "t": 3.104,
+    "db": -22
+   },
+   {
+    "type": "stamp",
+    "t": 4.104,
+    "db": -22
+   },
+   {
+    "type": "stamp",
+    "t": 5.104,
+    "db": -22
+   },
+   {
+    "type": "stamp",
+    "t": 8.104,
+    "db": -22
+   },
+   {
+    "type": "stamp",
+    "t": 10.854,
+    "db": -22
+   },
+   {
+    "type": "stamp",
+    "t": 12.104,
+    "db": -18
+   }
+  ],
+  "fx": []
+ },
+ "grade": {
+  "preset": "punchy",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.006,
+  "vignette": 0.0,
+  "halation": 0.0,
+  "flicker": 0.0,
+  "weave": 0.0
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 8.104,
+   "sync": "intro: title on the beats",
+   "layers": [
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960.0,
+     "y": 540.0,
+     "w": 1920,
+     "h": 1080,
+     "color": "#e85d2a",
+     "motif": "stripes",
+     "cell": 96,
+     "colors": [
+      "#13a3a1",
+      "#fbf6ea"
+     ],
+     "prot": 0.0,
+     "scroll": [
+      24,
+      0
+     ]
+    },
+    {
+     "type": "sticker",
+     "t": 0.104,
+     "x": 960,
+     "y": 470,
+     "size": 520,
+     "rot": -6,
+     "img": "cutouts/jbl.png"
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 560,
+     "y": 250,
+     "w": 554.0,
+     "h": 336.56,
+     "color": "#d7261e",
+     "rot": -3,
+     "t0": 2.104,
+     "t1": 8.104,
+     "enter": {
+      "t": 2.084,
+      "dur": 0.14,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "OMAN",
+     "x": 560,
+     "y": 250,
+     "t0": 2.104,
+     "t1": 8.104,
+     "size": 210,
+     "font": "anton",
+     "color": "#fbf6ea",
+     "rot": -3,
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1390,
+     "y": 260,
+     "w": 457.0,
+     "h": 211.44,
+     "color": "#0f8a4a",
+     "rot": 3,
+     "t0": 3.104,
+     "t1": 8.104,
+     "enter": {
+      "t": 3.084,
+      "dur": 0.14,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "ﻥﺎﻤﻋ",
+     "x": 1390,
+     "y": 260,
+     "t0": 3.104,
+     "t1": 8.104,
+     "size": 150,
+     "font": "arabic_heavy",
+     "color": "#fbf6ea",
+     "rot": 3,
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "shape",
+     "kind": "tag",
+     "x": 960,
+     "y": 860,
+     "w": 608.0,
+     "h": 80.0,
+     "color": "#ffffff",
+     "rot": -2,
+     "t0": 4.104,
+     "t1": 8.104,
+     "enter": {
+      "t": 4.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "INSHALLAH  ·  15 DAYS",
+     "x": 977.9890348863437,
+     "y": 859.371809059355,
+     "t0": 4.104,
+     "t1": 8.104,
+     "size": 40,
+     "font": "mono",
+     "color": "#141414",
+     "rot": -2,
+     "anim": "fade",
+     "dur": 0.06,
+     "fade_out": 0.06
+    },
+    {
+     "type": "shape",
+     "kind": "tag",
+     "x": 1180,
+     "y": 960,
+     "w": 797.6,
+     "h": 72.0,
+     "color": "#f2a516",
+     "rot": 2,
+     "t0": 5.104,
+     "t1": 8.104,
+     "enter": {
+      "t": 5.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "SAM + TOM  ·  31.03 — 14.04.2024",
+     "x": 1196.1901313977094,
+     "y": 960.5653718465805,
+     "t0": 5.104,
+     "t1": 8.104,
+     "size": 36,
+     "font": "mono",
+     "color": "#141414",
+     "rot": 2,
+     "anim": "fade",
+     "dur": 0.06,
+     "fade_out": 0.06
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 8.104,
+   "t1": 12.104,
+   "sync": "bar 4: take that jump = booking",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f2a516",
+     "paper": false
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960.0,
+     "y": 540.0,
+     "w": 1920,
+     "h": 1080,
+     "color": "#e85d2a",
+     "motif": "chevron",
+     "cell": 120,
+     "colors": [
+      "#f2a516",
+      "#e8940c"
+     ],
+     "prot": 0.0,
+     "scroll": [
+      40,
+      0
+     ]
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 760,
+     "y": 540,
+     "w": 1152,
+     "h": 904.9411764705883,
+     "color": "#141414",
+     "rot": 0,
+     "enter": {
+      "t": 8.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 760,
+     "y": 540,
+     "w": 1116,
+     "h": 868.9411764705883,
+     "color": "#e85d2a",
+     "motif": "star8",
+     "cell": 75.4,
+     "colors": [
+      "#2453c7",
+      "#fbf6ea",
+      "#f2a516"
+     ],
+     "hole": [
+      58,
+      58,
+      1000,
+      752.9411764705883
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 8.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "ps001_bd81e9fc-a8dc-45b8-8fae-7852600b143f_bcd52ed7-d3cd-4214-baee-c34d9a084e55.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      260.0,
+      163.5,
+      1000,
+      752.9
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 8.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "tag",
+     "x": 1360,
+     "y": 250,
+     "w": 857.8,
+     "h": 76.0,
+     "color": "#ffffff",
+     "rot": 4,
+     "t0": 8.104,
+     "t1": 12.104,
+     "enter": {
+      "t": 8.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "CHEAPEST FLIGHT TO MUSCAT: BOOKED",
+     "x": 1377.058345259443,
+     "y": 251.19283570102453,
+     "t0": 8.104,
+     "t1": 12.104,
+     "size": 38,
+     "font": "mono",
+     "color": "#141414",
+     "rot": 4,
+     "anim": "fade",
+     "dur": 0.06,
+     "fade_out": 0.06
+    },
+    {
+     "type": "shape",
+     "kind": "tag",
+     "x": 1330,
+     "y": 860,
+     "w": 742.8,
+     "h": 76.0,
+     "color": "#fbf6ea",
+     "rot": -3,
+     "t0": 10.854,
+     "t1": 12.104,
+     "enter": {
+      "t": 10.834,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "WHY SO CHEAP? (DIDN'T CHECK)",
+     "x": 1347.0765650443032,
+     "y": 859.1050551482457,
+     "t0": 10.854,
+     "t1": 12.104,
+     "size": 38,
+     "font": "mono",
+     "color": "#141414",
+     "rot": -3,
+     "anim": "fade",
+     "dur": 0.06,
+     "fade_out": 0.06
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 12.104,
+   "t1": 16.104,
+   "sync": "bar 6: Ramadan reveal",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#d7261e",
+     "paper": false
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 600,
+     "w": 1081.6875,
+     "h": 852,
+     "color": "#141414",
+     "rot": 0,
+     "enter": {
+      "t": 12.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960,
+     "y": 600,
+     "w": 1045.6875,
+     "h": 816,
+     "color": "#e85d2a",
+     "motif": "diamond",
+     "cell": 75.4,
+     "colors": [
+      "#0f8a4a",
+      "#fbf6ea",
+      "#d7261e"
+     ],
+     "hole": [
+      58,
+      58,
+      929.6875,
+      700
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 12.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "ps001_2a57a1b3-c5bf-49fa-b719-c5f9ea3e56a1_3b8fec86-ab30-4fd3-acdd-fd8533be3081.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      495.2,
+      250.0,
+      929.7,
+      700
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 12.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 700,
+     "y": 180,
+     "w": 714.0,
+     "h": 279.52,
+     "color": "#141414",
+     "rot": -4,
+     "t0": 12.104,
+     "t1": 16.104,
+     "enter": {
+      "t": 12.084,
+      "dur": 0.14,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "RAMADAN",
+     "x": 700,
+     "y": 180,
+     "t0": 12.104,
+     "t1": 16.104,
+     "size": 170,
+     "font": "anton",
+     "color": "#fbf6ea",
+     "rot": -4,
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1400,
+     "y": 190,
+     "w": 468.0,
+     "h": 178.32,
+     "color": "#fbf6ea",
+     "rot": 3,
+     "t0": 12.604,
+     "t1": 16.104,
+     "enter": {
+      "t": 12.584,
+      "dur": 0.14,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "ﻥﺎﻀﻣﺭ",
+     "x": 1400,
+     "y": 190,
+     "t0": 12.604,
+     "t1": 16.104,
+     "size": 120,
+     "font": "arabic_heavy",
+     "color": "#141414",
+     "rot": 3,
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "shape",
+     "kind": "tag",
+     "x": 960,
+     "y": 990,
+     "w": 834.8,
+     "h": 76.0,
+     "color": "#ffffff",
+     "rot": -2,
+     "t0": 13.104,
+     "t1": 16.104,
+     "enter": {
+      "t": 13.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "RESTAURANTS: CLOSED UNTIL SUNSET",
+     "x": 977.0895831420265,
+     "y": 989.4032186063872,
+     "t0": 13.104,
+     "t1": 16.104,
+     "size": 38,
+     "font": "mono",
+     "color": "#141414",
+     "rot": -2,
+     "anim": "fade",
+     "dur": 0.06,
+     "fade_out": 0.06
+    }
+   ]
+  },
+  {
+   "id": "S004",
+   "t0": 16.104,
+   "t1": 20.604,
+   "sync": "bar 8-9: the wall",
+   "layers": [
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960.0,
+     "y": 540.0,
+     "w": 1920,
+     "h": 1080,
+     "color": "#e85d2a",
+     "motif": "stripes",
+     "cell": 80,
+     "colors": [
+      "#2453c7",
+      "#fbf6ea"
+     ],
+     "prot": 90.0
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 560,
+     "y": 560,
+     "w": 912,
+     "h": 724.2352941176471,
+     "color": "#141414",
+     "rot": -2,
+     "enter": {
+      "t": 16.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 560,
+     "y": 560,
+     "w": 876,
+     "h": 688.2352941176471,
+     "color": "#e85d2a",
+     "motif": "star8",
+     "cell": 75.4,
+     "colors": [
+      "#13a3a1",
+      "#fbf6ea",
+      "#f2a516"
+     ],
+     "hole": [
+      58,
+      58,
+      760,
+      572.2352941176471
+     ],
+     "rot": -2,
+     "enter": {
+      "t": 16.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "ps002_9ac9f41b-daac-4c98-b3c9-b1f18ade4588_22457c60-6234-4d37-b0a7-985124de911f.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      180.0,
+      273.9,
+      760,
+      572.2
+     ],
+     "rot": -2,
+     "enter": {
+      "t": 16.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1380,
+     "y": 540,
+     "w": 672,
+     "h": 842.625,
+     "color": "#141414",
+     "rot": 2,
+     "enter": {
+      "t": 19.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 1380,
+     "y": 540,
+     "w": 636,
+     "h": 806.625,
+     "color": "#e85d2a",
+     "motif": "star8",
+     "cell": 75.4,
+     "colors": [
+      "#d7261e",
+      "#fbf6ea",
+      "#0f8a4a"
+     ],
+     "hole": [
+      58,
+      58,
+      520,
+      690.625
+     ],
+     "rot": 2,
+     "enter": {
+      "t": 19.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "ps002_e7d609eb-2a88-42a2-a73d-34f142cd1ee4_4c522132-b98a-4c98-8221-57b03d6872ed.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1120.0,
+      194.7,
+      520,
+      690.6
+     ],
+     "rot": 2,
+     "enter": {
+      "t": 19.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "tag",
+     "x": 960,
+     "y": 1000,
+     "w": 665.6,
+     "h": 72.0,
+     "color": "#ffffff",
+     "rot": -1,
+     "t0": 17.104,
+     "t1": 20.104,
+     "enter": {
+      "t": 17.084,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "MUTTRAH CORNICHE  ·  DAY 3",
+     "x": 976.1975326615335,
+     "y": 999.717271015716,
+     "t0": 17.104,
+     "t1": 20.104,
+     "size": 36,
+     "font": "mono",
+     "color": "#141414",
+     "rot": -1,
+     "anim": "fade",
+     "dur": 0.06,
+     "fade_out": 0.06
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,307 @@
+{
+ "title": "Demo: Summer in Iberia (Polarsteps)",
+ "occasion": "a trip",
+ "when_where": "Portugal, Spain · July 2026",
+ "group_name": "",
+ "language": "English",
+ "vibe": "",
+ "text_amount": "medium",
+ "length": "the whole song (or one clean cut if it's long)",
+ "song": {
+  "file": "",
+  "artist": "Empire of the Sun",
+  "title": "Walking on a Dream"
+ },
+ "chapters": [
+  {
+   "id": "s01_hello_lisbon",
+   "label": "Hello Lisbon",
+   "when": "3 Jul",
+   "steps": [
+    "5550000"
+   ]
+  },
+  {
+   "id": "s02_sintra",
+   "label": "Sintra palace day",
+   "when": "5 Jul",
+   "steps": [
+    "5550001"
+   ]
+  },
+  {
+   "id": "s03_porto_nights",
+   "label": "Porto nights",
+   "when": "7 Jul",
+   "steps": [
+    "5550002"
+   ]
+  },
+  {
+   "id": "s04_salamanca",
+   "label": "Salamanca",
+   "when": "10 Jul",
+   "steps": [
+    "5550003"
+   ]
+  },
+  {
+   "id": "s05_last_night_in_madrid",
+   "label": "Last night in Madrid",
+   "when": "12 Jul",
+   "steps": [
+    "5550004"
+   ]
+  }
+ ],
+ "people_notes": "",
+ "jokes": "",
+ "avoid": "",
+ "credits": "",
+ "ending_note": "",
+ "editor": "",
+ "extra": "",
+ "status": {
+  "stage": "trip imported"
+ },
+ "created": "2026-10-24",
+ "steps": {
+  "5550000": {
+   "label": "Hello Lisbon",
+   "note": "Landed, pastéis de nata before the bags were even unpacked.",
+   "skip": false
+  },
+  "5550001": {
+   "label": "Sintra palace day",
+   "note": "Tim got lost in the gardens for an hour",
+   "skip": false
+  },
+  "5550002": {
+   "label": "Porto nights",
+   "note": "",
+   "skip": false
+  },
+  "5550003": {
+   "label": "Salamanca",
+   "note": "Bus at 6am. Nobody talked.",
+   "skip": true
+  },
+  "5550004": {
+   "label": "Last night in Madrid",
+   "note": "",
+   "skip": false
+  }
+ },
+ "trip": {
+  "source": "polarsteps",
+  "id": "987654",
+  "name": "Summer in Iberia",
+  "imported": "2026-10-24"
+ },
+ "song_suggestions": {
+  "at": "2026-10-24 21:17",
+  "items": [
+   {
+    "artist": "Vance Joy",
+    "title": "Riptide",
+    "why": "The ukulele and the sunny lightness match the blue-sky boat ride photos, especially the one of the guy pointing up at the clouds. The chorus line 'you're gonna sing the words wrong' fits the karaoke shot against the red-orange wall.",
+    "tags": [
+     "sunny",
+     "acoustic",
+     "carefree",
+     "singalong"
+    ],
+    "energy": "mid",
+    "structure": "Ukulele intro carries the title over the canal-boat group shot; verse 1 over the boat and flash selfies; the 'I just wanna know' lift builds into the chorus as the reveal on the pointing-at-the-sky photo; last chorus over the sunset railing trio, ending on the song's dry final strum.",
+    "fit": "cut to about 1:10: intro, verse 1, chorus 1, then one join from the end of chorus 1 into the final chorus",
+    "lyric_hooks": "'I got a lump in my throat 'cause you're gonna sing the words wrong' handwritten with an arrow to the karaoke singer",
+    "check": {
+     "found": true,
+     "artist": "Vance Joy",
+     "title": "Riptide",
+     "album": "Dream Your Life Away (Deluxe Edition)",
+     "duration": 204,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Florence + the Machine",
+    "title": "Dog Days Are Over",
+    "why": "The quiet clap-and-strum opening fits the soft daytime boat photos, and the explosion later fits the night shots: flash selfies, the hotel-bed laughing pile, the dinner hand-dance clip. 'Happiness hit her like a train on a track' could have been written for the dressed-up girl screaming with the disposable camera.",
+    "tags": [
+     "euphoric",
+     "build",
+     "joyful",
+     "cathartic"
+    ],
+    "energy": "high",
+    "structure": "Hand-clap intro under the title; quiet first verse over the daytime boat shots; the 'run fast for your mother' build speeds up the cuts; the drop into 'the dog days are over' is the big reveal into the nights; ends on the final crash, then silence.",
+    "fit": "cut to about 1:15 with one join from the first 'dog days are over' chorus into the last one",
+    "lyric_hooks": "'Happiness hit her like a train on a track' over the screaming girl with the disposable camera",
+    "check": {
+     "found": true,
+     "artist": "Florence + The Machine",
+     "title": "Dog Days Are Over\u001fDog Days Are Over",
+     "album": "Between Two Lungs",
+     "duration": 253,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Empire of the Sun",
+    "title": "Walking on a Dream",
+    "why": "Its warm, dreamy synth-pop matches the saturated colour in these photos: yellow-tinted sunglasses, the pink sunset over the water, the magenta-lit night street with the wine glass. The steady groove suits one photo per bar.",
+    "tags": [
+     "dreamy",
+     "summer",
+     "warm",
+     "groovy"
+    ],
+    "energy": "mid",
+    "structure": "Guitar-riff intro carries the title over the boat shots; verse over the selfies; the 'walking on a dream' chorus is the reveal on the pink night-street portrait; land the ending on the last chorus downbeat.",
+    "fit": "cut to about 1:10 with one join from chorus 1 into the final chorus (check the outro and end before any fade)",
+    "lyric_hooks": "'Never looking down' over the boat photo of the guy pointing at the sky",
+    "check": {
+     "found": true,
+     "artist": "Empire Of The Sun",
+     "title": "Walking On A Dream",
+     "album": "Ski Season 2026",
+     "duration": 198,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Kings of Convenience",
+    "title": "I'd Rather Dance with You",
+    "why": "This bouncy, almost bossa acoustic pop feels like a Lisbon terrace. Its words match the red-clip dinner video of everyone hand-dancing over wine glasses and the karaoke shot. It is playful rather than epic, like the pouting yellow-sunglasses selfie.",
+    "tags": [
+     "breezy",
+     "playful",
+     "acoustic",
+     "indie"
+    ],
+    "energy": "mid",
+    "structure": "Strummed intro for the title; verses over the boat and selfies; the 'dance with you' refrain over the karaoke photo and the hand-dance clip; end on the last refrain's final chord over the sunset railing trio.",
+    "fit": "cut to about 1:10 with one join between two identical refrains",
+    "lyric_hooks": "'Let your hips do the talking' handwritten over the dinner hand-dance clip; 'the music's too loud' on the karaoke shot",
+    "check": {
+     "found": true,
+     "artist": "Kings Of Convenience",
+     "title": "I'd Rather Dance With You",
+     "album": "Astralwerks Sampler '04",
+     "duration": 209,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Parcels",
+    "title": "Tieduprightnow",
+    "why": "Its sun-faded disco-funk fits the night half of the set: flash selfies with red cups, the guy sprawled in the armchair, the hotel-bed tangle. The long groove intro has room for a title and the Lisbon/Porto/Madrid stats.",
+    "tags": [
+     "disco",
+     "funky",
+     "golden",
+     "cool"
+    ],
+    "energy": "mid",
+    "structure": "Groove intro carries the title and the route map; harmonised verses over the boat days; the chorus drops into the night shots; end on a chorus downbeat cut to silence.",
+    "fit": "cut to about 1:15 with one join from chorus 1 into the last chorus",
+    "lyric_hooks": "'Tied up right now' as a stamp over the two people tangled up laughing on the hotel bed",
+    "check": {
+     "found": true,
+     "artist": "Parcels",
+     "title": "Tieduprightnow",
+     "album": "LES INROCKS - Juin 2018",
+     "duration": 250,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "The Kooks",
+    "title": "Seaside",
+    "why": "This is the calm option: just a voice and an acoustic guitar, matching the soft pink sunset of the three friends on the railing by the water and the quiet canal-boat moments. It is short enough to use almost whole with long holds on the landscapes.",
+    "tags": [
+     "gentle",
+     "nostalgic",
+     "acoustic",
+     "bittersweet"
+    ],
+    "energy": "calm",
+    "structure": "No drums and no drop: the opening line carries the title over the boat, the middle holds the selfies and night portraits, and the last line lands on the sunset railing photo. The reveal is emotional, not a beat drop.",
+    "fit": "whole song (about 1:40), with landscapes held for 2 bars",
+    "lyric_hooks": "'Do you want to go to the seaside?' handwritten over the opening boat shot",
+    "check": {
+     "found": true,
+     "artist": "The Kooks",
+     "title": "Seaside",
+     "album": "Document",
+     "duration": 99,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Gala",
+    "title": "Freed from Desire",
+    "why": "This is the party option, for the karaoke mic shot, the red-cup flash selfies and the dinner clip where everyone dances with their hands. Its 'na na na' chant is the kind of thing a group screams together on the last night.",
+    "tags": [
+     "euro-dance",
+     "chant",
+     "party",
+     "nostalgic"
+    ],
+    "energy": "high",
+    "structure": "Piano and synth intro builds under the title and the boat shots; 'my love has got no money' verse over the selfies; the 'na na na' drop is the big reveal at the karaoke photo; cut hard on the last chant hit into silence.",
+    "fit": "cut to about 1:10 with one join from the first 'na na na' drop into the final one",
+    "lyric_hooks": "'Na na na' speech bubbles coming out of the karaoke singer and the hand-dancers in the dinner clip",
+    "check": {
+     "found": true,
+     "artist": "Gala",
+     "title": "Freed from Desire",
+     "album": "100 Hits Dancefloor",
+     "duration": 214,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Raphael",
+    "title": "Mi gran noche",
+    "why": "This 1967 Spanish singalong classic suits 'Last night in Madrid' and the magenta-lit night-street portrait with the raised wine glass. It also gives a brassy, tongue-in-cheek ending to the dressed-up suits and screaming-camera night.",
+    "tags": [
+     "spanish",
+     "retro",
+     "brassy",
+     "celebratory"
+    ],
+    "energy": "high",
+    "structure": "Orchestral intro carries the title; the 'hoy para mí es un día especial' verse over the travel days; the 'qué pasará, qué misterio habrá' chorus is the reveal into the nights; end on the big final note.",
+    "fit": "cut to about 1:10 with one join from the first chorus into the last one",
+    "lyric_hooks": "'Hoy saldré por la noche' with a handwritten subtitle 'tonight I'm going out' over the pink night-street wine portrait; 'puede ser mi gran noche' on the last Madrid photo",
+    "check": {
+     "found": true,
+     "artist": "Raphael",
+     "title": "Mi gran noche",
+     "album": "Las 5 mejores",
+     "duration": 181,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   }
+  ]
+ },
+ "music_taste": ""
+}

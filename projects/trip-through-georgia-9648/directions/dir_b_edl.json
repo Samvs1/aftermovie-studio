@@ -1,0 +1,283 @@
+{
+ "meta": {
+  "version": "dir_b",
+  "title": "Georgia directions",
+  "song": "music/Mumford & Sons - The Cave (Official Music Video).mp3",
+  "analysis": "mumford_sons_the_cave",
+  "fps": 30,
+  "duration": 7.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     40.12,
+     245.3
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "punchy",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.006,
+  "vignette": 0.0,
+  "halation": 0.0,
+  "flicker": 0.0,
+  "weave": 0.0
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "b_1",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f2efe8",
+     "paper": false
+    },
+    {
+     "type": "type_mask",
+     "src": "ps007_9962b9eb-5592-4502-9cfb-cad0550e2358_307dc026-bbb9-4791-b0fe-98a6c16adf3d.jpg.jpg",
+     "text": "საქართველო",
+     "font": "georgian_black",
+     "size": 230.72100313479623,
+     "x": 960.0,
+     "y": 520,
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": [
+      0.5,
+      0.6
+     ],
+     "look": {
+      "name": "bw",
+      "contrast": 1.3
+     },
+     "fade": 0,
+     "outline": {
+      "px": 3,
+      "color": "#111111"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 180,
+     "y": 900,
+     "w": 120,
+     "h": 12,
+     "color": "#e1251b"
+    },
+    {
+     "type": "text",
+     "text": "SAKARTVELO",
+     "x": 120,
+     "y": 960,
+     "t0": 0,
+     "t1": 9999,
+     "size": 92,
+     "font": "anton",
+     "color": "#111111",
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "= GEORGIA, IN GEORGIAN",
+     "x": 640,
+     "y": 972,
+     "t0": 0,
+     "t1": 9999,
+     "size": 30,
+     "font": "mono",
+     "color": "#555555",
+     "fade_out": 0,
+     "anchor": "lm"
+    },
+    {
+     "type": "text",
+     "text": "12—23.10.2026",
+     "x": 1800,
+     "y": 972,
+     "t0": 0,
+     "t1": 9999,
+     "size": 30,
+     "font": "mono",
+     "color": "#555555",
+     "fade_out": 0,
+     "anchor": "rm"
+    },
+    {
+     "type": "text",
+     "text": "WORDS UNDERSTOOD:",
+     "x": 120,
+     "y": 110,
+     "t0": 0,
+     "t1": 9999,
+     "size": 30,
+     "font": "mono",
+     "color": "#111111",
+     "fade_out": 0,
+     "anchor": "lm"
+    },
+    {
+     "type": "text",
+     "text": "0",
+     "x": 466.0,
+     "y": 110,
+     "t0": 0,
+     "t1": 9999,
+     "size": 30,
+     "font": "mono",
+     "color": "#111111",
+     "fade_out": 0,
+     "anchor": "lm"
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.5,
+   "sync": "b_2",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "ps017_de2f28f9-ec2f-4dc3-b449-4c1077775341_34e4467e-0c4a-4f1d-a313-10185dba51ce.jpg.jpg",
+     "zoom": [
+      1.06,
+      1.06
+     ],
+     "focus": "center",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "bw",
+      "contrast": 1.4
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 515,
+     "w": 1520,
+     "h": 330,
+     "color": "#e1251b"
+    },
+    {
+     "type": "text",
+     "text": "გამარჯობა!",
+     "x": 960,
+     "y": 500,
+     "t0": 0,
+     "t1": 9999,
+     "size": 202.4373730534868,
+     "font": "georgian_black",
+     "color": "#ffffff",
+     "fade_out": 0
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 760,
+     "w": 760,
+     "h": 112,
+     "color": "#f2efe8"
+    },
+    {
+     "type": "text",
+     "text": "GAMARJOBA!  (HELLO)",
+     "x": 960,
+     "y": 762,
+     "t0": 0,
+     "t1": 9999,
+     "size": 72,
+     "font": "anton",
+     "color": "#111111",
+     "fade_out": 0
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 300.0,
+     "y": 110,
+     "w": 426.0,
+     "h": 72,
+     "color": "#f2efe8"
+    },
+    {
+     "type": "text",
+     "text": "WORDS UNDERSTOOD:",
+     "x": 120,
+     "y": 110,
+     "t0": 0,
+     "t1": 9999,
+     "size": 30,
+     "font": "mono",
+     "color": "#111111",
+     "fade_out": 0,
+     "anchor": "lm"
+    },
+    {
+     "type": "text",
+     "text": "1",
+     "x": 466.0,
+     "y": 110,
+     "t0": 0,
+     "t1": 9999,
+     "size": 30,
+     "font": "mono",
+     "color": "#e1251b",
+     "fade_out": 0,
+     "anchor": "lm"
+    },
+    {
+     "type": "shape",
+     "kind": "ring",
+     "x": 475.0,
+     "y": 111,
+     "w": 58,
+     "h": 58,
+     "color": "#e1251b",
+     "thick": 0.1
+    }
+   ]
+  }
+ ]
+}

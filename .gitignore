@@ -1,0 +1,32 @@
+# secrets - never commit
+.env
+*.env
+openrouter api.txt
+*api*.txt
+
+# personal notes for Claude
+CLAUDE.local.md
+.claude/settings.local.json
+
+# local tooling / caches
+.venv/
+__pycache__/
+*.pyc
+*.part
+dist/
+
+# projects: only the small text files go in git. Photos, music, cache/ and renders stay local
+# (finished films go on a GitHub Release; GitHub rejects files over 100 MB).
+projects/*/*
+!projects/*/project.json
+!projects/*/photos_meta.json
+!projects/*/CLAUDE.md
+!projects/*/build*.py
+!projects/*/review/
+!projects/*/directions/
+!projects/*/out/
+projects/*/out/*
+!projects/*/out/*.md
+!projects/*/out/*.json
+# the public-domain style-sample photos are small and needed to re-render app/static/styles
+!projects/_style-samples/photos/

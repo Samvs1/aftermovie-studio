@@ -1,0 +1,6960 @@
+{
+ "meta": {
+  "version": "time_to_pretend",
+  "title": "The Bad Bananas: Fated to Pretend",
+  "song": "music/MGMT - Time to Pretend (Official HD Video).mp3",
+  "analysis": "time_to_pretend",
+  "fps": 30,
+  "duration": 173.337,
+  "notes": "see out/time_to_pretend_notes.md"
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     0.3,
+     115.683
+    ],
+    "at": 1.0
+   },
+   {
+    "src": [
+     220.231,
+     258.81
+    ],
+    "at": 116.383
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [
+   {
+    "type": "drop",
+    "t": 1.043,
+    "db": -15
+   },
+   {
+    "type": "clunk",
+    "t": 5.795,
+    "db": -12
+   },
+   {
+    "type": "static",
+    "t": 7.578,
+    "db": -27,
+    "dur": 0.59408
+   },
+   {
+    "type": "drop",
+    "t": 10.548,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 11.736,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 12.924,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 15.301,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 16.489,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 17.677,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 20.053,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 24.806,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 29.856,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 31.044,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 32.529,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 40.252,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 41.44,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 42.628,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 48.569,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 50.946,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 53.322,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 55.698,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 58.075,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 60.451,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 62.827,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 65.204,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 67.58,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 69.659,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 70.55,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 74.709,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 78.273,
+    "db": -21
+   },
+   {
+    "type": "stamp",
+    "t": 79.462,
+    "db": -17
+   },
+   {
+    "type": "drop",
+    "t": 81.838,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 84.214,
+    "db": -21
+   },
+   {
+    "type": "stamp",
+    "t": 84.808,
+    "db": -13
+   },
+   {
+    "type": "drop",
+    "t": 88.67,
+    "db": -21
+   },
+   {
+    "type": "stamp",
+    "t": 103.225,
+    "db": -11
+   },
+   {
+    "type": "drop",
+    "t": 112.433,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 117.493,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 118.682,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 131.751,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 132.346,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 136.504,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 137.098,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 141.257,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 141.851,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 146.009,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 146.604,
+    "db": -21
+   },
+   {
+    "type": "stamp",
+    "t": 153.138,
+    "db": -9
+   },
+   {
+    "type": "clunk",
+    "t": 156.108,
+    "db": -14
+   }
+  ],
+  "fx": [
+   {
+    "type": "tape_stop",
+    "t": 153.298,
+    "dur": 1.15
+   }
+  ]
+ },
+ "grade": {
+  "preset": "punchy",
+  "overrides": {
+   "1000053168.jpg": {
+    "wb": 0.45
+   },
+   "img0017.jpg": {
+    "wb": 0
+   },
+   "1000052364.jpg": {
+    "exposure": 0.4
+   }
+  }
+ },
+ "finish": {
+  "grain": 0.012,
+  "vignette": 0.24,
+  "halation": 0.06,
+  "flicker": 0.004,
+  "weave": 0.2
+ },
+ "flashes": [],
+ "overlays": [
+  {
+   "type": "osd",
+   "t0": 8.172,
+   "t1": 155.50400000000002,
+   "counter_t0": 8.172,
+   "x": 70,
+   "y": 64,
+   "size": 30,
+   "opacity": 0.85,
+   "states": [
+    [
+     8.172,
+     "play",
+     "PLAY"
+    ],
+    [
+     131.751,
+     "pause",
+     "PAUSE",
+     true
+    ],
+    [
+     150.762,
+     "play",
+     "PLAY"
+    ],
+    [
+     153.298,
+     "stop",
+     "STOP"
+    ]
+   ],
+   "hide": [
+    [
+     27.182,
+     29.559
+    ],
+    [
+     46.193,
+     48.569
+    ],
+    [
+     122.246,
+     126.999
+    ]
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.043,
+   "sync": "pre-roll: black",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#050505",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.043,
+   "t1": 5.795,
+   "sync": "bars 0-1: the tape lands; its label writes itself on the beats",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#3a2c22",
+     "paper": true
+    },
+    {
+     "type": "cassette",
+     "cx": 960.0,
+     "cy": 560,
+     "w": 1150,
+     "rot": -3,
+     "enter": {
+      "t": 0.903,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 6
+     }
+    },
+    {
+     "type": "text",
+     "text": "THE BAD BANANAS",
+     "x": 960.0,
+     "y": 352,
+     "t0": 1.637,
+     "t1": 5.795,
+     "size": 82,
+     "font": "marker",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.4,
+     "rot": -3,
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "fated to pretend  ·  tour '26",
+     "x": 964.0,
+     "y": 432,
+     "t0": 2.825,
+     "t1": 5.795,
+     "size": 56,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.45,
+     "rot": -3,
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "DO NOT TAPE OVER!!",
+     "x": 968.0,
+     "y": 497,
+     "t0": 3.419,
+     "t1": 5.795,
+     "size": 42,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "write",
+     "dur": 0.3,
+     "rot": -3,
+     "fade_out": 0
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 5.795,
+   "t1": 8.172,
+   "sync": "bar 2: into the VCR (clunk) -> PLAY; snow on beat 4",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#1d3bd1",
+     "paper": false
+    },
+    {
+     "type": "osd",
+     "icon": "play",
+     "text": "PLAY",
+     "x": 110,
+     "y": 120,
+     "size": 66,
+     "t0": 5.795
+    },
+    {
+     "type": "osd",
+     "text": "SP",
+     "x": 1690,
+     "y": 120,
+     "size": 54,
+     "t0": 5.795
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.7,
+     "band": false
+    },
+    {
+     "type": "static",
+     "t0": 7.578,
+     "t1": 8.172,
+     "amount": 0.85
+    }
+   ]
+  },
+  {
+   "id": "S004",
+   "t0": 8.172,
+   "t1": 10.548,
+   "sync": "bar 3: the boat, home-video look",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052753.jpg",
+     "zoom": [
+      1.04,
+      1.14
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0.04,
+       0
+      ],
+      [
+       -0.03,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "rect",
+     "x": 711.2,
+     "y": 962.56,
+     "w": 497.6,
+     "h": 72.0,
+     "color": "#000000",
+     "alpha": 0.82,
+     "show": [
+      8.172,
+      10.548
+     ]
+    },
+    {
+     "type": "text",
+     "text": "amsterdam, 2026.",
+     "x": 707.2,
+     "y": 1000,
+     "t0": 8.172,
+     "t1": 10.548,
+     "size": 48,
+     "font": "mono",
+     "color": "#ffffff",
+     "anim": "type",
+     "dur": 0.192,
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0.0
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 1.0
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S005",
+   "t0": 10.548,
+   "t1": 12.924,
+   "sync": "bar 4: two prints, one per half bar",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#141414",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052196.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      360.0,
+      126.7,
+      560,
+      746.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 10.548,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 271.5227347424234,
+     "y": 114.52658182699832,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 10.598,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 818.7717197879299,
+     "y": 85.84647780586505,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 10.598,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000052742.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1013.4,
+      100.0,
+      533.3,
+      800
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 11.736,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 965.9649721527439,
+     "y": 59.91553254450952,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 11.786,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1486.5318243165266,
+     "y": 87.19728523477653,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 11.786,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 609.7,
+     "y": 962.56,
+     "w": 700.6,
+     "h": 72.0,
+     "color": "#000000",
+     "alpha": 0.82,
+     "show": [
+      10.548,
+      12.924
+     ]
+    },
+    {
+     "type": "text",
+     "text": "8 friends. 6 countries.",
+     "x": 605.7,
+     "y": 1000,
+     "t0": 10.548,
+     "t1": 12.924,
+     "size": 48,
+     "font": "mono",
+     "color": "#ffffff",
+     "anim": "type",
+     "dur": 0.276,
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0.0
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 1.0
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S006",
+   "t0": 12.924,
+   "t1": 15.301,
+   "sync": "bar 5: the bridge group taped to the wall",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ffd400",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000051838.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      633.2,
+      85.0,
+      653.6,
+      830
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 12.924,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 549.6902421951834,
+     "y": 69.45265661083181,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 12.974,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1190.9243815813109,
+     "y": 47.06026703908958,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 12.974,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 812.7,
+     "y": 962.56,
+     "w": 294.6,
+     "h": 72.0,
+     "color": "#000000",
+     "alpha": 0.82,
+     "show": [
+      12.924,
+      15.301
+     ]
+    },
+    {
+     "type": "text",
+     "text": "one band.",
+     "x": 808.7,
+     "y": 1000,
+     "t0": 12.924,
+     "t1": 15.301,
+     "size": 48,
+     "font": "mono",
+     "color": "#ffffff",
+     "anim": "type",
+     "dur": 0.108,
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0.0
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 1.0
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S007",
+   "t0": 15.301,
+   "t1": 17.677,
+   "sync": "bar 6: two prints; the kick drum builds",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#cdb38f",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000052751.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      373.4,
+      100.0,
+      533.3,
+      800
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 2,
+     "enter": {
+      "t": 15.301,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 318.6873458876914,
+     "y": 64.15109759752181,
+     "w": 150,
+     "h": 42,
+     "rot": -36,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 15.351,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 839.6510454347394,
+     "y": 82.34355086297239,
+     "w": 150,
+     "h": 42,
+     "rot": 40,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 15.351,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000052424.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1013.3,
+      100.0,
+      533.3,
+      800
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 16.489,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 923.442169706006,
+     "y": 87.19864815030377,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 16.539,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1444.0610338247236,
+     "y": 59.914169628982336,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 16.539,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 624.2,
+     "y": 962.56,
+     "w": 671.6,
+     "h": 72.0,
+     "color": "#000000",
+     "alpha": 0.82,
+     "show": [
+      15.301,
+      17.677
+     ]
+    },
+    {
+     "type": "text",
+     "text": "(zero musical talent.)",
+     "x": 620.2,
+     "y": 1000,
+     "t0": 15.301,
+     "t1": 17.677,
+     "size": 48,
+     "font": "mono",
+     "color": "#ffffff",
+     "anim": "type",
+     "dur": 0.264,
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0.0
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 1.0
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S008",
+   "t0": 17.677,
+   "t1": 20.053,
+   "sync": "bar 7: hook starts -> Tim circled: tour manager",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ff5c9d",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052743.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      440.0,
+      103.3,
+      640,
+      853.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 17.677,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 356.0914314093885,
+     "y": 87.55534414098986,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 17.727,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 983.7088707773805,
+     "y": 65.63846021181928,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 17.727,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:6"
+     },
+     "t0": 18.271,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 3
+    },
+    {
+     "type": "text",
+     "text": "tour manager.",
+     "x": 1440,
+     "y": 420,
+     "t0": 17.677,
+     "t1": 20.053,
+     "size": 92,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 1,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -4,
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "(has a map)",
+     "x": 1470,
+     "y": 590,
+     "t0": 18.271,
+     "t1": 20.053,
+     "size": 66,
+     "font": "caveat",
+     "color": "#9e2410",
+     "panel": {
+      "seed": 2,
+      "tape": false,
+      "pady": 16
+     },
+     "rot": 3,
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S009",
+   "t0": 20.053,
+   "t1": 22.43,
+   "sync": "bar 8: the attic = HQ",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#22b8c9",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052108.jpg",
+     "zoom": [
+      1.05,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      860.0,
+      103.3,
+      640,
+      853.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 20.053,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 814.0743498215109,
+     "y": 60.492797702570044,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 20.103,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1441.2136976473832,
+     "y": 93.35977822313868,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 20.103,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "HQ:",
+     "x": 470,
+     "y": 400,
+     "t0": 20.053,
+     "t1": 22.43,
+     "size": 120,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 3,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -5,
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "the attic.",
+     "x": 500,
+     "y": 600,
+     "t0": 20.053,
+     "t1": 22.43,
+     "size": 92,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 4,
+      "tape": false,
+      "pady": 16
+     },
+     "rot": -2,
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S010",
+   "t0": 22.43,
+   "t1": 24.806,
+   "sync": "bar 9: rehearsals",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0011.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "person:4",
+     "drift": [
+      [
+       0,
+       0.02
+      ],
+      [
+       0,
+       -0.02
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "rehearsals: nightly.",
+     "x": 1350,
+     "y": 230,
+     "t0": 22.43,
+     "t1": 24.806,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 5,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": 4,
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S011",
+   "t0": 24.806,
+   "t1": 27.182,
+   "sync": "bar 10: Kuba screams into the drop",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#141414",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052092.jpg",
+     "zoom": [
+      1.1,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      380.0,
+      103.3,
+      640,
+      853.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 24.806,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 288.78630235261676,
+     "y": 93.35977822313868,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 24.856,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 915.9256501784891,
+     "y": 60.492797702570044,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 24.856,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "(mostly screaming.)",
+     "x": 1370,
+     "y": 540,
+     "t0": 24.806,
+     "t1": 27.182,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 6,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    },
+    {
+     "type": "rgb_split",
+     "on": "snares",
+     "amount": 12
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S012",
+   "t0": 27.182,
+   "t1": 29.559,
+   "sync": "bar 11 drums in: THE / BAD / BANANAS on 8ths, held for the rest of the bar",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#101010",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000051970.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      60,
+      50,
+      735,
+      980
+     ],
+     "halftone": {
+      "cell": 9,
+      "mode": "color",
+      "paper": "#f4ecd8"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.05,
+      "decay": 0.1,
+      "min": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "THE",
+     "x": 1350,
+     "y": 230,
+     "t0": 27.182,
+     "t1": 29.559,
+     "size": 140,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "BAD",
+     "x": 1350,
+     "y": 470,
+     "t0": 27.479,
+     "t1": 29.559,
+     "size": 310,
+     "font": "anton",
+     "color": "#ffd400",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "BANANAS",
+     "x": 1350,
+     "y": 760,
+     "t0": 27.776,
+     "t1": 29.559,
+     "size": 240,
+     "font": "anton",
+     "color": "#ffd400",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    }
+   ],
+   "fx": [
+    {
+     "type": "rgb_split",
+     "on": "snares",
+     "amount": 12
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S013",
+   "t0": 29.559,
+   "t1": 36.688,
+   "sync": "bars 12-14: rough / raw / prime - each print and word land on the start of its sung phrase; held 4 s",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f1ead9",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "img0028.jpg",
+     "zoom": [
+      1.05,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      100.0,
+      426.7,
+      520,
+      346.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 29.856,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 21.96251668610364,
+     "y": 413.2057696530542,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 29.906,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 529.2663203414271,
+     "y": 386.6191038816387,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 29.906,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000052060.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      760.0,
+      333.3,
+      400,
+      533.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 2,
+     "enter": {
+      "t": 31.044,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 700.6341089925107,
+     "y": 299.72893213917473,
+     "w": 150,
+     "h": 42,
+     "rot": -36,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 31.094,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1088.3977498759198,
+     "y": 313.26993685974503,
+     "w": 150,
+     "h": 42,
+     "rot": 40,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 31.094,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "img0013.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1300.0,
+      426.7,
+      520,
+      346.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 32.529,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1224.8960868618344,
+     "y": 408.6403838503441,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 32.579,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1732.5866269875353,
+     "y": 390.91143952547355,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 32.579,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "ROUGH.",
+     "x": 360,
+     "y": 220,
+     "t0": 29.856,
+     "t1": 36.688,
+     "size": 120,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "rot": -4
+    },
+    {
+     "type": "text",
+     "text": "RAW.",
+     "x": 960,
+     "y": 200,
+     "t0": 31.044,
+     "t1": 36.688,
+     "size": 120,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "rot": 3
+    },
+    {
+     "type": "text",
+     "text": "PRIME.",
+     "x": 1560,
+     "y": 220,
+     "t0": 32.529,
+     "t1": 36.688,
+     "size": 120,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "rot": -3
+    },
+    {
+     "type": "text",
+     "text": "(of our lives)",
+     "x": 1560,
+     "y": 930,
+     "t0": 32.529,
+     "t1": 36.688,
+     "size": 64,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "pop",
+     "rot": -2
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 160,
+     "y": 980,
+     "size": 36,
+     "t": 34.905,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 10
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 1830,
+     "y": 140,
+     "size": 36,
+     "t": 35.499,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 11
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 700,
+     "y": 980,
+     "size": 36,
+     "t": 36.093,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 12
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S014",
+   "t0": 36.688,
+   "t1": 46.193,
+   "sync": "bars 15-18: the plan; each item on its sung phrase, evidence on the key word, '(pending)' on the downbeat after 'wives'",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f7f2e6",
+     "paper": true
+    },
+    {
+     "type": "text",
+     "text": "THE PLAN:",
+     "x": 420,
+     "y": 170,
+     "t0": 36.688,
+     "t1": 46.193,
+     "size": 104,
+     "font": "marker",
+     "color": "#1f2a44",
+     "anim": "pop",
+     "dur": 0.16,
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "1. make some music",
+     "x": 120,
+     "y": 340,
+     "t0": 39.361,
+     "t1": 46.193,
+     "size": 74,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.3,
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       662.8,
+       344
+      ],
+      [
+       680.8,
+       370.0
+      ],
+      [
+       724.8,
+       306.0
+      ]
+     ],
+     "t0": 40.252,
+     "dur": 0.16,
+     "color": "#c8371f",
+     "width": 9
+    },
+    {
+     "type": "photo",
+     "src": "img0017.jpg",
+     "zoom": [
+      1.0,
+      1.03
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      990.0,
+      90.0,
+      600,
+      400.0
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -6,
+     "enter": {
+      "t": 40.252,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 901.0776993285909,
+     "y": 94.85985775482581,
+     "w": 150,
+     "h": 42,
+     "rot": -44,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 40.302,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1485.856573805136,
+     "y": 33.39712135344561,
+     "w": 150,
+     "h": 42,
+     "rot": 32,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 40.302,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "2. make some money",
+     "x": 120,
+     "y": 470,
+     "t0": 40.846,
+     "t1": 46.193,
+     "size": 74,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.3,
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       677.8,
+       474
+      ],
+      [
+       695.8,
+       500.0
+      ],
+      [
+       739.8,
+       436.0
+      ]
+     ],
+     "t0": 41.44,
+     "dur": 0.16,
+     "color": "#c8371f",
+     "width": 9
+    },
+    {
+     "type": "photo",
+     "src": "1000053501.jpg",
+     "zoom": [
+      1.0,
+      1.03
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1500.0,
+      326.7,
+      380,
+      506.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 5,
+     "enter": {
+      "t": 41.44,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1454.3025648370115,
+     "y": 284.61685162930485,
+     "w": 150,
+     "h": 42,
+     "rot": -33,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 41.49,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1820.902213734774,
+     "y": 316.6901649604431,
+     "w": 150,
+     "h": 42,
+     "rot": 43,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 41.49,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "3. find some models",
+     "x": 120,
+     "y": 600,
+     "t0": 42.034,
+     "t1": 46.193,
+     "size": 74,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.3,
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       661.8,
+       604
+      ],
+      [
+       679.8,
+       630.0
+      ],
+      [
+       723.8,
+       566.0
+      ]
+     ],
+     "t0": 42.628,
+     "dur": 0.16,
+     "color": "#c8371f",
+     "width": 9
+    },
+    {
+     "type": "photo",
+     "src": "1000051973.jpg",
+     "zoom": [
+      1.0,
+      1.03
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      990.0,
+      506.7,
+      380,
+      506.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 42.628,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 907.6797076194883,
+     "y": 489.65188993568216,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 42.678,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1275.1753764091716,
+     "y": 470.39225803827884,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 42.678,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "4. ...for wives",
+     "x": 120,
+     "y": 730,
+     "t0": 43.222,
+     "t1": 46.193,
+     "size": 74,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.3,
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "(pending)",
+     "x": 330,
+     "y": 850,
+     "t0": 43.817,
+     "t1": 46.193,
+     "size": 84,
+     "font": "caveat",
+     "color": "#c8371f",
+     "anim": "pop",
+     "rot": -5,
+     "fade_out": 0
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S015",
+   "t0": 46.193,
+   "t1": 48.569,
+   "sync": "bar 19: MEET THE BAND",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ffd400",
+     "paper": false
+    },
+    {
+     "type": "text",
+     "text": "MEET THE",
+     "x": 960.0,
+     "y": 360,
+     "t0": 46.193,
+     "t1": 48.569,
+     "size": 220,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "BAND.",
+     "x": 960.0,
+     "y": 640,
+     "t0": 46.787,
+     "t1": 48.569,
+     "size": 330,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "(in order of appearance)",
+     "x": 960.0,
+     "y": 900,
+     "t0": 46.193,
+     "t1": 48.569,
+     "size": 64,
+     "font": "caveat",
+     "color": "#111111",
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "rgb_split",
+     "on": "snares",
+     "amount": 12
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S016",
+   "t0": 48.569,
+   "t1": 50.946,
+   "sync": "bar 20: roll call SAM; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ff5c9d",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000053410.jpg",
+     "zoom": [
+      1.06,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      290.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 48.569,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 199.47041045006847,
+     "y": 116.15147912410367,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 48.619,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 806.6371675808492,
+     "y": 84.33121772839382,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 48.619,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:1"
+     },
+     "t0": 49.163,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 20
+    },
+    {
+     "type": "text",
+     "text": "SAM",
+     "x": 1390,
+     "y": 430,
+     "t0": 48.569,
+     "t1": 50.946,
+     "size": 230,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "lead vocals",
+     "x": 1390,
+     "y": 640,
+     "t0": 48.569,
+     "t1": 50.946,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "BE",
+     "x": 1390,
+     "y": 800,
+     "w": 130,
+     "rot": 8,
+     "t": 49.757,
+     "seed": 0
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S017",
+   "t0": 50.946,
+   "t1": 53.322,
+   "sync": "bar 21: roll call MARIA; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#22b8c9",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000053556.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      970.0,
+      232.5,
+      820,
+      615.0
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 50.946,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 917.960990241315,
+     "y": 184.78591453229183,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 50.996,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1724.8536543230107,
+     "y": 227.0733671765904,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 50.996,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:2"
+     },
+     "t0": 51.54,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 21
+    },
+    {
+     "type": "text",
+     "text": "MARIA",
+     "x": 520,
+     "y": 430,
+     "t0": 50.946,
+     "t1": 53.322,
+     "size": 230,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "flash photography",
+     "x": 520,
+     "y": 640,
+     "t0": 50.946,
+     "t1": 53.322,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "ES",
+     "x": 520,
+     "y": 800,
+     "w": 130,
+     "rot": 4,
+     "t": 52.134,
+     "seed": 1
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S018",
+   "t0": 53.322,
+   "t1": 55.698,
+   "sync": "bar 22: roll call KUBA; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ffd400",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "img0037.jpg",
+     "zoom": [
+      1.06,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      130.0,
+      266.7,
+      820,
+      546.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 53.322,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 46.934490848623184,
+     "y": 261.1932096140384,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 53.372,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 853.8271549303189,
+     "y": 218.9057569697398,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 53.372,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:3"
+     },
+     "t0": 53.916,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 22
+    },
+    {
+     "type": "text",
+     "text": "KUBA",
+     "x": 1420,
+     "y": 430,
+     "t0": 53.322,
+     "t1": 55.698,
+     "size": 230,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "hype man",
+     "x": 1420,
+     "y": 640,
+     "t0": 53.322,
+     "t1": 55.698,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "PL",
+     "x": 1420,
+     "y": 800,
+     "w": 130,
+     "rot": 0,
+     "t": 54.51,
+     "seed": 2
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S019",
+   "t0": 55.698,
+   "t1": 58.075,
+   "sync": "bar 23: roll call GABRIEL; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ff5c9d",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "img0019.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      970.0,
+      266.7,
+      820,
+      546.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 55.698,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 916.1728450696811,
+     "y": 218.9057569697398,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 55.748,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1723.0655091513768,
+     "y": 261.1932096140384,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 55.748,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:4"
+     },
+     "t0": 56.292,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 23
+    },
+    {
+     "type": "text",
+     "text": "GABRIEL",
+     "x": 520,
+     "y": 430,
+     "t0": 55.698,
+     "t1": 58.075,
+     "size": 213,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "wardrobe (optional)",
+     "x": 520,
+     "y": 640,
+     "t0": 55.698,
+     "t1": 58.075,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "ES",
+     "x": 520,
+     "y": 800,
+     "w": 130,
+     "rot": -4,
+     "t": 56.886,
+     "seed": 3
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S020",
+   "t0": 58.075,
+   "t1": 60.451,
+   "sync": "bar 24: roll call TIM; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#22b8c9",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052045.jpg",
+     "zoom": [
+      1.06,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      290.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 58.075,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 199.47041045006847,
+     "y": 116.15147912410367,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 58.125,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 806.6371675808492,
+     "y": 84.33121772839382,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 58.125,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:6"
+     },
+     "t0": 58.669,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 24
+    },
+    {
+     "type": "text",
+     "text": "TIM",
+     "x": 1390,
+     "y": 430,
+     "t0": 58.075,
+     "t1": 60.451,
+     "size": 230,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "rules & regulations",
+     "x": 1390,
+     "y": 640,
+     "t0": 58.075,
+     "t1": 60.451,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "DE",
+     "x": 1390,
+     "y": 800,
+     "w": 130,
+     "rot": -8,
+     "t": 59.263,
+     "seed": 4
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S021",
+   "t0": 60.451,
+   "t1": 62.827,
+   "sync": "bar 25: roll call DARIA; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ffd400",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052224.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1010.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 60.451,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 963.3628324191507,
+     "y": 84.33121772839382,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 60.501,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1570.5295895499314,
+     "y": 116.15147912410367,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 60.501,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:5"
+     },
+     "t0": 61.045,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 25
+    },
+    {
+     "type": "text",
+     "text": "DARIA",
+     "x": 560,
+     "y": 430,
+     "t0": 60.451,
+     "t1": 62.827,
+     "size": 230,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "attitude",
+     "x": 560,
+     "y": 640,
+     "t0": 60.451,
+     "t1": 62.827,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "DE",
+     "x": 560,
+     "y": 800,
+     "w": 130,
+     "rot": -12,
+     "t": 61.639,
+     "seed": 5
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S022",
+   "t0": 62.827,
+   "t1": 65.204,
+   "sync": "bar 26: roll call MAJA; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ff5c9d",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "img0012.jpg",
+     "zoom": [
+      1.06,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      300.0,
+      90.0,
+      600.0,
+      900
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 62.827,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 207.5377207353729,
+     "y": 79.01170328733986,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 62.877,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 794.7318871710625,
+     "y": 48.23816101648879,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 62.877,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:7"
+     },
+     "t0": 63.421,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 26
+    },
+    {
+     "type": "text",
+     "text": "MAJA",
+     "x": 1390,
+     "y": 430,
+     "t0": 62.827,
+     "t1": 65.204,
+     "size": 230,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "stunts",
+     "x": 1390,
+     "y": 640,
+     "t0": 62.827,
+     "t1": 65.204,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "PL",
+     "x": 1390,
+     "y": 800,
+     "w": 130,
+     "rot": -16,
+     "t": 64.015,
+     "seed": 6
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S023",
+   "t0": 65.204,
+   "t1": 67.58,
+   "sync": "bar 27: roll call ESRA; name + role on the downbeat, circled on beat 2, flag on beat 3",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#22b8c9",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000053970.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      970.0,
+      232.5,
+      820,
+      615.0
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 65.204,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 917.960990241315,
+     "y": 184.78591453229183,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 65.254,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1724.8536543230107,
+     "y": 227.0733671765904,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 65.254,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 1,
+      "face": "person:11"
+     },
+     "t0": 65.798,
+     "dur": 0.3,
+     "color": "#111111",
+     "width": 8,
+     "seed": 27
+    },
+    {
+     "type": "text",
+     "text": "ESRA",
+     "x": 520,
+     "y": 430,
+     "t0": 65.204,
+     "t1": 67.58,
+     "size": 230,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "the boss",
+     "x": 520,
+     "y": 640,
+     "t0": 65.204,
+     "t1": 67.58,
+     "size": 66,
+     "font": "marker",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "rot": -3
+    },
+    {
+     "type": "flag",
+     "code": "TR",
+     "x": 520,
+     "y": 800,
+     "w": 130,
+     "rot": -20,
+     "t": 66.392,
+     "seed": 7
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S024",
+   "t0": 67.58,
+   "t1": 69.659,
+   "sync": "'This is our decision' -> the committee (until 'to live fast')",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#cdb38f",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000052748.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      650.0,
+      106.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 67.58,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 566.5506663022795,
+     "y": 90.53156020088619,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 67.63,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1174.1802891298896,
+     "y": 69.3126662057656,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 67.63,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "the committee.",
+     "x": 1480,
+     "y": 520,
+     "t0": 67.58,
+     "t1": 69.659,
+     "size": 92,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 8,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S025",
+   "t0": 69.659,
+   "t1": 72.63,
+   "sync": "'to live fast' / 'and die young' -> live fast, nap young",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f1ead9",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000053519.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      320.0,
+      226.7,
+      560,
+      746.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 69.659,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 231.52273474242338,
+     "y": 214.52658182699832,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 69.709,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 778.7717197879299,
+     "y": 185.84647780586505,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 69.709,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "img0029.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "center",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      960.0,
+      326.7,
+      760,
+      506.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 70.55,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 905.0850119874594,
+     "y": 280.4484263521195,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 70.6,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1652.0599039838808,
+     "y": 319.5957216218415,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 70.6,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "LIVE FAST.",
+     "x": 600,
+     "y": 125,
+     "t0": 69.659,
+     "t1": 72.63,
+     "size": 110,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "rot": -4
+    },
+    {
+     "type": "text",
+     "text": "(and nap young.)",
+     "x": 1340,
+     "y": 920,
+     "t0": 70.55,
+     "t1": 72.63,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 9,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": 3,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S026",
+   "t0": 72.63,
+   "t1": 74.709,
+   "sync": "'We've got the vision' -> circle the glasses",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0036.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 0,
+      "face": "person:7"
+     },
+     "t0": 72.927,
+     "dur": 0.3,
+     "color": "#fff1a8",
+     "width": 8,
+     "seed": 31
+    },
+    {
+     "type": "text",
+     "text": "the vision.",
+     "x": 1500,
+     "y": 840,
+     "t0": 72.63,
+     "t1": 74.709,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 10,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -4,
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "(she has glasses)",
+     "x": 1530,
+     "y": 975,
+     "t0": 72.63,
+     "t1": 74.709,
+     "size": 56,
+     "font": "caveat",
+     "color": "#9e2410",
+     "panel": {
+      "seed": 32,
+      "tape": false,
+      "pady": 16
+     },
+     "rot": 2,
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "flash_on",
+     "on": "cymbals",
+     "amount": 0.28,
+     "min": 0.8
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S027",
+   "t0": 74.709,
+   "t1": 78.273,
+   "sync": "'now let's have some fun' -> fun, sparkles on the beats",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ffd400",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052042.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      640.0,
+      103.3,
+      640,
+      853.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 74.709,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "rect",
+     "x": 556.0914314093885,
+     "y": 87.55534414098986,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 74.759,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1183.7088707773805,
+     "y": 65.63846021181928,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 74.759,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "(fun.)",
+     "x": 1590,
+     "y": 520,
+     "t0": 74.709,
+     "t1": 78.273,
+     "size": 150,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "rot": -6
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 330,
+     "y": 260,
+     "size": 44,
+     "t": 75.303,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 40
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 1600,
+     "y": 860,
+     "size": 44,
+     "t": 75.897,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 41
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 420,
+     "y": 860,
+     "size": 44,
+     "t": 76.491,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 42
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 1620,
+     "y": 200,
+     "size": 44,
+     "t": 77.085,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 43
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 300,
+     "y": 560,
+     "size": 44,
+     "t": 77.679,
+     "dur": 0.16,
+     "color": "#111111",
+     "width": 6,
+     "seed": 44
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S028",
+   "t0": 78.273,
+   "t1": 81.838,
+   "sync": "Tim's rule: the card on beat 3 of bar 32, the rule + circled cup + arrow on the downbeat",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#cdb38f",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000052613.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      260.0,
+      90.0,
+      599.9,
+      900
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 78.273,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 167.5669774600239,
+     "y": 79.01017000737181,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 78.323,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 754.7026304464114,
+     "y": 48.23969429645683,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 78.323,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "HOUSE RULE #1",
+     "x": 1330,
+     "y": 210,
+     "t0": 78.273,
+     "t1": 81.838,
+     "size": 92,
+     "font": "marker",
+     "color": "#1f2a44",
+     "anim": "pop",
+     "rot": -2
+    },
+    {
+     "type": "text",
+     "text": "(by tim)",
+     "x": 1330,
+     "y": 310,
+     "t0": 78.273,
+     "t1": 81.838,
+     "size": 64,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "pop",
+     "rot": -2
+    },
+    {
+     "type": "text",
+     "text": "hit THAT cup\n= pants off.",
+     "x": 1330,
+     "y": 560,
+     "t0": 79.462,
+     "t1": 81.838,
+     "size": 96,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 11,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "pop",
+     "line_gap": 1.0
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "x": 419,
+     "y": 912,
+     "rx": 64,
+     "ry": 56,
+     "t0": 79.462,
+     "dur": 0.25,
+     "color": "#c8371f",
+     "width": 9,
+     "seed": 5
+    },
+    {
+     "type": "marker",
+     "kind": "arrow",
+     "x0": 1060,
+     "y0": 690,
+     "x1": 489,
+     "y1": 850,
+     "t0": 79.759,
+     "dur": 0.25,
+     "color": "#c8371f",
+     "width": 9,
+     "seed": 6,
+     "bend": 0.12
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S029",
+   "t0": 81.838,
+   "t1": 84.214,
+   "sync": "bar 34: the rule was respected",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#141414",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052364.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      400.0,
+      90.0,
+      600.0,
+      900
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 2,
+     "enter": {
+      "t": 81.838,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 347.0932673527263,
+     "y": 53.01733084875707,
+     "w": 150,
+     "h": 42,
+     "rot": -36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 81.888,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 934.7350736399546,
+     "y": 73.53823490982757,
+     "w": 150,
+     "h": 42,
+     "rot": 40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 81.888,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "the rule was\nrespected.",
+     "x": 1420,
+     "y": 520,
+     "t0": 81.838,
+     "t1": 84.214,
+     "size": 100,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 13,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "pop",
+     "line_gap": 1.0
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S030",
+   "t0": 84.214,
+   "t1": 86.591,
+   "sync": "bar 35: Gabriel, banana-censored on beat 2",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ff5c9d",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052356.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      340.0,
+      90.0,
+      600.0,
+      900
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 84.214,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 247.5377207353729,
+     "y": 79.01170328733986,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 84.264,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 834.7318871710625,
+     "y": 48.23816101648879,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 84.264,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "sticker",
+     "text": "🍌",
+     "font": "anton",
+     "size": 230,
+     "t": 84.808,
+     "rot": -24,
+     "follow": {
+      "layer": 1,
+      "face": "biggest",
+      "off": [
+       0.35,
+       3.5
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "...religiously.",
+     "x": 1390,
+     "y": 540,
+     "t0": 84.214,
+     "t1": 86.591,
+     "size": 104,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 15,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -4,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S031",
+   "t0": 86.591,
+   "t1": 88.67,
+   "sync": "'Yeah, it's overwhelming' (note on 'Yeah')",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0026.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "text",
+     "text": "overwhelming.",
+     "x": 1450,
+     "y": 230,
+     "t0": 86.591,
+     "t1": 88.67,
+     "size": 88,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 16,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -4,
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "flash_on",
+     "on": "cymbals",
+     "amount": 0.28,
+     "min": 0.8
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S032",
+   "t0": 88.67,
+   "t1": 91.64,
+   "sync": "'but what else can we do?' -> Gabriel and his tiny book: (study??)",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#22b8c9",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052068.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      390.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 88.67,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 343.36283241915066,
+     "y": 84.33121772839382,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 88.72,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 950.5295895499314,
+     "y": 116.15147912410367,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 88.72,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "(study??)",
+     "x": 1390,
+     "y": 540,
+     "t0": 88.67,
+     "t1": 91.64,
+     "size": 130,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "rot": 4,
+     "panel": {
+      "seed": 33,
+      "tape": true,
+      "pady": 18
+     }
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S033",
+   "t0": 91.64,
+   "t1": 94.314,
+   "sync": "'Get jobs in offices' -> done (the suits)",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0034.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "text",
+     "text": "jobs in offices:",
+     "x": 1400,
+     "y": 200,
+     "t0": 91.64,
+     "t1": 94.314,
+     "size": 76,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 18,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "done.",
+     "x": 1560,
+     "y": 330,
+     "t0": 92.531,
+     "t1": 94.314,
+     "size": 92,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 19,
+      "tape": false,
+      "pady": 16
+     },
+     "rot": 4,
+     "anim": "pop"
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1660,
+       330
+      ],
+      [
+       1681.6,
+       361.2
+      ],
+      [
+       1734.4,
+       284.4
+      ]
+     ],
+     "t0": 92.651,
+     "dur": 0.16,
+     "color": "#c8371f",
+     "width": 9
+    }
+   ],
+   "fx": [
+    {
+     "type": "flash_on",
+     "on": "cymbals",
+     "amount": 0.28,
+     "min": 0.8
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S034",
+   "t0": 94.314,
+   "t1": 98.472,
+   "sync": "'for the morning commute' -> crossed out: 4am (night bus)",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0021.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "the morning commute.",
+     "x": 1300,
+     "y": 230,
+     "t0": 94.314,
+     "t1": 98.472,
+     "size": 80,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 21,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "write",
+     "dur": 0.3
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1150,
+       232
+      ],
+      [
+       1395,
+       222
+      ]
+     ],
+     "t0": 94.611,
+     "dur": 0.16,
+     "color": "#c8371f",
+     "width": 9
+    },
+    {
+     "type": "text",
+     "text": "4am",
+     "x": 1270,
+     "y": 92,
+     "t0": 95.502,
+     "t1": 98.472,
+     "size": 110,
+     "font": "caveat",
+     "color": "#c8371f",
+     "anim": "pop",
+     "rot": -8,
+     "panel": {
+      "seed": 22,
+      "tape": false,
+      "pady": 14
+     }
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S035",
+   "t0": 98.472,
+   "t1": 102.037,
+   "sync": "bars 41-42: Kuba's line in a speech bubble (restaurant)",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053168.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "person:3",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "kuba, every. single. time:",
+     "x": 1300,
+     "y": 880,
+     "t0": 98.472,
+     "t1": 102.037,
+     "size": 72,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 23,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -2,
+     "anim": "pop"
+    },
+    {
+     "type": "bubble",
+     "text": "can we have\na bigger one?",
+     "x": 760,
+     "y": 200,
+     "size": 64,
+     "follow": {
+      "layer": 0,
+      "face": "person:3"
+     },
+     "t0": 99.66,
+     "t1": 102.037,
+     "seed": 4
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S036",
+   "t0": 102.037,
+   "t1": 105.601,
+   "sync": "bars 42-43: the hit single; the record slides out, platinum on the downbeat",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#161616",
+     "paper": false
+    },
+    {
+     "type": "vinyl",
+     "cx": 1240,
+     "cy": 520,
+     "d": 640,
+     "label": "#ffd400",
+     "text": "KUBA\n45 RPM",
+     "spin": 200,
+     "enter": {
+      "t": 102.631,
+      "dur": 0.35,
+      "type": "slide",
+      "from": [
+       -380,
+       0
+      ]
+     }
+    },
+    {
+     "type": "photo",
+     "src": "img0001.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "person:3",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      600,
+      190,
+      660,
+      660
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 10
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 102.037,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "KUBA",
+     "x": 750,
+     "y": 250,
+     "t0": 102.037,
+     "t1": 105.601,
+     "size": 96,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "stroke": 5,
+     "stroke_color": "#111111",
+     "rot": -2
+    },
+    {
+     "type": "rect",
+     "x": 606,
+     "y": 680,
+     "w": 648,
+     "h": 160,
+     "color": "#111111",
+     "alpha": 0.9,
+     "rot": -2,
+     "enter": {
+      "t": 102.037,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "CAN WE HAVE\nA BIGGER ONE?",
+     "x": 930,
+     "y": 760,
+     "t0": 102.037,
+     "t1": 105.601,
+     "size": 70,
+     "font": "anton",
+     "color": "#ffd400",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "stroke": 5,
+     "stroke_color": "#111111",
+     "rot": -2,
+     "line_gap": 0.95
+    },
+    {
+     "type": "stamp",
+     "top": "CERTIFIED",
+     "mid": "PLATINUM",
+     "bottom": "★ 1 COPY ★",
+     "size": 330,
+     "color": "#aeb4c8",
+     "shape": "circle",
+     "x": 1560,
+     "y": 300,
+     "rot": 12,
+     "t": 103.225,
+     "seed": 3
+    },
+    {
+     "type": "text",
+     "text": "(bought by kuba.)",
+     "x": 1540,
+     "y": 900,
+     "t0": 103.225,
+     "t1": 105.601,
+     "size": 76,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 24,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S037",
+   "t0": 105.601,
+   "t1": 108.869,
+   "sync": "chorus: 'Forget about our mothers' -> hi mom! (on 'Forget')",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053165.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0.03,
+       0
+      ],
+      [
+       -0.03,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "text",
+     "text": "hi mom! 👋",
+     "x": 1480,
+     "y": 220,
+     "t0": 105.898,
+     "t1": 108.869,
+     "size": 110,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 25,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -4,
+     "anim": "pop"
+    }
+   ],
+   "fx": [
+    {
+     "type": "flash_on",
+     "on": "cymbals",
+     "amount": 0.28,
+     "min": 0.8
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S038",
+   "t0": 108.869,
+   "t1": 112.433,
+   "sync": "'...and our friends' -> never. (on 'friends')",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0035.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.035,
+      "decay": 0.11,
+      "min": 0.45
+     }
+    },
+    {
+     "type": "text",
+     "text": "never.",
+     "x": 1540,
+     "y": 210,
+     "t0": 109.76,
+     "t1": 112.433,
+     "size": 150,
+     "font": "marker",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06,
+     "rot": -6,
+     "panel": {
+      "seed": 35,
+      "tape": true,
+      "pady": 18
+     }
+    },
+    {
+     "type": "doodle",
+     "kind": "heart",
+     "x": 1270,
+     "y": 160,
+     "size": 44,
+     "t": 110.354,
+     "dur": 0.16,
+     "color": "#ffffff",
+     "width": 6,
+     "seed": 50
+    },
+    {
+     "type": "doodle",
+     "kind": "heart",
+     "x": 1810,
+     "y": 130,
+     "size": 44,
+     "t": 110.948,
+     "dur": 0.16,
+     "color": "#ffffff",
+     "width": 6,
+     "seed": 51
+    },
+    {
+     "type": "doodle",
+     "kind": "heart",
+     "x": 1300,
+     "y": 330,
+     "size": 44,
+     "t": 111.542,
+     "dur": 0.16,
+     "color": "#ffffff",
+     "width": 6,
+     "seed": 52
+    }
+   ],
+   "fx": [
+    {
+     "type": "flash_on",
+     "on": "cymbals",
+     "amount": 0.28,
+     "min": 0.8
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S039",
+   "t0": 112.433,
+   "t1": 117.493,
+   "sync": "'We're fated to pretend' (the music join sits inside this shot)",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#ffd400",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000053480.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      330.0,
+      126.7,
+      620,
+      826.7
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 112.433,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 239.47041045006847,
+     "y": 116.15147912410367,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 112.483,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 846.6371675808492,
+     "y": 84.33121772839382,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#2c2c2c",
+     "alpha": 0.94,
+     "enter": {
+      "t": 112.483,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "(pretending to",
+     "x": 1360,
+     "y": 440,
+     "t0": 112.433,
+     "t1": 117.493,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 26,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -3,
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "be adults.)",
+     "x": 1380,
+     "y": 600,
+     "t0": 112.433,
+     "t1": 117.493,
+     "size": 96,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 27,
+      "tape": false,
+      "pady": 16
+     },
+     "rot": 2,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S040",
+   "t0": 117.493,
+   "t1": 122.246,
+   "sync": "'To pretend' -> the cigarette shot, phone + film twin; caption on 'To'",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#141414",
+     "paper": false
+    },
+    {
+     "type": "photo",
+     "src": "1000052383.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      346.7,
+      120.0,
+      506.7,
+      760
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 117.493,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 257.8039492942591,
+     "y": 106.47342609548923,
+     "w": 150,
+     "h": 42,
+     "rot": -41,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 117.543,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 751.7926924861882,
+     "y": 80.5845730739797,
+     "w": 150,
+     "h": 42,
+     "rot": 35,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 117.543,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "img0006.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1066.7,
+      120.0,
+      506.7,
+      760
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 3,
+     "enter": {
+      "t": 118.682,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1018.2073075138117,
+     "y": 80.5845730739797,
+     "w": 150,
+     "h": 42,
+     "rot": -35,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 118.732,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1512.1960507057408,
+     "y": 106.47342609548923,
+     "w": 150,
+     "h": 42,
+     "rot": 41,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 118.732,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "(pretending to be in a movie.)",
+     "x": 960.0,
+     "y": 985,
+     "t0": 118.682,
+     "t1": 122.246,
+     "size": 80,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 28,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -2,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S041",
+   "t0": 122.246,
+   "t1": 126.999,
+   "sync": "bars 95-96: 'We're fated to pretend' -> live footage (the terrace hand-dance)",
+   "layers": [
+    {
+     "type": "video",
+     "src": "1000053594.mp4",
+     "start": 10.9,
+     "zoom": [
+      1.04,
+      1.1
+     ],
+     "focus": [
+      0.55,
+      0.45
+     ]
+    },
+    {
+     "type": "osd",
+     "icon": "rec",
+     "text": "REC",
+     "x": 90,
+     "y": 92,
+     "size": 46,
+     "color": "#ff3b30",
+     "blink": 0.59408,
+     "t0": 122.246
+    },
+    {
+     "type": "rect",
+     "x": 566.2,
+     "y": 952.56,
+     "w": 787.6,
+     "h": 72.0,
+     "color": "#000000",
+     "alpha": 0.82,
+     "show": [
+      122.246,
+      126.999
+     ]
+    },
+    {
+     "type": "text",
+     "text": "LIVE FOOTAGE · THE TERRACE",
+     "x": 562.2,
+     "y": 990,
+     "t0": 122.246,
+     "t1": 126.999,
+     "size": 48,
+     "font": "mono",
+     "color": "#ffffff",
+     "anim": "type",
+     "dur": 0.3,
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0.0
+    },
+    {
+     "type": "rect",
+     "x": 566.2,
+     "y": 877.56,
+     "w": 787.6,
+     "h": 72.0,
+     "color": "#000000",
+     "alpha": 0.82,
+     "show": [
+      123.434,
+      126.999
+     ]
+    },
+    {
+     "type": "text",
+     "text": "(pretending to be a band.)",
+     "x": 562.2,
+     "y": 915,
+     "t0": 123.434,
+     "t1": 126.999,
+     "size": 48,
+     "font": "mono",
+     "color": "#ffffff",
+     "anim": "type",
+     "dur": 0.3,
+     "stroke": 2,
+     "stroke_color": "#000000",
+     "fade_out": 0.0
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 1.0
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S042",
+   "t0": 126.999,
+   "t1": 131.751,
+   "sync": "bars 97-98: the last 'To pretend' -> the bittersweet one (slow push, no pulses)",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0025.jpg",
+     "zoom": [
+      1.0,
+      1.12
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0.02
+      ],
+      [
+       0,
+       -0.01
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "(pretending we're not sad it's over.)",
+     "x": 960.0,
+     "y": 960,
+     "t0": 128.187,
+     "t1": 131.751,
+     "size": 76,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 31,
+      "tape": true,
+      "pady": 16
+     },
+     "rot": -1.5,
+     "anim": "write",
+     "dur": 0.5
+    }
+   ],
+   "in": {
+    "type": "dissolve",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "S043",
+   "t0": 131.751,
+   "t1": 136.504,
+   "sync": "outro bars 99-100: where are they now: GABRIEL + MARIA",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#0e0e0e",
+     "paper": false
+    },
+    {
+     "type": "text",
+     "text": "where are they now?",
+     "x": 718.0,
+     "y": 52,
+     "t0": 131.751,
+     "t1": 136.504,
+     "size": 40,
+     "font": "mono",
+     "color": "#bdb6a6",
+     "anim": "type",
+     "dur": 0.4,
+     "fade_out": 0
+    },
+    {
+     "type": "photo",
+     "src": "1000053662.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      323.8,
+      130.0,
+      352.5,
+      470
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 131.751,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 246.4429329946962,
+     "y": 109.0884500019987,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 131.801,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 586.7355095946983,
+     "y": 97.20517137479715,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 131.801,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "GABRIEL",
+     "x": 500,
+     "y": 690,
+     "t0": 131.751,
+     "t1": 136.504,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "ES",
+     "x": 724,
+     "y": 690,
+     "w": 92,
+     "rot": 8,
+     "t": 131.751,
+     "seed": 30
+    },
+    {
+     "type": "text",
+     "text": "now: MADRID",
+     "x": 336.1,
+     "y": 778,
+     "t0": 131.751,
+     "t1": 136.504,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "Still hoping for\nour Texel trip",
+     "x": 500,
+     "y": 905,
+     "t0": 132.643,
+     "t1": 136.504,
+     "size": 60,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    },
+    {
+     "type": "photo",
+     "src": "1000054136.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1243.1,
+      130.0,
+      353.9,
+      470
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 2,
+     "enter": {
+      "t": 132.346,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 1182.5737349807446,
+     "y": 97.18104966384101,
+     "w": 150,
+     "h": 42,
+     "rot": -36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 132.396,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1524.2478224298611,
+     "y": 109.11257171295483,
+     "w": 150,
+     "h": 42,
+     "rot": 40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 132.396,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "MARIA",
+     "x": 1420,
+     "y": 690,
+     "t0": 132.346,
+     "t1": 136.504,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "BE",
+     "x": 1614,
+     "y": 690,
+     "w": 92,
+     "rot": 4,
+     "t": 132.346,
+     "seed": 31
+    },
+    {
+     "type": "text",
+     "text": "now: BRUSSELS",
+     "x": 1229.1,
+     "y": 778,
+     "t0": 132.346,
+     "t1": 136.504,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "Future latina\nsoccer mom",
+     "x": 1420,
+     "y": 905,
+     "t0": 132.94,
+     "t1": 136.504,
+     "size": 60,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S044",
+   "t0": 136.504,
+   "t1": 141.257,
+   "sync": "outro bars 101-102: where are they now: TIM + DARIA",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#1c1230",
+     "paper": false
+    },
+    {
+     "type": "text",
+     "text": "where are they now?",
+     "x": 960.0,
+     "y": 52,
+     "t0": 136.504,
+     "t1": 141.257,
+     "size": 40,
+     "font": "mono",
+     "color": "#bdb6a6",
+     "anim": "fade",
+     "dur": 0.01,
+     "fade_out": 0
+    },
+    {
+     "type": "photo",
+     "src": "img0009.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      220.0,
+      178.3,
+      560,
+      373.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 136.504,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 144.44294369875257,
+     "y": 161.01316275747283,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 136.554,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 692.1091169052171,
+     "y": 141.8882385645023,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 136.554,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "TIM",
+     "x": 500,
+     "y": 690,
+     "t0": 136.504,
+     "t1": 141.257,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "DE",
+     "x": 638,
+     "y": 690,
+     "w": 92,
+     "rot": 8,
+     "t": 136.504,
+     "seed": 32
+    },
+    {
+     "type": "text",
+     "text": "now: FRANKFURT",
+     "x": 295.6,
+     "y": 778,
+     "t0": 136.504,
+     "t1": 141.257,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "'You need to take\nyour pants off'",
+     "x": 500,
+     "y": 905,
+     "t0": 137.395,
+     "t1": 141.257,
+     "size": 60,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    },
+    {
+     "type": "photo",
+     "src": "img0007.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1140.0,
+      178.3,
+      560,
+      373.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 2,
+     "enter": {
+      "t": 137.098,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 1077.890883094783,
+     "y": 141.8882385645023,
+     "w": 150,
+     "h": 42,
+     "rot": -36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 137.148,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1625.5570563012475,
+     "y": 161.01316275747283,
+     "w": 150,
+     "h": 42,
+     "rot": 40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 137.148,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "DARIA",
+     "x": 1420,
+     "y": 690,
+     "t0": 137.098,
+     "t1": 141.257,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "DE",
+     "x": 1600,
+     "y": 690,
+     "w": 92,
+     "rot": 4,
+     "t": 137.098,
+     "seed": 33
+    },
+    {
+     "type": "text",
+     "text": "now: FRANKFURT",
+     "x": 1215.6,
+     "y": 778,
+     "t0": 137.098,
+     "t1": 141.257,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "Best photographer",
+     "x": 1420,
+     "y": 905,
+     "t0": 137.692,
+     "t1": 141.257,
+     "size": 60,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S045",
+   "t0": 141.257,
+   "t1": 146.009,
+   "sync": "outro bars 103-104: where are they now: MAJA + JAKUB",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#0e0e0e",
+     "paper": false
+    },
+    {
+     "type": "text",
+     "text": "where are they now?",
+     "x": 960.0,
+     "y": 52,
+     "t0": 141.257,
+     "t1": 146.009,
+     "size": 40,
+     "font": "mono",
+     "color": "#bdb6a6",
+     "anim": "fade",
+     "dur": 0.01,
+     "fade_out": 0
+    },
+    {
+     "type": "photo",
+     "src": "1000052387.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      220.0,
+      178.3,
+      560,
+      373.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 141.257,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 144.44294369875257,
+     "y": 161.01316275747283,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 141.307,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 692.1091169052171,
+     "y": 141.8882385645023,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 141.307,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "MAJA",
+     "x": 500,
+     "y": 690,
+     "t0": 141.257,
+     "t1": 146.009,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "PL",
+     "x": 682,
+     "y": 690,
+     "w": 92,
+     "rot": 8,
+     "t": 141.257,
+     "seed": 34
+    },
+    {
+     "type": "text",
+     "text": "now: POLAND",
+     "x": 336.1,
+     "y": 778,
+     "t0": 141.257,
+     "t1": 146.009,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "Don't trust her with\npiggyback rides",
+     "x": 500,
+     "y": 905,
+     "t0": 142.148,
+     "t1": 146.009,
+     "size": 60,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    },
+    {
+     "type": "photo",
+     "src": "1000052087.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1243.8,
+      130.0,
+      352.5,
+      470
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 2,
+     "enter": {
+      "t": 141.851,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 1183.2644904053018,
+     "y": 97.20517137479715,
+     "w": 150,
+     "h": 42,
+     "rot": -36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 141.901,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1523.557067005304,
+     "y": 109.0884500019987,
+     "w": 150,
+     "h": 42,
+     "rot": 40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 141.901,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "JAKUB",
+     "x": 1420,
+     "y": 690,
+     "t0": 141.851,
+     "t1": 146.009,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "PL",
+     "x": 1612,
+     "y": 690,
+     "w": 92,
+     "rot": 4,
+     "t": 141.851,
+     "seed": 35
+    },
+    {
+     "type": "text",
+     "text": "now: POLAND",
+     "x": 1256.1,
+     "y": 778,
+     "t0": 141.851,
+     "t1": 146.009,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "professional\n'banana' eater 🍑🍌",
+     "x": 1420,
+     "y": 905,
+     "t0": 142.445,
+     "t1": 146.009,
+     "size": 60,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S046",
+   "t0": 146.009,
+   "t1": 150.762,
+   "sync": "outro bars 105-106: where are they now: ESRA + SAM",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#0c2629",
+     "paper": false
+    },
+    {
+     "type": "text",
+     "text": "where are they now?",
+     "x": 960.0,
+     "y": 52,
+     "t0": 146.009,
+     "t1": 150.762,
+     "size": 40,
+     "font": "mono",
+     "color": "#bdb6a6",
+     "anim": "fade",
+     "dur": 0.01,
+     "fade_out": 0
+    },
+    {
+     "type": "photo",
+     "src": "img0020.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      220.0,
+      178.3,
+      560,
+      373.3
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": -2,
+     "enter": {
+      "t": 146.009,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 144.44294369875257,
+     "y": 161.01316275747283,
+     "w": 150,
+     "h": 42,
+     "rot": -40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 146.059,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 692.1091169052171,
+     "y": 141.8882385645023,
+     "w": 150,
+     "h": 42,
+     "rot": 36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 146.059,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "ESRA",
+     "x": 500,
+     "y": 690,
+     "t0": 146.009,
+     "t1": 150.762,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "TR",
+     "x": 662,
+     "y": 690,
+     "w": 92,
+     "rot": 8,
+     "t": 146.009,
+     "seed": 36
+    },
+    {
+     "type": "text",
+     "text": "now: TÜRKİYE",
+     "x": 322.6,
+     "y": 778,
+     "t0": 146.009,
+     "t1": 150.762,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "The OG baddest\nbanana 😎",
+     "x": 500,
+     "y": 905,
+     "t0": 146.901,
+     "t1": 150.762,
+     "size": 60,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    },
+    {
+     "type": "photo",
+     "src": "1000052124.jpg",
+     "zoom": [
+      1.04,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1243.8,
+      130.0,
+      352.5,
+      470
+     ],
+     "border": {
+      "color": "#fbfaf4",
+      "px": 16
+     },
+     "shadow": true,
+     "rot": 2,
+     "enter": {
+      "t": 146.604,
+      "dur": 0.12,
+      "type": "thump"
+     },
+     "desat": 0.15
+    },
+    {
+     "type": "rect",
+     "x": 1183.2644904053018,
+     "y": 97.20517137479715,
+     "w": 150,
+     "h": 42,
+     "rot": -36,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 146.654,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "rect",
+     "x": 1523.557067005304,
+     "y": 109.0884500019987,
+     "w": 150,
+     "h": 42,
+     "rot": 40,
+     "color": "#b9b7b0",
+     "alpha": 0.94,
+     "enter": {
+      "t": 146.654,
+      "dur": 0.1,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "SAM",
+     "x": 1420,
+     "y": 690,
+     "t0": 146.604,
+     "t1": 150.762,
+     "size": 110,
+     "font": "anton",
+     "color": "#ffffff",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "flag",
+     "code": "NL",
+     "x": 1575,
+     "y": 690,
+     "w": 92,
+     "rot": 4,
+     "t": 146.604,
+     "seed": 37
+    },
+    {
+     "type": "text",
+     "text": "still in: AMSTERDAM",
+     "x": 1148.1,
+     "y": 778,
+     "t0": 146.604,
+     "t1": 150.762,
+     "size": 44,
+     "font": "mono",
+     "color": "#ffd400",
+     "anim": "type",
+     "dur": 0.3,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "edited by Sam —\n'I have too much time\non my hands guys'",
+     "x": 1420,
+     "y": 905,
+     "t0": 147.198,
+     "t1": 150.762,
+     "size": 54,
+     "font": "caveat",
+     "color": "#f6e7c1",
+     "anim": "write",
+     "dur": 0.35,
+     "rot": -2,
+     "line_gap": 0.95,
+     "fade_out": 0.06
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.55,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S047",
+   "t0": 150.762,
+   "t1": 155.514,
+   "sync": "last bar: the tour poster (title on 1, cities on 2); SOLD OUT on the final hit; the tape stops",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#efe6d2",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000053175.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      70,
+      60,
+      720,
+      960
+     ],
+     "halftone": {
+      "cell": 10,
+      "mode": "color",
+      "paper": "#efe6d2"
+     }
+    },
+    {
+     "type": "text",
+     "text": "THE BAD BANANAS",
+     "x": 1340,
+     "y": 150,
+     "t0": 150.762,
+     "t1": 173.337,
+     "size": 120,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "FAREWELL TOUR",
+     "x": 1340,
+     "y": 320,
+     "t0": 150.762,
+     "t1": 173.337,
+     "size": 150,
+     "font": "anton",
+     "color": "#c8371f",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "2026 – 27",
+     "x": 1340,
+     "y": 440,
+     "t0": 150.762,
+     "t1": 173.337,
+     "size": 54,
+     "font": "mono",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14
+    },
+    {
+     "type": "text",
+     "text": "BRUSSELS · MADRID · FRANKFURT",
+     "x": 1340,
+     "y": 590,
+     "t0": 151.356,
+     "t1": 173.337,
+     "size": 74,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "POLAND · TÜRKİYE · AMSTERDAM*",
+     "x": 1340,
+     "y": 700,
+     "t0": 151.356,
+     "t1": 173.337,
+     "size": 74,
+     "font": "anton",
+     "color": "#111111",
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    },
+    {
+     "type": "text",
+     "text": "*residency",
+     "x": 1650,
+     "y": 800,
+     "t0": 151.95,
+     "t1": 173.337,
+     "size": 56,
+     "font": "caveat",
+     "color": "#9e2410",
+     "anim": "pop",
+     "rot": -4
+    },
+    {
+     "type": "stamp",
+     "top": "",
+     "mid": "SOLD OUT",
+     "bottom": "",
+     "size": 330,
+     "color": "#c8371f",
+     "shape": "rect",
+     "x": 1330,
+     "y": 900,
+     "rot": -9,
+     "t": 153.138,
+     "seed": 8
+    }
+   ],
+   "fx": [
+    {
+     "type": "wobble",
+     "t0": 153.298,
+     "dur": 1.15,
+     "dark": 0.45
+    }
+   ],
+   "in": {
+    "type": "glitch",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S048",
+   "t0": 155.514,
+   "t1": 156.702,
+   "sync": "silence: STOP, then EJECT a beat later",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#1d3bd1",
+     "paper": false
+    },
+    {
+     "type": "osd",
+     "icon": "stop",
+     "text": "STOP",
+     "x": 110,
+     "y": 120,
+     "size": 66,
+     "t0": 155.514,
+     "t1": 156.108
+    },
+    {
+     "type": "osd",
+     "icon": "eject",
+     "text": "EJECT",
+     "x": 110,
+     "y": 120,
+     "size": 66,
+     "t0": 156.108
+    }
+   ],
+   "fx": [
+    {
+     "type": "vhs",
+     "amount": 0.7,
+     "band": false
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S049",
+   "t0": 156.702,
+   "t1": 173.337,
+   "sync": "liner notes in silence: one typed line per (felt) bar, signed, banana sticker",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f2ecdf",
+     "paper": true
+    },
+    {
+     "type": "text",
+     "text": "LINER NOTES  ·  SPECIAL THANKS",
+     "x": 210,
+     "y": 160,
+     "t0": 156.702,
+     "t1": 173.337,
+     "size": 40,
+     "font": "mono",
+     "color": "#7a7264",
+     "anim": "fade",
+     "dur": 0.6,
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "to my new, loving friend group —",
+     "x": 200,
+     "y": 290,
+     "t0": 156.702,
+     "t1": 173.337,
+     "size": 62,
+     "font": "elite",
+     "color": "#1f2a44",
+     "anim": "type",
+     "dur": 0.96,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "thank you for the late nights, the deep talks,",
+     "x": 200,
+     "y": 408,
+     "t0": 159.078,
+     "t1": 173.337,
+     "size": 62,
+     "font": "elite",
+     "color": "#1f2a44",
+     "anim": "type",
+     "dur": 1.38,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "the bridge dates and every flash in between.",
+     "x": 200,
+     "y": 526,
+     "t0": 161.454,
+     "t1": 173.337,
+     "size": 62,
+     "font": "elite",
+     "color": "#1f2a44",
+     "anim": "type",
+     "dur": 1.3199999999999998,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "wherever life takes you now,",
+     "x": 200,
+     "y": 644,
+     "t0": 163.83,
+     "t1": 173.337,
+     "size": 62,
+     "font": "elite",
+     "color": "#1f2a44",
+     "anim": "type",
+     "dur": 0.84,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "there's always a couch for you in amsterdam ♥",
+     "x": 200,
+     "y": 762,
+     "t0": 166.206,
+     "t1": 173.337,
+     "size": 62,
+     "font": "elite",
+     "color": "#c8371f",
+     "anim": "type",
+     "dur": 1.3499999999999999,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "— sam",
+     "x": 1420,
+     "y": 900,
+     "t0": 168.582,
+     "t1": 173.337,
+     "size": 92,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.5,
+     "rot": -4,
+     "fade_out": 0.0
+    },
+    {
+     "type": "sticker",
+     "text": "🍌",
+     "font": "anton",
+     "size": 120,
+     "x": 1640,
+     "y": 905,
+     "rot": 18,
+     "t": 169.77
+    }
+   ],
+   "in": {
+    "type": "dip_black",
+    "dur": 0.5
+   }
+  }
+ ]
+}

@@ -1,0 +1,146 @@
+[
+ {
+  "key": "scrapbook",
+  "name": "scrapbook",
+  "title": "Disposable scrapbook",
+  "line": "Prints taped to a table, handwritten notes, flashes and orange date stamps.",
+  "fits": "warm indie pop, friend groups, disposable cameras",
+  "img": "/static/styles/scrapbook.jpg"
+ },
+ {
+  "key": "vhs",
+  "name": "VHS rockumentary",
+  "title": "VHS rockumentary",
+  "line": "A camcorder tape: REC light, closed captions, glitchy cuts, a band-on-tour mockumentary.",
+  "fits": "jokey rock, ironic lyrics, big personalities",
+  "img": "/static/styles/vhs.jpg"
+ },
+ {
+  "key": "kinetic",
+  "name": "kinetic lyrics",
+  "title": "Kinetic lyrics",
+  "line": "The lyric is the star: giant words punch in on the syllables over the photos.",
+  "fits": "wordy songs, singalongs, strong hooks",
+  "img": "/static/styles/kinetic.jpg"
+ },
+ {
+  "key": "swiss",
+  "name": "Swiss editorial",
+  "title": "Swiss editorial",
+  "line": "A magazine grid: clean photos, huge numbers, captions as data, hard cuts on the downbeat.",
+  "fits": "cool, confident, electronic or minimal pop",
+  "img": "/static/styles/swiss.jpg"
+ },
+ {
+  "key": "riso",
+  "name": "risograph zine",
+  "title": "Risograph zine",
+  "line": "A two-ink DIY print: torn cut-outs, misregistered colour, stamped headlines.",
+  "fits": "punk pop, scrappy summers, DIY energy",
+  "img": "/static/styles/riso.jpg"
+ },
+ {
+  "key": "super8",
+  "name": "Super 8",
+  "title": "Super 8 home movie",
+  "line": "A sun-bleached home movie: light leaks, flicker, soft colour, barely any text.",
+  "fits": "nostalgic folk, slow builds, old friends",
+  "img": "/static/styles/super8.jpg"
+ },
+ {
+  "key": "nouvelle",
+  "name": "French New Wave",
+  "title": "French New Wave",
+  "line": "Black and white, jump cuts, an iris closing in, serif title cards.",
+  "fits": "melancholic or French indie, black-and-white photos",
+  "img": "/static/styles/nouvelle.jpg"
+ },
+ {
+  "key": "poster",
+  "name": "travel poster",
+  "title": "Travel poster",
+  "line": "Saul Bass-style flat shapes and duotone photos: every chapter becomes a poster.",
+  "fits": "upbeat, jazzy, trips and cities",
+  "img": "/static/styles/poster.jpg"
+ },
+ {
+  "key": "haze",
+  "name": "dream pop haze",
+  "title": "Dream pop haze",
+  "line": "Overexposed and soft: double exposures, motion trails, long dissolves.",
+  "fits": "dreamy, reverb-heavy, slower songs",
+  "img": "/static/styles/haze.jpg"
+ },
+ {
+  "key": "club",
+  "name": "club strobe",
+  "title": "Club strobe",
+  "line": "Strobes on the snare, kaleidoscopes and mirrors, the fastest cuts saved for the drop.",
+  "fits": "dance, house, techno, high tempo",
+  "img": "/static/styles/club.jpg"
+ },
+ {
+  "key": "cyanotype",
+  "name": "cyanotype",
+  "title": "Cyanotype darkroom",
+  "line": "Sun-print blues, prints developing on paper, typewriter captions.",
+  "fits": "gentle acoustic, the sea, summer light",
+  "img": "/static/styles/cyanotype.jpg"
+ },
+ {
+  "key": "infrared",
+  "name": "infrared",
+  "title": "Infrared dream",
+  "line": "False-colour film: green turns pink, landscapes look like another planet.",
+  "fits": "psychedelic, warm guitars, nature trips",
+  "img": "/static/styles/infrared.jpg"
+ },
+ {
+  "key": "y2k",
+  "name": "Y2K digicam",
+  "title": "Y2K digicam",
+  "line": "A 2003 point-and-shoot: blown flash, chrome colour, date stamp, camera-screen framing.",
+  "fits": "2000s pop, party nostalgia",
+  "img": "/static/styles/y2k.jpg"
+ },
+ {
+  "key": "collage",
+  "name": "collage chaos",
+  "title": "Collage chaos",
+  "line": "Maximalist cut-and-paste: torn photos, ransom-note letters, stickers piling up on the beat.",
+  "fits": "hyperpop, punk, big chaotic friend groups",
+  "img": "/static/styles/collage.jpg"
+ },
+ {
+  "key": "wes",
+  "name": "symmetry / Wes-ish",
+  "title": "Symmetry / Wes-ish",
+  "line": "Pastel, centred and symmetrical, with chapter title cards.",
+  "fits": "whimsical, orchestral pop, road trips",
+  "img": "/static/styles/wes.jpg"
+ },
+ {
+  "key": "minimal",
+  "name": "cinematic minimal",
+  "title": "Cinematic minimal",
+  "line": "Letterboxed, slow and golden, few words; one huge moment at the climax.",
+  "fits": "big emotional builds, ballads, endings",
+  "img": "/static/styles/minimal.jpg"
+ },
+ {
+  "key": "diary",
+  "name": "diary sketchbook",
+  "title": "Diary sketchbook",
+  "line": "A travel journal: pencil notes, dates, little drawings, a page per stop.",
+  "fits": "intimate singer-songwriter, solo trips",
+  "img": "/static/styles/diary.jpg"
+ },
+ {
+  "key": "maps",
+  "name": "maps & motion",
+  "title": "Maps & motion",
+  "line": "The route draws itself, numbers count up, coordinates as captions.",
+  "fits": "travel films with many places",
+  "img": "/static/styles/maps.jpg"
+ }
+]

@@ -1,0 +1,486 @@
+{
+ "meta": {
+  "version": "dir_b",
+  "title": "Oman directions",
+  "song": "music/OneRepublic - I Lived (Official Music Video).mp3",
+  "analysis": "onerepublic_i_lived",
+  "fps": 30,
+  "duration": 7.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     52.9,
+     307.0
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "golden",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.004,
+  "vignette": 0.0,
+  "halation": 0.02,
+  "flicker": 0.0,
+  "weave": 0.0
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "b_1",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#dcc5a1",
+     "paper": false
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960,
+     "y": 540,
+     "w": 1920,
+     "h": 1080,
+     "color": "#e85d2a",
+     "motif": "star8",
+     "cell": 120,
+     "colors": [
+      "#dcc5a1",
+      "#d2b994",
+      "#c9ad85"
+     ],
+     "alpha": 0.6
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 960,
+     "y": 548.0,
+     "w": 612,
+     "h": 866,
+     "color": "#a8865c",
+     "alpha": 0.55,
+     "point": 0.55
+    },
+    {
+     "type": "photo",
+     "src": "ps001_66de268a-3f5d-427b-bcc2-ccbe145e6ca5_ac8916d4-04fc-4acf-9aca-66f7cdd1848d.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      680.0,
+      120,
+      560,
+      840
+     ],
+     "mask": {
+      "kind": "arch",
+      "point": 0.55
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 960,
+     "y": 540.0,
+     "w": 562,
+     "h": 842,
+     "color": "#a8865c",
+     "point": 0.55,
+     "line": 10
+    },
+    {
+     "type": "text",
+     "text": "MUTTRAH",
+     "x": 420,
+     "y": 520,
+     "t0": 0,
+     "t1": 9999,
+     "size": 150,
+     "font": "bebas",
+     "color": "#3a2a1c",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "ﺡﺮﻄﻣ",
+     "x": 1500,
+     "y": 500,
+     "t0": 0,
+     "t1": 9999,
+     "size": 150,
+     "font": "arabic_bold",
+     "color": "#3a2a1c",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "DAY 2  ·  THE SOUQ",
+     "x": 420,
+     "y": 640,
+     "t0": 0,
+     "t1": 9999,
+     "size": 26,
+     "font": "mono_regular",
+     "color": "#6d5236",
+     "fade_out": 0,
+     "spacing": 3
+    },
+    {
+     "type": "text",
+     "text": "23.62° N  58.57° E",
+     "x": 1500,
+     "y": 640,
+     "t0": 0,
+     "t1": 9999,
+     "size": 26,
+     "font": "mono_regular",
+     "color": "#6d5236",
+     "fade_out": 0,
+     "spacing": 3
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.5,
+   "sync": "b_2",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#efe8dc",
+     "paper": false
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 1040,
+     "w": 1920,
+     "h": 80,
+     "color": "#1f9e9a"
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 252,
+     "y": 578.0,
+     "w": 336,
+     "h": 658,
+     "color": "#b9a68c",
+     "alpha": 0.55,
+     "point": 0.55
+    },
+    {
+     "type": "photo",
+     "src": "ps012_8dc98a82-af8c-4b73-b668-9184501cb034_8c8dbbd9-485b-427c-96b5-a823380b3f1a.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      102.0,
+      250,
+      300,
+      640
+     ],
+     "mask": {
+      "kind": "arch",
+      "point": 0.55
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 252,
+     "y": 570.0,
+     "w": 302,
+     "h": 642,
+     "color": "#b9a68c",
+     "point": 0.55,
+     "line": 8
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 606,
+     "y": 578.0,
+     "w": 336,
+     "h": 658,
+     "color": "#b9a68c",
+     "alpha": 0.55,
+     "point": 0.55
+    },
+    {
+     "type": "photo",
+     "src": "ps012_259e0888-d75c-4eb3-bd63-16fedeeb0cf4_dc736b1f-aff2-40c6-a47f-b71b73f47008.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      456.0,
+      250,
+      300,
+      640
+     ],
+     "mask": {
+      "kind": "arch",
+      "point": 0.55
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 606,
+     "y": 570.0,
+     "w": 302,
+     "h": 642,
+     "color": "#b9a68c",
+     "point": 0.55,
+     "line": 8
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 960,
+     "y": 578.0,
+     "w": 336,
+     "h": 658,
+     "color": "#b9a68c",
+     "alpha": 0.55,
+     "point": 0.55
+    },
+    {
+     "type": "photo",
+     "src": "ps012_9eb7a8f5-ed97-4c63-a7ea-9ea8f9a4a642_aa5cd01f-8450-4aa4-a0bb-b362b92d3a00.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      810.0,
+      250,
+      300,
+      640
+     ],
+     "mask": {
+      "kind": "arch",
+      "point": 0.55
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 960,
+     "y": 570.0,
+     "w": 302,
+     "h": 642,
+     "color": "#b9a68c",
+     "point": 0.55,
+     "line": 8
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 1314,
+     "y": 578.0,
+     "w": 336,
+     "h": 658,
+     "color": "#b9a68c",
+     "alpha": 0.55,
+     "point": 0.55
+    },
+    {
+     "type": "photo",
+     "src": "ps012_ca2abc69-b0b6-4dc2-a301-183345ed1337_4ae0c423-b24e-4eae-87ea-fc79926a122d.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1164.0,
+      250,
+      300,
+      640
+     ],
+     "mask": {
+      "kind": "arch",
+      "point": 0.55
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 1314,
+     "y": 570.0,
+     "w": 302,
+     "h": 642,
+     "color": "#b9a68c",
+     "point": 0.55,
+     "line": 8
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 1668,
+     "y": 578.0,
+     "w": 336,
+     "h": 658,
+     "color": "#b9a68c",
+     "alpha": 0.55,
+     "point": 0.55
+    },
+    {
+     "type": "photo",
+     "src": "ps012_4994d98f-1ca6-4801-b721-7e6be9470ae5_5ddfb736-510d-4cb1-9308-ee58fd7e4205.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1518.0,
+      250,
+      300,
+      640
+     ],
+     "mask": {
+      "kind": "arch",
+      "point": 0.55
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "arch",
+     "x": 1668,
+     "y": 570.0,
+     "w": 302,
+     "h": 642,
+     "color": "#b9a68c",
+     "point": 0.55,
+     "line": 8
+    },
+    {
+     "type": "text",
+     "text": "I SAW SO MANY PLACES",
+     "x": 960,
+     "y": 140,
+     "t0": 0,
+     "t1": 9999,
+     "size": 120,
+     "font": "bebas",
+     "color": "#3a2a1c",
+     "fade_out": 0,
+     "spacing": 6
+    },
+    {
+     "type": "text",
+     "text": "DAY 8  ·  WAHIBA SANDS",
+     "x": 960,
+     "y": 1040,
+     "t0": 0,
+     "t1": 9999,
+     "size": 28,
+     "font": "mono",
+     "color": "#ffffff",
+     "fade_out": 0,
+     "spacing": 4
+    }
+   ]
+  }
+ ]
+}

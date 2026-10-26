@@ -1,0 +1,554 @@
+{
+ "meta": {
+  "version": "sd_directions",
+  "title": "Sweet Disposition: directions",
+  "song": "music/The Temper Trap - Sweet Disposition (Official Video).mp3",
+  "analysis": "sweet_disposition",
+  "fps": 30,
+  "duration": 19.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     0.0,
+     234.568
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "consumer_film",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.012,
+  "vignette": 0.26,
+  "halation": 0.06,
+  "flicker": 0.005,
+  "weave": 0.3
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "a_1",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052753.jpg",
+     "zoom": [
+      1.04,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "faded",
+      "amount": 0.8
+     }
+    },
+    {
+     "type": "text",
+     "text": "a moment",
+     "x": 960.0,
+     "y": 905,
+     "t0": 0,
+     "t1": 9999,
+     "size": 52,
+     "font": "playfair_italic",
+     "color": "#f6ead2",
+     "anim": "fade",
+     "dur": 0.01,
+     "shadow": 4,
+     "fade_out": 0
+    }
+   ],
+   "fx": [
+    {
+     "type": "light_leak",
+     "amount": 0.42,
+     "seed": 5
+    },
+    {
+     "type": "letterbox",
+     "h": 138
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.0,
+   "sync": "a_2",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052394.jpg",
+     "zoom": [
+      1.08,
+      1.12
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "faded",
+      "amount": 0.5
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000053175.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      760,
+      -120,
+      1300,
+      1320
+     ],
+     "blend": "screen",
+     "opacity": 0.6,
+     "feather": 380
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 1000,
+     "w": 1920,
+     "h": 160,
+     "color": "#000000",
+     "alpha": 0.45
+    },
+    {
+     "type": "text",
+     "text": "won't stop 'til it's over",
+     "x": 960.0,
+     "y": 985,
+     "t0": 0,
+     "t1": 9999,
+     "size": 70,
+     "font": "playfair_italic",
+     "color": "#fff3dc",
+     "anim": "fade",
+     "dur": 0.01,
+     "shadow": 5,
+     "fade_out": 0
+    }
+   ],
+   "fx": [
+    {
+     "type": "light_leak",
+     "amount": 0.22,
+     "seed": 9,
+     "colors": [
+      "#ff9a3c",
+      "#ffd29a",
+      "#ff6f91",
+      "#ffe0b0"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S004",
+   "t0": 7.0,
+   "t1": 10.0,
+   "sync": "b_1",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#0e0e0e",
+     "paper": false
+    },
+    {
+     "type": "type_mask",
+     "src": "1000052608.jpg",
+     "text": "A KISS",
+     "font": "anton",
+     "size": 560,
+     "x": 960.0,
+     "y": 560,
+     "zoom": [
+      1.1,
+      1.1
+     ],
+     "focus": "faces",
+     "look": {
+      "name": "bw",
+      "contrast": 1.45
+     },
+     "fade": 0
+    },
+    {
+     "type": "text",
+     "text": "04 / 08",
+     "x": 120,
+     "y": 120,
+     "t0": 0,
+     "t1": 9999,
+     "size": 40,
+     "font": "mono",
+     "color": "#e63946",
+     "anchor": "lm",
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "a kiss, a cry, our rights, our wrongs",
+     "x": 120,
+     "y": 980,
+     "t0": 0,
+     "t1": 9999,
+     "size": 34,
+     "font": "mono",
+     "color": "#8a8a8a",
+     "anchor": "lm",
+     "fade_out": 0
+    }
+   ]
+  },
+  {
+   "id": "S005",
+   "t0": 10.0,
+   "t1": 13.0,
+   "sync": "b_2",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053636.jpg",
+     "zoom": [
+      1.05,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "look": {
+      "name": "bw",
+      "contrast": 1.5,
+      "lift": -0.08
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 540,
+     "w": 1920,
+     "h": 1080,
+     "color": "#000000",
+     "alpha": 0.35
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 228,
+     "y": 560,
+     "w": 22,
+     "h": 600,
+     "color": "#e63946"
+    },
+    {
+     "type": "lyric_type",
+     "words": [
+      {
+       "w": "WON'T",
+       "t": 0
+      },
+      {
+       "w": "STOP",
+       "t": 0
+      },
+      {
+       "w": "'TIL",
+       "t": 0
+      },
+      {
+       "w": "IT'S",
+       "t": 0
+      },
+      {
+       "w": "OVER",
+       "t": 0
+      }
+     ],
+     "mode": "stack",
+     "font": "anton",
+     "size": 190,
+     "color": "#ffffff",
+     "x": 700,
+     "y": 560,
+     "maxw": 900,
+     "line_gap": 0.92,
+     "accent": "#e63946"
+    }
+   ]
+  },
+  {
+   "id": "S006",
+   "t0": 13.0,
+   "t1": 16.0,
+   "sync": "c_1",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f2ede4",
+     "paper": true
+    },
+    {
+     "type": "photo",
+     "src": "1000052092.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      120,
+      120,
+      520,
+      700
+     ],
+     "rot": -6,
+     "edge": "torn",
+     "seed": 4,
+     "shadow": true
+    },
+    {
+     "type": "photo",
+     "src": "img0013.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      600,
+      330,
+      760,
+      510
+     ],
+     "rot": 3,
+     "edge": "torn",
+     "seed": 7,
+     "shadow": true
+    },
+    {
+     "type": "photo",
+     "src": "1000052743.jpg",
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1360,
+      90,
+      430,
+      600
+     ],
+     "rot": 5,
+     "edge": "torn",
+     "seed": 9,
+     "shadow": true
+    },
+    {
+     "type": "text",
+     "text": "No. 6",
+     "x": 1540,
+     "y": 860,
+     "t0": 0,
+     "t1": 9999,
+     "size": 230,
+     "font": "anton",
+     "color": "#141414",
+     "rot": -4,
+     "fade_out": 0
+    },
+    {
+     "type": "text",
+     "text": "SIX COUNTRIES\nONE SUMMER",
+     "x": 520,
+     "y": 940,
+     "t0": 0,
+     "t1": 9999,
+     "size": 92,
+     "font": "anton",
+     "color": "#141414",
+     "line_gap": 0.88,
+     "rot": -2,
+     "fade_out": 0
+    }
+   ],
+   "fx": [
+    {
+     "type": "look",
+     "look": {
+      "name": "riso",
+      "ink1": "#ff48b0",
+      "ink2": "#0078bf",
+      "offset": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "S007",
+   "t0": 16.0,
+   "t1": 19.5,
+   "sync": "c_2",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052042.jpg",
+     "zoom": [
+      1.15,
+      1.25
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "shape",
+     "kind": "circle",
+     "x": 960.0,
+     "y": 540,
+     "w": 620,
+     "h": 620,
+     "color": "#f2ede4",
+     "post": true
+    },
+    {
+     "type": "text",
+     "text": "WON'T\nSTOP",
+     "x": 960.0,
+     "y": 545,
+     "t0": 0,
+     "t1": 9999,
+     "size": 190,
+     "font": "anton",
+     "color": "#141414",
+     "line_gap": 0.82,
+     "fade_out": 0,
+     "post": true
+    }
+   ],
+   "fx": [
+    {
+     "type": "kaleido",
+     "n": 8,
+     "spin": 0.4
+    },
+    {
+     "type": "look",
+     "look": {
+      "name": "riso",
+      "ink1": "#ff48b0",
+      "ink2": "#00a95c",
+      "offset": 6
+     }
+    }
+   ]
+  }
+ ]
+}

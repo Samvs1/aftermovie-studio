@@ -1,0 +1,389 @@
+{
+ "meta": {
+  "version": "souq_test",
+  "title": "test",
+  "song": "music/OneRepublic - I Lived - Lyrics Video (Native Album).mp3",
+  "analysis": "onerepublic_i_lived_lyrics_video",
+  "fps": 30,
+  "duration": 7.5
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     52.9,
+     307.0
+    ],
+    "at": 0.0
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [],
+  "fx": []
+ },
+ "grade": {
+  "preset": "punchy",
+  "overrides": {}
+ },
+ "finish": {
+  "grain": 0.006,
+  "vignette": 0.0,
+  "halation": 0.0
+ },
+ "flashes": [],
+ "overlays": [],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.0,
+   "sync": "pre",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#000000",
+     "paper": false
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.0,
+   "t1": 4.0,
+   "sync": "test",
+   "layers": [
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960,
+     "y": 540,
+     "w": 1920,
+     "h": 1080,
+     "color": "#e85d2a",
+     "motif": "chevron",
+     "cell": 110,
+     "colors": [
+      "#f2a516",
+      "#e8940c"
+     ],
+     "scroll": [
+      60,
+      0
+     ]
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 640,
+     "y": 560,
+     "w": 708,
+     "h": 891.75,
+     "color": "#141414",
+     "rot": 0,
+     "enter": {
+      "t": 0.98,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 640,
+     "y": 560,
+     "w": 672,
+     "h": 855.75,
+     "color": "#e85d2a",
+     "motif": "diamond",
+     "cell": 72.8,
+     "colors": [
+      "#0f8a4a",
+      "#fbf6ea",
+      "#d7261e"
+     ],
+     "hole": [
+      56,
+      56,
+      560,
+      743.75
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 0.98,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "ps014_be4101cb-98f8-42a6-a3d5-be1c456b7594_7a1347f9-58a6-4b79-a91d-020000f1ab9b.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      360.0,
+      188.1,
+      560,
+      743.8
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 0.98,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 1380,
+     "y": 470,
+     "w": 826.625,
+     "h": 656,
+     "color": "#141414",
+     "rot": 3,
+     "enter": {
+      "t": 1.23,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 1380,
+     "y": 470,
+     "w": 790.625,
+     "h": 620,
+     "color": "#e85d2a",
+     "motif": "star8",
+     "cell": 65.0,
+     "colors": [
+      "#d7261e",
+      "#fbf6ea",
+      "#0f8a4a"
+     ],
+     "hole": [
+      50,
+      50,
+      690.625,
+      520
+     ],
+     "rot": 3,
+     "enter": {
+      "t": 1.23,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "photo",
+     "src": "ps014_1533a3bc-6611-4b27-884c-9f15f644cece_2c020a34-401a-45dd-a365-bd515c5327d4.jpg.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1034.7,
+      210.0,
+      690.6,
+      520
+     ],
+     "rot": 3,
+     "enter": {
+      "t": 1.23,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "sticker",
+     "t": 1.5,
+     "x": 1040,
+     "y": 300,
+     "size": 300,
+     "rot": -14,
+     "img": "cutouts/suntop.png"
+    },
+    {
+     "type": "shape",
+     "kind": "tag",
+     "x": 1360,
+     "y": 900,
+     "w": 582.0,
+     "h": 60.0,
+     "color": "#ffffff",
+     "rot": -3,
+     "t0": 1.75,
+     "t1": 4.0,
+     "enter": {
+      "t": 1.73,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "text",
+     "text": "ANTI-RAMADAN PITSTOP · DAY 9",
+     "x": 1373.4814987191867,
+     "y": 899.2934645907203,
+     "t0": 1.75,
+     "t1": 4.0,
+     "size": 30,
+     "font": "mono",
+     "color": "#141414",
+     "rot": -3,
+     "anim": "fade",
+     "dur": 0.06,
+     "fade_out": 0.06
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 420,
+     "y": 150,
+     "w": 392.0,
+     "h": 151.64,
+     "color": "#13a3a1",
+     "rot": -4,
+     "t0": 2.0,
+     "t1": 4.0,
+     "enter": {
+      "t": 1.98,
+      "dur": 0.14,
+      "type": "pop"
+     }
+    },
+    {
+     "type": "text",
+     "text": "ﻥﺎﻀﻣﺭ",
+     "x": 420,
+     "y": 150,
+     "t0": 2.0,
+     "t1": 4.0,
+     "size": 96,
+     "font": "arabic_heavy",
+     "color": "#fbf6ea",
+     "rot": -4,
+     "anim": "pop",
+     "dur": 0.14,
+     "fade_out": 0.06
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 4.0,
+   "t1": 7.5,
+   "sync": "clip",
+   "layers": [
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960,
+     "y": 540,
+     "w": 1920,
+     "h": 1080,
+     "color": "#e85d2a",
+     "motif": "stripes",
+     "cell": 90,
+     "colors": [
+      "#13a3a1",
+      "#fbf6ea"
+     ]
+    },
+    {
+     "type": "shape",
+     "kind": "rect",
+     "x": 960,
+     "y": 540,
+     "w": 622.25,
+     "h": 1016,
+     "color": "#141414",
+     "rot": 0,
+     "enter": {
+      "t": 3.98,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "shape",
+     "kind": "pattern",
+     "x": 960,
+     "y": 540,
+     "w": 586.25,
+     "h": 980,
+     "color": "#e85d2a",
+     "motif": "star8",
+     "cell": 52.0,
+     "colors": [
+      "#d7261e",
+      "#fbf6ea",
+      "#0f8a4a"
+     ],
+     "hole": [
+      40,
+      40,
+      506.25,
+      900
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 3.98,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    },
+    {
+     "type": "video",
+     "src": "ps015_0b1480f4-e933-4c54-880e-f23335841764_9634f54b-a6d6-4fe6-85e2-5550dd0c14d8.mp4",
+     "start": 2.0,
+     "zoom": [
+      1.0,
+      1.0
+     ],
+     "focus": [
+      0.5,
+      0.5
+     ],
+     "box": [
+      706.9,
+      90.0,
+      506.2,
+      900
+     ],
+     "rot": 0,
+     "enter": {
+      "t": 3.98,
+      "dur": 0.12,
+      "type": "thump"
+     }
+    }
+   ]
+  }
+ ]
+}

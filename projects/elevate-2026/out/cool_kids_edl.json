@@ -1,0 +1,4762 @@
+{
+ "meta": {
+  "version": "cool_kids",
+  "title": "Cool Kids / 27 Exposures",
+  "song": "music/Echosmith - Cool Kids [Official Music Video].mp3",
+  "analysis": "cool_kids",
+  "fps": 30,
+  "duration": 174.8
+ },
+ "audio": {
+  "segments": [
+   {
+    "src": [
+     0.15,
+     128.627
+    ],
+    "at": 0.0
+   },
+   {
+    "src": [
+     187.695,
+     221.6
+    ],
+    "at": 128.477
+   }
+  ],
+  "xfade": 0.04,
+  "sfx": [
+   {
+    "type": "projector",
+    "t": 1.341,
+    "db": -32,
+    "dur": 7.385000000000001
+   },
+   {
+    "type": "drop",
+    "t": 9.187,
+    "db": -23
+   },
+   {
+    "type": "drop",
+    "t": 9.4178,
+    "db": -23
+   },
+   {
+    "type": "drop",
+    "t": 9.649,
+    "db": -23
+   },
+   {
+    "type": "drop",
+    "t": 9.8798,
+    "db": -23
+   },
+   {
+    "type": "drop",
+    "t": 10.11,
+    "db": -23
+   },
+   {
+    "type": "drop",
+    "t": 10.3408,
+    "db": -23
+   },
+   {
+    "type": "drop",
+    "t": 8.976,
+    "db": -16
+   },
+   {
+    "type": "wind",
+    "t": 9.137,
+    "db": -25,
+    "dur": 0.5
+   },
+   {
+    "type": "shutter",
+    "t": 10.562,
+    "db": -9
+   },
+   {
+    "type": "shutter",
+    "t": 16.11,
+    "db": -21
+   },
+   {
+    "type": "shutter",
+    "t": 19.803,
+    "db": -21
+   },
+   {
+    "type": "drop",
+    "t": 25.341,
+    "db": -19
+   },
+   {
+    "type": "stamp",
+    "t": 26.264,
+    "db": -17
+   },
+   {
+    "type": "drop",
+    "t": 27.187,
+    "db": -19
+   },
+   {
+    "type": "stamp",
+    "t": 28.11,
+    "db": -17
+   },
+   {
+    "type": "drop",
+    "t": 29.033,
+    "db": -19
+   },
+   {
+    "type": "stamp",
+    "t": 29.75,
+    "db": -10
+   },
+   {
+    "type": "drop",
+    "t": 30.88,
+    "db": -19
+   },
+   {
+    "type": "stamp",
+    "t": 31.803,
+    "db": -17
+   },
+   {
+    "type": "wind",
+    "t": 29.84,
+    "db": -16,
+    "dur": 0.48
+   },
+   {
+    "type": "drop",
+    "t": 36.418,
+    "db": -14
+   },
+   {
+    "type": "stamp",
+    "t": 37.16,
+    "db": -9
+   },
+   {
+    "type": "stamp",
+    "t": 37.44,
+    "db": -9
+   },
+   {
+    "type": "drop",
+    "t": 38.264,
+    "db": -14
+   },
+   {
+    "type": "stamp",
+    "t": 39.0,
+    "db": -9
+   },
+   {
+    "type": "stamp",
+    "t": 39.28,
+    "db": -9
+   },
+   {
+    "type": "drop",
+    "t": 40.111,
+    "db": -19
+   },
+   {
+    "type": "stamp",
+    "t": 41.034,
+    "db": -17
+   },
+   {
+    "type": "drop",
+    "t": 41.957,
+    "db": -19
+   },
+   {
+    "type": "stamp",
+    "t": 42.88,
+    "db": -17
+   },
+   {
+    "type": "shutter",
+    "t": 43.803,
+    "db": -21
+   },
+   {
+    "type": "charge",
+    "t": 54.394,
+    "db": -23,
+    "dur": 0.4660000000000042
+   },
+   {
+    "type": "shutter",
+    "t": 54.87,
+    "db": -9
+   },
+   {
+    "type": "drop",
+    "t": 58.572,
+    "db": -19
+   },
+   {
+    "type": "drop",
+    "t": 59.495,
+    "db": -19
+   },
+   {
+    "type": "shutter",
+    "t": 62.265,
+    "db": -21
+   },
+   {
+    "type": "shutter",
+    "t": 65.957,
+    "db": -21
+   },
+   {
+    "type": "shutter",
+    "t": 73.342,
+    "db": -21
+   },
+   {
+    "type": "shutter",
+    "t": 80.726,
+    "db": -21
+   },
+   {
+    "type": "wind",
+    "t": 88.79,
+    "db": -16,
+    "dur": 0.5
+   },
+   {
+    "type": "shutter",
+    "t": 90.8,
+    "db": -17
+   },
+   {
+    "type": "shutter",
+    "t": 91.804,
+    "db": -21
+   },
+   {
+    "type": "stamp",
+    "t": 96.238,
+    "db": -15
+   },
+   {
+    "type": "drop",
+    "t": 108.419,
+    "db": -17
+   },
+   {
+    "type": "drop",
+    "t": 110.265,
+    "db": -17
+   },
+   {
+    "type": "shutter",
+    "t": 113.948,
+    "db": -9
+   },
+   {
+    "type": "drop",
+    "t": 117.65,
+    "db": -17
+   },
+   {
+    "type": "drop",
+    "t": 119.496,
+    "db": -17
+   },
+   {
+    "type": "shutter",
+    "t": 123.189,
+    "db": -21
+   },
+   {
+    "type": "shutter",
+    "t": 125.035,
+    "db": -21
+   },
+   {
+    "type": "rewind",
+    "t": 126.931,
+    "db": -15,
+    "dur": 0.8
+   },
+   {
+    "type": "shutter",
+    "t": 128.737,
+    "db": -23
+   },
+   {
+    "type": "shutter",
+    "t": 130.583,
+    "db": -23
+   },
+   {
+    "type": "shutter",
+    "t": 132.429,
+    "db": -23
+   },
+   {
+    "type": "shutter",
+    "t": 134.275,
+    "db": -23
+   },
+   {
+    "type": "shutter",
+    "t": 136.122,
+    "db": -23
+   },
+   {
+    "type": "shutter",
+    "t": 137.968,
+    "db": -23
+   },
+   {
+    "type": "shutter",
+    "t": 139.814,
+    "db": -23
+   },
+   {
+    "type": "runout",
+    "t": 158.276,
+    "db": -17,
+    "dur": 2.2
+   },
+   {
+    "type": "drop",
+    "t": 159.199,
+    "db": -15
+   }
+  ],
+  "fx": []
+ },
+ "grade": {
+  "preset": "consumer_film",
+  "overrides": {
+   "img0016.jpg": {
+    "wb": 0
+   },
+   "img0017.jpg": {
+    "wb": 0
+   },
+   "img0018.jpg": {
+    "wb": 0
+   }
+  }
+ },
+ "finish": {
+  "grain": 0.012,
+  "vignette": 0.28,
+  "halation": 0.07,
+  "flicker": 0.006,
+  "weave": 0.35
+ },
+ "flashes": [],
+ "overlays": [
+  {
+   "type": "counter",
+   "t0": 10.572,
+   "t1": 128.71699999999998,
+   "steps": [
+    [
+     10.572,
+     27
+    ],
+    [
+     12.418,
+     27
+    ],
+    [
+     16.11,
+     26
+    ],
+    [
+     17.956,
+     26
+    ],
+    [
+     19.803,
+     25
+    ],
+    [
+     23.495,
+     25
+    ],
+    [
+     25.341,
+     25
+    ],
+    [
+     27.187,
+     24
+    ],
+    [
+     29.033,
+     24
+    ],
+    [
+     30.88,
+     23
+    ],
+    [
+     32.726,
+     23
+    ],
+    [
+     32.8414,
+     23
+    ],
+    [
+     32.9568,
+     22
+    ],
+    [
+     33.0722,
+     22
+    ],
+    [
+     33.1875,
+     21
+    ],
+    [
+     33.3029,
+     21
+    ],
+    [
+     33.4183,
+     21
+    ],
+    [
+     33.5337,
+     20
+    ],
+    [
+     36.418,
+     20
+    ],
+    [
+     38.264,
+     19
+    ],
+    [
+     40.111,
+     19
+    ],
+    [
+     41.957,
+     18
+    ],
+    [
+     43.803,
+     18
+    ],
+    [
+     47.495,
+     18
+    ],
+    [
+     49.341,
+     17
+    ],
+    [
+     51.188,
+     17
+    ],
+    [
+     53.034,
+     16
+    ],
+    [
+     54.88,
+     16
+    ],
+    [
+     56.726,
+     16
+    ],
+    [
+     58.572,
+     15
+    ],
+    [
+     59.495,
+     15
+    ],
+    [
+     62.265,
+     14
+    ],
+    [
+     64.111,
+     14
+    ],
+    [
+     65.957,
+     14
+    ],
+    [
+     67.803,
+     13
+    ],
+    [
+     69.649,
+     13
+    ],
+    [
+     71.496,
+     12
+    ],
+    [
+     73.342,
+     12
+    ],
+    [
+     75.188,
+     12
+    ],
+    [
+     77.034,
+     11
+    ],
+    [
+     78.88,
+     11
+    ],
+    [
+     80.726,
+     10
+    ],
+    [
+     82.573,
+     10
+    ],
+    [
+     84.419,
+     10
+    ],
+    [
+     86.727,
+     9
+    ],
+    [
+     88.69,
+     9
+    ],
+    [
+     89.957,
+     8
+    ],
+    [
+     91.804,
+     8
+    ],
+    [
+     93.65,
+     7
+    ],
+    [
+     96.188,
+     7
+    ],
+    [
+     97.342,
+     7
+    ],
+    [
+     99.188,
+     6
+    ],
+    [
+     102.881,
+     6
+    ],
+    [
+     104.727,
+     5
+    ],
+    [
+     106.573,
+     5
+    ],
+    [
+     108.419,
+     5
+    ],
+    [
+     110.265,
+     4
+    ],
+    [
+     112.112,
+     4
+    ],
+    [
+     113.958,
+     3
+    ],
+    [
+     115.804,
+     3
+    ],
+    [
+     117.65,
+     3
+    ],
+    [
+     119.496,
+     2
+    ],
+    [
+     121.342,
+     2
+    ],
+    [
+     123.189,
+     1
+    ],
+    [
+     125.035,
+     1
+    ],
+    [
+     126.881,
+     0
+    ]
+   ],
+   "x": 1810,
+   "y": 64,
+   "h": 46
+  }
+ ],
+ "shots": [
+  {
+   "id": "S001",
+   "t0": 0.0,
+   "t1": 1.341,
+   "sync": "first guitar notes",
+   "layers": [
+    {
+     "type": "text",
+     "text": "ELEVATE 2026\n— roll 1 —",
+     "x": 960.0,
+     "y": 540.0,
+     "t0": 0.15,
+     "t1": 1.341,
+     "size": 84,
+     "font": "elite",
+     "color": "#e9e4d6",
+     "anim": "fade",
+     "dur": 0.5,
+     "fade_out": 0.2
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "t0": 1.341,
+   "t1": 8.726,
+   "sync": "leader: one number per downbeat",
+   "layers": [
+    {
+     "type": "leader",
+     "numbers": [
+      [
+       1.341,
+       5
+      ],
+      [
+       3.187,
+       4
+      ],
+      [
+       5.033,
+       3
+      ],
+      [
+       6.879,
+       2
+      ]
+     ],
+     "end": 8.726
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "t0": 8.726,
+   "t1": 10.572,
+   "sync": "bar 4: box drops; flags in pairs on the beats",
+   "layers": [
+    {
+     "type": "label",
+     "cx": 960.0,
+     "cy": 520.0,
+     "w": 860,
+     "rot": -3,
+     "enter": {
+      "t": 8.676,
+      "dur": 0.32,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 10
+     },
+     "title": "ELEVATE 2026",
+     "sub": "single-use camera · shot in amsterdam",
+     "count": "27",
+     "edition": "cool kids\nedition"
+    },
+    {
+     "type": "flag",
+     "code": "ES",
+     "x": 603.5,
+     "y": 332.5,
+     "w": 120,
+     "rot": -14,
+     "t": 9.187,
+     "seed": 0
+    },
+    {
+     "type": "flag",
+     "code": "BE",
+     "x": 1347.5,
+     "y": 307.5,
+     "w": 120,
+     "rot": -8,
+     "t": 9.4178,
+     "seed": 1
+    },
+    {
+     "type": "flag",
+     "code": "NL",
+     "x": 495.0,
+     "y": 732.5,
+     "w": 120,
+     "rot": -2,
+     "t": 9.649,
+     "seed": 2
+    },
+    {
+     "type": "flag",
+     "code": "DE",
+     "x": 1425.0,
+     "y": 720.0,
+     "w": 120,
+     "rot": 4,
+     "t": 9.8798,
+     "seed": 3
+    },
+    {
+     "type": "flag",
+     "code": "PL",
+     "x": 898.0,
+     "y": 226.25,
+     "w": 120,
+     "rot": 10,
+     "t": 10.11,
+     "seed": 4
+    },
+    {
+     "type": "flag",
+     "code": "TR",
+     "x": 1022.0,
+     "y": 801.25,
+     "w": 120,
+     "rot": 16,
+     "t": 10.3408,
+     "seed": 5
+    },
+    {
+     "type": "text",
+     "text": "six countries, one roll of film",
+     "x": 960.0,
+     "y": 1000,
+     "t0": 10.11,
+     "t1": 10.572,
+     "size": 52,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.35
+    }
+   ],
+   "bg": "paper",
+   "in": {
+    "type": "dip_white",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S004",
+   "t0": 10.572,
+   "t1": 12.418,
+   "sync": "bar 5 band entry: Maria fires the disposable",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053556.jpg",
+     "zoom": [
+      1.25,
+      1.4
+     ],
+     "focus": "person:2",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0.03,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.2,
+    "amount": 1.0
+   }
+  },
+  {
+   "id": "S005",
+   "t0": 12.418,
+   "t1": 16.11,
+   "sync": "bars 6-7: the boat day, wide slow pan",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052753.jpg",
+     "zoom": [
+      1.12,
+      1.12
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0.08,
+       0
+      ],
+      [
+       -0.08,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S006",
+   "t0": 16.11,
+   "t1": 17.956,
+   "sync": "bar 8",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#f3eee2"
+    },
+    {
+     "type": "photo",
+     "src": "1000052742.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      820.029296875,
+      90.0,
+      599.94140625,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": 2.5
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S007",
+   "t0": 17.956,
+   "t1": 19.803,
+   "sync": "bar 9",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#cdb38f"
+    },
+    {
+     "type": "photo",
+     "src": "1000052751.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      500.029296875,
+      90.0,
+      599.94140625,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": -2.5
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S008",
+   "t0": 19.803,
+   "t1": 23.495,
+   "sync": "bars 10-11: Tim points at the sky, tilt up",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052743.jpg",
+     "zoom": [
+      1.12,
+      1.18
+     ],
+     "focus": "person:6",
+     "drift": [
+      [
+       0,
+       0.12
+      ],
+      [
+       0.05,
+       -0.2
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S009",
+   "t0": 23.495,
+   "t1": 25.341,
+   "sync": "bar 12: the bridge, first group photo",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#161412"
+    },
+    {
+     "type": "photo",
+     "src": "1000051838.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0.04
+      ],
+      [
+       0,
+       -0.01
+      ]
+     ],
+     "box": [
+      765.625,
+      90.0,
+      708.75,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": 2.5
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S010",
+   "t0": 25.341,
+   "t1": 32.726,
+   "sync": "bars 13-16: one polaroid per bar in a straight row; Maja crooked on 'not really her style'; Tim's stamp inside stop 1",
+   "layers": [
+    {
+     "type": "polaroid",
+     "src": "img0011.jpg",
+     "focus": "person:4",
+     "zoom": "auto:0.5",
+     "cx": 285,
+     "cy": 470,
+     "w": 360,
+     "rot": -1.5,
+     "caption": "Gabriel — ¡hola!",
+     "seed": 3,
+     "develop": {
+      "t": 25.391,
+      "dur": 1.0
+     },
+     "enter": {
+      "t": 25.201,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -820
+      ],
+      "spin": 12
+     }
+    },
+    {
+     "type": "flag",
+     "code": "ES",
+     "x": 420,
+     "y": 265,
+     "w": 92,
+     "rot": 8.5,
+     "t": 25.803,
+     "seed": 0
+    },
+    {
+     "type": "stamp",
+     "top": "REINO DE",
+     "mid": "ESPAÑA",
+     "bottom": "* 2026 *",
+     "size": 135,
+     "color": "#b3261e",
+     "shape": "circle",
+     "x": 405,
+     "y": 735,
+     "rot": -16,
+     "t": 26.264,
+     "seed": 0
+    },
+    {
+     "type": "polaroid",
+     "src": "1000052387.jpg",
+     "focus": "person:7",
+     "zoom": "auto:0.5",
+     "cx": 735,
+     "cy": 470,
+     "w": 360,
+     "rot": 14,
+     "caption": "Maja — cześć!",
+     "seed": 4,
+     "develop": {
+      "t": 27.237,
+      "dur": 1.0
+     },
+     "enter": {
+      "t": 27.047,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -820
+      ],
+      "spin": 12
+     }
+    },
+    {
+     "type": "flag",
+     "code": "PL",
+     "x": 870,
+     "y": 265,
+     "w": 92,
+     "rot": 24,
+     "t": 27.649,
+     "seed": 1
+    },
+    {
+     "type": "stamp",
+     "top": "RZECZPOSPOLITA",
+     "mid": "POLSKA",
+     "bottom": "* 2026 *",
+     "size": 135,
+     "color": "#7a2c8f",
+     "shape": "circle",
+     "x": 855,
+     "y": 735,
+     "rot": -7,
+     "t": 28.11,
+     "seed": 1
+    },
+    {
+     "type": "polaroid",
+     "src": "1000052196.jpg",
+     "focus": "person:6",
+     "zoom": "auto:0.5",
+     "cx": 1185,
+     "cy": 470,
+     "w": 360,
+     "rot": 0.5,
+     "caption": "Tim — hallo!",
+     "seed": 5,
+     "develop": {
+      "t": 29.083,
+      "dur": 1.0
+     },
+     "enter": {
+      "t": 28.893,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -820
+      ],
+      "spin": 12
+     }
+    },
+    {
+     "type": "flag",
+     "code": "DE",
+     "x": 1320,
+     "y": 265,
+     "w": 92,
+     "rot": 10.5,
+     "t": 29.495,
+     "seed": 2
+    },
+    {
+     "type": "stamp",
+     "top": "BUNDESREPUBLIK",
+     "mid": "DEUTSCHLAND",
+     "bottom": "* 2026 *",
+     "size": 135,
+     "color": "#1f6b45",
+     "shape": "rect",
+     "x": 1305,
+     "y": 735,
+     "rot": 2,
+     "t": 29.75,
+     "seed": 2
+    },
+    {
+     "type": "polaroid",
+     "src": "1000053970.jpg",
+     "focus": "person:11",
+     "zoom": "auto:0.5",
+     "cx": 1635,
+     "cy": 470,
+     "w": 360,
+     "rot": 1.5,
+     "caption": "Esra — merhaba!",
+     "seed": 6,
+     "develop": {
+      "t": 30.93,
+      "dur": 1.0
+     },
+     "enter": {
+      "t": 30.74,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -820
+      ],
+      "spin": 12
+     }
+    },
+    {
+     "type": "flag",
+     "code": "TR",
+     "x": 1770,
+     "y": 265,
+     "w": 92,
+     "rot": 11.5,
+     "t": 31.341,
+     "seed": 3
+    },
+    {
+     "type": "stamp",
+     "top": "CUMHURİYETİ",
+     "mid": "TÜRKİYE",
+     "bottom": "* 2026 *",
+     "size": 135,
+     "color": "#b3261e",
+     "shape": "circle",
+     "x": 1755,
+     "y": 735,
+     "rot": 11,
+     "t": 31.803,
+     "seed": 3
+    },
+    {
+     "type": "text",
+     "text": "(not really her style)",
+     "x": 735,
+     "y": 880,
+     "t0": 27.649,
+     "t1": 32.726,
+     "size": 50,
+     "font": "caveat",
+     "color": "#9e2410",
+     "rot": -4,
+     "anim": "write",
+     "dur": 0.4
+    },
+    {
+     "type": "text",
+     "text": "(pause)",
+     "x": 1660,
+     "y": 930,
+     "t0": 29.72,
+     "t1": 30.41,
+     "size": 96,
+     "font": "caveat",
+     "color": "#c8371f",
+     "rot": -6,
+     "anim": "pop",
+     "fade_out": 0.08
+    }
+   ],
+   "bg": "paper",
+   "freeze": [
+    [
+     29.72,
+     30.41
+    ]
+   ],
+   "in": {
+    "type": "dip_white",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S011",
+   "t0": 32.726,
+   "t1": 36.418,
+   "sync": "bars 17-18: 'same heartbeat' grid, cells on 16ths; Esra's cell pulses an 8th late on 'falling behind'",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#f5f1e8"
+    },
+    {
+     "type": "grid",
+     "rows": 2,
+     "cols": 4,
+     "box": [
+      40,
+      150,
+      1840,
+      790
+     ],
+     "gap": 18,
+     "cells": [
+      {
+       "src": "1000052394.jpg",
+       "focus": "person:1",
+       "zoom": 2.3,
+       "t": 32.726
+      },
+      {
+       "src": "1000052015.jpg",
+       "focus": "person:2",
+       "zoom": 2.3,
+       "t": 32.8414
+      },
+      {
+       "src": "1000052045.jpg",
+       "focus": "person:3",
+       "zoom": 2.3,
+       "t": 32.9568
+      },
+      {
+       "src": "1000053662.jpg",
+       "focus": "person:4",
+       "zoom": 2.3,
+       "t": 33.0722
+      },
+      {
+       "src": "1000051973.jpg",
+       "focus": "person:5",
+       "zoom": 2.3,
+       "t": 33.1875
+      },
+      {
+       "src": "1000052060.jpg",
+       "focus": "person:6",
+       "zoom": 2.3,
+       "t": 33.3029
+      },
+      {
+       "src": "img0005.jpg",
+       "focus": "person:7",
+       "zoom": 2.3,
+       "t": 33.4183
+      },
+      {
+       "src": "img0020.jpg",
+       "focus": "person:11",
+       "zoom": 2.3,
+       "t": 33.5337
+      }
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.07,
+      "decay": 0.13,
+      "min": 0.35,
+      "late_cell": 7,
+      "lag": -0.2308
+     }
+    },
+    {
+     "type": "text",
+     "text": "six countries.",
+     "x": 700,
+     "y": 80,
+     "t0": 33.649,
+     "t1": 36.418,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 1,
+      "tape": true
+     },
+     "rot": -3,
+     "boil": true
+    },
+    {
+     "type": "text",
+     "text": "one heartbeat.",
+     "x": 1220,
+     "y": 1000,
+     "t0": 34.572,
+     "t1": 36.418,
+     "size": 92,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 2,
+      "tape": true
+     },
+     "rot": 2,
+     "boil": true
+    },
+    {
+     "type": "text",
+     "text": "(a bit behind)",
+     "x": 1610,
+     "y": 940,
+     "t0": 35.034,
+     "t1": 36.418,
+     "size": 50,
+     "font": "caveat",
+     "color": "#9e2410",
+     "rot": -3,
+     "anim": "write",
+     "dur": 0.35
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.12,
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "S012",
+   "t0": 36.418,
+   "t1": 38.264,
+   "sync": "bar 19: Maria lands on the downbeat; stamps inside the stop",
+   "layers": [
+    {
+     "type": "polaroid",
+     "src": "1000053480.jpg",
+     "focus": "person:2",
+     "zoom": "auto:0.5",
+     "cx": 760,
+     "cy": 545,
+     "w": 470,
+     "rot": -4,
+     "caption": "Maria — ¡hola! / salut!",
+     "seed": 21,
+     "develop": {
+      "t": 36.468,
+      "dur": 0.6
+     },
+     "enter": {
+      "t": 36.278,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       -200,
+       -900
+      ],
+      "spin": 10
+     }
+    },
+    {
+     "type": "stamp",
+     "top": "REINO DE",
+     "mid": "ESPAÑA",
+     "bottom": "* 2026 *",
+     "size": 230,
+     "color": "#b3261e",
+     "shape": "circle",
+     "x": 1290,
+     "y": 330,
+     "rot": -12,
+     "t": 37.16,
+     "seed": 21
+    },
+    {
+     "type": "marker",
+     "kind": "arrow",
+     "x0": 1300,
+     "y0": 480,
+     "x1": 1360,
+     "y1": 650,
+     "t0": 37.24,
+     "dur": 0.18,
+     "color": "#c8371f",
+     "width": 8,
+     "seed": 21
+    },
+    {
+     "type": "stamp",
+     "top": "BELGIË · BELGIQUE",
+     "mid": "BRUXELLES",
+     "bottom": "* 2026 *",
+     "size": 230,
+     "color": "#2b3f9e",
+     "shape": "rect",
+     "x": 1420,
+     "y": 790,
+     "rot": 7,
+     "t": 37.44,
+     "seed": 22
+    }
+   ],
+   "bg": "paper",
+   "in": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "S013",
+   "t0": 38.264,
+   "t1": 40.111,
+   "sync": "bar 20: Sam lands on the downbeat; stamps inside the stop",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#cdb38f"
+    },
+    {
+     "type": "polaroid",
+     "src": "1000052124.jpg",
+     "focus": "person:1",
+     "zoom": "auto:0.5",
+     "cx": 1160,
+     "cy": 545,
+     "w": 470,
+     "rot": 4,
+     "caption": "Sam — hoi!",
+     "seed": 31,
+     "develop": {
+      "t": 38.314,
+      "dur": 0.6
+     },
+     "enter": {
+      "t": 38.124,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       200,
+       -900
+      ],
+      "spin": -10
+     }
+    },
+    {
+     "type": "stamp",
+     "top": "BELGIË · BELGIQUE",
+     "mid": "BELGIË",
+     "bottom": "* 2026 *",
+     "size": 230,
+     "color": "#2b3f9e",
+     "shape": "circle",
+     "x": 630,
+     "y": 330,
+     "rot": 12,
+     "t": 39.0,
+     "seed": 31
+    },
+    {
+     "type": "marker",
+     "kind": "arrow",
+     "x0": 620,
+     "y0": 480,
+     "x1": 560,
+     "y1": 650,
+     "t0": 39.08,
+     "dur": 0.18,
+     "color": "#c8371f",
+     "width": 8,
+     "seed": 31
+    },
+    {
+     "type": "stamp",
+     "top": "NEDERLAND",
+     "mid": "AMSTERDAM",
+     "bottom": "* 2026 *",
+     "size": 230,
+     "color": "#e07a1f",
+     "shape": "rect",
+     "x": 500,
+     "y": 790,
+     "rot": -7,
+     "t": 39.28,
+     "seed": 32
+    }
+   ],
+   "bg": "paper",
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S014",
+   "t0": 40.111,
+   "t1": 43.803,
+   "sync": "bars 21-22: Daria, Kuba, one per bar",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#161412"
+    },
+    {
+     "type": "polaroid",
+     "src": "img0007.jpg",
+     "focus": "person:5",
+     "zoom": "auto:0.5",
+     "cx": 660,
+     "cy": 480,
+     "w": 430,
+     "rot": -3,
+     "caption": "Daria — hallo!",
+     "seed": 13,
+     "develop": {
+      "t": 40.161,
+      "dur": 1.0
+     },
+     "enter": {
+      "t": 39.971,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -820
+      ],
+      "spin": 12
+     }
+    },
+    {
+     "type": "flag",
+     "code": "DE",
+     "x": 820,
+     "y": 230,
+     "w": 104,
+     "rot": 8,
+     "t": 40.572,
+     "seed": 7
+    },
+    {
+     "type": "stamp",
+     "top": "BUNDESREPUBLIK",
+     "mid": "FRANKFURT",
+     "bottom": "* 2026 *",
+     "size": 150,
+     "color": "#1f6b45",
+     "shape": "rect",
+     "x": 810,
+     "y": 800,
+     "rot": 12,
+     "t": 41.034,
+     "seed": 7
+    },
+    {
+     "type": "polaroid",
+     "src": "img0001.jpg",
+     "focus": "person:3",
+     "zoom": "auto:0.5",
+     "cx": 1260,
+     "cy": 480,
+     "w": 430,
+     "rot": 3,
+     "caption": "Kuba — cześć!",
+     "seed": 14,
+     "develop": {
+      "t": 42.007,
+      "dur": 1.0
+     },
+     "enter": {
+      "t": 41.817,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -820
+      ],
+      "spin": 12
+     }
+    },
+    {
+     "type": "flag",
+     "code": "PL",
+     "x": 1420,
+     "y": 230,
+     "w": 104,
+     "rot": 2,
+     "t": 42.418,
+     "seed": 8
+    },
+    {
+     "type": "stamp",
+     "top": "RZECZPOSPOLITA",
+     "mid": "POLSKA",
+     "bottom": "* 2026 *",
+     "size": 150,
+     "color": "#7a2c8f",
+     "shape": "circle",
+     "x": 1410,
+     "y": 800,
+     "rot": -6,
+     "t": 42.88,
+     "seed": 8
+    }
+   ],
+   "bg": "paper",
+   "in": {
+    "type": "dip_white",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S015",
+   "t0": 43.803,
+   "t1": 47.495,
+   "sync": "bars 23-24: '...could ever bring them down' -> unbothered",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0019.jpg",
+     "zoom": [
+      1.05,
+      1.18
+     ],
+     "focus": "person:4",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "unbothered.",
+     "x": 1480,
+     "y": 260,
+     "t0": 44.726,
+     "t1": 47.495,
+     "size": 76,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 4,
+      "tape": true
+     },
+     "rot": -5,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S016",
+   "t0": 47.495,
+   "t1": 49.341,
+   "sync": "bar 25: 'Yeah, they're invincible'",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#f3eee2"
+    },
+    {
+     "type": "photo",
+     "src": "1000052042.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      462.5,
+      90.0,
+      675.0,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": -2.5
+    },
+    {
+     "type": "text",
+     "text": "invincible.",
+     "x": 420,
+     "y": 220,
+     "t0": 47.973,
+     "t1": 49.341,
+     "size": 80,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 5,
+      "tape": true
+     },
+     "rot": 4,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S017",
+   "t0": 49.341,
+   "t1": 51.188,
+   "sync": "bar 26: 'and she's just in the background' -> circle + her!",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052108.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "center",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 0,
+      "face": "person:5"
+     },
+     "t0": 49.803,
+     "dur": 0.35,
+     "color": "#c8371f",
+     "width": 7,
+     "seed": 4
+    },
+    {
+     "type": "text",
+     "text": "her!",
+     "x": 447.43819306640626,
+     "y": 687.7446635253905,
+     "t0": 50.265,
+     "t1": 51.188,
+     "size": 96,
+     "font": "caveat",
+     "color": "#c8371f",
+     "rot": -8,
+     "anim": "pop",
+     "panel": {
+      "seed": 3,
+      "tape": false
+     }
+    }
+   ],
+   "in": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "S018",
+   "t0": 51.188,
+   "t1": 53.034,
+   "sync": "bar 27: the people in the back",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0010.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "them too!",
+     "x": 1500,
+     "y": 230,
+     "t0": 51.649,
+     "t1": 53.034,
+     "size": 72,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 6,
+      "tape": false
+     },
+     "rot": 5,
+     "anim": "pop"
+    },
+    {
+     "type": "marker",
+     "kind": "arrow",
+     "x0": 1440,
+     "y0": 300,
+     "x1": 1290,
+     "y1": 470,
+     "t0": 51.849000000000004,
+     "dur": 0.22,
+     "color": "#c8371f",
+     "width": 7,
+     "seed": 5
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S019",
+   "t0": 53.034,
+   "t1": 54.88,
+   "sync": "bar 28: 'and she says' -> freezes when the band drops; flash charging",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0036.jpg",
+     "zoom": [
+      1.05,
+      1.2
+     ],
+     "focus": "person:2",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0.04,
+       0
+      ]
+     ],
+     "freeze_at": 54.25
+    },
+    {
+     "type": "text",
+     "text": "and she says...",
+     "x": 1450,
+     "y": 880,
+     "t0": 53.697,
+     "t1": 54.25,
+     "size": 70,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 11,
+      "tape": false
+     },
+     "anim": "write",
+     "dur": 0.4
+    },
+    {
+     "type": "text",
+     "text": "cheese!",
+     "x": 1450,
+     "y": 880,
+     "t0": 54.27,
+     "t1": 54.88,
+     "size": 120,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 12,
+      "tape": true
+     },
+     "rot": -6,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "S020",
+   "t0": 54.88,
+   "t1": 56.726,
+   "sync": "chorus downbeat = FLASH",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053519.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.22,
+    "amount": 1.0
+   }
+  },
+  {
+   "id": "S021",
+   "t0": 56.726,
+   "t1": 58.572,
+   "sync": "bar 30",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#cdb38f"
+    },
+    {
+     "type": "photo",
+     "src": "1000051970.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      782.5,
+      90.0,
+      675.0,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": 2.5
+    },
+    {
+     "type": "seven",
+     "text": "'26 9 19",
+     "x": 1730,
+     "y": 1000,
+     "h": 38,
+     "t0": 56.726,
+     "t1": 58.572
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S022",
+   "t0": 58.572,
+   "t1": 62.265,
+   "sync": "bars 31-32: 'they seem to fit in' -> photo-booth strips",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#efe7d6"
+    },
+    {
+     "type": "strip",
+     "srcs": [
+      "img0012.jpg",
+      "1000052224.jpg",
+      "img0038.jpg"
+     ],
+     "cx": 640,
+     "cy": 545,
+     "w": 330,
+     "rot": -4,
+     "drift_y": -40,
+     "enter": {
+      "t": 58.522,
+      "dur": 0.3,
+      "type": "slide",
+      "from": [
+       0,
+       1100
+      ]
+     },
+     "label": "ELEVATE  ★  2026"
+    },
+    {
+     "type": "strip",
+     "srcs": [
+      "1000052075.jpg",
+      "img0031.jpg",
+      "1000053619.jpg"
+     ],
+     "cx": 1280,
+     "cy": 545,
+     "w": 330,
+     "rot": 4,
+     "drift_y": -40,
+     "enter": {
+      "t": 59.445,
+      "dur": 0.3,
+      "type": "slide",
+      "from": [
+       0,
+       1100
+      ]
+     },
+     "label": "ELEVATE  ★  2026"
+    },
+    {
+     "type": "text",
+     "text": "fit in? we fit in.",
+     "x": 960.0,
+     "y": 1000,
+     "t0": 60.419,
+     "t1": 62.265,
+     "size": 60,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 13,
+      "tape": false
+     },
+     "rot": -2,
+     "anim": "write",
+     "dur": 0.4
+    }
+   ],
+   "in": {
+    "type": "dip_white",
+    "dur": 0.18
+   }
+  },
+  {
+   "id": "S023",
+   "t0": 62.265,
+   "t1": 64.111,
+   "sync": "bar 33: karaoke",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053410.jpg",
+     "zoom": [
+      1.25,
+      1.4
+     ],
+     "focus": "person:1",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S024",
+   "t0": 64.111,
+   "t1": 65.957,
+   "sync": "bar 34",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0013.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S025",
+   "t0": 65.957,
+   "t1": 67.803,
+   "sync": "bar 35: 'like the cool kids'",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#161412"
+    },
+    {
+     "type": "photo",
+     "src": "1000052087.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      462.5,
+      90.0,
+      675.0,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": -2.5
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S026",
+   "t0": 67.803,
+   "t1": 69.649,
+   "sync": "bar 36: the same moment on phone | film",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#0e0e0e"
+    },
+    {
+     "type": "photo",
+     "src": "1000052383.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      0,
+      0,
+      955,
+      1080
+     ]
+    },
+    {
+     "type": "photo",
+     "src": "img0006.jpg",
+     "zoom": [
+      1.06,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      965,
+      0,
+      955,
+      1080
+     ]
+    },
+    {
+     "type": "text",
+     "text": "phone",
+     "x": 478,
+     "y": 1020,
+     "t0": 67.803,
+     "t1": 69.649,
+     "size": 40,
+     "font": "mono",
+     "color": "#1f2a44",
+     "anim": "fade",
+     "panel": {
+      "seed": 20,
+      "tape": false,
+      "padx": 18
+     }
+    },
+    {
+     "type": "text",
+     "text": "film",
+     "x": 1442,
+     "y": 1020,
+     "t0": 67.803,
+     "t1": 69.649,
+     "size": 40,
+     "font": "mono",
+     "color": "#1f2a44",
+     "anim": "fade",
+     "panel": {
+      "seed": 21,
+      "tape": false,
+      "padx": 18
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.12,
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "S027",
+   "t0": 69.649,
+   "t1": 71.496,
+   "sync": "bar 37",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052608.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "seven",
+     "text": "'26 9 19",
+     "x": 1730,
+     "y": 1000,
+     "h": 38,
+     "t0": 69.649,
+     "t1": 71.496
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S028",
+   "t0": 71.496,
+   "t1": 73.342,
+   "sync": "bar 38: 2x2 attic grid, one cell per beat",
+   "layers": [
+    {
+     "type": "grid",
+     "rows": 2,
+     "cols": 2,
+     "box": [
+      0,
+      0,
+      1920,
+      1080
+     ],
+     "gap": 12,
+     "cells": [
+      {
+       "src": "1000052056.jpg",
+       "zoom": 1.0,
+       "t": 71.496
+      },
+      {
+       "src": "1000052378.jpg",
+       "zoom": 1.0,
+       "t": 71.957
+      },
+      {
+       "src": "1000052386.jpg",
+       "zoom": 1.0,
+       "t": 72.419
+      },
+      {
+       "src": "1000052356.jpg",
+       "zoom": 1.0,
+       "t": 72.88
+      }
+     ]
+    }
+   ],
+   "bg": "#f5f1e8",
+   "in": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "S029",
+   "t0": 73.342,
+   "t1": 75.188,
+   "sync": "bar 39",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#f3eee2"
+    },
+    {
+     "type": "photo",
+     "src": "1000052092.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      782.5,
+      90.0,
+      675.0,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": 2.5
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S030",
+   "t0": 75.188,
+   "t1": 77.034,
+   "sync": "bar 40",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#cdb38f"
+    },
+    {
+     "type": "photo",
+     "src": "1000051776.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      461.1764705882353,
+      90.0,
+      677.6470588235294,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": -2.5
+    },
+    {
+     "type": "seven",
+     "text": "'26 9 19",
+     "x": 1730,
+     "y": 1000,
+     "h": 38,
+     "t0": 75.188,
+     "t1": 77.034
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S031",
+   "t0": 77.034,
+   "t1": 78.88,
+   "sync": "bar 41: the same moment on phone | film",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#0e0e0e"
+    },
+    {
+     "type": "photo",
+     "src": "1000051792.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      0,
+      0,
+      955,
+      1080
+     ]
+    },
+    {
+     "type": "photo",
+     "src": "img0002.jpg",
+     "zoom": [
+      1.06,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      965,
+      0,
+      955,
+      1080
+     ]
+    },
+    {
+     "type": "text",
+     "text": "phone",
+     "x": 478,
+     "y": 1020,
+     "t0": 77.034,
+     "t1": 78.88,
+     "size": 40,
+     "font": "mono",
+     "color": "#1f2a44",
+     "anim": "fade",
+     "panel": {
+      "seed": 24,
+      "tape": false,
+      "padx": 18
+     }
+    },
+    {
+     "type": "text",
+     "text": "film",
+     "x": 1442,
+     "y": 1020,
+     "t0": 77.034,
+     "t1": 78.88,
+     "size": 40,
+     "font": "mono",
+     "color": "#1f2a44",
+     "anim": "fade",
+     "panel": {
+      "seed": 25,
+      "tape": false,
+      "padx": 18
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.12,
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "S032",
+   "t0": 78.88,
+   "t1": 80.726,
+   "sync": "bar 42: Gabriel reading on the bed",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#161412"
+    },
+    {
+     "type": "photo",
+     "src": "1000052068.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      782.5,
+      90.0,
+      675.0,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": 2.5
+    },
+    {
+     "type": "text",
+     "text": "(studying)",
+     "x": 1500,
+     "y": 230,
+     "t0": 79.342,
+     "t1": 80.726,
+     "size": 70,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 14,
+      "tape": true
+     },
+     "rot": 4,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S033",
+   "t0": 80.726,
+   "t1": 82.573,
+   "sync": "bar 43",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0027.jpg",
+     "zoom": [
+      1.12,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S034",
+   "t0": 82.573,
+   "t1": 84.419,
+   "sync": "bar 44",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0014.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S035",
+   "t0": 84.419,
+   "t1": 86.727,
+   "sync": "bar 45: 'He sees them talking with a big smile' -> circle the smile",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053168.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "person:3",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 0,
+      "face": "person:3"
+     },
+     "t0": 84.643,
+     "dur": 0.3,
+     "color": "#fff1a8",
+     "width": 8,
+     "seed": 6
+    },
+    {
+     "type": "text",
+     "text": "big smile.",
+     "x": 520,
+     "y": 220,
+     "t0": 85.572,
+     "t1": 86.727,
+     "size": 74,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 15,
+      "tape": false
+     },
+     "rot": -4,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "dip_white",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "S036",
+   "t0": 86.727,
+   "t1": 88.69,
+   "sync": "'but they haven't got a clue' (cut on the word 'But')",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0029.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "no clue.",
+     "x": 1450,
+     "y": 260,
+     "t0": 87.186,
+     "t1": 88.69,
+     "size": 80,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 16,
+      "tape": true
+     },
+     "rot": 5,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S037",
+   "t0": 88.69,
+   "t1": 89.957,
+   "sync": "stop A: the band cuts out -> the frame freezes",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0028.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "(pause)",
+     "x": 1600,
+     "y": 900,
+     "t0": 88.69,
+     "t1": 89.45,
+     "size": 90,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 23,
+      "tape": false
+     },
+     "rot": -5,
+     "anim": "pop",
+     "fade_out": 0.06
+    }
+   ],
+   "freeze": [
+    [
+     88.69,
+     89.45
+    ]
+   ],
+   "fx": [
+    {
+     "type": "freeze_look"
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.12,
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "S038",
+   "t0": 89.957,
+   "t1": 91.804,
+   "sync": "bar 48: stop B",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0026.jpg",
+     "zoom": [
+      1.08,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "(still paused)",
+     "x": 1480,
+     "y": 900,
+     "t0": 90.65,
+     "t1": 91.34,
+     "size": 84,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 24,
+      "tape": false
+     },
+     "rot": -4,
+     "anim": "pop",
+     "fade_out": 0.06
+    }
+   ],
+   "freeze": [
+    [
+     90.65,
+     91.34
+    ]
+   ],
+   "fx": [
+    {
+     "type": "freeze_look"
+    }
+   ],
+   "in": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "S039",
+   "t0": 91.804,
+   "t1": 93.65,
+   "sync": "bar 49: 'yeah, they're living the good life' (suits)",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053483.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "the good life.",
+     "x": 440,
+     "y": 210,
+     "t0": 92.37,
+     "t1": 93.65,
+     "size": 74,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 17,
+      "tape": true
+     },
+     "rot": -3,
+     "anim": "write",
+     "dur": 0.4
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S040",
+   "t0": 93.65,
+   "t1": 96.188,
+   "sync": "bar 50: 'can't see what he is going through' -> circle him (holds to the stop)",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000052613.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "person:1",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "marker",
+     "kind": "circle",
+     "follow": {
+      "layer": 0,
+      "face": "person:1"
+     },
+     "t0": 94.152,
+     "dur": 0.3,
+     "color": "#c8371f",
+     "width": 7,
+     "seed": 8
+    },
+    {
+     "type": "text",
+     "text": "him.",
+     "x": 1420,
+     "y": 300,
+     "t0": 94.889,
+     "t1": 96.188,
+     "size": 90,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 18,
+      "tape": false
+     },
+     "rot": -6,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "S041",
+   "t0": 96.188,
+   "t1": 97.342,
+   "sync": "stop C: the band cuts out -> freeze",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0033.jpg",
+     "zoom": [
+      1.0,
+      1.06
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "freeze": [
+    [
+     96.188,
+     96.88
+    ]
+   ],
+   "fx": [
+    {
+     "type": "freeze_look"
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.12,
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "S042",
+   "t0": 97.342,
+   "t1": 99.188,
+   "sync": "bar 52: the band thins out",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0032.jpg",
+     "zoom": [
+      1.1,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    }
+   ],
+   "in": {
+    "type": "dissolve",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S043",
+   "t0": 99.188,
+   "t1": 102.881,
+   "sync": "bars 53-54: 'they're driving fast cars' -> crossed out: night bus",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0021.jpg",
+     "zoom": [
+      1.0,
+      1.12
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "fast cars",
+     "x": 1420,
+     "y": 230,
+     "t0": 99.98,
+     "t1": 102.881,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 19,
+      "tape": false
+     },
+     "rot": -4,
+     "anim": "pop"
+    },
+    {
+     "type": "marker",
+     "kind": "line",
+     "points": [
+      [
+       1270,
+       236
+      ],
+      [
+       1575,
+       222
+      ]
+     ],
+     "t0": 100.863,
+     "dur": 0.18,
+     "color": "#c8371f",
+     "width": 9
+    },
+    {
+     "type": "text",
+     "text": "night bus",
+     "x": 1440,
+     "y": 330,
+     "t0": 101.478,
+     "t1": 102.881,
+     "size": 92,
+     "font": "caveat",
+     "color": "#c8371f",
+     "rot": -7,
+     "anim": "write",
+     "dur": 0.35,
+     "panel": {
+      "seed": 25,
+      "tape": false
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.8
+   }
+  },
+  {
+   "id": "S044",
+   "t0": 102.881,
+   "t1": 104.727,
+   "sync": "bar 55: 'don't know where they're going' -> arrows everywhere",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0016.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "where to??",
+     "x": 1540,
+     "y": 860,
+     "t0": 103.19,
+     "t1": 104.727,
+     "size": 78,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 28,
+      "tape": false
+     },
+     "rot": 6,
+     "anim": "pop"
+    },
+    {
+     "type": "marker",
+     "kind": "arrow",
+     "x0": 1560,
+     "y0": 780,
+     "x1": 1760,
+     "y1": 660,
+     "t0": 103.864,
+     "dur": 0.16,
+     "color": "#fff1a8",
+     "width": 7,
+     "seed": 40
+    },
+    {
+     "type": "marker",
+     "kind": "arrow",
+     "x0": 1480,
+     "y0": 790,
+     "x1": 1290,
+     "y1": 690,
+     "t0": 103.924,
+     "dur": 0.16,
+     "color": "#fff1a8",
+     "width": 7,
+     "seed": 41
+    },
+    {
+     "type": "marker",
+     "kind": "arrow",
+     "x0": 1560,
+     "y0": 940,
+     "x1": 1600,
+     "y1": 1060,
+     "t0": 103.984,
+     "dur": 0.16,
+     "color": "#fff1a8",
+     "width": 7,
+     "seed": 42
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S045",
+   "t0": 104.727,
+   "t1": 106.573,
+   "sync": "bar 56: the club, sparkles on the beats",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0017.jpg",
+     "zoom": [
+      1.1,
+      1.0
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 240,
+     "y": 200,
+     "size": 34,
+     "t": 104.727,
+     "dur": 0.16,
+     "color": "#ffe066",
+     "width": 6,
+     "seed": 50
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 1700,
+     "y": 210,
+     "size": 34,
+     "t": 105.188,
+     "dur": 0.16,
+     "color": "#ffe066",
+     "width": 6,
+     "seed": 51
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 1760,
+     "y": 900,
+     "size": 34,
+     "t": 105.65,
+     "dur": 0.16,
+     "color": "#ffe066",
+     "width": 6,
+     "seed": 52
+    },
+    {
+     "type": "doodle",
+     "kind": "sparkle",
+     "x": 170,
+     "y": 920,
+     "size": 34,
+     "t": 106.111,
+     "dur": 0.16,
+     "color": "#ffe066",
+     "width": 6,
+     "seed": 53
+    }
+   ],
+   "in": {
+    "type": "whip",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S046",
+   "t0": 106.573,
+   "t1": 108.419,
+   "sync": "bar 57: 'in the fast lane' -> triptych, one panel per beat",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#0e0e0e"
+    },
+    {
+     "type": "photo",
+     "src": "img0018.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      0,
+      0,
+      634,
+      1080
+     ],
+     "enter": {
+      "t": 106.573,
+      "dur": 0.2,
+      "type": "slide",
+      "from": [
+       0,
+       1100
+      ]
+     }
+    },
+    {
+     "type": "photo",
+     "src": "img0022.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      643,
+      0,
+      634,
+      1080
+     ],
+     "enter": {
+      "t": 107.035,
+      "dur": 0.2,
+      "type": "slide",
+      "from": [
+       0,
+       -1100
+      ]
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000052362.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1286,
+      0,
+      634,
+      1080
+     ],
+     "enter": {
+      "t": 107.496,
+      "dur": 0.2,
+      "type": "slide",
+      "from": [
+       0,
+       1100
+      ]
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.1,
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "S047",
+   "t0": 108.419,
+   "t1": 112.112,
+   "sync": "bars 58-59: 'living life without knowing' -> two prints",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#cdb38f"
+    },
+    {
+     "type": "photo",
+     "src": "img0025.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      180.0,
+      276.66666666666663,
+      760,
+      506.6666666666667
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 108.279,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000053515.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1067.5,
+      140.0,
+      585.0,
+      780
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": 3.5,
+     "enter": {
+      "t": 110.125,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": -8
+     }
+    },
+    {
+     "type": "text",
+     "text": "(no plan. no idea. no regrets.)",
+     "x": 960.0,
+     "y": 985,
+     "t0": 110.412,
+     "t1": 112.112,
+     "size": 62,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 29,
+      "tape": false
+     },
+     "rot": -2,
+     "anim": "write",
+     "dur": 0.45
+    }
+   ],
+   "in": {
+    "type": "dissolve",
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "S048",
+   "t0": 112.112,
+   "t1": 113.958,
+   "sync": "bar 60: 'and he says' -> Kuba's line in a speech bubble",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0037.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "person:3",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "bubble",
+     "text": "can we have\na bigger one?",
+     "x": 900,
+     "y": 150,
+     "size": 62,
+     "follow": {
+      "layer": 0,
+      "face": "person:3"
+     },
+     "t0": 112.786,
+     "t1": 113.958,
+     "seed": 3
+    }
+   ],
+   "in": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "S049",
+   "t0": 113.958,
+   "t1": 115.804,
+   "sync": "chorus 2 downbeat = FLASH: the bigger one",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053636.jpg",
+     "zoom": [
+      1.0,
+      1.08
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "(granted.)",
+     "x": 1520,
+     "y": 220,
+     "t0": 114.881,
+     "t1": 115.804,
+     "size": 74,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 30,
+      "tape": false
+     },
+     "rot": -5,
+     "anim": "pop"
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.22,
+    "amount": 1.0
+   }
+  },
+  {
+   "id": "S050",
+   "t0": 115.804,
+   "t1": 117.65,
+   "sync": "bar 62: hearts on the beats",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "1000053167.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    },
+    {
+     "type": "doodle",
+     "kind": "heart",
+     "x": 330,
+     "y": 330,
+     "size": 44,
+     "t": 116.265,
+     "dur": 0.16,
+     "color": "#ffffff",
+     "width": 6,
+     "seed": 60
+    },
+    {
+     "type": "doodle",
+     "kind": "heart",
+     "x": 1600,
+     "y": 260,
+     "size": 44,
+     "t": 116.727,
+     "dur": 0.16,
+     "color": "#ffffff",
+     "width": 6,
+     "seed": 61
+    },
+    {
+     "type": "doodle",
+     "kind": "heart",
+     "x": 1450,
+     "y": 860,
+     "size": 44,
+     "t": 117.188,
+     "dur": 0.16,
+     "color": "#ffffff",
+     "width": 6,
+     "seed": 62
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S051",
+   "t0": 117.65,
+   "t1": 121.342,
+   "sync": "bars 63-64: two prints, one per downbeat",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#161412"
+    },
+    {
+     "type": "photo",
+     "src": "1000053175.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      267.5,
+      140.0,
+      585.0,
+      780
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": -3,
+     "enter": {
+      "t": 117.51,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    },
+    {
+     "type": "photo",
+     "src": "1000052364.jpg",
+     "zoom": [
+      1.0,
+      1.04
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      1100.0,
+      140.0,
+      520.0,
+      780
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": 3.5,
+     "enter": {
+      "t": 119.356,
+      "dur": 0.22,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": -8
+     }
+    },
+    {
+     "type": "doodle",
+     "kind": "star",
+     "x": 980,
+     "y": 170,
+     "size": 34,
+     "t": 118.573,
+     "dur": 0.16,
+     "color": "#ffe066",
+     "width": 6,
+     "seed": 70
+    },
+    {
+     "type": "doodle",
+     "kind": "star",
+     "x": 250,
+     "y": 900,
+     "size": 34,
+     "t": 120.419,
+     "dur": 0.16,
+     "color": "#ffe066",
+     "width": 6,
+     "seed": 71
+    },
+    {
+     "type": "doodle",
+     "kind": "star",
+     "x": 1700,
+     "y": 930,
+     "size": 34,
+     "t": 120.881,
+     "dur": 0.16,
+     "color": "#ffe066",
+     "width": 6,
+     "seed": 72
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.12,
+    "amount": 0.6
+   }
+  },
+  {
+   "id": "S052",
+   "t0": 121.342,
+   "t1": 123.189,
+   "sync": "bar 65: the lounge, stars on the beats",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0024.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    },
+    {
+     "type": "doodle",
+     "kind": "star",
+     "x": 300,
+     "y": 240,
+     "size": 32,
+     "t": 121.804,
+     "dur": 0.16,
+     "color": "#fff1a8",
+     "width": 6,
+     "seed": 80
+    },
+    {
+     "type": "doodle",
+     "kind": "star",
+     "x": 1640,
+     "y": 220,
+     "size": 32,
+     "t": 122.265,
+     "dur": 0.16,
+     "color": "#fff1a8",
+     "width": 6,
+     "seed": 81
+    },
+    {
+     "type": "doodle",
+     "kind": "star",
+     "x": 960,
+     "y": 980,
+     "size": 32,
+     "t": 122.727,
+     "dur": 0.16,
+     "color": "#fff1a8",
+     "width": 6,
+     "seed": 82
+    }
+   ],
+   "in": {
+    "type": "cut",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S053",
+   "t0": 123.189,
+   "t1": 125.035,
+   "sync": "bar 66",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#f3eee2"
+    },
+    {
+     "type": "photo",
+     "src": "img0004.jpg",
+     "zoom": [
+      1.0,
+      1.05
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "box": [
+      500.0,
+      90.0,
+      600.0,
+      900
+     ],
+     "border": {
+      "color": "#f6f2e8",
+      "px": 18
+     },
+     "shadow": true,
+     "rot": -2.5
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S054",
+   "t0": 125.035,
+   "t1": 128.737,
+   "sync": "bars 67-68: 'like the cool kids' -> spoiler (holds over the join)",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0034.jpg",
+     "zoom": [
+      1.0,
+      1.12
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "pulse": {
+      "on": "kicks",
+      "amount": 0.03,
+      "decay": 0.12,
+      "min": 0.4
+     }
+    },
+    {
+     "type": "text",
+     "text": "spoiler:",
+     "x": 1560,
+     "y": 250,
+     "t0": 125.47,
+     "t1": 128.737,
+     "size": 80,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 21,
+      "tape": true
+     },
+     "rot": -6,
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "you were.",
+     "x": 1590,
+     "y": 390,
+     "t0": 126.77,
+     "t1": 128.737,
+     "size": 112,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 22,
+      "tape": true
+     },
+     "rot": -3,
+     "anim": "pop",
+     "boil": true
+    },
+    {
+     "type": "text",
+     "text": "roll complete",
+     "x": 1560,
+     "y": 150,
+     "t0": 126.881,
+     "t1": 128.737,
+     "size": 40,
+     "font": "mono",
+     "color": "#1f2a44",
+     "anim": "fade",
+     "dur": 0.25,
+     "panel": {
+      "seed": 26,
+      "tape": false,
+      "padx": 18
+     }
+    }
+   ],
+   "in": {
+    "type": "flash",
+    "dur": 0.14,
+    "amount": 0.7
+   }
+  },
+  {
+   "id": "S055",
+   "t0": 128.737,
+   "t1": 143.506,
+   "sync": "final chorus cycle 2: one credit per bar; the whole sheet on the last bar",
+   "layers": [
+    {
+     "type": "contact",
+     "cols": 4,
+     "y0": 100,
+     "fw": 360,
+     "fh": 240,
+     "gx": 92,
+     "gy": 222,
+     "first_no": 12,
+     "loupe": [
+      960,
+      380
+     ],
+     "end": 141.66,
+     "release": 141.66,
+     "frames": [
+      {
+       "src": "1000052424.jpg",
+       "focus": "person:4",
+       "name": "Gabriel",
+       "role": "Still hoping for our Texel trip",
+       "t": 128.737,
+       "zoom": "auto:0.3"
+      },
+      {
+       "src": "1000054136.jpg",
+       "focus": "person:2",
+       "name": "Maria",
+       "role": "Future latina soccer mom",
+       "t": 130.583,
+       "zoom": "auto:0.3"
+      },
+      {
+       "src": "img0009.jpg",
+       "focus": "person:6",
+       "name": "Tim",
+       "role": "'You need to take your pants off'",
+       "t": 132.429,
+       "zoom": "auto:0.3"
+      },
+      {
+       "src": "img0030.jpg",
+       "focus": "person:5",
+       "name": "Daria",
+       "role": "Best photographer",
+       "t": 134.275,
+       "zoom": "auto:0.3"
+      },
+      {
+       "src": "1000053165.jpg",
+       "focus": "person:11",
+       "name": "Esra",
+       "role": "The OG baddest banana 😎",
+       "t": 136.122,
+       "zoom": "auto:0.3"
+      },
+      {
+       "src": "1000052748.jpg",
+       "focus": "person:3",
+       "name": "Jakub",
+       "role": "professional 'banana' eater 🍑🍌",
+       "t": 137.968,
+       "zoom": "auto:0.3"
+      },
+      {
+       "src": "1000053170.jpg",
+       "focus": "person:7",
+       "name": "Maja",
+       "role": "Don't trust her with piggyback rides",
+       "t": 139.814,
+       "zoom": "auto:0.3"
+      }
+     ]
+    }
+   ],
+   "bg": "#0a0a0a",
+   "in": {
+    "type": "dip_white",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S056",
+   "t0": 143.506,
+   "t1": 154.583,
+   "sync": "post-chorus: an arc every 2 beats; tagline on the downbeats",
+   "layers": [
+    {
+     "type": "map",
+     "home": [
+      4.9,
+      52.37
+     ],
+     "home_t": 143.506,
+     "arcs": [
+      {
+       "to": [
+        -3.7,
+        40.42
+       ],
+       "t": 144.429,
+       "label": "Gabriel",
+       "flag": "ES",
+       "label_off": [
+        0,
+        58
+       ],
+       "flag_off": [
+        -70,
+        -40
+       ]
+      },
+      {
+       "to": [
+        4.35,
+        50.85
+       ],
+       "t": 145.352,
+       "label": "Maria (via España)",
+       "flag": "BE",
+       "label_off": [
+        -270,
+        55
+       ],
+       "flag_off": [
+        -60,
+        70
+       ],
+       "bend": 0.6
+      },
+      {
+       "to": [
+        8.68,
+        50.11
+       ],
+       "t": 146.276,
+       "label": "Tim & Daria",
+       "flag": "DE",
+       "label_off": [
+        150,
+        45
+       ],
+       "flag_off": [
+        70,
+        -45
+       ]
+      },
+      {
+       "to": [
+        19.4,
+        52.1
+       ],
+       "t": 147.199,
+       "label": "Maja & Kuba",
+       "flag": "PL",
+       "label_off": [
+        0,
+        60
+       ],
+       "flag_off": [
+        0,
+        -62
+       ]
+      },
+      {
+       "to": [
+        32.85,
+        39.93
+       ],
+       "t": 148.122,
+       "label": "Esra",
+       "flag": "TR",
+       "label_off": [
+        0,
+        60
+       ],
+       "flag_off": [
+        -10,
+        -62
+       ]
+      },
+      {
+       "to": [
+        4.9,
+        52.37
+       ],
+       "from": [
+        4.47,
+        50.5
+       ],
+       "t": 149.045,
+       "label": "Sam (stays ♥)",
+       "color": "#b3261e",
+       "bend": -0.9,
+       "label_off": [
+        -235,
+        -60
+       ],
+       "size": 46
+      }
+     ],
+     "zoom": [
+      1.0,
+      1.07
+     ],
+     "focus_px": [
+      820,
+      560
+     ]
+    },
+    {
+     "type": "text",
+     "text": "shot in amsterdam.",
+     "x": 1010,
+     "y": 900,
+     "t0": 150.891,
+     "t1": 154.583,
+     "size": 74,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 7,
+      "tape": true
+     },
+     "rot": -3,
+     "anim": "write",
+     "dur": 0.5
+    },
+    {
+     "type": "text",
+     "text": "developed in six countries.",
+     "x": 1080,
+     "y": 1000,
+     "t0": 152.737,
+     "t1": 154.583,
+     "size": 74,
+     "font": "caveat",
+     "color": "#c8371f",
+     "panel": {
+      "seed": 8,
+      "tape": false
+     },
+     "rot": -2,
+     "anim": "write",
+     "dur": 0.6
+    }
+   ],
+   "bg": "#f1ead9",
+   "in": {
+    "type": "dip_white",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "S057",
+   "t0": 154.583,
+   "t1": 158.276,
+   "sync": "ending: everyone in the mirror",
+   "layers": [
+    {
+     "type": "photo",
+     "src": "img0035.jpg",
+     "zoom": [
+      1.0,
+      1.1
+     ],
+     "focus": "faces",
+     "drift": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "the cool kids.",
+     "x": 960.0,
+     "y": 925,
+     "t0": 155.045,
+     "t1": 158.276,
+     "size": 92,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "panel": {
+      "seed": 9,
+      "tape": true
+     },
+     "rot": -2,
+     "anim": "write",
+     "dur": 0.5
+    },
+    {
+     "type": "text",
+     "text": "elevate 2026 · amsterdam",
+     "x": 960.0,
+     "y": 1030,
+     "t0": 155.968,
+     "t1": 158.276,
+     "size": 36,
+     "font": "mono",
+     "color": "#1f2a44",
+     "anim": "fade",
+     "dur": 0.4,
+     "panel": {
+      "seed": 27,
+      "tape": false,
+      "padx": 18
+     }
+    }
+   ],
+   "in": {
+    "type": "dissolve",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "S058",
+   "t0": 158.276,
+   "t1": 161.971,
+   "sync": "ring-out: the film burns out -> 4th-wall button",
+   "layers": [
+    {
+     "type": "fill",
+     "color": "#090909"
+    },
+    {
+     "type": "polaroid",
+     "src": "img0003.jpg",
+     "focus": "person:1",
+     "zoom": "auto:0.5",
+     "cx": 620,
+     "cy": 545,
+     "w": 380,
+     "rot": -5,
+     "caption": "Sam",
+     "seed": 41,
+     "enter": {
+      "t": 159.049,
+      "dur": 0.25,
+      "type": "drop",
+      "from": [
+       0,
+       -900
+      ],
+      "spin": 8
+     }
+    },
+    {
+     "type": "text",
+     "text": "edited by Sam",
+     "x": 1250,
+     "y": 420,
+     "t0": 159.661,
+     "t1": 161.971,
+     "size": 54,
+     "font": "mono_regular",
+     "color": "#bdb6a6",
+     "anim": "type",
+     "dur": 0.45
+    },
+    {
+     "type": "text",
+     "text": "'I have too much time\non my hands guys'",
+     "x": 1260,
+     "y": 590,
+     "t0": 160.585,
+     "t1": 161.971,
+     "size": 80,
+     "font": "caveat",
+     "color": "#f5f1e8",
+     "anim": "write",
+     "dur": 0.7,
+     "rot": -3
+    }
+   ],
+   "in": {
+    "type": "burn",
+    "dur": 0.7
+   }
+  },
+  {
+   "id": "S059",
+   "t0": 161.971,
+   "t1": 174.8,
+   "sync": "epilogue in silence: one handwritten line per (felt) bar",
+   "layers": [
+    {
+     "type": "fill",
+     "paper": true,
+     "color": "#efe8d8"
+    },
+    {
+     "type": "text",
+     "text": "to my new, loving friend group —",
+     "x": 960,
+     "y": 210,
+     "t0": 161.971,
+     "t1": 174.8,
+     "size": 66,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.9,
+     "rot": -1.2,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "thank you for the late nights, the deep talks,",
+     "x": 960,
+     "y": 330,
+     "t0": 163.819,
+     "t1": 174.8,
+     "size": 66,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.9,
+     "rot": -0.19999999999999996,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "the bridge dates and every flash in between.",
+     "x": 960,
+     "y": 450,
+     "t0": 165.667,
+     "t1": 174.8,
+     "size": 66,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.9,
+     "rot": -1.2,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "wherever life takes you now,",
+     "x": 960,
+     "y": 570,
+     "t0": 167.515,
+     "t1": 174.8,
+     "size": 66,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.9,
+     "rot": -0.19999999999999996,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "there's always a couch for you in amsterdam ♥",
+     "x": 960,
+     "y": 690,
+     "t0": 169.363,
+     "t1": 174.8,
+     "size": 66,
+     "font": "caveat",
+     "color": "#c8371f",
+     "anim": "write",
+     "dur": 0.9,
+     "rot": -1.2,
+     "fade_out": 0.0
+    },
+    {
+     "type": "text",
+     "text": "— sam",
+     "x": 1400,
+     "y": 860,
+     "t0": 171.211,
+     "t1": 174.8,
+     "size": 84,
+     "font": "caveat",
+     "color": "#1f2a44",
+     "anim": "write",
+     "dur": 0.5,
+     "rot": -4,
+     "fade_out": 0.0
+    },
+    {
+     "type": "doodle",
+     "kind": "heart",
+     "x": 1300,
+     "y": 960,
+     "size": 46,
+     "t": 172.135,
+     "dur": 0.6,
+     "color": "#c8371f",
+     "width": 7,
+     "boil": false
+    }
+   ],
+   "in": {
+    "type": "dip_black",
+    "dur": 0.8,
+    "align": "start"
+   }
+  }
+ ]
+}

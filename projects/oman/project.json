@@ -1,0 +1,483 @@
+{
+ "title": "Oman inshallah",
+ "occasion": "Roadtripping Oman, meeting new people and experiencing the Muslim culture",
+ "when_where": "Oman, 00, Turkey · Mar–Apr 2024",
+ "group_name": "",
+ "language": "English",
+ "vibe": "cinematic, nostalgic, chaotic",
+ "text_amount": "medium",
+ "length": "the whole song (or one clean cut if it's long)",
+ "song": {
+  "file": "OneRepublic - I Lived - Lyrics Video (Native Album).mp3",
+  "artist": "OneRepublic",
+  "title": "I Lived",
+  "slug": "onerepublic_i_lived_lyrics_video"
+ },
+ "chapters": [
+  {
+   "id": "s01_muscat_muttrah",
+   "label": "Muscat → Muttrah",
+   "when": "1 Apr–2 Apr",
+   "steps": [
+    "97128173",
+    "97128171"
+   ]
+  },
+  {
+   "id": "s03_dolphin_watching_and_sno",
+   "label": "Dolphin watching and snorkeling 🤿",
+   "when": "3 Apr",
+   "steps": [
+    "97128172"
+   ]
+  },
+  {
+   "id": "s04_nizwa_muscat",
+   "label": "Nizwa → Muscat",
+   "when": "4 Apr–14 Apr",
+   "steps": [
+    "97128170",
+    "97128174",
+    "96810627",
+    "96809119",
+    "96851552",
+    "96863784",
+    "96920457",
+    "96920459",
+    "97067792",
+    "97066915",
+    "97131446",
+    "97128175",
+    "97128181",
+    "97193185",
+    "97219158",
+    "97246920",
+    "97326781",
+    "97330778",
+    "97349485",
+    "97404427",
+    "97424917",
+    "97437591",
+    "97518304",
+    "97544826",
+    "97544827",
+    "97654812",
+    "97678453",
+    "97719954"
+   ]
+  },
+  {
+   "id": "s32_arnavutkoy_b_y_k_ekmece",
+   "label": "Arnavutkoy → Büyükçekmece",
+   "when": "14 Apr",
+   "steps": [
+    "97775285",
+    "97797907"
+   ]
+  }
+ ],
+ "people_notes": "Sam and Tom going on a roadtrip through Oman\nMeeting random omani people along the way",
+ "jokes": "We found a suprisingly cheap time to fly to Oman so simply just booked the flight and that's it. When we arrived we knew why, it was Ramadan and everything (especially restaurants) were  closed during the day. It was a hard time to eat during the day since it was illegal to eat in public so we had to sneak away to get a quick bite.\nWe met the kindest, most generous people there even paying for our meal without knowing/ever talking to them\nThrough one of the wadi hikes, we took off our shoes to walk through (there and back). When we got all the way to the end we realised our feet were completely burned and had to almost crawl to get back because of the pain (there is a video of me running across some rocks barefoot in a wadi)\nAll the feet fishes all came to Sams feed vs Toms because Sam has stinky feet?",
+ "avoid": "",
+ "credits": "Thank you note to the strangers who helped (approved by Sam 2026-10-25): Abdoul, Mohammed, Marwan, the desert hosts, the man who paid for our meal, the oil producer who bought the coffee, the man at the mosque who gave us the Quran, the guide who drove us up the mountain, the Pakistani family, the three brothers, the Germans (names unknown)",
+ "ending_note": "Be creative, you can make up your own mind while looking at the pictures",
+ "editor": "Sam + Tom",
+ "extra": "I didn't select a vibe beforehand because I don't really know what fits the song and the pictures as of now. I want you to be as creative as possible and take your time to make an amazing aftermovie.",
+ "status": {
+  "stage": "final",
+  "people_named": true,
+  "notes": "2026-10-25: inshallah (Souq pop) approved by Sam ('Looks good. Ship it') and rendered: 1080p master out/inshallah.mp4 + 720p share out/inshallah_share.mp4 (4:11); QA on the master clean",
+  "preview": "out/inshallah_share.mp4",
+  "version": "inshallah",
+  "final": "out/inshallah.mp4",
+  "share": "out/inshallah_share.mp4",
+  "approved": "2026-10-25"
+ },
+ "created": "2026-10-25",
+ "steps": {
+  "97128173": {
+   "label": "Muscat explore day",
+   "note": "Muscat viewpoint, matrah souq and al alam Palace all in one day! Place is beautiful!",
+   "skip": false
+  },
+  "97128171": {
+   "label": "National history and quantab night",
+   "note": "Visited national history museum and met our omani friend Abdoul who gave us a night tour!",
+   "skip": false
+  },
+  "97128172": {
+   "label": "Dolphin watching and snorkeling 🤿",
+   "note": "Also went to the Nizwa souq and fort and checked in to the Airbnb",
+   "skip": false
+  },
+  "97128170": {
+   "label": "Nizwa day",
+   "note": "Recovering from Ramadan",
+   "skip": false
+  },
+  "97128174": {
+   "label": "Tanuf",
+   "note": "Tanuf castle ruins and wadi tanuf",
+   "skip": false
+  },
+  "96810627": {
+   "label": "Bahlā",
+   "note": "Bahla fort and eating next to the road",
+   "skip": false
+  },
+  "96809119": {
+   "label": "Alhambra camping with fellow travelers",
+   "note": "Met 2 traveler from Germany and camped together.",
+   "skip": false
+  },
+  "96851552": {
+   "label": "Dying",
+   "note": "Ramadan is hard",
+   "skip": false
+  },
+  "96863784": {
+   "label": "Recovering",
+   "note": "After dying after camping we went to a wadi and ate. Because of sleep deprivation we rented an Airbnb and are recovering now...",
+   "skip": false
+  },
+  "96920457": {
+   "label": "Jebel Shams",
+   "note": "Jebel shams hike, saw the Germans again. Driving the way up was a challenge with a normal car, they strongly recommend a 4x4, but I'm a pro driver :)",
+   "skip": false
+  },
+  "96920459": {
+   "label": "Back at the Airbnb",
+   "note": "Bought 5 burgers and 2 smoothies on the way here",
+   "skip": false
+  },
+  "97067792": {
+   "label": "Desert trip",
+   "note": "Random omani offering us a desert tour",
+   "skip": false
+  },
+  "97066915": {
+   "label": "Desert camp",
+   "note": "Met 2 random omani who offered us a sleeping spot in the desert for 10omr",
+   "skip": false
+  },
+  "97131446": {
+   "label": "Anti Ramadan pitstop",
+   "note": "",
+   "skip": false
+  },
+  "97128175": {
+   "label": "Wadi Bani Khaled with Muhammed",
+   "note": "Met Muhammed and gave us a cool tour around the wadi :)",
+   "skip": false
+  },
+  "97128181": {
+   "label": "Beach camp",
+   "note": "",
+   "skip": false
+  },
+  "97193185": {
+   "label": "Bimmah sinkhole",
+   "note": "",
+   "skip": false
+  },
+  "97219158": {
+   "label": "Airbnb",
+   "note": "Anti Ramadan meal in the Airbnb",
+   "skip": false
+  },
+  "97246920": {
+   "label": "Good food",
+   "note": "Thank you random omani for paying!",
+   "skip": false
+  },
+  "97326781": {
+   "label": "Ghayl ash Shab",
+   "note": "",
+   "skip": false
+  },
+  "97330778": {
+   "label": "Wadi damm",
+   "note": "Pitstop at wadi damm, was a recommendation from Marwan",
+   "skip": false
+  },
+  "97349485": {
+   "label": "Abdoul is the best",
+   "note": "Our good friend from the beginning of the trip invited us to come eat. Eid Mubarak!",
+   "skip": false
+  },
+  "97404427": {
+   "label": "Qaboos grand mosque",
+   "note": "Friendly Oman talked about Islam and gave us a Quran to read",
+   "skip": false
+  },
+  "97424917": {
+   "label": "Al Thowarah hot springs",
+   "note": "All of the sudden, 100 indians appear",
+   "skip": false
+  },
+  "97437591": {
+   "label": "Random Nakhal fair",
+   "note": "",
+   "skip": false
+  },
+  "97518304": {
+   "label": "Jebel akhdar nice view",
+   "note": "Hitchhiked up the mountain with an omani oil producer, he also bought us coffee ☕☕☕",
+   "skip": false
+  },
+  "97544826": {
+   "label": "Bani Habib",
+   "note": "Another hitchhike from an omani tour guide",
+   "skip": false
+  },
+  "97544827": {
+   "label": "Dying on a hike and ride back",
+   "note": "Didn't bring enough water, brought the wrong beans, so no food, getting difficult. First we hitchhiked with a Pakistani family (thx for the water and brownie), after with 3 crazy omani brothers, allahamdulilah we survived",
+   "skip": false
+  },
+  "97654812": {
+   "label": "Opera house",
+   "note": "Saw the Germans again",
+   "skip": false
+  },
+  "97678453": {
+   "label": "Food with the Germans",
+   "note": "Picked them up from their hotel and had some good food",
+   "skip": false
+  },
+  "97719954": {
+   "label": "Flight delayed, flight moved",
+   "note": "Flight delayed more than 24h, so we'll have to stay in Istanbul for a day...",
+   "skip": false
+  },
+  "97775285": {
+   "label": "Istanbul airport moving from info point to info point",
+   "note": "Flight got delayed to the next day, so now we try to arrange a hotel",
+   "skip": false
+  },
+  "97797907": {
+   "label": "Free hotel",
+   "note": "They had a buffet, mashallah",
+   "skip": false
+  }
+ },
+ "trip": {
+  "source": "polarsteps",
+  "id": "10951348",
+  "name": "Oman inshallah",
+  "imported": "2026-10-25"
+ },
+ "music_taste": "",
+ "song_suggestions": {
+  "at": "2026-10-25 12:35",
+  "items": [
+   {
+    "artist": "Khruangbin",
+    "title": "Maria También",
+    "why": "The surf-psych guitar on a Middle Eastern scale suits the sun-bleached shots: the Nizwa and Bahla battlements at golden hour, the white Al Alam Palace square and the grey sedan parked out in the gravel desert. It's almost all instrumental and has a steady, easy-to-cut groove, which leaves room for the medium amount of text (step names, 'Recovering from Ramadan', 'pro driver').",
+    "tags": [
+     "desert psych",
+     "sun-bleached",
+     "groovy",
+     "road trip"
+    ],
+    "energy": "mid",
+    "structure": "The drum and bass groove at the start carries the 'Oman inshallah' title over the night drive and the Muscat viewpoint. The guitar riff kicks in for the forts, souq and wadis, and the breakdown is a place to hold the Jebel Shams canyon. The tight ending lands on the Istanbul hotel buffet.",
+    "fit": "whole song (it's short, so pick the ~90 strongest photos)",
+    "lyric_hooks": "",
+    "check": {
+     "found": null,
+     "note": "lyrics database unreachable (offline?)"
+    }
+   },
+   {
+    "artist": "Sting",
+    "title": "Desert Rose",
+    "why": "Cheb Mami's Arabic vocal over the pad is the obvious match for the dunes at Bidiyah: the sand thrown into the blue sky, the jump on the ridge and the striped tents at night. Its rolling verse-chorus shape also fits the trip's arc, from the Grand Mosque marble to the turquoise Wadi Bani Khalid pools.",
+    "tags": [
+     "desert",
+     "arabic vocal",
+     "cinematic",
+     "warm"
+    ],
+    "energy": "mid",
+    "structure": "Cheb Mami's Arabic intro carries the title over the Muscat skyline. The verses cover the forts and mountain drives, the 'sweet desert rose' chorus hits as the film reaches the dunes, the Arabic middle section covers the mosque and the souq, and the vocal outro closes on the rooftop sunset dinner.",
+    "fit": "cut once, chorus to chorus, to about 3:45",
+    "lyric_hooks": "'I dream of rain' over the 5-litre water bottle on the car roof and the 'didn't bring enough water' hike. Then 'I dream of gardens in the desert sand' lands on the first turquoise wadi pool.",
+    "check": {
+     "found": true,
+     "artist": "Sting",
+     "title": "Desert Rose",
+     "album": "Brand New Day (Digital Theater System (Dts) Version)",
+     "duration": 286,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Bonobo",
+    "title": "Kerala",
+    "why": "The chopped vocal and steady four-on-the-floor build match the trip's momentum: hitchhiking up Jebel Akhdar, the wadi crowds, the canyon edge with arms spread wide. Its clear drop gives the Jebel Shams panorama or the sand-throw shot a big reveal.",
+    "tags": [
+     "electronic",
+     "wanderlust",
+     "building",
+     "kinetic"
+    ],
+    "energy": "mid",
+    "structure": "The sparse vocal-chop intro carries the title over the night drive. The beat enters for Muscat and Nizwa. The breakdown is a pause for the 'Dying' bedroom shot and the sunrise roads, and the final build runs through the desert, the wadis and the mosque to the airport ending.",
+    "fit": "whole song (~4 min), about 110–120 photos",
+    "lyric_hooks": "",
+    "check": {
+     "found": true,
+     "artist": "Bonobo",
+     "title": "Kerala",
+     "album": "Chilled House, Session 8",
+     "duration": 238,
+     "synced": false,
+     "instrumental": true,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Altın Gün",
+    "title": "Goca Dünya",
+    "why": "Groovy Anatolian psych-pop with an organ and baglama colour that suits the Matrah souq lanterns, the Royal Opera House's red-and-gold balconies and the Nakhal fair under the Sultan's portrait. It also points to where the trip ends: the 24-hour delay and the free hotel in Istanbul.",
+    "tags": [
+     "turkish psych",
+     "groovy",
+     "colourful",
+     "playful"
+    ],
+    "energy": "mid",
+    "structure": "The bass and keys intro carries the title. The verses run through Muscat, the forts and the camel encounter at the car window, the chorus repeats line up with the desert and the wadis, and the ending lands on the Istanbul airport and the hotel buffet ('mashallah').",
+    "fit": "whole song, or one clean chorus-to-chorus cut if it runs long",
+    "lyric_hooks": "The title means roughly 'big world' in Turkish dialect: kinetic type on the Jebel Shams canyon or on the 5,227 km route map.",
+    "check": {
+     "found": true,
+     "artist": "Altın Gün",
+     "title": "Goca Dünya",
+     "album": "Goca Dünya",
+     "duration": 237,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Ibrahim Maalouf",
+    "title": "Beirut",
+    "why": "Maalouf's quarter-tone trumpet sounds like the Arab world, and the track goes from a lonely, slow opening to a crushing rock riff. That's the trip's 'dying' hikes and sleep deprivation, then the payoff at the canyon edge. The solo trumpet suits the Sultan Qaboos Grand Mosque mihrab and the white minaret, and the riff explodes on the dunes and the turquoise wadi water.",
+    "tags": [
+     "arabic trumpet",
+     "slow build",
+     "epic",
+     "rock"
+    ],
+    "energy": "mid",
+    "structure": "The solo trumpet intro carries the title over the dawn road and the Muscat viewpoint, and the slow section covers the forts and the mosque. When the band and riff hit, it's the big reveal: Jebel Shams, arms wide. The riff section drives the desert and wadis, and it ends on a hard stop for the airport.",
+    "fit": "long: cut once to about 3:30–4:00, keeping the full slow intro and the riff entrance",
+    "lyric_hooks": "",
+    "check": {
+     "found": null,
+     "note": "lyrics database unreachable (offline?)"
+    }
+   },
+   {
+    "artist": "Omar Souleyman",
+    "title": "Warni Warni",
+    "why": "Relentless dabke synths and hand drums for the most chaotic moments: the camels shoving their heads into the car, the selfie with the Omani hosts in the desert camp, '100 Indians appear' at the hot springs, the fish nibbling toes. It's the party pick that leans into the 'meeting new people' brief instead of a generic EDM drop.",
+    "tags": [
+     "dabke",
+     "party",
+     "frantic",
+     "funny"
+    ],
+    "energy": "high",
+    "structure": "Launches almost immediately, so the title is a hard cut on the first synth phrase. Keyboard runs suit fast montage blocks (food spreads, souq, hitchhike rides), and the breaks in the synth line are where the 'Dying' and 'Recovering' gags go. Ends on the 'Eid Mubarak' dinner with Abdoul.",
+    "fit": "cut once to about 3:00 between two identical synth phrases",
+    "lyric_hooks": "",
+    "check": {
+     "found": true,
+     "artist": "Omar Souleyman",
+     "title": "Warni Warni",
+     "album": "Omar Souleyman Songs",
+     "duration": 429,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Rachid Taha",
+    "title": "Ya Rayah",
+    "why": "The North African traveller's anthem ('you who are leaving, where are you going?') fits a trip that was all about strangers paying for dinner, giving them a Quran, buying them coffee and driving them up a mountain. Its rising chaabi groove carries the hitchhiking chapter and the Eid dinner, and the lyric ties the ending together.",
+    "tags": [
+     "arabic classic",
+     "traveller",
+     "joyful",
+     "warm"
+    ],
+    "energy": "high",
+    "structure": "The string intro carries the title over Muscat at night. The groove builds through the forts, desert and wadis, the 'ya rayah' chorus repeats are where the big group moments go (the desert camp selfie, the Germans again), and the last chorus lands on the delayed flight and the Istanbul hotel.",
+    "fit": "cut once, chorus to chorus, to about 3:30",
+    "lyric_hooks": "Subtitle the hook 'Ya rayah win msafer… trouh taâya wa twali' ('you who are leaving, where are you going… you'll get tired and come back') over the departures board showing the 24-hour delay.",
+    "check": {
+     "found": true,
+     "artist": "RACHID TAHA",
+     "title": "YA RAYAH",
+     "album": "Arabian Nights",
+     "duration": 374,
+     "synced": true,
+     "instrumental": false,
+     "match": 0.95
+    }
+   },
+   {
+    "artist": "Hermanos Gutiérrez",
+    "title": "El Bueno y el Malo",
+    "why": "Two reverb-soaked guitars that sound like a western suit the wide, lonely frames: the empty dawn road through the windscreen, the canyon walls of Wadi Tanuf, the cliff-dwelling ruins and the beach camp with the car beside the sea. It's the slow, cinematic option, letting the landscapes breathe and the kindness of strangers carry the story.",
+    "tags": [
+     "cinematic",
+     "western",
+     "dusty",
+     "golden hour"
+    ],
+    "energy": "calm",
+    "structure": "The slow guitar intro carries the title over the dawn road shot. The melody unfolds through the mountain and desert chapters with long holds on landscapes. The swell carries the Grand Mosque and the Opera House, and the quiet ending lands on the last Muscat street.",
+    "fit": "whole song (curate hard, ~70–80 photos, long holds)",
+    "lyric_hooks": "",
+    "check": {
+     "found": false,
+     "note": "not found: check the title"
+    }
+   }
+  ]
+ },
+ "references": "",
+ "adventurous": "wild",
+ "style_leanings": "",
+ "analysis": {
+  "photos": 315,
+  "song_slug": "onerepublic_i_lived",
+  "tempo": 120.185,
+  "duration": 339.569,
+  "constant_grid": false,
+  "lyrics_lines": 58,
+  "lyrics_match_z": 3.29
+ },
+ "direction": {
+  "id": "c",
+  "note": "",
+  "at": "2026-10-25 13:49"
+ },
+ "lyrics_fix": {
+  "held_lines": [
+   "I, I did it all",
+   "Oh, whoa"
+  ],
+  "words": [],
+  "_note": "moved from projects/oman/fix_lyrics.py (2026-10-25); align_words.py applies it after every ingest"
+ }
+}
