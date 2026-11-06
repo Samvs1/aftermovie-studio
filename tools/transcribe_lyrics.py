@@ -1,11 +1,17 @@
 """Transcribe the lyric from the vocal stem with Whisper, for songs LRCLIB has no synced lyrics for (local or
-non-English songs often). analyze_audio.py uses the result when there is no LRC; align_words.py then aligns it.
+non-English songs often). analyze_audio.py uses the result when there is no LRC; align_words.py then aligns it. With
+the user's own lyrics as plain text (or lines they never timed by hand), the transcription is where their lines get
+their times (align_lyrics.py).
 
-  python tools/transcribe_lyrics.py <slug> [--language nl] [--model openai/whisper-large-v3-turbo]
+  python tools/transcribe_lyrics.py <slug> [--language nl] [--model openai/whisper-large-v3-turbo] [--force]
+
+A transcription made for this very song file (and model and language) is reused; --force makes it again.
 
 Only stretches where the vocal stem is clearly singing are transcribed (Whisper invents text over instrumentals),
 in pieces of up to 28 s. Writes cache/lyrics/<slug>_transcribed.json: {"model", "language", "lines": [{t, end, text,
-words: [{w, t, end}]}]}. Transcriptions mishear: show the text to the user and fix it before captions use it.
+words: [{w, t, end}]}], "song": {file, size}}. Transcriptions mishear: show the text to the user and fix it before
+captions use it. The model (~1.6 GB) downloads from huggingface.co on first use; when it can't be loaded the tool says
+so in one line and exits 1 (ingest carries on without it).
 GPU: Whisper large-v3-turbo in fp16 (~2 GB of VRAM, ~20 s per song on an RTX 4060); on the CPU it takes minutes.
 """
 import argparse, json, os, re, sys
@@ -13,7 +19,7 @@ import numpy as np
 import librosa
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from am.common import CACHE  # noqa: E402
+from am.common import CACHE, MUSIC  # noqa: E402
 from am import device as D  # noqa: E402
 
 SR = 16000
@@ -57,15 +63,37 @@ def main():
     ap.add_argument("slug")
     ap.add_argument("--language", default=None, help="ISO code (en, nl, fr, ...); default: Whisper detects it")
     ap.add_argument("--model", default="openai/whisper-large-v3-turbo")
+    ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
-    import torch
-    from transformers import pipeline
+    p = os.path.join(CACHE, "lyrics", f"{a.slug}_transcribed.json")
+    me = None
+    try:
+        from analyze_audio import SONGS
+        sf_ = os.path.join(MUSIC, SONGS[a.slug])
+        me = {"file": os.path.basename(sf_), "size": os.path.getsize(sf_)}
+    except Exception:
+        pass
+    try:
+        old = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
+    except Exception:
+        old = {}
+    if not a.force and me and old.get("song") == me and old.get("model") == a.model and old.get("language") == (a.language or "auto"):
+        print(f"{a.slug}: this song's transcription is there ({len(old.get('lines') or [])} lines, {a.model}): reusing it (--force to redo)")
+        return
+    try:
+        import torch
+        from transformers import pipeline
+    except Exception as ex:
+        sys.exit(f"Whisper is not installed ({type(ex).__name__}: {str(ex)[:120]}): no transcribed lyrics")
     dev = D.pick(2.5)
     v, _ = librosa.load(os.path.join(CACHE, "stems", a.slug, "vocals.wav"), sr=SR, mono=True)
     regs = sung_regions(v)
     print(f"{a.slug}: {len(regs)} sung stretches, {sum(b - x for x, b in regs):.0f} s of singing; {a.model} on {dev}")
-    asr = pipeline("automatic-speech-recognition", model=a.model, device=dev,
-                   dtype=torch.float16 if dev == "cuda" else torch.float32)
+    try:
+        asr = pipeline("automatic-speech-recognition", model=a.model, device=dev,
+                       dtype=torch.float16 if dev == "cuda" else torch.float32)
+    except Exception as ex:   # first use downloads ~1.6 GB from huggingface.co
+        sys.exit(f"Whisper ({a.model}) could not be loaded ({type(ex).__name__}: {str(ex)[:160]}): no transcribed lyrics")
     gk = {"task": "transcribe"}
     if a.language:
         gk["language"] = a.language
@@ -98,9 +126,8 @@ def main():
                           "words": [dict(x, w=x["w"].strip(",.!?")) for x in cur if x["w"].strip(",.!?")]})
             cur = []
     lines = [x for x in lines if x["words"]]
-    p = os.path.join(CACHE, "lyrics", f"{a.slug}_transcribed.json")
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    json.dump({"model": a.model, "language": a.language or "auto", "lines": lines}, open(p, "w", encoding="utf-8"),
+    json.dump({"model": a.model, "language": a.language or "auto", "song": me, "lines": lines}, open(p, "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     print(f"{len(lines)} lines, {len(words)} words -> {p}")
 

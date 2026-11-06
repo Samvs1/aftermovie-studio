@@ -19,8 +19,14 @@ Bar numbers are the builder's: bar n = F.bar(n) (0 = the first downbeat); "17:2.
 GPU: pitch (CREPE full) and the tagger (CLAP) run on CUDA when there is room (am/device.py); --cpu forces the CPU
 (CREPE tiny). The tagger only runs when the file has a stretch without a beat (a music-video rip's film intro): it
 tells film / talking / ambience / silence from quiet music. --no-tags skips it. ~40 s per song on an RTX 4060.
+
+Sections: when the user's lyric names its parts ("[Verse 1]" / "[Chorus]" tags, align_lyrics.py), the tags place and
+name them (each starts on the bar of its first sung line; where nobody sings, the sound decides). Otherwise they come
+from the evidence: the singing, the lyric's repeats and stanza breaks, loudness, the sound, the drums and bass, and
+tempo changes. The report says honestly what was estimated: stems made without Demucs, beats from the fallback tracker,
+word times not force-aligned, librosa and ffmpeg decoding the file at different offsets.
 """
-import argparse, glob, json, os, re, sys, time
+import argparse, glob, json, os, re, subprocess, sys, time
 from collections import Counter
 from difflib import SequenceMatcher
 
@@ -31,6 +37,7 @@ import scipy.ndimage as ndi
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from am.common import ROOT, CACHE, MUSIC, project  # noqa: E402
 from am import device as D, listen as L, songdoc  # noqa: E402
+import align_lyrics as parts  # noqa: E402  (the lyric's [Verse] / [Chorus] tags and stanzas)
 
 SR, FPS = L.SR, L.FPS
 STEMS = ("vocals", "drums", "bass", "other")
@@ -59,6 +66,32 @@ def song_meta(slug, file):
     base = re.sub(r"\s*[\[(].*?[\])]", "", os.path.splitext(file)[0])
     a, t = (base.split(" - ", 1) + [""])[:2] if " - " in base else ("", base)
     return {"artist": a.strip(), "title": re.sub(r"\s+-\s+.*$", "", t).strip()}
+
+
+def decoder_lag(path, y_librosa, sr):
+    """Samples by which librosa's decode of the file is late against ffmpeg's (the decoder the renders use to put the
+    song under the film). 0 = analysis times and film times agree to the sample; None = the check couldn't run."""
+    try:
+        r = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-t", "20", "-vn", "-map", "0:a:0", "-ac", "1",
+                            "-ar", str(sr), "-f", "f32le", "-"], capture_output=True)
+        if r.returncode:
+            raise RuntimeError(r.stderr.decode("utf-8", "replace")[-200:])
+        ref = np.frombuffer(r.stdout, np.float32)
+        a = np.asarray(y_librosa[:len(ref)], dtype=np.float64)
+        b = ref[:len(a)].astype(np.float64)
+        m = min(len(a), len(b))
+        if m < sr:
+            return 0
+        best, lag = -1, 0
+        for k in range(-64, 65):
+            x, z = (a[k:m], b[:m - k]) if k >= 0 else (a[:m + k], b[-k:m])
+            c = float(np.dot(x, z))
+            if c > best:
+                best, lag = c, k
+        return int(lag)
+    except Exception as ex:
+        print("   decoder check skipped:", ex)
+        return None
 
 
 class Clock:
@@ -137,10 +170,13 @@ def lyric_lines(A, G, warn):
             continue
         t0 = float(ws[0]["t"])
         t1 = float(max(w.get("t_end", w["t"] + 0.3) for w in ws))
+        mine = Lr.get("end_src") == "user"                # the user said when the line stops (the web app's editor)
+        if mine:
+            t1 = max(t0 + 0.2, float(Lr["end"]))
         cap = max(3.0, 0.9 * len(ws))
         # a line spread this wide without forced alignment is a failed estimate; force-aligned lines are trusted (slow
-        # songs hold words for seconds: "Sweet disposition" is sung over ~8 s)
-        if t1 - t0 > cap and not all("fa" in w for w in ws):
+        # songs hold words for seconds: "Sweet disposition" is sung over ~8 s), and so are lines Whisper heard
+        if t1 - t0 > cap and not mine and not all("fa" in w or w.get("src") == "whisper" for w in ws):
             warn.append(f"words of \"{Lr['text']}\" are spread over {t1 - t0:.0f} s from {t0:.1f} s: check the alignment "
                         f"(align_words.py) before trusting its word times")
             t1 = t0 + cap
@@ -150,7 +186,8 @@ def lyric_lines(A, G, warn):
         if p and p[0] == home and p[1] >= nbeats - 1.5 and home + 1 < G.nb:    # a pickup into the next bar
             home += 1
         out.append({"i": li, "t": round(t0, 3), "end": round(t1, 3), "text": Lr["text"], "home": home,
-                    "norm": L.norm_line(Lr["text"]), "words": ws})
+                    "norm": L.norm_line(Lr["text"]), "words": ws, **({"end_src": "user"} if mine else {}),
+                    **parts.fields(Lr.get("part"), Lr.get("stanza"))})
     for a in out:                           # how often the same (or nearly the same) line comes back elsewhere
         a["repeat"] = sum(1 for b in out if b is not a and abs(b["home"] - a["home"]) >= 1 and
                           (b["norm"] == a["norm"] or SequenceMatcher(None, a["norm"], b["norm"]).ratio() >= 0.8))
@@ -159,10 +196,12 @@ def lyric_lines(A, G, warn):
 
 # ------------------------------------------------------------------ structure
 def segment(G, bar_lab, lines, vfrac, loud, lvl):
-    """Section boundaries from evidence per bar: the singing stopping or starting (2), the lyric turning from new lines
-    to lines that come back or back (1.5), a new stanza after a gap (1), a loudness step (1-1.5), the sound class
-    changing (1), drums / bass coming in or dropping out (0.75). The strongest points at least MIN_SECTION bars apart
-    win (evidence one bar away counts half). Returns [(sound class, bar0, bar1)] and the reasons per boundary."""
+    """Section boundaries from evidence per bar: the singing stopping or starting (2), a stanza break in the user's
+    lyric (2: a blank line or a [tag] between the lines; 1 into or out of a repeat Whisper heard), a tempo change (2),
+    the lyric turning from new lines to lines that come back or back (1.5), a new stanza after a gap (1), a loudness
+    step (1-1.5), the sound class changing (1), drums / bass coming in or dropping out (0.75). The strongest points at
+    least MIN_SECTION bars apart win (2 between two stanza breaks; evidence one bar away counts half). Returns
+    [(sound class, bar0, bar1)], the reasons per boundary and the reasons per bar (all of them, chosen or not)."""
     nb = G.nb
     S = np.zeros(nb + 1)
     why = [[] for _ in range(nb + 1)]
@@ -194,6 +233,17 @@ def segment(G, bar_lab, lines, vfrac, loud, lvl):
     for k in range(1, len(lines)):
         if lines[k]["t"] - lines[k - 1]["end"] >= 0.8 * G.bar_s:
             add(lines[k]["home"], 1.0, "new stanza")
+    stz = set()
+    sizes = list(Counter(x["stanza"] for x in lines if x.get("stanza") is not None).values())
+    blank_each = bool(sizes) and float(np.median(sizes)) < 2          # a blank line after every line says nothing
+    for k in range(1, len(lines)):
+        a, b = lines[k - 1].get("stanza"), lines[k].get("stanza")
+        if a != b and lines[k]["home"] != lines[k - 1]["home"] and not blank_each:
+            if a is not None and b is not None:
+                add(lines[k]["home"], 2.0, "the lyric's stanza break")
+                stz.add(lines[k]["home"])
+            elif any(x.get("stanza") is not None for x in lines):
+                add(lines[k]["home"], 1.0, "a repeat starts" if b is None else "a repeat ends")
     flags = [x["repeat"] > 0 for x in lines]
     for p in range(2, len(lines) - 1):
         if flags[p - 1] == flags[p - 2] and flags[p] == flags[p + 1] and flags[p] != flags[p - 1]:
@@ -209,15 +259,138 @@ def segment(G, bar_lab, lines, vfrac, loud, lvl):
                 add(i, 0.75, f"{name} in")
             elif min(lv[i - 2:i]) >= 4 and max(lv[i:i + 2]) <= 2:
                 add(i, 0.75, f"{name} out")
+    for i, why_t in tempo_changes(G):                       # a new tempo is a new section
+        add(i, 2.0, why_t)
     strength = S + 0.5 * np.r_[0, S[:-1]] + 0.5 * np.r_[S[1:], 0]
     cand = sorted([i for i in range(2, nb - 1) if S[i] >= 1.0 and strength[i] >= 2.0], key=lambda i: (-S[i], -strength[i]))
     chosen = []
     for i in cand:
-        if all(abs(i - j) >= MIN_SECTION for j in chosen):
+        if all(abs(i - j) >= (2 if i in stz and j in stz else MIN_SECTION) for j in chosen):
             chosen.append(i)
     bounds = [0] + sorted(chosen) + [nb]
-    R = [(int(np.bincount([x for x in bar_lab[a:b] if x >= 0] or [0]).argmax()), a, b) for a, b in zip(bounds[:-1], bounds[1:])]
-    return R, {i: why[i] for i in chosen}
+    R = [(sound_class(bar_lab, a, b), a, b) for a, b in zip(bounds[:-1], bounds[1:])]
+    return R, {i: why[i] for i in chosen}, why
+
+
+def sound_class(bar_lab, a, b):
+    return int(np.bincount([x for x in bar_lab[a:b] if x >= 0] or [0]).argmax())
+
+
+def tempo_changes(G, min_change=0.06):
+    """[(bar, text)] where the tempo moves by more than 6% and stays there (not a half / double-time feel)."""
+    nb = G.nb
+    bpm = np.array([G.bar_bpm(i) for i in range(nb)])
+    out = []
+    for i in range(2, nb - 1):
+        a, b = float(np.median(bpm[max(0, i - 3):i])), float(np.median(bpm[i:min(nb, i + 3)]))
+        r = b / a
+        if abs(r - 1) > min_change and abs(r - 2) > 0.1 and abs(r - 0.5) > 0.05 and \
+                all(abs(j - i) > 3 for j, _ in out):
+            out.append((i, f"tempo {a:.0f} → {b:.0f} BPM"))
+    return out
+
+
+def tagged_sections(G, R, why_all, bar_lab, lines, vfrac, loud):
+    """The sections the user's lyric names with its [Verse] / [Chorus] tags (parts.tagged(lines) is True): each tagged
+    part starts on the home bar of its first line and runs to the next part. Only where nobody sings does the
+    evidence decide: a lead-in, a gap or a tail of MIN_SECTION bars or more (a riff under 6 bars between two parts
+    stays with the part before it unless it is 4+ LU quieter) is its own intro / instrumental / break / outro, cut
+    where segment() found boundaries inside it. A repeat Whisper heard (a line written once) belongs to its line's part,
+    or to the part around it when it sits inside another one. Returns sections as label_sections does, each with "tag"
+    (the user's own words) on the tagged ones, and the reasons per section start."""
+    nb = G.nb
+    real = [k for k, x in enumerate(lines) if x.get("stanza") is not None]
+    blocks = []
+    for k, x in enumerate(lines):
+        part = x.get("part")
+        if x.get("stanza") is None:                      # a repeat: inside a part, it is that part's
+            pv = [q for q in real if q < k]
+            nx = [q for q in real if q > k]
+            if pv and nx and lines[pv[-1]].get("part") == lines[nx[0]].get("part"):
+                part = lines[pv[-1]].get("part")
+            elif part is None:
+                part = lines[pv[-1]].get("part") if pv else None
+        if blocks and blocks[-1]["tag"] == part:
+            blocks[-1]["lines"].append(x)
+        else:
+            blocks.append({"tag": part, "lines": [x]})
+    for b in blocks:
+        b["bar0"] = min(x["home"] for x in b["lines"])
+        b["sung1"] = max(G.bar_of(max(x["t"], x["end"] - 0.25 * G.bar_s)) for x in b["lines"]) + 1
+    kept = []
+    for b in blocks:                                     # two parts starting in one bar: the first one keeps it
+        if kept and b["bar0"] <= kept[-1]["bar0"]:
+            kept[-1]["lines"] += b["lines"]
+            kept[-1]["sung1"] = max(kept[-1]["sung1"], b["sung1"])
+        else:
+            kept.append(b)
+    blocks = kept
+    med = float(np.median(loud)) if len(loud) else -20
+    inner = sorted({a for _, a, _ in R} - {0})          # segment()'s boundaries, for the stretches nobody sings
+
+    def free(a, b, label):
+        """Untagged pieces of [a, b): cut at segment()'s boundaries where both sides keep MIN_SECTION bars."""
+        cuts = [a]
+        for i in inner:
+            if cuts[-1] + MIN_SECTION <= i <= b - MIN_SECTION:
+                cuts.append(i)
+        cuts.append(b)
+        out = []
+        for p, q in zip(cuts[:-1], cuts[1:]):
+            lab = label or ("instrumental" if L.energy_mean_db(loud[p:q]) >= med - 1.5 else "break")
+            out.append({"bar0": p, "bar1": q, "label": lab, "tag": None, "lines": []})
+        return out
+    pieces = []
+    first = blocks[0]
+    if first["bar0"] >= MIN_SECTION and parts.kind(first["tag"]) != "intro":
+        pieces += free(0, first["bar0"], "intro")
+    else:
+        first["bar0"] = 0
+    for k, b in enumerate(blocks):
+        nxt = blocks[k + 1]["bar0"] if k + 1 < len(blocks) else nb
+        end = min(max(b["sung1"], b["bar0"] + 1), nxt)
+        gap = nxt - end
+        if k + 1 == len(blocks):
+            own_gap = gap >= MIN_SECTION and parts.kind(b["tag"]) != "outro"
+        else:
+            quiet = gap > 0 and L.energy_mean_db(loud[end:nxt]) < L.energy_mean_db(loud[b["bar0"]:end]) - 4
+            own_gap = gap >= MIN_SECTION and (gap >= 6 or quiet)
+        pieces.append({"bar0": b["bar0"], "bar1": end if own_gap else nxt, "tag": b["tag"],
+                       "label": parts.kind(b["tag"]) or "verse", "lines": b["lines"]})
+        if own_gap:
+            pieces += free(end, nxt, "outro" if k + 1 == len(blocks) else None)
+    secs = []
+    for s in pieces:                                     # untagged neighbours with the same name are one section
+        if secs and s["tag"] is None and secs[-1]["tag"] is None and secs[-1]["label"] == s["label"]:
+            secs[-1]["bar1"] = s["bar1"]
+        else:
+            secs.append(s)
+    letters, starts = {}, {}
+    for s in secs:
+        a, b = s["bar0"], s["bar1"]
+        lab = sound_class(bar_lab, a, b)
+        s["letter"] = letters.setdefault(lab, "ABCDEFGHIJ"[len(letters) % 10])
+        s["vocal"] = float(np.mean(vfrac[a:b])) if b > a else 0.0
+        s["loud"] = float(L.energy_mean_db(loud[a:b]))
+        s["rep"] = float(np.mean([x["repeat"] > 0 for x in s["lines"]])) if s["lines"] else 0.0
+        ev = [w for w in (why_all[a] if a < len(why_all) else []) if w != "the lyric's stanza break"]
+        starts[a] = ([f"your [{s['tag']}]"] if s["tag"] else []) + ev
+    base = [(s["tag"] or s["label"]).lower() for s in secs]
+    total, count, used = Counter(base), Counter(), set()
+    for s, b in zip(secs, base):                         # the user's words, numbered when a tag comes back
+        if total[b] > 1:
+            count[b] += 1
+            name = f"{b} ({count[b]})" if b[-1:].isdigit() else f"{b} {count[b]}"
+        else:
+            name = b
+        k = 2
+        while name in used:                              # "Chorus 1" written next to two "Chorus": still one name each
+            name, k = f"{name} ({k})", k + 1
+        used.add(name)
+        s["name"] = name
+        if not s["tag"]:
+            s.pop("tag")
+    return secs, starts
 
 
 def label_sections(R, lines, vfrac, loud, has_lyrics):
@@ -272,7 +445,9 @@ def label_sections(R, lines, vfrac, loud, has_lyrics):
         elif i in group_of:
             s["label"] = "post-chorus" if i - 1 in chorus else "pre-chorus" if i + 1 in chorus else "refrain"
         elif last_ch is not None and i > last_ch:
-            s["label"] = "outro"
+            # after the last chorus: new lines with more singing after them = a bridge; the last sung part = the outro
+            new_lines = s["lines"] and s["rep"] < 0.5 and s["bar1"] - s["bar0"] >= 4
+            s["label"] = "bridge" if new_lines and any(j > i for j in voc) else "outro"
         else:
             s["label"] = "verse"
     # pre-chorus: a short non-repeating vocal section that leads into a chorus, more than once
@@ -363,6 +538,10 @@ def analyse(slug, tags=True, cpu=False):
     stems_dir = os.path.join(CACHE, "stems", slug)
     song = song_meta(slug, A["file"])
     y, _ = librosa.load(mix, sr=SR, mono=True)
+    lag = decoder_lag(mix, y, SR)
+    if lag:
+        warn.append(f"librosa and ffmpeg decode this file {lag} samples ({lag / SR * 1000:.1f} ms) apart: analysis times "
+                    "may be off by that much against the rendered film")
     n = len(y)
     nf = 1 + n // L.HOP
     dur = n / SR
@@ -448,8 +627,15 @@ def analyse(slug, tags=True, cpu=False):
     # ---- voice: CREPE on the vocal stem, gated by the stem's level; "sung" = voiced inside a lyric line (brass and
     # synths that leak into the vocal stem are voiced too, but they don't sit on the lyric)
     lines = lyric_lines(A, G, warn)
+    whisper = any(w.get("src") == "whisper" for x in lines for w in x["words"])
     if lines and not any("fa" in w for x in lines for w in x["words"]):
-        warn.append("the lyric was never force-aligned (no align_words.py run): word times are estimates")
+        warn.append("the lyric was never force-aligned (no align_words.py run): word times are " +
+                    ("where Whisper heard them (good to ~0.2 s)" if whisper else "estimates"))
+    if (A.get("lyrics_meta") or {}).get("whisper_note"):
+        warn.append(A["lyrics_meta"]["whisper_note"])
+    for h in ((A.get("lyrics_meta") or {}).get("heard_only") or [])[:8]:
+        warn.append(f"Whisper heard singing at {int(h['t'] // 60)}:{h['t'] % 60:04.1f} that is not in the lyrics: "
+                    f"\"{h['text']}\" (The song page: Fix the timing, then add)")
     lyr = np.zeros(nf, bool)
     for x in lines:
         lyr[max(0, int((x["t"] - 0.3) * FPS)):int((x["end"] + 0.6) * FPS)] = True
@@ -475,10 +661,13 @@ def analyse(slug, tags=True, cpu=False):
         voiced = E["vocals"]["act"] > 0.45
         vnotes, bnotes = [], []
     D.release()
-    sung = voiced & lyr if lines else voiced
+    # inside a lyric line the vocal stem's own level counts as the voice too: rapped and spoken words are often
+    # unpitched, so CREPE misses them (outside the lines the level alone could be other instruments bleeding in)
+    vox = voiced | ((E["vocals"]["act"] > 0.5) & lyr) if lines else voiced
+    sung = vox & lyr if lines else voiced
     for nt in vnotes:
         nt["in_lyric"] = bool(lyr[min(nf - 1, int((nt["t"] + nt["end"]) / 2 * FPS))]) if lines else True
-    voice_lane = ndi.uniform_filter1d(voiced.astype(float) * np.maximum(E["vocals"]["act"], 0.35), 5)
+    voice_lane = ndi.uniform_filter1d(vox.astype(float) * np.maximum(E["vocals"]["act"], 0.35), 5)
     clock(f"pitch ({pitch_model or 'none'} on {dev})")
 
     # ---- harmony: chords per beat, key
@@ -510,10 +699,21 @@ def analyse(slug, tags=True, cpu=False):
     def ref90(key):
         return float(np.percentile([L.energy_mean_db(E[key]["db"][a:max(b, a + 1)]) for a, b in G.spans], 90))
     lvl = {k: L.bar_level(E[k]["db"], ref90(k), G.spans) for k in ("drums", "bass", "other")}
-    R, why = segment(G, bar_lab, lines, vfrac, bar_loud, lvl)
-    secs = label_sections(R, lines, vfrac, bar_loud, bool(lines))
+    R, why, why_all = segment(G, bar_lab, lines, vfrac, bar_loud, lvl)
+    if parts.tagged(lines):              # the lyric names its sections: its tags place them, the evidence fills the rest
+        secs, why = tagged_sections(G, R, why_all, bar_lab, lines, vfrac, bar_loud)
+        sections_from = "the lyric's [section] tags (where nobody sings: the sound)"
+    else:                                # no tags: worked out from the sound and the lyric's repeats (and stanzas)
+        secs = label_sections(R, lines, vfrac, bar_loud, bool(lines))
+        stanzas = any("the lyric's stanza break" in w for w in why_all)
+        sections_from = ("the sound, the lyric's repeats and its stanzas" if stanzas else
+                         "the sound and the lyric's repeats" if lines else "the sound")
+        if len(lines) >= 16 and sum(1 for s in secs if s["lines"]) <= 2:
+            warn.append(f"only {len(secs)} sections found in a song with {len(lines)} sung lines: the sound and the "
+                        "lyric's repeats don't show where its parts start. Put [Verse] / [Chorus]-style tags above the "
+                        "parts in the song's lyrics (the brief page) and analyse again: the tags then name the sections")
     for s in secs:
-        s["why"] = why.get(s["bar0"], ["start"] if s["bar0"] == 0 else [])
+        s["why"] = why.get(s["bar0"]) or (["start"] if s["bar0"] == 0 else [])
     clock(f"structure (k={k_cls})")
 
     # ---- per bar
@@ -590,7 +790,7 @@ def analyse(slug, tags=True, cpu=False):
                    "first": round(lines[0]["t"], 2) if lines else None, "last": round(lines[-1]["end"], 2) if lines else None},
         "lyrics_meta": A.get("lyrics_meta"),
         "beats": [round(float(b), 3) for b in G.beats],
-        "sections": secs, "bars": bars, "moments": moments,
+        "sections_from": sections_from, "sections": secs, "bars": bars, "moments": moments,
         "lyrics": [{k_: v for k_, v in x.items() if k_ != "norm"} for x in lines],
         "notes": {"vocal": vnotes, "bass": bnotes},
         "chords": collapse([(float(G.beats[j]), c) for j, c in enumerate(beat_ch)], float(G.ends[-1])),
@@ -600,13 +800,28 @@ def analyse(slug, tags=True, cpu=False):
            "drums": dec(E["drums"]["act"], 5, np.max, 2), "bass": dec(E["bass"]["act"], 5, np.mean, 2),
            "other": dec(E["other"]["act"], 5, np.mean, 2), "brightness_hz": dec(bright, 5, np.mean, 0)}
     mt = os.path.join(stems_dir, "model.txt")
+    stems_model = open(mt).read().strip() if os.path.exists(mt) else "htdemucs (no model.txt: made before the GPU separation)"
+    beats_model = A.get("beat_tracker") or "beat_this final0"
+    if stems_model.startswith("fallback"):
+        warn.append("the stems were ESTIMATED without Demucs (fallback): the voice / drums / bass / other lanes, the notes, "
+                    "the chords and the sections are rough. Analyse again once the Demucs weights can download for "
+                    "reliable ones (it tries again by itself)")
+    if "fallback" in beats_model:
+        warn.append("the beats come from the fallback tracker (beat_this unavailable): check bar 0 and the downbeats "
+                    "against the song before cutting tightly")
+    aligned = any("fa" in w and w.get("src") != "user" for x in lines for w in x["words"])
+    user_timed = bool(lines) and all(w.get("src") == "user" for x in lines for w in x["words"])
     report = {"slug": slug, "created": time.strftime("%Y-%m-%d %H:%M"), "device": D.info(), "vram_peak_gb": D.peak_gb(),
-              "models": {"stems": open(mt).read().strip() if os.path.exists(mt) else "htdemucs (no model.txt: made before the GPU separation)",
-                         "beats": "beat_this final0", "lyric_alignment": "torchaudio MMS_FA",
+              "models": {"stems": stems_model, "beats": beats_model,
+                         "lyric_alignment": "the user's word times (word-timed LRC)" if user_timed else
+                         "torchaudio MMS_FA" if aligned else
+                         "none (word times where Whisper heard them)" if whisper else
+                         "none (word times estimated)" if lines else None,
                          "pitch": f"torchcrepe {pitch_model}" if pitch_model else None,
                          "tagger": L.CLAP_MODEL if clap is not None else None},
-              "timings_s": clock.d, "warnings": warn,
-              "confidence": confidence(A, lines, key_score, key2_score, secs, sung, in_music)}
+              "decoder_lag_samples": lag, "timings_s": clock.d, "warnings": warn,
+              "confidence": {**confidence(A, lines, key_score, key2_score, secs, sung, in_music),
+                             "sections_from": sections_from}}
     return model, env, report, {"G": G}
 
 
@@ -749,6 +964,9 @@ def find_moments(G, secs, bars, E, mom, vnotes, A, m0, m1, dur, lufs, key_name, 
                 add(i / FPS - 0.2, "stop", f"stop-time: {d_:.1f} s of near-silence", 3, f"stop {d_:.1f}s")
             i = j
         i += 1
+    # tempo changes
+    for i, txt in tempo_changes(G):
+        add(G.db[i], "tempo change", txt, 3, txt.replace("tempo ", ""))
     # crash cymbals on downbeats (the strongest few)
     cy = [c for c in A.get("cymbals", []) if c["s"] >= 0.8 and np.min(np.abs(G.db - c["t"])) < 0.06]
     for c in sorted(cy, key=lambda c: -c["s"])[:8]:

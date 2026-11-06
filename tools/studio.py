@@ -4,6 +4,7 @@
   python tools/studio.py list                            list projects
   python tools/studio.py ingest <project> [--force]      photos -> faces -> music analysis -> song folder (progress in cache/status.json)
   python tools/studio.py song <project> [slug]           (re)make song/<slug>/: the song map, timed lyrics, lanes picture (tools/song_kit.py)
+  python tools/studio.py align-lyrics <project> [slug]   place the user's own lyric lines where Whisper hears them (tools/align_lyrics.py)
   python tools/studio.py polarsteps <project> <export.zip> [--list | --trip ID]   import a Polarsteps trip (photos, steps, route)
   python tools/studio.py songs <project>                 song suggestions: Claude looks at the photos (headless), every song verified
   python tools/studio.py moodboard <project>             just the contact sheets + context used for picking songs
@@ -22,6 +23,13 @@
   python tools/studio.py serve [--port 8765]             the local web app (upload, brief, who's who, the song, review)
   python tools/studio.py doctor                          check the install (ffmpeg, GPU, models, Claude Code)
   python tools/studio.py check [project ...] [--update]  regression check: finished films still build the same EDL and look the same
+  python tools/studio.py direct <project> --budget 90m   Claude directs alone for a time budget: a preview round (tools/director.py)
+             [--revise] [--continue] [--auto-continue] [--critic-model sonnet|haiku|off] [--ultracode] [--max-usd N] ...
+  python tools/studio.py critique <project> <video|version>   the critic: a cheaper model looks at a preview (review/critic/)
+  python tools/studio.py story <project>                 Claude drafts song/<slug>/song-story.md (headless, read-only)
+  python tools/studio.py clock | stop <project>          time left in a director run / ask it to stop cleanly
+  python tools/studio.py note-done <project> <id> "fix"  mark a review note done with its one-line fix
+  python tools/studio.py permtest <project>              check the unattended director's sandbox with the real Claude Code
 
 <project> is a folder name under projects/ (or a path); "elevate" = projects/elevate-2026 (the first two films).
 Every step runs the existing tools with AM_PROJECT set, so they read and write inside that project.
@@ -225,62 +233,119 @@ def cmd_list(a):
 
 def cmd_ingest(a):
     pdir = project_dir(a.project)
-    steps = ["preparing photos", "finding faces & orientation", "grouping faces", "separating the song (stems)",
-             "fetching lyrics", "analysing beats & sections", "aligning sung words", "finding a clean edit point",
-             "mapping the song (melody, chords, structure)"]
+    song_only = getattr(a, "song_only", False)          # --song-only: just the song (e.g. after the lyric timing editor)
+    photo_steps = ["preparing photos", "finding faces & orientation", "grouping faces"]
+    song_steps = ["separating the song (stems)", "finding the lyrics", "analysing beats & sections", "aligning sung words",
+                  "finding a clean edit point", "mapping the song (melody, chords, structure)"]
+    steps = song_steps if song_only else photo_steps + song_steps
+    o = 0 if song_only else len(photo_steps)
     st = Status(pdir, "ingest", steps)
     log = st.d["log"]
+
+    def warn(w):                                        # in the log and in cache/status.json "warnings"
+        log.append("WARNING: " + w)
+        st.d.setdefault("warnings", []).append(w)
+        st.write()
     try:
-        st.step(0)
-        n = normalize_photos(pdir)
-        log.append(f"converted {n} photos to jpg")
-        st.step(1)
-        run(pdir, ["analyze_photos.py"] + (["--force"] if a.force else []), log)
-        st.step(2)
-        run(pdir, ["cluster_faces.py", "0.56"], log)
+        if not song_only:
+            st.step(0)
+            n = normalize_photos(pdir)
+            log.append(f"converted {n} photos to jpg")
+            st.step(1)
+            run(pdir, ["analyze_photos.py"] + (["--force"] if a.force else []), log)
+            st.step(2)
+            run(pdir, ["cluster_faces.py", "0.56"], log)
         song = song_info(pdir)
+        main = True                                     # the project's song: project.json song + analysis follow it
+        if getattr(a, "slug", None) and (not song or song[0] != a.slug):     # --slug: another song in music/
+            A0 = json.load(open(os.path.join(pdir, "cache", "audio", f"{a.slug}.json"), encoding="utf-8"))
+            sm = (load_project(pdir).get("songs") or {}).get(a.slug) or {}
+            base = re.sub(r"\s*[\[(].*?[\])]", "", os.path.splitext(A0["file"])[0])
+            a2, t2 = (base.split(" - ", 1) + [""])[:2] if " - " in base else ("", base)
+            song, main = (a.slug, A0["file"], sm.get("artist") or a2.strip(), sm.get("title") or t2.strip()), False
         if not song:
             log.append("no song in music/ yet: skipping the music analysis")
         else:
             slug, f, artist, title = song
-            st.step(3)
-            run(pdir, ["separate.py", slug], log)
-            st.step(4)
-            lyr = False
-            if artist and title:
-                try:
-                    run(pdir, ["fetch_lyrics.py", slug, artist, title], log)
-                    lyr = True
-                except Exception as e:
-                    log.append(f"lyrics lookup failed ({e}); continuing without lyrics")
+            fallback = getattr(a, "fallback", False)
+            transcribe_ok = not getattr(a, "no_transcribe", False)
+            st.step(o)
+            run(pdir, ["separate.py", slug] + (["--fallback"] if fallback else []), log)
+            st.step(o + 1)
+            if TOOLS not in sys.path:
+                sys.path.insert(0, TOOLS)
+            import align_lyrics as AL                   # where the user's own lyrics live (standard library only)
+            ent = AL.lyrics_entry(load_project(pdir), slug, f)
+            kind = AL.lyrics_kind(ent)
+            lang = ent.get("language")                  # song.language (or songs.<slug>.language): Whisper's language
+
+            def transcribe():
+                return run(pdir, ["transcribe_lyrics.py", slug] + (["--language", lang] if lang else []), log, check=False)
+            if kind:                                    # the user's own lyrics: no LRCLIB lookup
+                log.append("using your own lyrics (project.json)")
+                if kind in ("plain", "partly") and transcribe_ok:     # lines without a time: Whisper places them
+                    log.append("your lyrics have no times: Whisper listens to the vocals to place them" if kind == "plain" else
+                               "some lyric lines were never set by hand: Whisper listens to the vocals to place them")
+                    if transcribe():
+                        warn("Whisper couldn't run (model download from huggingface.co, or not installed): your lyric "
+                             "lines are placed by estimate; fix them on The song page (Fix the timing)")
             else:
-                log.append("no artist/title known: skipping the lyrics lookup (fill in the song on the brief page)")
-            sp_ = os.path.join(pdir, "cache", "lyrics", f"{slug}_search.json")
-            synced = lyr and any(c.get("syncedLyrics") for c in json.load(open(sp_, encoding="utf-8")))
-            if not synced:               # no synced LRC (often local or non-English songs): Whisper on the vocal stem
-                log.append("no synced lyrics found: transcribing the vocals with Whisper (check the text!)")
-                lang = (load_project(pdir).get("song") or {}).get("language")
-                run(pdir, ["transcribe_lyrics.py", slug] + (["--language", lang] if lang else []), log, check=False)
-                lyr = os.path.exists(os.path.join(pdir, "cache", "lyrics", f"{slug}_transcribed.json"))
-            st.step(5)
-            run(pdir, ["analyze_audio.py", slug], log)
-            st.step(6)
-            if lyr:
-                run(pdir, ["align_words.py", slug], log, check=False)
-            st.step(7)
+                lyr = False
+                if artist and title:
+                    try:
+                        run(pdir, ["fetch_lyrics.py", slug, artist, title], log)
+                        lyr = True
+                    except Exception as e:
+                        log.append(f"lyrics lookup failed ({e}); continuing without lyrics")
+                else:
+                    log.append("no artist/title known: skipping the lyrics lookup (fill in the song on the brief page)")
+                sp_ = os.path.join(pdir, "cache", "lyrics", f"{slug}_search.json")
+                synced = lyr and any(c.get("syncedLyrics") for c in json.load(open(sp_, encoding="utf-8")))
+                if not synced and transcribe_ok:     # no synced LRC (often local or non-English songs): Whisper on the vocal stem
+                    log.append("no synced lyrics found: transcribing the vocals with Whisper (check the text!)")
+                    if transcribe():
+                        warn("Whisper couldn't run (model download from huggingface.co, or not installed): no lyrics. "
+                             "You can paste them on the brief page")
+            st.step(o + 2)
+            run(pdir, ["analyze_audio.py", slug] + (["--fallback-beats"] if fallback else []), log)
+            st.step(o + 3)
+            d = json.load(open(os.path.join(pdir, "cache", "audio", f"{slug}.json"), encoding="utf-8"))
+            if d.get("lyrics"):
+                if run(pdir, ["align_words.py", slug], log, check=False):
+                    warn("forced alignment failed (MMS aligner weights from dl.fbaipublicfiles.com, or torch not "
+                         "installed): word times are estimates")
+            else:
+                log.append("no lyrics: nothing to align")
+            st.step(o + 4)
             jp = os.path.join(pdir, "cache", f"joins_{slug}.txt")
             jl = []
             run(pdir, ["find_joins.py", slug, "--top", "8"], jl, check=False)
             open(jp, "w", encoding="utf-8").write("\n".join(jl))
-            st.step(8)
-            run(pdir, ["song_kit.py", slug], log, check=False)          # -> song/<slug>/ for the director
+            st.step(o + 5)
+            run(pdir, ["song_kit.py", slug] + (["--cpu"] if getattr(a, "cpu", False) else []), log, check=False)   # -> song/<slug>/
+            rep = {}
+            try:
+                rep = json.load(open(os.path.join(pdir, "song", slug, "report.json"), encoding="utf-8"))
+                for w in rep.get("warnings", []):
+                    if re.search(r"ESTIMATED|fallback|Whisper|not force-aligned|never force-aligned|decode", w):
+                        warn(w)
+            except Exception:
+                pass
             d = json.load(open(os.path.join(pdir, "cache", "audio", f"{slug}.json"), encoding="utf-8"))
             pj = load_project(pdir)
+            if not main:                                # another song: its folder is remade, the project's song stays
+                log.append(f"{slug}: analysed ({len(d.get('lyrics', []))} lyric lines)")
+                st.done()
+                return
             pj["song"] = dict(pj.get("song") or {}, file=f, artist=artist, title=title, slug=slug)
-            pj["analysis"] = {"photos": len(json.load(open(os.path.join(pdir, "cache", "photos.json")))),
+            ph = os.path.join(pdir, "cache", "photos.json")
+            pj["analysis"] = {"photos": len(json.load(open(ph))) if os.path.exists(ph) else (pj.get("analysis") or {}).get("photos", 0),
                               "song_slug": slug, "tempo": d.get("tempo"), "duration": d.get("duration"),
                               "constant_grid": (d.get("grid") or {}).get("constant"),
-                              "lyrics_lines": len(d.get("lyrics", [])), "lyrics_match_z": (d.get("lyrics_meta") or {}).get("match_z")}
+                              "lyrics_lines": len(d.get("lyrics", [])), "lyrics_match_z": (d.get("lyrics_meta") or {}).get("match_z"),
+                              "lyrics_source": (d.get("lyrics_meta") or {}).get("source"),
+                              "stems": (rep.get("models") or {}).get("stems"), "beats": d.get("beat_tracker") or "beat_this final0",
+                              "warnings": len(rep.get("warnings") or []), "at": time.strftime("%Y-%m-%d %H:%M")}
             pj.setdefault("status", {})["stage"] = "analysed"
             save_project(pdir, pj)
         pj = load_project(pdir)
@@ -397,19 +462,18 @@ def cmd_songs(a):
     try:
         cmd_moodboard(a)
         st.step(1)
-        claude = shutil.which("claude")
-        if not claude:
+        sys.path.insert(0, TOOLS)
+        from am.claude import claude_bin, claude_print
+        if not claude_bin():
             raise RuntimeError("Claude Code isn't installed: https://claude.com/claude-code")
         rel = os.path.relpath(pdir, ENGINE).replace("\\", "/")
-        r = subprocess.run([claude, "-p", SONG_PROMPT.format(rel=rel), "--output-format", "json", "--allowedTools", "Read"],
-                           cwd=ENGINE, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=1200)
-        try:
-            text = json.loads(r.stdout).get("result", "")
-        except Exception:
-            text = r.stdout
+        # one headless call with the Read tool only, the prompt on stdin (on Windows an npm claude.cmd would mangle it as
+        # an argument), in an environment of its own (not a child of a Claude Code session it may be started from)
+        r = claude_print(SONG_PROMPT.format(rel=rel), ENGINE, tools=["Read"], timeout=1200)
+        text = r["text"]
         i0, i1 = text.find("["), text.rfind("]")
         if i0 < 0 or i1 < i0:
-            raise RuntimeError("Claude didn't return suggestions: " + (text or r.stderr)[-300:])
+            raise RuntimeError("Claude didn't return suggestions: " + (text or r["stderr"])[-300:])
         items = json.loads(text[i0:i1 + 1])
         st.step(2)
         sys.path.insert(0, TOOLS)
@@ -614,6 +678,34 @@ def cmd_song(a):
     run(pdir, ["song_kit.py"] + ([a.slug] if a.slug else []) + (["--no-tags"] if a.no_tags else []) + (["--cpu"] if a.cpu else []))
 
 
+def cmd_align_lyrics(a):
+    """The lyric lines placed where Whisper hears them (the web app's timing editor: "Align with Whisper"): Whisper on
+    the vocal stem (once per song, cached), then align_lyrics.py -> cache/lyrics/<slug>_aligned.json."""
+    pdir = project_dir(a.project)
+    st = Status(pdir, "align", ["Whisper listens to the vocals", "matching your lines to what it heard"])
+    log = st.d["log"]
+    try:
+        pj = load_project(pdir)
+        slug = a.slug or (pj.get("song") or {}).get("slug") or (song_info(pdir) or [None])[0]
+        if not slug:
+            raise RuntimeError("no song yet: put it in music/ and analyse it first")
+        if TOOLS not in sys.path:
+            sys.path.insert(0, TOOLS)
+        import align_lyrics as AL
+        ent = AL.lyrics_entry(pj, slug)
+        lang = ent.get("language")                      # the song's language (song.language / songs.<slug>.language)
+        if run(pdir, ["transcribe_lyrics.py", slug] + (["--language", lang] if lang else []), log, check=False):
+            raise RuntimeError("Whisper couldn't run (its model downloads from huggingface.co on first use): see the log")
+        st.step(1)
+        run(pdir, ["align_lyrics.py", slug] + (["--in", a.inp] if a.inp else []), log)
+        st.done()
+    except Exception as e:                              # said in the log (the web app's job poll reads it), exit 1
+        print(e, flush=True)
+        log.append(str(e))
+        st.done("error")
+        sys.exit(1)
+
+
 def cmd_run(a):
     """Run any tool inside a project, e.g.  studio.py run my-trip song_map.py my_song --segments "0,180,0.8" """
     pdir = project_dir(a.project)
@@ -680,12 +772,84 @@ def cmd_doctor(a):
     print("all good" if ok else "fix the !! lines above")
 
 
+# ------------------------------------------------------------------ the autonomous director and the critic
+def cmd_story(a):
+    """Claude drafts song/<slug>/song-story.md from the song folder and the brief (headless, read-only)."""
+    import director
+    director.story(project_dir(a.project), model=a.model)
+
+
+def cmd_direct(a):
+    """The autonomous run: one director (Claude Code, headless) with a time budget delivers a preview round."""
+    import director
+    director.direct(project_dir(a.project), budget=a.budget, effort=a.effort, model=a.model, seed_notes=a.seed_notes,
+                    revise=a.revise, nudge=not a.no_nudge, dry_run=a.dry_run, critic_model=a.critic_model,
+                    critic_effort=a.critic_effort, critic_max=a.critic_max, ultracode=a.ultracode, max_usd=a.max_usd,
+                    auto_continue=a.auto_continue, cont=a.cont)
+
+
+def cmd_critique(a):
+    """The critic: a cheaper model with fresh eyes looks at a preview and reports back (review/critic/)."""
+    import director
+    pdir = project_dir(a.project)
+    # a director run owns cache/status.json while it works (it, or one of its agents, may run this itself)
+    st = None if director.run_active(pdir) else Status(pdir, "critique", [f"the critic looks at {a.video}"])
+    extra = []
+    for flag, x in (("--model", a.model), ("--effort", a.effort), ("--focus", a.focus), ("--max-usd", a.max_usd)):
+        if x:
+            extra += [flag, str(x)]
+    if a.no_look:
+        extra.append("--no-look")
+    try:
+        ok = run(pdir, ["critic.py", a.video] + extra, st.d["log"] if st else None, check=False) == 0
+    except Exception as e:
+        if st:
+            st.done("error", str(e))
+        sys.exit(f"critique: {e}")
+    if st:
+        st.done("done" if ok else "error", "" if ok else "the critic couldn't run: see the log")
+    sys.exit(0 if ok else 1)
+
+
+def cmd_clock(a):
+    import director
+    director.clock(project_dir(a.project))
+
+
+def cmd_stop(a):
+    import director
+    director.request_stop(project_dir(a.project))
+    print("asked the running director to stop (it wraps up within a minute or two)")
+
+
+def cmd_note_done(a):
+    """Mark the user's review note done with a one-line fix (how a director answers a note: the web app writes
+    review/notes.json too, so it goes through a lock)."""
+    sys.path.insert(0, TOOLS)
+    from am.notes import note_done
+    n = note_done(project_dir(a.project), a.id, a.fix, a.undo)
+    if not n:
+        sys.exit(f"no note with id {a.id} in review/notes.json")
+    t = float(n.get("t") or 0)
+    print(f"note {n.get('id')} at {int(t // 60)}:{t % 60:04.1f} ({str(n.get('text') or '')[:60]}): "
+          + ("open again" if a.undo else "done" + (f": {n['fix']}" if n.get("fix") else "")))
+
+
+def cmd_permtest(a):
+    """Check the director's sandbox (and an agent's) with the real Claude Code (a few cents with Haiku)."""
+    import director
+    sys.exit(0 if director.permission_test(project_dir(a.project), model=a.model) else 1)
+
+
 def main():
     ap = argparse.ArgumentParser(description="Aftermovie Studio")
     sp = ap.add_subparsers(dest="cmd", required=True)
     p = sp.add_parser("new"); p.add_argument("name"); p.add_argument("--title")
     sp.add_parser("list")
     p = sp.add_parser("ingest"); p.add_argument("project"); p.add_argument("--force", action="store_true")
+    p.add_argument("--song-only", action="store_true"); p.add_argument("--fallback", action="store_true")
+    p.add_argument("--no-transcribe", action="store_true"); p.add_argument("--cpu", action="store_true")
+    p.add_argument("--slug", help="with --song-only: another song in music/ (its folder only; project.json song stays)")
     p = sp.add_parser("build"); p.add_argument("project"); p.add_argument("film", nargs="?")
     for c in ("cast", "sheets", "shotlog", "draft", "moodboard", "songs", "vibe", "gallery"):
         sp.add_parser(c).add_argument("project")
@@ -695,9 +859,47 @@ def main():
     p = sp.add_parser("polarsteps"); p.add_argument("project"); p.add_argument("export"); p.add_argument("--trip"); p.add_argument("--list", action="store_true")
     p = sp.add_parser("song"); p.add_argument("project"); p.add_argument("slug", nargs="?")
     p.add_argument("--no-tags", action="store_true"); p.add_argument("--cpu", action="store_true")
+    p = sp.add_parser("align-lyrics"); p.add_argument("project"); p.add_argument("slug", nargs="?"); p.add_argument("--in", dest="inp")
+    p.set_defaults(cmd="align_lyrics")                     # -> cmd_align_lyrics
     p = sp.add_parser("run"); p.add_argument("project"); p.add_argument("tool"); p.add_argument("args", nargs=argparse.REMAINDER)
     p = sp.add_parser("serve"); p.add_argument("--port", type=int, default=8765); p.add_argument("--no-browser", action="store_true")
     sp.add_parser("doctor")
+    p = sp.add_parser("story", help="Claude drafts the song story (headless)"); p.add_argument("project"); p.add_argument("--model")
+    efforts = ["low", "medium", "high", "xhigh", "max"]
+    p = sp.add_parser("direct", help="the autonomous director: a preview round within a time budget"); p.add_argument("project")
+    p.add_argument("--budget", default=None, help="the time budget, e.g. 90m, 1h30m (default 90m; --continue: what the last run had left)")
+    p.add_argument("--effort", default=None, choices=efforts, help="the director's (default: project.json director.effort, else max)")
+    p.add_argument("--model", default=None, help="the director's (default: project.json director.model, else opus)")
+    p.add_argument("--ultracode", action="store_true",
+                   help="the director may orchestrate multi-agent workflows (the Workflow tool): more tokens")
+    p.add_argument("--max-usd", type=float, help="a hard cap on the director's session, its agents included (--max-budget-usd)")
+    p.add_argument("--seed-notes", default="", help="a note for this run")
+    p.add_argument("--revise", action="store_true", help="a review round: address the notes and vetoed lines on the latest version")
+    p.add_argument("--no-nudge", action="store_true", help="don't ask an early finisher to use the time left")
+    p.add_argument("--dry-run", action="store_true", help="write the brief and print the command, don't launch Claude")
+    p.add_argument("--critic-model", help="the critic's model (default: project.json director.critic_model, else sonnet); off = no critic")
+    p.add_argument("--critic-effort", help="the critic's effort (default medium)")
+    p.add_argument("--critic-max", type=int, default=6, help="automatic critiques per run (default 6)")
+    p.add_argument("--continue", dest="cont", action="store_true",
+                   help="carry on the last run (cut off by Claude's usage limit, stopped, ...): its own conversation "
+                        "(claude --resume), the budget it had left unless --budget says; it waits for a limit still to reset")
+    g = p.add_mutually_exclusive_group()
+    g.add_argument("--auto-continue", dest="auto_continue", action="store_const", const=True, default=None,
+                   help="when Claude's usage limit stops the director, wait for the reset (the clock stopped) and carry on "
+                        "(default: the Direct page's choice, project.json director.auto_continue)")
+    g.add_argument("--no-auto-continue", dest="auto_continue", action="store_const", const=False,
+                   help="when Claude's usage limit stops the director, end the run there (continue it later)")
+    p = sp.add_parser("critique", help="the critic looks at a preview and reports back"); p.add_argument("project")
+    p.add_argument("video", help="a render in the project (out/v1_preview.mp4) or a version name (v1)")
+    p.add_argument("--model"); p.add_argument("--effort"); p.add_argument("--focus", default="")
+    p.add_argument("--max-usd", type=float); p.add_argument("--no-look", action="store_true")
+    p = sp.add_parser("clock", help="time left in a running director's budget"); p.add_argument("project")
+    p = sp.add_parser("stop", help="ask a running director to stop cleanly"); p.add_argument("project")
+    p = sp.add_parser("note-done", help="mark a review note done with a one-line fix"); p.add_argument("project")
+    p.add_argument("id"); p.add_argument("fix", nargs="?", default=""); p.add_argument("--undo", action="store_true", help="open the note again")
+    p.set_defaults(cmd="note_done")
+    p = sp.add_parser("permtest", help="check the director's sandbox with the real Claude Code"); p.add_argument("project")
+    p.add_argument("--model", default="haiku")
     p = sp.add_parser("check"); p.add_argument("args", nargs=argparse.REMAINDER)
     if sys.argv[1:2] == ["check"]:                          # its own flags (--update, ...) go straight to check.py
         a = argparse.Namespace(cmd="check", args=sys.argv[2:])

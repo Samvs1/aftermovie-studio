@@ -101,7 +101,10 @@ def arabic(text):
 @lru_cache(maxsize=256)
 def font(name, size):
     fn, wght = FONTS[name]
-    path = fn if os.path.isabs(fn) else os.path.join(ASSETS, "fonts", fn)
+    system = os.path.isabs(fn) or fn[1:3] in (":/", ":\\")        # a system font (C:/Windows/Fonts/...)
+    path = fn if system else os.path.join(ASSETS, "fonts", fn)
+    if system and not os.path.exists(path):                 # a Windows system font on another OS: the studio's Inter
+        path, wght = os.path.join(ASSETS, "fonts", "Inter[opsz,wght].ttf"), None
     f = ImageFont.truetype(path, max(4, int(round(size))))
     if wght is not None:
         try:

@@ -185,6 +185,44 @@ canvas.sv{width:100%;display:block;border-radius:10px;background:#101114;cursor:
 .sv-md td,.sv-md th{border:1px solid var(--line);padding:4px 7px;text-align:left;vertical-align:top}
 .sv-md blockquote{margin:6px 0;padding-left:10px;border-left:3px solid var(--line);color:var(--mut)}
 .sv-md p{margin:6px 0}
+/* the lyric timing editor */
+#pane.lxon #sv-cv{height:300px}
+.lx{border-color:var(--acc);margin:0 0 16px}
+#lx,#lx *{overflow-anchor:none}          /* re-drawing the editor must not make the browser scroll the page */
+.lx-list{position:relative;max-height:46vh;overflow:auto;margin-top:10px;border-top:1px solid var(--line)}
+.lx-r{display:grid;grid-template-columns:46px 92px 52px auto 1fr auto auto;gap:6px;align-items:center;padding:3px 4px;border-bottom:1px solid var(--line)}
+.lx-r.now{background:#2b2814}
+.lx-part{font:12px SpaceMono,monospace;color:var(--mut);padding:8px 4px 2px}
+.lx-r.cur{box-shadow:inset 3px 0 0 var(--acc)}
+.lx-n{cursor:pointer;color:var(--mut);font:12px SpaceMono,monospace;text-align:right;user-select:none}
+.lx-r.cur .lx-n{color:var(--acc);font-weight:700}
+.lx-r .tm{font:12px SpaceMono,monospace;padding:3px 6px;border-radius:6px}
+.lx-r.set .tm{color:var(--ok);border-color:#2f5a3e}
+.lx-r .te{font:12px SpaceMono,monospace;padding:2px 6px;border-radius:6px;min-width:78px;color:var(--mut)}
+.lx-r .te.on{color:var(--ok);border-color:#2f5a3e}
+.lx-pos{font:11px SpaceMono,monospace}
+.lx-r input{padding:4px 8px}
+.lx-r .nd{display:flex;gap:2px}
+.lx-r .nd button{padding:2px 7px;font-size:12px;border-radius:6px}
+.lx-next{max-width:420px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lx-add{padding:8px 4px}
+.lx-r.ab .lx-n::after{content:" ?";color:var(--acc)}
+.lx-r.ar .lx-n::after{content:" +";color:var(--acc)}
+.lx-r.new{background:#14261b}
+.lx-r.new .lx-n::after{content:" new";color:var(--ok);font-size:10px}
+.sc{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:#2a2a2e;color:var(--mut);white-space:nowrap}
+.sc b{color:var(--fg)}
+.sc.lo b{color:var(--bad)}
+.crit{margin-top:12px}
+.crow{display:flex;gap:8px 10px;align-items:baseline;flex-wrap:wrap;padding:6px 0;border-top:1px solid var(--line);font-size:13px}
+.crow .v{font:12px SpaceMono,monospace}
+.ast{font-size:11.5px;padding:1px 8px;border-radius:99px;background:#2a2a2e;color:var(--mut)}
+.ast.on{background:var(--acc);color:#111}
+.ast.ok{color:var(--ok)}
+.ast.no{color:var(--bad)}
+.costs{gap:6px 8px;margin-top:12px;font-size:13px}
+.chk2{text-transform:none;letter-spacing:0;color:var(--fg)}
+.chk2 input{width:auto}
 </style>
 </head>
 <body>
@@ -206,12 +244,12 @@ function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add
 const fmt = t => { t = Math.max(0, t); return Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0") + "." + Math.floor((t % 1) * 10); };
 
 let S = null, step = "upload", poll = null;
-const STEPS = [["upload", "Photos & song"], ["brief", "The brief"], ["analyse", "Analyse"], ["song", "The song"], ["people", "Who's who"], ["make", "Make the film"], ["review", "Review"]];
+const STEPS = [["upload", "Photos & song"], ["brief", "The brief"], ["analyse", "Analyse"], ["song", "The song"], ["people", "Who's who"], ["make", "Make the film"], ["direct", "Direct"], ["review", "Review"]];
 
 function go(hash) { location.hash = hash; }
 window.onhashchange = route;
 async function route() {
-  clearInterval(poll);
+  clearInterval(poll); clearInterval(dpoll);
   svStop();
   const h = location.hash.slice(1).split("/");
   if (!h[0]) return home();
@@ -243,7 +281,7 @@ async function load(name) {
   await stylesReady;
   $("#crumb").innerHTML = "/ " + esc(S.project.title || name);
   const done = {upload: S.photos.length > 0 && S.music.length > 0, brief: !!(S.project.occasion || S.project.vibe || S.project.people_notes),
-                analyse: !!S.project.analysis, people: !!(S.project.status || {}).people_named, make: S.versions.length > 0,
+                analyse: !!S.project.analysis, people: !!(S.project.status || {}).people_named, make: S.versions.length > 0, direct: !!(S.director && S.director.run),
                 review: !!(S.project.status || {}).approved, trip: !!S.trip && S.trip.steps.some(s => s.note),
                 song: (S.songs || []).some(s => s.story_written)};
   const steps = S.trip ? [STEPS[0], ["trip", "The trip"], ...STEPS.slice(1)] : STEPS;
@@ -251,7 +289,7 @@ async function load(name) {
   $("#main").innerHTML = `<div class="layout"><nav class="steps">${steps.map(([k, l], i) =>
       `<div class="${k === step ? "on" : ""}" onclick="go('${name}/${k}')"><span class="dot ${done[k] ? "done" : ""}">${done[k] ? "&#10003;" : i + 1}</span>${l}</div>`).join("")}</nav>
     <section class="panel" id="pane"></section></div>`;
-  ({upload: vUpload, trip: vTrip, brief: vBrief, analyse: vAnalyse, song: vSong, people: vPeople, make: vMake, review: vReview})[step]();
+  ({upload: vUpload, trip: vTrip, brief: vBrief, analyse: vAnalyse, song: vSong, people: vPeople, make: vMake, direct: vDirect, review: vReview})[step]();
 }
 const refresh = () => load(S.name);
 
@@ -454,6 +492,7 @@ function vBrief() {
   ${F("ending_note", "Ending note", "a few short lines shown in silence at the end", true)}
   <div class="two"><div>${F("editor", "Signed by", "your name")}</div><div>${F("length", "Length", "the whole song")}</div></div>
   ${F("extra", "Anything else", "references you love, songs moments, must-use photos…", true)}
+  ${lyricsBox(p)}
   <div class="row" style="margin-top:20px"><button onclick="saveBrief(true)">Save &amp; continue &rarr;</button><span class="mut" id="saved"></span></div>`;
   document.querySelectorAll("#vibes .chip").forEach(c => c.onclick = () => { c.classList.toggle("on"); saveBrief(); });
   document.querySelectorAll("#lean .sty").forEach(c => c.onclick = e => {
@@ -463,6 +502,24 @@ function vBrief() {
   watchJob("gallery");
   document.querySelectorAll("#adv .chip").forEach(c => c.onclick = () => { document.querySelectorAll("#adv .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); saveBrief(); });
   document.querySelectorAll("#pane input,#pane textarea,#pane select").forEach(el => el.onchange = () => saveBrief());
+  const lyf = $("#b-lyfi");
+  if (lyf) { $("#b-lyf").onclick = () => lyf.click(); lyf.onchange = () => lyf.files[0] && lyricsFile(lyf.files[0]); }
+}
+// the song's own lyrics (project.json song.lyrics: tools/align_lyrics.py): used by the analysis instead of LRCLIB's
+function lyricsBox(p) {
+  const sg = p.song || {}, ly = sg.lyrics, txt = (ly && typeof ly === "object" ? ly.text : ly) || "";
+  return `<div class="box" style="margin-top:16px"><b>The song's lyrics</b> <span class="mut">optional: only when they're not online (LRCLIB finds most songs by artist + title), or to use your own</span>
+    <div class="two"><div><label>Language of the lyrics</label><input id="b_song_language" value="${esc(sg.language)}" placeholder="en, nl, fr&hellip; (helps Whisper when it has to listen)"></div>
+      <div><label>From a file</label><button class="ghost" id="b-lyf" type="button">Load a .lrc or .txt file&hellip;</button><input type="file" id="b-lyfi" accept=".lrc,.txt" style="display:none"></div></div>
+    <label>Lyrics</label><textarea id="b_song_lyrics" style="min-height:140px" placeholder="Plain text (one sung line per line), or LRC with [mm:ss.xx] line times; word times <mm:ss.xx> are used exactly. [Verse 1] / [Chorus] tags above the parts name the song's sections; without them, a blank line between stanzas helps the analysis find them.">${esc(txt)}</textarea>
+    <div class="hint">Plain text is placed where Whisper hears the words (it listens to the vocals once). ${sg.lyrics_synced ? "<b>These were timed on The song page</b>: changing them here drops that timing." : "You can fine-tune the timing on The song page afterwards."}</div></div>`;
+}
+async function lyricsFile(f) {
+  try {
+    const r = await fetch(`/api/p/${S.name}/upload?filename=${encodeURIComponent(f.name)}`, {method: "PUT", body: f});
+    const j = await r.json(); if (j.error) throw new Error(j.error);
+    toast("Lyrics loaded: analyse the song again to use them"); refresh();
+  } catch (e) { toast(f.name + ": " + e.message); }
 }
 async function saveBrief(next) {
   const b = {};
@@ -471,7 +528,13 @@ async function saveBrief(next) {
   b.vibe = [...document.querySelectorAll("#vibes .chip.on")].map(c => c.dataset.v).join(", ");
   b.style_leanings = [...document.querySelectorAll("#lean .sty.on")].map(c => c.dataset.v).join(", ");
   const adv = document.querySelector("#adv .chip.on"); if (adv) b.adventurous = adv.dataset.v;
+  const sly = $("#b_song_lyrics"), slg = $("#b_song_language");
+  if (sly && slg) {                         // the lyrics only when they changed (a changed text drops the editor's timing)
+    b.song = {language: slg.value};
+    if (sly.value !== sly.defaultValue) b.song.lyrics = sly.value;
+  }
   await post(`/api/p/${S.name}/brief`, b);
+  if (sly) sly.defaultValue = sly.value;
   $("#saved").textContent = "saved";
   if (next === true) go(S.name + "/analyse");
 }
@@ -482,7 +545,10 @@ function vAnalyse() {
   $("#pane").innerHTML = `<h2>Analyse</h2><p class="mut">Straightens sideways scans, finds and groups faces, separates the song into stems, finds the beats, sections and a clean edit point, and lines the lyrics up with the singing. A few minutes; the song part takes the longest.</p>
   <div class="row"><button id="go-ingest" onclick="startJob('ingest')">Analyse photos &amp; song</button><button class="ghost small" id="stop-ingest" onclick="stopJob()" style="display:none">Stop</button></div>
   <ul class="steplist" id="sl-ingest"></ul><pre class="log" id="lg-ingest" style="display:none"></pre>
-  <div id="res">${a ? `<div class="box" style="margin-top:14px"><b>Done.</b> ${a.photos} photos &middot; ${(S.clusters || []).length} face groups &middot; song ${Math.floor(a.duration / 60)}:${String(Math.floor(a.duration % 60)).padStart(2, "0")}, ${Math.round(a.tempo)} BPM ${a.constant_grid ? "(steady click)" : "(live band timing)"} &middot; lyrics ${a.lyrics_lines ? `&#10003; ${a.lyrics_lines} lines` : "not found (captions will follow the beat instead of words)"}
+  <div id="res">${a ? `<div class="box" style="margin-top:14px"><b>Done.</b> ${a.photos} photos &middot; ${(S.clusters || []).length} face groups &middot; song ${Math.floor(a.duration / 60)}:${String(Math.floor(a.duration % 60)).padStart(2, "0")}, ${Math.round(a.tempo)} BPM ${a.constant_grid ? "(steady click)" : "(live band timing)"} &middot; lyrics ${a.lyrics_lines ? `&#10003; ${a.lyrics_lines} lines${a.lyrics_source ? ` (${esc(a.lyrics_source)})` : ""}` : "not found (captions will follow the beat instead of words: paste them on the brief page)"}
+    ${/^fallback/.test(a.stems || "") ? `<div class="hint" style="color:var(--acc)">The stems were estimated without Demucs (its model couldn't load): the song's lanes, notes and chords are rough. Analyse again when it can download.</div>` : ""}
+    ${/fallback/.test(a.beats || "") ? `<div class="hint" style="color:var(--acc)">The beats come from the fallback tracker (beat_this couldn't load): check bar 0 and the downbeats on The song page.</div>` : ""}
+    ${a.warnings ? `<div class="hint">${a.warnings} warning${a.warnings > 1 ? "s" : ""} in the song report: see The song page.</div>` : ""}
     ${photoAdvice(a)}
     <div class="row" style="margin-top:12px">${(S.songs || []).length ? `<button onclick="go('${S.name}/song')">See the song &rarr;</button>` : ""}<button class="${(S.songs || []).length ? "ghost" : ""}" onclick="go('${S.name}/people')">Next: who's who &rarr;</button></div></div>` : ""}</div>`;
   watchJob('ingest');
@@ -515,13 +581,16 @@ function watchJob(kinds) {
   jobKinds = [].concat(kinds || []);
   clearInterval(poll);
   const tick = async () => {
-    const j = await api(`/api/p/${S.name}/job`);
+    let j;
+    try {        // (not api(): a failed job's status carries an "error" field, which api() would throw on)
+      const r = await fetch(`/api/p/${S.name}/job`); j = await r.json(); if (!r.ok) return;
+    } catch (e) { return; }
     renderJob(j);
     if (j.running) { sawRunning = true; return; }
     clearInterval(poll);
     if (sawRunning) {                       // only react to a job we watched finish (no reload loops)
       sawRunning = false;
-      if (j.returncode === 0) { toast("Finished"); refresh(); } else toast("Something went wrong: see the log");
+      if (j.returncode === 0) { toast("Finished"); refresh(); } else toast(j.error ? "Something went wrong: " + j.error : "Something went wrong: see the log");
     }
   };
   tick(); poll = setInterval(tick, 1500);
@@ -558,9 +627,18 @@ function vMake() {
   <div class="box"><h2 style="font-size:24px">Quick automatic draft</h2><p class="mut">No director: one photo per bar in story order, prints for portraits, flashes on section changes, your ending note in silence. Good for a first feel of the music and the photos; no jokes or lyric gags.</p>
     <div class="row"><button id="go-draft" onclick="startJob('draft')">Make a quick draft</button><button class="ghost small" id="stop-draft" onclick="stopJob()" style="display:none">Stop</button></div>
     <ul class="steplist" id="sl-draft"></ul><pre class="log" id="lg-draft" style="display:none"></pre></div></div>
+  <div class="box" style="margin-top:16px"><b>Or let Claude direct it on its own</b> <span class="mut">for a time budget you set: the same director, unattended, with a cheaper critic looking at every preview. It delivers a preview round for you to review here (never the final).</span>
+    <div class="row" style="margin-top:8px"><button class="ghost" onclick="go('${S.name}/direct')">Direct &rarr;</button></div></div>
+  <div class="box" style="margin-top:16px"><b>Song story</b> <span class="mut">${(S.songs || []).some(x => x.story_written) ? "written" : "not written yet"}: what the song is about and how its arc could carry the film. Claude can draft it from the song folder and your brief (1-3 min); then make it yours on <a href="#${S.name}/song">The song</a>.</span>
+    <div class="row" style="margin-top:8px"><button class="ghost" id="go-story" onclick="draftStory()" ${(S.songs || []).length ? "" : "disabled"}>${(S.songs || []).some(x => x.story_written) ? "Draft it again with Claude" : "Draft it with Claude"}</button><button class="ghost small" id="stop-story" onclick="stopJob()" style="display:none">Stop</button></div>
+    <ul class="steplist" id="sl-story"></ul><pre class="log" id="lg-story" style="display:none"></pre></div>
   <div class="row" style="margin-top:18px">${S.files.treatment ? `<a href="${S.files.treatment}" target="_blank">Treatment</a>` : ""}${S.files.shotlog ? `<a href="${S.files.shotlog}" target="_blank">Shot log</a>` : ""}
     ${S.versions.length ? `<button onclick="go('${S.name}/review')">Review previews &rarr;</button>` : ""}</div>`;
-  watchJob('draft');
+  watchJob(['draft', 'story']);
+}
+function draftStory() {
+  if ((S.songs || []).some(x => x.story_written) && !confirm("Replace the song story with a new draft? (The old one is kept in cache/story/.)")) return;
+  startJob('story-draft'); watchJob(['draft', 'story']);
 }
 
 function directionsPanel() {
@@ -579,6 +657,159 @@ async function pickDirection(id) {
   const el = $("#dn-" + id);
   await post(`/api/p/${S.name}/direction`, {id, note: el ? el.value : ""});
   toast("Direction chosen. Tell Claude in Claude Code."); refresh();
+}
+
+// ---------------------------------------------------------------- the critic (on the Review page)
+const SCORES = [["ambition", "ambition"], ["song_fit", "song fit"], ["story", "story"], ["craft", "craft"], ["readability", "readability"]];
+function scoreChips(sc) {            // the critic's scores (out of 10)
+  if (!sc) return `<span class="sc">no scores</span>`;
+  return SCORES.map(([k, l]) => `<span class="sc ${sc[k] != null && sc[k] <= 4 ? "lo" : ""}">${l} <b>${sc[k] ?? "?"}</b></span>`).join(" ");
+}
+const dirRunning = () => !!(S.director && S.director.active);
+function critBox() {                 // the critic's notes on this version's renders (newest first), and "Ask the critic"
+  const items = ((S.critiques || {}).items || []).filter(c => c.version === cur.version), c = items[0];
+  const busy = ((S.critiques || {}).pending || []).filter(v => (v || "").includes(`/${cur.version}`));
+  const def = ((S.project.director || {}).critic_model || "sonnet").replace("off", "sonnet");
+  const target = (cur.play || "").replace(`/p/${S.name}/`, "").split("?")[0];
+  return `<div class="box" id="wcritic" style="margin-top:14px"><div class="row"><b>Critic</b>${c ? `${scoreChips(c.scores)}<span class="mut">${esc(c.model || "")}${c.at ? " &middot; " + esc(c.at) : ""}${c.cost_usd != null ? ` &middot; $${(+c.cost_usd).toFixed(2)}` : ""} &middot; ${esc(c.video || "")}</span>` : `<span class="mut">${busy.length ? "looking at it now&hellip;" : "no notes on this version yet"}</span>`}
+    <span class="sp" style="flex:1"></span><select id="w-cmodel" style="width:auto;padding:5px 8px">${["sonnet", "haiku", "opus"].map(m => `<option ${m === def ? "selected" : ""}>${m}</option>`).join("")}</select>
+    <button class="small ghost" id="go-critique" onclick="askCritic('${esc(target)}')" ${target ? "" : "disabled"}>${c ? "Ask again" : "Ask the critic"}</button><button class="ghost small" id="stop-critique" onclick="stopJob()" style="display:none">Stop</button></div>
+    ${c ? (c.verdict ? `<p style="margin:8px 0 0"><b>${esc(c.verdict)}</b></p>` : "") : `<p class="hint">A cheaper model with fresh eyes looks at this preview's frames (a tile per shot with the song and its captions) against the treatment, your brief and the house rules: ambition first, then craft, with the times to fix (2-4 min; a few cents with Haiku, more with Opus). It can't hear: your ears are still the judge.</p>`}
+    <ul class="steplist" id="sl-critique"></ul><pre class="log" id="lg-critique" style="display:none"></pre>
+    ${c ? `<details style="margin-top:6px"><summary style="cursor:pointer;color:var(--acc)">the critic's full notes</summary><div class="sv-md" id="wcrit-md" data-url="${c.url}"><span class="mut">loading&hellip;</span></div></details>` : ""}
+    ${items.length > 1 ? `<div class="crit">${items.slice(1, 8).map(x => `<div class="crow"><span class="mut">${esc(x.at || "")}</span><span class="v">${esc(x.video)}</span>${scoreChips(x.scores)}<a href="${x.url}" target="_blank">read</a></div>`).join("")}</div>` : ""}</div>`;
+}
+async function askCritic(target) {
+  if (!target) return toast("This version has no render to look at yet");
+  try { await post(`/api/p/${S.name}/critique`, {video: target, model: $("#w-cmodel").value}); toast("The critic is looking (2-4 min)"); watchJob("critique"); } catch (e) { toast(e.message); }
+}
+
+// ---------------------------------------------------------------- 6. direct (the autonomous director)
+const EFFORTS = ["low", "medium", "high", "xhigh", "max"];
+const opts = (list, cur_) => list.map(o => { const [v, l] = [].concat(o); return `<option value="${esc(v)}" ${String(cur_) === String(v) ? "selected" : ""}>${esc(l ?? v)}</option>`; }).join("");
+const dur = s => { s = Math.max(0, Math.round(s || 0)); return s < 90 ? `${s} s` : s < 5400 ? `${Math.round(s / 60)} min` : `${Math.floor(s / 3600)} h ${String(Math.round(s % 3600 / 60)).padStart(2, "0")} min`; };
+const hhmm = t => new Date(t * 1000).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"});
+const usd = x => { x = +(x || 0); return x > 0 && x < 0.005 ? "<$0.01" : "$" + x.toFixed(2); };
+const runTotal = d => d.total_usd ?? (+(d.cost_usd || 0) + +(d.critic_cost_usd || 0));
+const ACTIVE = ["running", "finishing", "paused", "waiting"];     // a run at work (paused / waiting: for Claude's usage limit)
+let dpoll = null, dirWant = 0;
+function vDirect() {
+  const d = S.project.director || {}, latest = S.versions.length ? S.versions.find(v => v.version === ((S.project.status || {}).version)) || S.versions[0] : null;
+  const open = latest ? S.notes.filter(n => !n.done && n.version === latest.version) : [];
+  const vetoed = Object.values(S.captions || {}).filter(c => c && c.ok === false).length;
+  const ultra = d.ultracode === true || d.ultracode === "true", autoc = d.auto_continue === true || d.auto_continue === "true";
+  const ready = !!S.project.analysis && (S.songs || []).length > 0;
+  const cmd = `/aftermovie ${S.name}`;
+  $("#pane").innerHTML = `<h2>Direct</h2>
+  <div class="cards2"><div class="box"><div class="hand">on its own</div><h2 style="font-size:24px">Let Claude direct it</h2>
+    <p class="mut">Claude Code makes the film alone for the time you give it: the shot log, the song story, three directions with style frames (unless you picked one), a treatment, the builder, the storyboard and previews, revising on the critic's notes. It delivers a <b>preview round</b> for you to review on the Review page; the 1080p final still waits for your approval. It has full reign: it does it all itself, or deploys agents where it wants to. Nobody answers its questions in this mode, so it decides from your brief and lists its assumptions and questions in the notes. Uses your Claude plan.</p>
+    <div class="two"><div><label>Time budget (minutes)</label><input id="d-budget" type="number" min="5" value="${parseInt(d.budget) || 90}"></div>
+      <div><label>Effort</label><select id="d-effort">${opts(EFFORTS, EFFORTS.includes(d.effort) ? d.effort : "max")}</select></div></div>
+    <div class="two"><div><label>Model</label><input id="d-model" value="${esc(d.model || "opus")}"></div>
+      <div><label>Critic</label><select id="d-critic">${opts(["sonnet", "haiku", "opus", "off"], d.critic_model || "sonnet")}</select></div></div>
+    <div class="two"><div><label>Cost cap in $ (optional)</label><input id="d-cap" type="number" min="0" step="1" value="${esc(d.max_usd || "")}" placeholder="no cap"></div>
+      <div><label class="chk2"><input type="checkbox" id="d-ultra" ${ultra ? "checked" : ""}> Ultracode</label>
+        <p class="hint" style="margin-top:2px">the director may orchestrate multi-agent workflows: more tokens</p></div></div>
+    <label class="chk2"><input type="checkbox" id="d-auto" ${autoc ? "checked" : ""}> Continue by itself when Claude's usage limit resets</label>
+    <p class="hint" style="margin-top:2px">If your Claude plan's usage limit stops the director mid-run, the run waits with its clock stopped and carries on where it was once the limit resets (up to a day). Off: the run ends there, and you can continue it here later.</p>
+    <p class="hint">The critic is a cheaper model with fresh eyes: it looks at every preview the director makes (a tile per shot with the song and its captions) and reports back in text, ambition first, then craft. The director decides what to take. A cost cap ends the run when the director's session (its agents included) has spent that much.</p>
+    <label>Notes for this run (optional)</label><textarea id="d-seed" placeholder="e.g. less text this time; the ending should be quiet"></textarea>
+    ${open.length || vetoed ? `<label class="chk2"><input type="checkbox" id="d-revise" checked> Review round: address my ${[open.length ? `${open.length} note${open.length > 1 ? "s" : ""} on ${esc(latest.version)}` : "", vetoed ? `${vetoed} vetoed line${vetoed > 1 ? "s" : ""}` : ""].filter(Boolean).join(" and ")}</label>` : ""}
+    <div id="d-cont"></div>
+    <div class="row" style="margin-top:12px"><button id="go-direct" onclick="startDirect()" ${ready ? "" : "disabled"}>Start the director</button><button class="ghost small" id="stop-direct" onclick="stopJob()" style="display:none">Stop it (wraps up cleanly)</button></div>
+    ${ready ? "" : `<p class="hint" style="color:var(--bad)">Analyse the photos and the song first.</p>`}</div>
+  <div class="box"><div class="hand">with you</div><h2 style="font-size:24px">Direct it together</h2>
+    <p class="mut">Open Claude Code in the studio folder and run the skill: the same director, but it asks you about people, jokes and the story, and you pick the direction. The full-quality route when the film needs your knowledge.</p>
+    <code class="cmd" style="font-size:12px">${esc(S.engine)}</code><code class="cmd">${esc(cmd)}</code><button class="small" onclick="navigator.clipboard.writeText('${cmd}');toast('Copied')">Copy command</button></div></div>
+  <div id="dir-live" style="margin-top:16px"></div>`;
+  ["#d-budget", "#d-effort", "#d-model", "#d-critic", "#d-cap", "#d-ultra", "#d-auto"].forEach(id => $(id).addEventListener("change", () => dirSave()));
+  watchJob("direct");
+  dirLive(); clearInterval(dpoll); dpoll = setInterval(dirLive, 2000);
+}
+function dirForm() {
+  const v = id => $(id).value;
+  return {budget: v("#d-budget"), model: v("#d-model"), effort: v("#d-effort"), critic_model: v("#d-critic"), ultracode: $("#d-ultra").checked, max_usd: v("#d-cap").trim(), auto_continue: $("#d-auto").checked};
+}
+async function dirSave() { try { S.project = await post(`/api/p/${S.name}/director-settings`, dirForm()); } catch (e) { toast(e.message); } }
+async function startDirect(extra) {
+  const body = {...dirForm(), seed_notes: $("#d-seed").value, revise: !!($("#d-revise") && $("#d-revise").checked), ...(extra || {})};
+  try { await post(`/api/p/${S.name}/direct`, body); toast("The director is starting"); } catch (e) { return toast(e.message); }
+  dirWant = Date.now(); watchJob("direct");
+  clearInterval(dpoll); dpoll = setInterval(dirLive, 2000); setTimeout(dirLive, 1500);
+}
+function startContinue() {           // Continue the last run: its own conversation, the minutes in its box, the form's settings
+  const cb = $("#d-cont"), budget = $("#d-cbudget").value; if (cb) { cb.dataset.k = ""; cb.innerHTML = ""; }
+  startDirect({budget, continue: true, revise: false});
+}
+function contBox(c) {                // the last run, once it's over: carried on where it stopped (Claude's usage limit, a stop, a cut-off runner)
+  if (!c) return "";
+  const later = c.resets_at && c.resets_at * 1000 > Date.now();
+  const head = c.limit ? `Run ${c.run} was stopped by Claude's usage limit` : c.cut ? `Run ${c.run} was cut short` : `Run ${c.run} is over`;
+  return `<div class="crit" id="d-cont-box" style="border:1px solid ${c.cut ? "var(--acc)" : "var(--line)"};border-radius:10px;padding:10px 12px"><b>${head}</b> <span class="mut">${esc(c.why || "")}${c.left_s >= 60 ? ` &middot; ${dur(c.left_s)} of its budget left` : ""}</span>
+    <p class="hint" style="margin:4px 0">Continue it: the director picks up where it stopped, ${c.resumable ? "in the same conversation (it remembers what it was doing)" : "in a fresh session told where the work is"}, with the settings above${later ? `. The limit resets at ${hhmm(c.resets_at)}: the run waits for it, then starts` : ""}.</p>
+    <div class="row"><label style="margin:0;text-transform:none;letter-spacing:0">Minutes</label><input id="d-cbudget" type="number" min="5" value="${Math.round((c.budget_s || 900) / 60)}" style="width:90px">
+      <button id="go-cont" class="${c.cut ? "" : "ghost"}" onclick="startContinue()">${later ? `Continue the last run at ${hhmm(c.resets_at)}` : "Continue the last run"}</button></div></div>`;
+}
+async function dirLive() {
+  const el = $("#dir-live"); if (!el) return clearInterval(dpoll);
+  let d, j = {};
+  try { [d, j] = await Promise.all([api(`/api/p/${S.name}/director`), fetch(`/api/p/${S.name}/job`).then(r => r.json())]); } catch (e) { return; }
+  el.innerHTML = d && d.run ? runView(d) : "";
+  const ev = $("#dir-ev"); if (ev) ev.scrollTop = 1e9;
+  const c = d && !j.running ? d.continuable : null, cb = $("#d-cont");
+  const ck = c ? JSON.stringify([c.run, c.resets_at, c.left_s, c.why]) : "";
+  if (cb && cb.dataset.k !== ck) { cb.dataset.k = ck; cb.innerHTML = contBox(c); }     // (not while you type in it)
+  const running = d && ACTIVE.includes(d.state) && d.active, g = $("#go-direct");
+  if (g && !j.running) { g.disabled = !!running || !S.project.analysis; g.title = running ? "a director run is going on: let it finish (or stop it) first" : ""; }
+  const st = $("#stop-direct"); if (st && running) st.style.display = "";
+  if (!running && !(j.running && j.job === "direct") && Date.now() - dirWant > 300000) clearInterval(dpoll);
+}
+function runHead(d, extra) {
+  const running = ACTIVE.includes(d.state) && d.active, left = d.deadline - d.now, p = d.paused || {};
+  const none = !running && d.result === "no preview";
+  const spent = d.active_s ?? (d.now - d.started);
+  const tag = d.state === "paused" ? "paused: usage limit" : d.state === "waiting" ? "waiting for the usage limit" : none ? d.state + ": no new preview"
+    : ACTIVE.includes(d.state) && !d.active ? "cut off" : d.state;
+  const clock = d.state === "paused" ? `clock stopped at <b style="color:var(--fg)">${dur(p.left_s || 0)} left</b>, carries on at ${hhmm(p.until)}`
+    : d.state === "waiting" ? `starts at <b style="color:var(--fg)">${hhmm(d.waiting_until)}</b> with ${esc(d.budget)}`
+    : `${dur(spent)} in, <b style="color:var(--fg)">${left > 0 ? dur(left) + " left" : "time is up: wrapping up"}</b>`;
+  const why = d.state === "paused" ? `<p class="hint" id="dir-paused" style="color:var(--acc)">Claude's usage limit stopped the director${p.text ? ` (&ldquo;${esc(p.text)}&rdquo;)` : ""}. The run waits with its clock stopped and carries on by itself at ${hhmm(p.until)}${p.resets_at ? "" : " (no reset time given: it tries again every 15 minutes)"}. Stop it to end the run now: you can continue it later.</p>`
+    : d.state === "waiting" ? `<p class="hint" id="dir-paused" style="color:var(--acc)">This run continues run ${esc((d.continues || {}).run)}: Claude's usage limit hasn't reset yet, so it starts at ${hhmm(d.waiting_until)}.</p>` : "";
+  return `<div class="row"><b>Run ${d.run}</b><span class="tag" style="margin:0;${running ? "background:var(--acc);color:#111" : none ? "background:var(--bad);color:#fff" : ""}">${esc(tag)}</span>
+      <span class="mut">${extra}</span><span class="sp" style="flex:1"></span>
+      <span class="mut">${running ? clock : `wall ${dur(d.wall_s || d.elapsed_s || 0)}`} &middot; <span title="the director's session (its agents included) and the critic">${usd(runTotal(d))}</span>${d.preview ? ` &middot; preview <b>${esc(d.version || d.preview)}</b>` : ""}</span></div>
+    ${running && d.state !== "waiting" ? `<div class="prog"><div style="width:${Math.min(100, Math.max(0, spent / d.budget_s * 100))}%"></div></div>${why}` : running ? why : `<p class="hint"${none ? ' style="color:var(--bad)"' : ""}>${esc(d.stop_reason || "")}${d.version ? ` &middot; <a href="#${S.name}/review">review ${esc(d.version)} &rarr;</a>` : ""}</p>`}`;
+}
+const evLog = d => esc((d.events || []).map(e => String(e.text).split("\n").map((l, i) => `${i ? "".padStart(8) : dur(e.t).padStart(8)}  ${l}`).join("\n")).join("\n"));
+const USED = {"sent": "sent to the director", "in the nudge": "in the nudge to use the time left", "waiting": "not sent yet",
+              "after the run": "after the run (for the review)", "too late for the director": "too late to send", "the director ran it": "the director asked for it"};
+function runView(d) {                 // a run: its settings, the live log (the director's work, its agents' lines), its agents, the critic's notes, the costs
+  const co = d.continues, ps = d.pauses || [];
+  return `<div class="box">${runHead(d, `${esc(d.kind)} &middot; ${esc(d.model_used || d.model)} &middot; effort ${esc(d.effort)}${d.ultracode ? " &middot; ultracode" : ""}${d.max_usd ? ` &middot; cap $${esc(d.max_usd)}${d.budget_hit ? " (reached)" : ""}` : ""} &middot; budget ${esc(d.budget)}${d.critic_model && d.critic_model !== "off" ? ` &middot; critic ${esc(d.critic_model)}` : ""}${d.auto_continue ? " &middot; continues after a usage limit" : ""}`)}
+    ${co ? `<p class="hint" id="dir-continues" style="margin:4px 0 0">Continues run ${esc(co.run)}${co.resumed ? " in its own conversation" : co.resumed === false ? " in a fresh session (its conversation couldn't be resumed: the brief says where the work is)" : ""} <span class="mut">(it had ended: ${esc(co.why || "")})</span></p>` : ""}
+    ${ps.length ? `<p class="hint" id="dir-pauses" style="margin:4px 0 0">Waited ${dur(ps.reduce((a, x) => a + (x.s || 0), 0))} for Claude's usage limit to reset, the clock stopped${ps.length > 1 ? ` (${ps.length} times)` : ""}.</p>` : ""}
+    <pre class="log" id="dir-ev" style="max-height:420px">${evLog(d)}</pre>
+    ${agentsBox(d)}
+    ${(d.critiques || []).length ? `<div class="crit" id="dir-crit"><b>The critic's notes in this run</b>
+      ${d.critiques.map(c => `<div class="crow"><span class="mut">${c.t != null ? dur(c.t) : ""}</span><span class="v">${esc(c.video)}</span>${scoreChips(c.scores)}<span class="mut">${c.cost_usd != null ? usd(c.cost_usd) : ""}${c.used ? " &middot; " + esc(USED[c.used] || c.used) : ""}</span><a href="${c.url}" target="_blank">read</a></div>`).join("")}</div>` : ""}
+    ${costsBox(d)}
+    ${d.brief ? `<a href="${d.brief}" target="_blank">the brief</a>` : ""}${d.messages ? ` &middot; <a href="${d.messages}" target="_blank">the studio's messages to it</a>` : ""}</div>`;
+}
+function agentsBox(d) {               // the director's agents (its own choice): what each does, its model, running or done, how long
+  const ag = d.agents || [], running = ACTIVE.includes(d.state) && d.active;
+  if (!ag.length) return `<p class="hint" id="dir-agents">Agents: ${running ? "none so far (whether to deploy any is the director's call)" : "none (the director did it all itself)"}</p>`;
+  const busy = ag.filter(a => a.state === "running").length;
+  return `<div class="crit" id="dir-agents"><b>Agents</b> <span class="mut">${ag.length} in this run${busy ? `, ${busy} at work` : ""} (the director's own choice: they work in its sandbox, and what they cost is part of its session's)</span>
+    ${ag.map(a => {
+      const t = a.ended != null ? a.ended - a.started : a.state === "running" && running ? d.now - d.started - a.started : null;
+      return `<div class="crow"><span class="ast ${a.state === "running" ? "on" : a.state === "done" ? "ok" : "no"}">${esc(a.state)}</span><span class="v">${esc(a.description)}</span><span class="mut">${esc(a.model)}</span><span class="mut">${t != null ? dur(t) : ""}${a.tools ? ` &middot; ${a.tools} tool call${a.tools > 1 ? "s" : ""}` : ""}${a.state === "running" && a.last ? ` &middot; now ${esc(a.last)}` : ""}</span></div>`;
+    }).join("")}</div>`;
+}
+function costsBox(d) {                // the cost per model (the director's, its agents', Claude Code's own small calls), the critic's, the total
+  const rows = d.costs || [], crit = d.critic_model && d.critic_model !== "off";
+  return `<div class="row costs" id="dir-costs"><b>Costs</b>${rows.length ? rows.map(r => `<span class="sc" title="${esc(r.model)}">${esc(r.name)} <b>${usd(r.cost_usd)}</b>${r.who ? " " + esc(r.who) : ""}</span>`).join("")
+      : `<span class="sc">the director's session <b>${usd(d.cost_usd)}</b></span>`}${crit ? `<span class="sc">the critic ${esc(d.critic_model)} <b>${usd(d.critic_cost_usd)}</b></span>` : ""}<span class="sc">total <b>${usd(runTotal(d))}</b></span>
+    <span class="hint" style="margin:0">as Claude Code reports them at the end of each of the director's turns</span></div>`;
 }
 
 // ---------------------------------------------------------------- 6. review
@@ -612,6 +843,7 @@ function vFilm() {
   ${rounds.length > 1 ? `<div class="chips" style="margin-bottom:10px">${rounds.map(x => `<span class="chip ${(r ? r.n : latest) === x.n ? "on" : ""}" onclick="pickRound(${x.n === latest ? "null" : x.n})">round ${x.n}${x.n === latest ? " (newest)" : ""}</span>`).join("")}</div>` : ""}
   ${src ? `<video id="vid" controls preload="metadata" src="${src}"></video>` : `<p class="mut">This version has an edit but no rendered preview yet.</p>`}
   <p class="hint" style="margin-top:4px">${r ? `Playing round ${r.n} from ${esc(r.at)}, for comparison. Notes still go on the newest round.` : cur.play_kind === "final" ? "Playing the final film." : latest ? `Playing the newest preview (round ${latest}).` : ""}</p>
+  ${dirRunning() ? `<p class="hint" style="color:var(--acc)">The director is at work (<a href="#${S.name}/direct">Direct</a>): a note you leave now reaches it within seconds, with the shot and the song at that moment.</p>` : ""}
   <div class="row" style="margin-top:6px"><button onclick="addNote()">+ Note at <span id="nt">0:00.0</span></button><span class="mut">or press <b>N</b> while watching. Notes go straight to Claude.</span><span class="sp" style="flex:1"></span>
     ${approved ? `<span class="tag" style="background:var(--ok);color:#111">approved</span>` : `<button class="ghost" onclick="approveCut()">Approve this cut</button>`}</div>
   <div id="nbox"></div>
@@ -621,12 +853,16 @@ function vFilm() {
   ${ch && ch.shots ? `<details class="box" style="margin-top:14px" ${notes.some(n => n.done) ? "open" : ""}><summary style="cursor:pointer"><b>What changed in the last build</b> <span class="mut">${esc(ch.at)} &middot; ${esc(ch.summary)}</span></summary>
     <div style="margin-top:8px">${ch.shots.map(c => `<div class="chg"><span style="padding:1px 6px;border-radius:6px;background:#2a2a2e;cursor:pointer;color:var(--acc);font:12px SpaceMono,monospace" onclick="seek(${c.t})">${fmt(c.t)}</span><span class="w">${esc(c.what)}</span><span>${esc(c.detail)}</span></div>`).join("")}</div></details>` : ""}
   ${cur.qa ? `<ul class="qa">${cur.qa.map(l => `<li>${esc(l)}</li>`).join("")}</ul>` : ""}
+  ${notes.some(n => !n.done) && !dirRunning() ? `<div class="row" style="margin-top:10px"><button class="ghost" onclick="go('${S.name}/direct')">Let Claude make the next round with these notes &rarr;</button></div>` : ""}
+  ${critBox()}
   <div class="row" style="margin-top:12px">${cur.final ? `<a href="${cur.final}" download>Download the 1080p film</a>` : ""}${cur.final_share ? `<a href="${cur.final_share}" download>Download the small copy (group chat)</a>` : ""}${cur.notes ? `<a href="${cur.notes}" target="_blank">Edit notes</a>` : ""}</div>`;
   const v = $("#vid");
   if (v) {
     v.ontimeupdate = () => $("#nt").textContent = fmt(v.currentTime);
     if (pendingSeek != null) { const t = pendingSeek; pendingSeek = null; v.addEventListener("loadedmetadata", () => { v.currentTime = Math.max(0, t - 1); v.play(); }, {once: true}); }
   }
+  const cm = $("#wcrit-md"); if (cm && cm.dataset.url) fetch(cm.dataset.url).then(r => r.text()).then(t => { const el = $("#wcrit-md"); if (el) el.innerHTML = mdHtml(t); });
+  watchJob("critique");
   document.onkeydown = e => { if (step === "review" && rtab === "film" && e.key.toLowerCase() === "n" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); addNote(); } };
 }
 function pickRound(n) { curRound = n; vFilm(); }
@@ -782,7 +1018,7 @@ function mdHtml(src) {
 
 async function vSong() {
   svStop();
-  if (SV.project !== S.name) Object.assign(SV, {project: S.name, slug: null, m: null, mapUrl: null});   // another project
+  if (SV.project !== S.name) Object.assign(SV, {project: S.name, slug: null, m: null, mapUrl: null, ed: null});   // another project
   const songs = S.songs || [];
   if (!songs.length) {
     $("#pane").innerHTML = `<h2>The song</h2><p class="mut">This page shows the song the way Claude reads it before cutting to it: the sections, where it builds and drops, the melody, the chords, every beat, what the voice, drums, bass and other instruments do, and when each word is sung. It appears after <b>Analyse</b>.</p>
@@ -796,7 +1032,8 @@ async function vSong() {
     $("#pane").innerHTML = `<h2>The song</h2><p class="mut"><span class="spin"></span> loading the song map&hellip;</p>`;
     const [m, env, story] = await Promise.all([api(cur.map), api(cur.env),
       cur.docs["song-story.md"] ? fetch(cur.docs["song-story.md"]).then(r => r.text()) : Promise.resolve("")]);
-    Object.assign(SV, {slug: cur.slug, mapUrl: cur.map, m, env, story, src: "mix", sched: -1, lastLine: null, lastSec: null});
+    const report = cur.docs["report.json"] ? await fetch(cur.docs["report.json"] + "?v=" + Date.now()).then(r => r.json()).catch(() => ({})) : {};
+    Object.assign(SV, {slug: cur.slug, mapUrl: cur.map, m, env, story, report, src: "mix", sched: -1, lastLine: null, lastSec: null, ed: null});
     svIndex();
     svCenter(m.music.start, 0.02);
   }
@@ -812,6 +1049,8 @@ async function vSong() {
     lyr += `<div class="l" data-t="${Math.max(0, x.t - 0.6)}" data-li="${x.i}"><span class="ts">${fmt(x.t)}</span><div>${esc(x.text)}${x.repeat ? ` <span class="org">×${x.repeat + 1}</span>` : ""}<small>${esc(x.pos || "")}${mel.length ? " · " + esc(mel.join("; ")) : ""}</small></div></div>`;
   }
   const src = (lm.source || "").startsWith("transcribed") ? `<span style="color:var(--bad)">transcribed from the vocals: check the words</span>` : lm.source ? `${esc(lm.source)}, aligned to the singing` : "";
+  const warn = (SV.report || {}).warnings || [];
+  const rough = /estimate|transcribed/.test(lm.source || "") || (warn.some(w => /never force-aligned/.test(w)) && m.lyrics.length);
   $("#pane").innerHTML = `<h2>The song</h2>
   <p class="mut" style="margin-top:0">The song the way Claude reads it before cutting to it. <b>Space</b> play/pause &middot; <b>&larr; &rarr;</b> a bar &middot; <b>[ ]</b> a section &middot; <b>M V D B O</b> hear the mix or one instrument alone &middot; <b>K</b> beat click &middot; click the lanes to jump, scroll to look around.</p>
   ${songs.length > 1 ? `<div class="vtabs">${songs.map(s => `<span class="chip ${s.slug === cur.slug ? "on" : ""}" onclick="svSong('${esc(s.slug)}')">${esc(s.slug)}</span>`).join("")}</div>` : ""}
@@ -819,6 +1058,9 @@ async function vSong() {
     <span>key <b>${esc(m.key.name)}</b></span><span>music <b>${fmt(mu.start)}–${fmt(mu.end)}</b> of ${fmt(m.duration)}</span>
     <span><b>${m.loudness.integrated_lufs}</b> LUFS &middot; range ${m.loudness.range_lu} LU</span>${vo.range ? `<span>voice <b>${vo.range[0]}–${vo.range[1]}</b></span>` : ""}
     <span>${m.sections.length} sections &middot; <b>${m.moments.filter(x => x.stars >= 3).length}</b> big moments</span></div>
+  ${warn.length ? `<details class="hint" style="margin-bottom:8px"><summary style="cursor:pointer;color:var(--acc)">${warn.length} warning${warn.length > 1 ? "s" : ""}: how far to trust this</summary><ul class="qa">${warn.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
+  ${(lm.heard_only || []).length ? `<p class="hint" style="color:var(--acc);margin:0 0 8px">Whisper heard ${lm.heard_only.length} line${lm.heard_only.length > 1 ? "s" : ""} that ${lm.heard_only.length > 1 ? "aren't" : "isn't"} in the lyrics (${lm.heard_only.slice(0, 2).map(h => `${fmt(h.t)} &ldquo;${esc(h.text)}&rdquo;`).join(", ")}${lm.heard_only.length > 2 ? ", &hellip;" : ""}): <a href="javascript:lxOpen()">see ${lm.heard_only.length > 1 ? "them" : "it"} and add</a>.</p>` : ""}
+  ${rough ? `<p class="hint" style="color:var(--acc);margin:0 0 8px">The lyric times are rough (${esc(lm.source || "not force-aligned")}): listen with <b>Voice</b> only and fix them with <a href="javascript:lxOpen()">Fix the lyric timing</a>.</p>` : ""}
   <div class="sv-now"><div><div class="big" id="sv-sec">&nbsp;</div><div class="pos" id="sv-pos">&nbsp;</div></div><div class="ly" id="sv-ly"></div><div class="nx" id="sv-nx"></div></div>
   <div class="row sv-ctl"><button class="small" id="sv-play" onclick="svToggle()" style="min-width:84px">&#9654; Play</button><span class="t" id="sv-t">0:00.0</span><span class="sep"></span>
     ${stemChips.map(([k, l, key]) => `<span class="chip ${SV.src === k ? "on" : ""}" data-src="${k}" title="${key}" onclick="svSource('${k}')">${l}</span>`).join("")}
@@ -826,6 +1068,7 @@ async function vSong() {
     <span class="sep"></span>${[[4, "4 bars"], [8, "8"], [16, "16"], [32, "32"], [0, "whole song"]].map(([z, l]) => `<span class="chip ${SV.zoom === z ? "on" : ""}" data-zoom="${z}" onclick="svZoom(${z})">${l}</span>`).join("")}
     <span class="sep"></span><span class="chip ${SV.follow ? "on" : ""}" id="sv-follow" onclick="svFollow(!SV.follow)">follow</span><span class="chip ${SV.click ? "on" : ""}" id="sv-click" onclick="svClick()" title="K">beat click</span></div>
   <canvas class="sv" id="sv-ov"></canvas><canvas class="sv" id="sv-cv"></canvas><div class="sv-hov" id="sv-hov">&nbsp;</div>
+  <div id="lx"></div>
   <audio id="sv-au" preload="auto" src="${SV.src === "mix" || !cur.stems[SV.src] ? svMix() : cur.stems[SV.src]}"></audio>
   <div class="box" style="margin-bottom:16px"><b>Sections</b> <span class="mut">click to jump &middot; V D B O = how much is sung / drums / bass / other, 0-9</span>
       <table class="sv-tbl" id="sv-secs">${mu.before ? `<tr data-t="0"><td class="mut" colspan="2"><span class="sv-dot" style="background:#3a3a40"></span>before the music</td><td>0:00.0</td><td class="mut" colspan="5">${esc(mu.before.kind)}</td></tr>` : ""}
@@ -834,15 +1077,19 @@ async function vSong() {
       ${mu.after ? `<tr data-t="${mu.after.t0}"><td class="mut" colspan="2"><span class="sv-dot" style="background:#3a3a40"></span>after the music</td><td>${fmt(mu.after.t0)}</td><td class="mut" colspan="5">${esc(mu.after.kind)}</td></tr>` : ""}</table></div>
   <div class="cards2"><div class="box"><b>Moments</b> <span class="mut">where to cut, hold or reveal; <span class="stars">★★★</span> = the song's own peaks and turns</span>
       <div class="sv-scroll" style="max-height:640px"><table class="sv-tbl" id="sv-mom">${m.moments.map(e => `<tr data-t="${Math.max(0, e.t - 1.5)}"><td>${fmt(e.t)}</td><td class="mut">${esc(e.pos)}</td><td class="stars">${"★".repeat(e.stars)}</td><td>${esc(e.text)}</td></tr>`).join("")}</table></div></div>
-    <div class="box"><b>Lyrics</b> <span class="mut">${src}</span><div class="sv-ly" id="sv-lyr">${lyr || '<p class="mut">No lyrics: sections are named by sound.</p>'}</div></div></div>
+    <div class="box"><div class="row"><b>Lyrics</b> <span class="mut" style="flex:1">${src}</span><button class="ghost small" id="lx-open" onclick="lxOpen()">${m.lyrics.length ? "Fix the timing" : "Add lyrics and time them"}</button></div><div class="sv-ly" id="sv-lyr">${lyr || '<p class="mut">No lyrics: sections are named by sound.</p>'}</div></div></div>
   <div class="box sv-md" style="margin-top:16px">${cur.story_written ? mdHtml(SV.story) : `<b>Song story</b><p class="mut">Not written yet. During <code>/aftermovie ${esc(S.name)}</code> Claude writes it with you: what the song is about, its arc section by section, the lines that could carry a moment, and your trip's version of it. Your own associations with the song come first.</p>`}</div>
   <div class="row" style="margin-top:12px">${Object.entries(cur.docs).map(([f, u]) => `<a href="${u}" target="_blank">${esc(f)}</a>`).join("")}
     <span class="sp" style="flex:1"></span><button class="ghost small" id="go-song" onclick="startJob('song')">Remake the song map</button><button class="ghost small" id="stop-song" onclick="stopJob()" style="display:none">Stop</button></div>
   <ul class="steplist" id="sl-song"></ul><pre class="log" id="lg-song" style="display:none"></pre>`;
   svWire();
   watchJob("song");
+  if (SV.ed) lxOpen();                         // an unsaved timing edit from before: carry on with it
 }
-function svSong(slug) { SV.slug = slug; SV.m = null; vSong(); }
+function svSong(slug) {
+  if (SV.ed && SV.ed.dirty && !confirm("Leave this song's lyric timing without saving? Your changes are lost.")) return;
+  SV.ed = null; SV.slug = slug; SV.m = null; vSong();
+}
 
 function svWire() {
   const a = $("#sv-au"), cv = $("#sv-cv"), ov = $("#sv-ov");
@@ -857,10 +1104,11 @@ function svWire() {
     return x < LX ? null : w0 + (x - LX) / (el.clientWidth - LX - 8) * (w1 - w0);
   };
   for (const el of [cv, ov]) {
-    el.onmousemove = e => { SV.hover = tAt(el, e.offsetX); SV.dirty = true; svHover(); };
+    el.onmousemove = e => { if (el === cv && lxDragMove(e)) return; SV.hover = tAt(el, e.offsetX); SV.dirty = true; svHover(); };
     el.onmouseleave = () => { SV.hover = null; SV.dirty = true; $("#sv-hov").innerHTML = "&nbsp;"; };
-    el.onclick = e => { const t = tAt(el, e.offsetX); if (t != null) svSeek(t, false, el === ov); };
+    el.onclick = e => { if (SV.dragged) { SV.dragged = false; return; } const t = tAt(el, e.offsetX); if (t != null) svSeek(t, false, el === ov); };
   }
+  cv.onmousedown = e => lxDragStart(e);
   cv.addEventListener("wheel", e => {
     e.preventDefault(); svFollow(false);
     const len = svLen(), px = (cv.clientWidth - SV_LX - 8) / len;
@@ -869,6 +1117,7 @@ function svWire() {
   }, {passive: false});
   document.onkeydown = e => {
     if (step !== "song" || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (SV.ed && SV.ed.open && lxKey(e)) return;
     const k = e.key, m = SV.m, now = a.currentTime;
     if (k === " ") { e.preventDefault(); svToggle(); }
     else if (k === "ArrowRight" || k === "ArrowLeft") {
@@ -883,6 +1132,7 @@ function svWire() {
     } else if ({m: "mix", v: "vocals", d: "drums", b: "bass", o: "other"}[k.toLowerCase()]) svSource({m: "mix", v: "vocals", d: "drums", b: "bass", o: "other"}[k.toLowerCase()]);
     else if (k.toLowerCase() === "k") svClick();
   };
+  document.onkeyup = e => { if (step === "song" && e.key === "Enter" && SV.ed && SV.ed.open) lxTapUp(); };
   SV.dirty = true;
   SV.raf = requestAnimationFrame(svLoop);
 }
@@ -965,6 +1215,7 @@ function svNow(t) {
     const el = curLine != null && $(`#sv-lyr .l[data-li="${curLine}"]`), box = $("#sv-lyr");
     if (el) { el.classList.add("on"); if (!$("#sv-au").paused) box.scrollTop = el.offsetTop - box.clientHeight / 3; }
   }
+  if (SV.ed && SV.ed.open) lxTick(t);
   const si = sc.s ? m.sections.indexOf(sc.s) : -1;
   if (si !== SV.lastSec) {
     SV.lastSec = si;
@@ -1073,12 +1324,14 @@ function svDraw(now) {
     env(E[key], y0, h, on ? "rgba(255,210,63,.25)" : "rgba(232,230,225,.14)", on ? acc : "#cfcdc8");
   }
   // lyrics: every word at its sung time when zoomed in (three rows, a word only where it fits), the line when zoomed out
-  { const [y0, h] = lane.lyrics, wordMode = pxs >= 38, ends = [-1e9, -1e9, -1e9];
+  { const [y0, h] = lane.lyrics, wordMode = pxs >= 38, ends = [-1e9, -1e9, -1e9], edit = SV.ed && SV.ed.open;
+    SV.lyLane = [y0, h]; SV.xmap = {w0, pxs, LX};
     g.textAlign = "left"; g.textBaseline = "top";
     for (const x of m.lyrics) {
       if (x.end < w0 || x.t > w1) continue;
       const x0 = X(x.t), x1 = X(Math.max(x.end, x.t + 0.3));
       g.fillStyle = "rgba(168,164,156,.2)"; g.fillRect(x0, y0 + 2, x1 - x0, h - 4);
+      if (edit) { g.fillStyle = "rgba(232,230,225,.6)"; g.fillRect(x0, y0 + 2, 2, h - 4); g.fillStyle = x.uend ? acc : "rgba(232,230,225,.6)"; g.fillRect(x1 - 2, y0 + 2, 2, h - 4); }
       if (wordMode) {
         g.font = "12px system-ui";
         x.words.forEach((w, i) => {
@@ -1113,6 +1366,312 @@ function svOverview(now) {
   for (const e of m.moments) if (e.stars >= 3) { const x = X(e.t); g.beginPath(); g.moveTo(x - 4, 22); g.lineTo(x + 4, 22); g.lineTo(x, 29); g.fill(); }
   if (SV.zoom) { g.strokeStyle = "rgba(255,255,255,.7)"; g.lineWidth = 1; g.strokeRect(X(SV.w0) + .5, 1.5, X(SV.w0 + svLen()) - X(SV.w0) - 1, H - 3); }
   g.strokeStyle = "#ffd23f"; g.lineWidth = 2; g.beginPath(); g.moveTo(X(now), 0); g.lineTo(X(now), H); g.stroke();
+}
+
+// ---------------------------------------------------------------- the lyric timing editor (on The song page)
+// (carried back from Music Video Studio) Tap along (Enter as each line starts), nudge, fix the words, add the repeats;
+// the lanes and the line above them show the edit while the song plays. Saved as LRC in the song's lyrics in project.json
+// (song.lyrics, or songs.<slug>.lyrics: tools/align_lyrics.py), timed on this very song file; then the song is analysed
+// again, so every word gets aligned inside its line and the voice, sections and moments follow the lines.
+// a tag that names a section (the same words as tools/align_lyrics.py KINDS); "[Male vocal]" and LRC headers are no section
+const LX_SECTION = /\b(pre[\s-]*(chorus|hook)|build([\s-]*up)?|lift|post[\s-]*(chorus|hook)|chorus|hook|drop|refrain|verse|rap|bridge|middle[\s-]*(8|eight)|intro(duction)?|outro|coda|end(ing)?|fade([\s-]*out)?|instrumental|interlude|solo|break([\s-]*down)?)\b/i;
+function lxParse(text) {          // lyrics text -> [{t, text, words, part, st}]: LRC times (and word times) kept; a "[Chorus]" tag
+  const out = []; let last = -1, k = 0, part = null, st = 0, fresh = false;    // names the lines under it (part), a blank line
+  for (const raw of String(text || "").split(/\r?\n/)) {                      // or a tag starts the next stanza (st)
+    const line = raw.trim(); if (line.startsWith("#")) continue;
+    if (!line) { fresh = true; continue; }
+    const stamps = [...line.matchAll(/\[(\d+):(\d+(?:\.\d+)?)\]/g)].map(m => +m[1] * 60 + +m[2]);
+    const tm = line.replace(/\[(\d+):(\d+(?:\.\d+)?)\]/g, "").trim().match(/^\[([^\]]*)\]/);
+    const tag = tm && !/^(ar|ti|al|au|by|re|ve|length|offset|tool|lang|la|id)\s*:/i.test(tm[1].trim()) && LX_SECTION.test(tm[1]) ? tm[1].replace(/\s+/g, " ").trim() : null;
+    if (tag) { part = tag; fresh = true; }
+    const body = line.replace(/\[[^\]]*\]/g, ""), em = body.match(/<(\d+):(\d+(?:\.\d+)?)>\s*$/), e0 = em ? +em[1] * 60 + +em[2] : null;
+    const words = [...body.matchAll(/<(\d+):(\d+(?:\.\d+)?)>\s*([^<]*)/g)].flatMap(m => m[3].trim().split(/\s+/).filter(Boolean).map((w, j) => [w, +m[1] * 60 + +m[2] + 0.001 * j]));
+    const txt = body.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    if (!txt) { if (stamps.length) fresh = true; continue; }
+    if (fresh && out.length) st++;
+    fresh = false;
+    if (!stamps.length) { out.push({t: null, end: null, text: txt, words: null, part, st, key: last + 1e-6 * ++k}); continue; }
+    last = stamps[0];
+    stamps.forEach(t => out.push({t, text: txt, key: t, part, st, end: e0 != null && e0 > stamps[0] + 0.05 ? e0 - stamps[0] + t : null,
+      words: words.length && words.map(x => x[0]).join(" ") === txt ? words.map(([w, wt]) => [w, wt - stamps[0] + t]) : null}));
+  }
+  return out.sort((a, b) => a.key - b.key).map(({key, ...x}) => x);
+}
+const svMedia = () => $("#sv-au");
+function lxEntry() {              // where this song's own lyrics live in project.json (tools/align_lyrics.py lyrics_entry)
+  const p = S.project, s = p.song || {}, main = s.slug ? s.slug === SV.slug : s.file === SV.m.file;
+  return (main ? s : (p.songs || {})[SV.slug]) || {};
+}
+function lxFromSong() {           // where the editor starts: your own LRC as written, else the analysed lines, else the brief's text
+  const m = SV.m, meta = m.lyrics_meta || {}, E = lxEntry(), ly = E.lyrics, txt = ly && typeof ly === "object" ? ly.text : ly;
+  if (/^user \(LRC/.test(meta.source || "") && txt) {
+    const off = meta.offset || 0, fixed = new Set((E.lyrics_set || []).map(t => Math.round(t * 100)));
+    const xs = lxParse(txt), mine = x => fixed.has(Math.round(x.t * 100)) || !!x.words, same = xs.length === m.lyrics.length;
+    return xs.map((x, k) => x.t == null ? x : !E.lyrics_synced || mine(x) || !same    // your own times: as you set them
+      ? {...x, t: x.t + off, end: x.end == null ? null : x.end + off, words: x.words && x.words.map(([w, t]) => [w, t + off]), set: !!E.lyrics_synced && mine(x)}
+      : {...x, t: m.lyrics[k].t, end: null, words: null});                                   // the rest: where the analysis put it
+  }
+  if (m.lyrics.length) return m.lyrics.map(x => ({t: x.t, end: x.end_src === "user" ? x.end : null, text: x.text, words: null,
+                                                  part: x.part || null, st: x.stanza ?? null}));
+  return lxParse(txt);
+}
+function lxOpen() {
+  if (!SV.m) return;
+  if (!SV.ed) SV.ed = {lines: lxFromSong().map(x => ({set: false, eset: false, ...x})), cur: 0, hist: [], dirty: false, now: null,
+                       heardOnly: ((SV.m.lyrics_meta || {}).heard_only || []).map(h => ({...h}))};
+  if (!SV.ed.open) { SV.ed.orig = SV.m.lyrics; SV.ed.open = true; }
+  $("#pane").classList.add("lxon");
+  lxRender(); lxView();
+  if (!SV.ed.lines.length) lxPasteBox();
+  const top = $(".sv-now"); if (top) window.scrollTo(0, top.getBoundingClientRect().top + window.scrollY - 76);   // at once: nothing still moving when you tap
+}
+function lxRestore() {            // the song's own lines back in the lanes (the edit itself is kept until saved or cancelled)
+  const ed = SV.ed; if (!ed || !ed.open) return;
+  SV.m.lyrics = ed.orig; SV.lt = SV.m.lyrics.map(x => x.t); SV.lastLine = null; SV.dirty = true; ed.open = false;
+}
+function lxClose() {
+  if (SV.ed && SV.ed.dirty && !confirm("Close without saving? Your timing changes are lost.")) return;
+  lxRestore(); SV.ed = null; $("#pane").classList.remove("lxon"); $("#lx").innerHTML = "";
+}
+window.addEventListener("beforeunload", e => { if (SV.ed && SV.ed.dirty) { e.preventDefault(); e.returnValue = ""; } });
+function lxView() {               // the edit, as the song map's lyric lines: the lanes, the line above them and the hover use it
+  const xs = SV.ed.lines.map((x, k) => ({...x, k})).filter(x => x.t != null && x.text).sort((a, b) => a.t - b.t);
+  SV.m.lyrics = xs.map((x, j) => {
+    const nx = xs[j + 1], ws = x.text.split(/\s+/);
+    const end = x.end != null ? Math.max(x.t + 0.2, x.end) : Math.max(x.t + 0.3, Math.min(nx ? nx.t - 0.05 : x.t + 6, x.t + Math.max(1.2, 0.42 * ws.length)));
+    const words = x.words ? x.words.map(([w, t]) => ({w, t})) : ws.map((w, i) => ({w, t: x.t + (end - x.t) * i / ws.length}));
+    return {i: -1 - x.k, k: x.k, t: x.t, end, uend: x.end != null, text: x.text, words};
+  });
+  SV.lt = SV.m.lyrics.map(x => x.t); SV.lastLine = null; SV.ed.now = undefined; SV.dirty = true;
+}
+function lxPartAbove(i) {           // the part (section tag) of the nearest line above with one
+  for (let j = i - 1; j >= 0; j--) if (SV.ed.lines[j].part) return SV.ed.lines[j].part;
+  return null;
+}
+function lxRender() {
+  const ed = SV.ed, el = $("#lx"); if (!el || !ed) return;
+  const y0 = window.scrollY;                        // the page stays where it is while the editor is drawn again
+  const n = ed.lines.length, nset = ed.lines.filter(x => x.set).length, none = ed.lines.filter(x => x.t == null).length, nx = ed.lines[ed.cur];
+  el.innerHTML = `<div class="box lx">
+    <div class="row"><b>Lyric timing</b><span class="mut" style="flex:1;font-size:13px">Play the song (<b>Voice</b> only and <b>0.75&times;</b> help) and press <b>Enter</b> each time a line starts: the line marked &#9656; gets the time.
+      <b>Hold Enter</b> while the line is sung to set where it ends too (let go when it stops). The lines after it that you haven't set yet move along with it.
+      Click a line's number to pick it &middot; <b>&uarr; &darr;</b> pick &middot; <b>Backspace</b> undoes &middot; &lsaquo;&lsaquo; &rsaquo;&rsaquo; move a line a beat, &lsaquo; &rsaquo; a tenth of a second, &#8982; to the playhead;
+      its end (&rarr;) has the same buttons &middot; in the lyrics lane, drag a line's edges to stretch it &middot; &#10697; copies a line below (a repeat). Within about a second is enough: after saving, every word is aligned to the voice.</span></div>
+    <div class="row" style="margin-top:8px"><button id="lx-tap" onpointerdown="lxTapDown()" onpointerup="lxTapUp()" onpointerleave="lxTapUp()" ${nx ? "" : "disabled"}>${nx ? `Tap: line ${ed.cur + 1} starts now <span style="font-weight:400">(Enter; hold to its end)</span>` : "All lines tapped"}</button>
+      <span class="mut lx-next">${nx ? "&#9656; " + esc(nx.text) : ""}</span><span style="flex:1"></span>
+      <span class="mut" id="lx-st">${nset} of ${n} set by you${none ? ` &middot; ${none} without a time` : ""}</span>
+      <button class="ghost small" onclick="lxUndo()">Undo</button><button class="ghost small" id="lx-align" onclick="lxAlign()" ${ed.aligning ? "disabled" : ""} title="Whisper listens to the vocals and places every line you haven't set yourself">Align with Whisper</button><button class="ghost small" onclick="lxPasteBox()">Paste lyrics&hellip;</button>
+      <button class="ghost small" onclick="lxClose()">Cancel</button><button class="small" id="lx-save" onclick="lxSave()">Save &amp; analyse again</button></div>
+    <div id="lx-al" class="hint">${ed.aligning ? '<span class="spin"></span> Whisper is listening to the vocals&hellip; (the first time it downloads its model, ~1.6 GB)' : ""}</div>
+    ${(ed.heardOnly || []).length ? `<div class="lx-heard"><b>Whisper heard ${ed.heardOnly.length > 1 ? "these lines" : "this line"}</b> <span class="mut">that ${ed.heardOnly.length > 1 ? "aren't" : "isn't"} in your lyrics (in its spelling: fix the words after adding)</span>
+      ${ed.heardOnly.length > 1 ? `<button class="ghost small" id="lx-addall" onclick="lxAddHeard(-1)">add all ${ed.heardOnly.length}</button>` : ""}
+      ${ed.heardOnly.map((h, q) => `<div><span class="mut" style="font:12px SpaceMono,monospace">${fmt(h.t)}</span> &ldquo;${esc(h.text)}&rdquo; <button class="small" onclick="lxAddHeard(${q})">add</button></div>`).join("")}</div>` : ""}
+    <div id="lx-paste"></div>
+    <div class="lx-list" id="lx-list">${ed.lines.map((x, i) => `${x.part && x.part !== lxPartAbove(i) ? `<div class="lx-part">[${esc(x.part)}]</div>` : ""}<div class="lx-r ${i === ed.cur ? "cur" : ""} ${x.set ? "set" : ""} ${!x.set && x.auto === "between" ? "ab" : ""} ${!x.set && x.auto === "repeat" ? "ar" : ""} ${x.added ? "new" : ""}" data-i="${i}" title="${!x.set && x.auto === "between" ? "Whisper didn't hear this line: it is placed between its neighbours, check it" : !x.set && x.auto === "repeat" ? "Whisper heard this line again here: added as a repeat" : ""}">
+      <span class="lx-n" onclick="lxCur(${i}, true)" title="tap this line next">${i === ed.cur ? "&#9656; " : ""}${i + 1}</span>
+      <button class="ghost tm" onclick="lxPlay(${i})" title="play from just before this line">${x.t == null ? "&ndash;:&ndash;&ndash;" : "&#9654; " + fmt(x.t)}</button>
+      <span class="mut lx-pos" title="bar:beat">${x.t == null ? "" : svPosStr(x.t)}</span>
+      <span class="nd"><button class="ghost" onclick="lxNudge(${i},-1,1)" title="a beat earlier">&lsaquo;&lsaquo;</button><button class="ghost" onclick="lxNudge(${i},-0.1)" title="0.1 s earlier">&lsaquo;</button><button class="ghost" onclick="lxNudge(${i},0.1)" title="0.1 s later">&rsaquo;</button><button class="ghost" onclick="lxNudge(${i},1,1)" title="a beat later">&rsaquo;&rsaquo;</button><button class="ghost" onclick="lxSetNow(${i})" title="start it at the playhead">&#8982;</button></span>
+      <input data-i="${i}" value="${esc(x.text)}" placeholder="the words of this line">
+      <span class="nd" title="when the line ends"><button class="ghost te ${x.end != null ? "on" : ""}" onclick="lxPlayEnd(${i})" title="${x.end != null ? "play up to the end" : "the end is worked out by the analysis: set it with these buttons, by holding Enter, or by dragging in the lyrics lane"}">&rarr; ${x.end != null ? fmt(x.end) : "auto"}</button><button class="ghost" onclick="lxEnd(${i},-1,1)" title="end a beat earlier">&lsaquo;&lsaquo;</button><button class="ghost" onclick="lxEnd(${i},-0.1)" title="end 0.1 s earlier">&lsaquo;</button><button class="ghost" onclick="lxEnd(${i},0.1)" title="end 0.1 s later">&rsaquo;</button><button class="ghost" onclick="lxEnd(${i},1,1)" title="end a beat later">&rsaquo;&rsaquo;</button><button class="ghost" onclick="lxEndNow(${i})" title="end it at the playhead">&#8982;</button></span>
+      <span class="nd"><button class="ghost" onclick="lxDup(${i})" title="copy this line below (a repeat, e.g. the chorus)">&#10697;</button><button class="ghost" onclick="lxDel(${i})" title="remove this line">&#10005;</button></span></div>`).join("")}
+      <div class="lx-add"><button class="ghost small" onclick="lxAdd()">+ a line</button></div></div></div>`;
+  el.querySelectorAll("#lx-list input").forEach(inp => {
+    inp.onchange = () => lxText(+inp.dataset.i, inp.value);
+    inp.onkeydown = e => { if (e.key === "Enter" || e.key === "Escape") inp.blur(); };
+  });
+  if (window.scrollY !== y0) window.scrollTo(0, y0);
+  const list = $("#lx-list"), row = list.querySelector(".lx-r.cur");
+  if (row && (row.offsetTop < list.scrollTop || row.offsetTop > list.scrollTop + list.clientHeight - 40)) list.scrollTop = row.offsetTop - list.clientHeight / 3;
+}
+function lxTick(t) {              // the line playing now
+  const li = bsearch(SV.lt, t + 0.15) - 1, ln = SV.m.lyrics[li], k = ln && t <= ln.end + 0.8 ? ln.k : null;
+  if (k === SV.ed.now) return;
+  SV.ed.now = k;
+  document.querySelectorAll("#lx-list .lx-r.now").forEach(e => e.classList.remove("now"));
+  const el = k != null && $(`#lx-list .lx-r[data-i="${k}"]`); if (el) el.classList.add("now");
+}
+function lxKey(e) {
+  const k = e.key;
+  if (k === "Enter") { e.preventDefault(); if (!e.repeat) lxTapDown(); return true; }
+  if (k === "Backspace") { e.preventDefault(); lxUndo(); return true; }
+  if (k === "ArrowDown" || k === "ArrowUp") { e.preventDefault(); lxCur(SV.ed.cur + (k === "ArrowDown" ? 1 : -1)); return true; }
+  return false;
+}
+function lxBlur() { const a = document.activeElement; if (a && a.tagName === "BUTTON") a.blur(); }   // so Space / Enter don't press it again
+function lxPush() { const ed = SV.ed; ed.hist.push(JSON.stringify([ed.lines, ed.cur, ed.heardOnly || []])); if (ed.hist.length > 300) ed.hist.shift(); ed.dirty = true; }
+function lxChanged() { lxView(); lxRender(); }
+function lxUndo() { lxBlur(); const ed = SV.ed, h = ed.hist.pop(); if (!h) return toast("Nothing to undo"); [ed.lines, ed.cur, ed.heardOnly] = JSON.parse(h); lxChanged(); }
+function lxSetT(i, t) {           // a line's new start; the lines after it that you haven't set yet move along by as much
+  const ed = SV.ed, x = ed.lines[i], d = x.t == null ? null : t - x.t;
+  t = clamp(t, 0, SV.m.duration);
+  x.words = x.words && d != null ? x.words.map(([w, wt]) => [w, wt + d]) : null;
+  x.end = x.end != null && d != null ? clamp(x.end + d, t + 0.2, SV.m.duration) : null;
+  x.t = t; x.set = true;
+  if (d == null) return;
+  for (let j = i + 1; j < ed.lines.length && !ed.lines[j].set; j++) {
+    const y = ed.lines[j]; if (y.t == null) continue;
+    y.t = clamp(y.t + d, 0, SV.m.duration); if (y.words) y.words = y.words.map(([w, wt]) => [w, wt + d]);
+    if (y.end != null) y.end = clamp(y.end + d, y.t + 0.2, SV.m.duration);
+  }
+}
+function lxTapDown() {           // Enter / the tap button pressed: the line starts now
+  const ed = SV.ed, a = svMedia(); if (!ed || ed.hold) return;
+  lxBlur();
+  if (ed.cur >= ed.lines.length) return toast("That was the last line: save, or click a line's number to tap it again");
+  lxPush(); lxSetT(ed.cur, a.currentTime); ed.hold = {i: ed.cur, t: a.currentTime}; ed.cur++; lxChanged();
+}
+function lxTapUp() {             // ... let go: held while it was sung (a third of a second or more of the song) = its end
+  const ed = SV.ed, h = ed && ed.hold; if (!h) return;
+  ed.hold = null;
+  const now = svMedia().currentTime, x = ed.lines[h.i];
+  if (x && now - h.t >= 0.33) { x.end = now; x.eset = true; lxChanged(); }
+}
+function lxEnd(i, d, beats) {
+  lxBlur(); const x = SV.ed.lines[i]; if (x.t == null) return toast("This line has no start yet");
+  const v = SV.m.lyrics.find(y => y.k === i), base = x.end != null ? x.end : v ? v.end : x.t + 1;
+  lxPush(); x.end = clamp(base + d * (beats ? SV.m.tempo.beat_s : 1), x.t + 0.2, SV.m.duration); x.eset = true; lxChanged();
+}
+function lxEndNow(i) {
+  lxBlur(); const x = SV.ed.lines[i], now = svMedia().currentTime;
+  if (x.t == null || now <= x.t + 0.1) return toast("Play past the start of this line first: the end goes where the playhead is");
+  lxPush(); x.end = now; x.eset = true; lxChanged();
+}
+function lxPlayEnd(i) { lxBlur(); const v = SV.m.lyrics.find(y => y.k === i); if (!v) return toast("This line has no time yet"); svSeek(Math.max(0, v.end - 2), true); }
+function lxHit(e) {               // the line block (and which part of it) under the mouse in the lyrics lane
+  const L = SV.lyLane, M = SV.xmap, ox = e.offsetX; if (!SV.ed || !SV.ed.open || !L || !M) return null;
+  if (e.offsetY < L[0] || e.offsetY > L[0] + L[1]) return null;
+  const X = t => M.LX + (t - M.w0) * M.pxs; let hit = null;
+  for (const v of SV.m.lyrics) {
+    const x0 = X(v.t), x1 = X(v.end);
+    if (ox >= x1 - 6 && ox <= x1 + 2) return {k: v.k, part: "end"};
+    if (!hit && ox >= x0 - 2 && ox <= x0 + 6) hit = {k: v.k, part: "start"};
+    else if (!hit && ox > x0 && ox < x1) hit = {k: v.k, part: "move"};
+  }
+  return hit;
+}
+function lxDragStart(e) {
+  const h = lxHit(e); if (!h) return;
+  const x = SV.ed.lines[h.k], v = SV.m.lyrics.find(y => y.k === h.k); if (!x || x.t == null || !v) return;
+  e.preventDefault(); lxPush();
+  SV.drag = {...h, ox: e.offsetX, t: x.t, end: v.end, words: x.words, moved: false};
+}
+function lxDragMove(e) {          // true while dragging (the lanes don't hover then)
+  const d = SV.drag, cv = $("#sv-cv");
+  if (!d) { const h = SV.ed && SV.ed.open ? lxHit(e) : null; cv.style.cursor = h ? (h.part === "move" ? "grab" : "ew-resize") : ""; return false; }
+  const x = SV.ed.lines[d.k], dt = (e.offsetX - d.ox) / SV.xmap.pxs, dur = SV.m.duration;
+  if (Math.abs(e.offsetX - d.ox) > 2) d.moved = true;
+  if (d.part === "end") { x.end = clamp(d.end + dt, x.t + 0.2, dur); x.eset = true; }
+  else {
+    x.t = clamp(d.t + dt, 0, d.part === "start" ? d.end - 0.2 : dur); x.set = true;
+    x.words = d.words && d.words.map(([w, wt]) => [w, wt + x.t - d.t]);
+    if (d.part === "move") { x.end = clamp(d.end + x.t - d.t, x.t + 0.2, dur); x.eset = true; }
+    else if (x.end != null && x.end < x.t + 0.2) x.end = x.t + 0.2;
+  }
+  lxView(); return true;
+}
+window.addEventListener("mouseup", () => {
+  const d = SV.drag; if (!d) return;
+  SV.drag = null;
+  if (d.moved) { SV.dragged = true; lxRender(); } else SV.ed.hist.pop();
+});
+function lxCur(i, seek) {
+  lxBlur(); const ed = SV.ed; ed.cur = clamp(i, 0, ed.lines.length); lxRender();
+  const x = ed.lines[ed.cur], a = svMedia(), t = x && (x.t != null ? x.t : (ed.lines[ed.cur - 1] || {}).t);
+  if (seek && t != null && a.paused) svSeek(Math.max(0, t - 3), false, true);
+}
+function lxNudge(i, d, beats) { lxBlur(); const x = SV.ed.lines[i]; if (x.t == null) return toast("This line has no time yet: tap it, or ⌖ to set it to the playhead"); lxPush(); lxSetT(i, x.t + d * (beats ? SV.m.tempo.beat_s : 1)); lxChanged(); }
+function lxSetNow(i) { lxBlur(); lxPush(); lxSetT(i, svMedia().currentTime); lxChanged(); }
+function lxPlay(i) { lxBlur(); const x = SV.ed.lines[i]; if (x.t == null) return toast("This line has no time yet"); svSeek(Math.max(0, x.t - 1.5), true); }
+function lxText(i, v) {
+  const ed = SV.ed, x = ed.lines[i]; v = v.replace(/\s+/g, " ").trim(); if (v === x.text) return;
+  lxPush(); x.text = v; if (x.words && x.words.map(w => w[0]).join(" ") !== v) x.words = null;
+  lxView();
+}
+function lxDup(i) { lxBlur(); const ed = SV.ed; lxPush(); ed.lines.splice(i + 1, 0, {t: null, end: null, text: ed.lines[i].text, words: null, set: false, eset: false}); if (ed.cur > i) ed.cur++; lxChanged(); }
+function lxDel(i) { lxBlur(); const ed = SV.ed; lxPush(); ed.lines.splice(i, 1); if (ed.cur > i) ed.cur--; lxChanged(); }
+function lxAdd() {
+  lxBlur(); const ed = SV.ed; lxPush(); ed.lines.push({t: null, end: null, text: "", words: null, set: false, eset: false}); lxChanged();
+  const ins = document.querySelectorAll("#lx-list input"); if (ins.length) ins[ins.length - 1].focus();
+}
+let lxPoll = null;
+async function lxAlign() {        // Whisper places every line you haven't set yourself (a background job on the server)
+  lxBlur(); const ed = SV.ed, idx = [];
+  const lines = ed.lines.map((x, i) => [x, i]).filter(([x]) => x.text.trim()).map(([x, i]) => { idx.push(i); return {text: x.text}; });
+  if (lines.length < 2) return toast("Add the lyric lines first (Paste lyrics…)");
+  try { await post(`/api/p/${S.name}/lyrics-align`, {slug: SV.slug, lines}); } catch (e) { return toast(e.message); }
+  ed.aligning = true; lxRender();
+  clearInterval(lxPoll);
+  lxPoll = setInterval(async () => {
+    let j; try { j = await (await fetch(`/api/p/${S.name}/job`)).json(); } catch (e) { return; }      // (a failed job carries "error")
+    const el = $("#lx-al");
+    if (j.running) { if (el && j.steps) el.innerHTML = `<span class="spin"></span> ${esc(j.steps[j.i] || "")}&hellip; <span class="mut">${esc((j.log || []).slice(-1)[0] || "")}</span>`; return; }
+    clearInterval(lxPoll);
+    if (!SV.ed) return;
+    SV.ed.aligning = false;
+    if (j.returncode !== 0) { lxRender(); return toast(j.error || (j.log || []).filter(l => /Whisper|nothing to align|no song/.test(l)).slice(-1)[0] || "Whisper couldn't align the lyrics: see cache/job.log"); }
+    try { lxApplyAligned(await (await fetch(`/p/${S.name}/cache/lyrics/${encodeURIComponent(SV.slug)}_aligned.json?v=${Date.now()}`)).json(), idx); }
+    catch (e) { lxRender(); toast("No alignment came back"); }
+  }, 1500);
+}
+function lxApplyAligned(r, idx) {
+  const ed = SV.ed, out = [];
+  lxPush();
+  for (const x of r.lines) {
+    if (x.i == null) { out.push({t: x.t, end: x.end, text: x.text, words: null, set: false, eset: false, auto: "repeat"}); continue; }
+    const old = ed.lines[idx[x.i]];
+    out.push(old.set ? {...old} : {...old, t: x.t, end: old.eset ? old.end : x.end, words: null, auto: x.src === "whisper" ? "heard" : "between"});
+  }
+  ed.lines = out.sort((a, b) => (a.t ?? 1e9) - (b.t ?? 1e9));
+  ed.heardOnly = r.heard_only || [];
+  ed.cur = Math.max(0, ed.lines.findIndex(x => !x.set && x.auto === "between"));
+  lxChanged();
+  const s = r.stats || {};
+  toast(`${s.lines_heard} of ${s.lines} lines placed where Whisper heard them` + (s.repeats_added ? `, ${s.repeats_added} repeats added (+)` : "") +
+        (s.lines - s.lines_heard ? `; check the ones marked ?` : ""));
+}
+function lxAddHeard(q) {           // a line Whisper heard (q = -1: all of them) becomes a lyric line like any other
+  lxBlur(); const ed = SV.ed; if (!(ed.heardOnly || []).length) return;
+  lxPush();                                         // Undo brings back the lines and the list as they were
+  const hs = q < 0 ? ed.heardOnly.splice(0) : ed.heardOnly.splice(q, 1), key = s => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  for (const h of hs)
+    if (!ed.lines.some(x => x.t != null && Math.abs(x.t - h.t) < 1.5 && key(x.text) === key(h.text)))     // already there
+      ed.lines.push({t: h.t, end: h.end, text: h.text, words: null, set: false, eset: false, auto: "heard", added: true});
+  ed.lines.sort((a, b) => (a.t ?? 1e9) - (b.t ?? 1e9)); lxChanged();
+  const list = $("#lx-list"), row = list && list.querySelector(".lx-r.new"); if (row) list.scrollTop = row.offsetTop - list.clientHeight / 3;
+  toast(`${hs.length > 1 ? hs.length + " lines" : "The line"} added: fix the words if needed, then Save & analyse again`);
+}
+function lxPasteBox() {
+  lxBlur();
+  $("#lx-paste").innerHTML = `<div class="box" style="margin-top:10px"><b>Paste the lyrics</b> <span class="mut">one line per sung line, choruses written out each time they're sung; plain text or LRC (its times are kept); [Verse] / [Chorus]-style tags above the parts are kept: they name the song's sections. This replaces the list.</span>
+    <textarea id="lx-ptx" style="min-height:160px;margin-top:8px"></textarea><div class="row" style="margin-top:8px"><button class="small" onclick="lxPasteUse()">Use these lines</button><button class="ghost small" onclick="$('#lx-paste').innerHTML=''">Cancel</button></div></div>`;
+  $("#lx-ptx").focus();
+}
+function lxPasteUse() {
+  const xs = lxParse($("#lx-ptx").value); if (!xs.length) return toast("No lines in there");
+  const ed = SV.ed; lxPush(); ed.lines = xs.map(x => ({...x, set: x.t != null, eset: x.end != null})); ed.cur = Math.max(0, ed.lines.findIndex(x => x.t == null)); lxChanged();
+}
+async function lxSave() {
+  lxBlur(); const ed = SV.ed, L = ed.lines.filter(x => x.text.trim()).map(x => ({...x}));
+  if (L.filter(x => x.t != null).length < 2) return toast("Give at least a few lines a time first (Enter while the song plays)");
+  const none = L.filter(x => x.t == null).length;
+  let back = 0; for (let i = 1; i < L.length; i++) if (L[i].t != null && L[i - 1].t != null && L[i].t < L[i - 1].t) back++;
+  const msg = [none ? `${none} line${none > 1 ? "s have" : " has"} no time yet: ${none > 1 ? "they go" : "it goes"} between ${none > 1 ? "their" : "its"} neighbours.` : "",
+               back ? `${back} line${back > 1 ? "s start" : " starts"} before the line above: the lines are put in time order.` : ""].filter(Boolean).join("\n");
+  if (msg && !confirm(msg + "\n\nSave anyway?")) return;
+  for (let i = 0; i < L.length; i++) {              // lines without a time: spread between the nearest timed lines
+    if (L[i].t != null) continue;
+    let j = i; while (j < L.length && L[j].t == null) j++;
+    const a = i > 0 ? L[i - 1].t : null, b = j < L.length ? L[j].t : null, n = j - i;
+    for (let q = 0; q < n; q++) L[i + q].t = a != null && b != null ? a + (b - a) * (q + 1) / (n + 1) : a != null ? a + 2.5 * (q + 1) : Math.max(0, b - 2.5 * (n - q));
+  }
+  $("#lx-save").disabled = true;
+  try { await post(`/api/p/${S.name}/lyrics-timing`, {slug: SV.slug, lines: L.map(x => ({t: Math.round(x.t * 100) / 100, text: x.text.trim(), words: x.words, set: !!(x.set || x.eset),
+                                                                             part: x.part || null, stanza: x.st ?? null,
+                                                                             end: x.end != null && x.end > x.t + 0.05 ? Math.round(x.end * 100) / 100 : null}))}); }
+  catch (e) { $("#lx-save").disabled = false; return toast(e.message); }
+  lxRestore(); SV.ed = null;
+  toast("Lyric timing saved: the song is analysed again"); go(`${S.name}/analyse`);
 }
 
 async function doctor() {

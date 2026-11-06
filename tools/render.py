@@ -16,7 +16,13 @@ photo swapped, a colour fixed. When ANY timing changed (a shot held longer, a cu
 everything downstream plays differently, so the whole film is rendered fresh.
 """
 import argparse, glob, hashlib, json, os, subprocess, sys, time
-from multiprocessing import Pool
+import multiprocessing
+
+
+def Pool(*args, **kw):
+    """A worker pool that spawns its workers on every platform (Windows always does): a forked worker deadlocks in
+    cv2.setNumThreads when the parent has already run OpenCV's thread pool (grading the photos), as it does on Linux."""
+    return multiprocessing.get_context("spawn").Pool(*args, **kw)
 
 import numpy as np
 
@@ -246,41 +252,44 @@ def main():
             print(p)
         return
 
-    from am.audio import build
-    t0 = time.time()
-    wav = build(edl, os.path.join(render_dir, f"{name}_audio.wav"))
-    print(f"audio built in {time.time() - t0:.1f}s -> {wav}")
-
-    dur = meta["duration"]
-    end = min(a.end or dur, dur)
-    frames = [(i, i / fps) for i in range(int(round(a.start * fps)), int(round(end * fps)))]
     out = a.out or (os.path.join(ROOT, "out", f"{name}_preview.mp4") if a.preview else os.path.join(ROOT, "out", f"{name}.mp4"))
-    if has_nvenc():
-        if a.preview:
-            venc = ["-c:v", "h264_nvenc", "-preset", "p5", "-cq", "26", "-b:v", "0"]
-        else:
-            venc = ["-c:v", "h264_nvenc", "-preset", "p7", "-tune", "hq", "-rc", "vbr", "-cq", "16", "-b:v", "0",
-                    "-maxrate", "45M", "-bufsize", "90M", "-profile:v", "high", "-spatial-aq", "1", "-temporal-aq", "1"]
-    else:   # no NVIDIA GPU: x264 on the CPU (slower, same look)
-        venc = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "23"] if a.preview else \
-               ["-c:v", "libx264", "-preset", "slow", "-crf", "17", "-profile:v", "high"]
-    if a.preview and not a.full and a.start == 0 and a.end is None and not a.out:     # finals: one fresh pass
-        render_chunked(edl, edl_path, fps, out_w, out_h, venc, wav, out, a.workers, "preview" if a.preview else "final")
-        return
-    cmd = ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{out_w}x{out_h}", "-r", str(fps),
-           "-i", "-", "-ss", f"{a.start:.4f}", "-t", f"{end - a.start:.4f}", "-i", wav,
-           *venc, "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "320k", "-movflags", "+faststart", "-shortest", out]
-    ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-    t0 = time.time()
-    with Pool(a.workers, initializer=_init, initargs=(edl_path, out_w)) as pool:
-        for k, buf in enumerate(pool.imap(_frame, frames, chunksize=4)):
-            ff.stdin.write(buf)
-            if k % 150 == 0:
-                el = time.time() - t0
-                print(f"  frame {k}/{len(frames)}  {el:.0f}s elapsed  ({(k + 1) / max(el, 1e-3):.1f} fps)", flush=True)
-    ff.stdin.close()
-    ff.wait()
-    print(f"done in {time.time() - t0:.0f}s -> {out}")
+    # one video render at a time on this machine (am/renderlock.py): a director and its agents queue their renders
+    from am.renderlock import render_queue
+    with render_queue(f"{name} {'preview' if a.preview else 'final'} -> {os.path.relpath(out, ROOT)}"):
+        from am.audio import build
+        t0 = time.time()
+        wav = build(edl, os.path.join(render_dir, f"{name}_audio.wav"))
+        print(f"audio built in {time.time() - t0:.1f}s -> {wav}")
+
+        dur = meta["duration"]
+        end = min(a.end or dur, dur)
+        frames = [(i, i / fps) for i in range(int(round(a.start * fps)), int(round(end * fps)))]
+        if has_nvenc():
+            if a.preview:
+                venc = ["-c:v", "h264_nvenc", "-preset", "p5", "-cq", "26", "-b:v", "0"]
+            else:
+                venc = ["-c:v", "h264_nvenc", "-preset", "p7", "-tune", "hq", "-rc", "vbr", "-cq", "16", "-b:v", "0",
+                        "-maxrate", "45M", "-bufsize", "90M", "-profile:v", "high", "-spatial-aq", "1", "-temporal-aq", "1"]
+        else:   # no NVIDIA GPU: x264 on the CPU (slower, same look)
+            venc = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "23"] if a.preview else \
+                   ["-c:v", "libx264", "-preset", "slow", "-crf", "17", "-profile:v", "high"]
+        if a.preview and not a.full and a.start == 0 and a.end is None and not a.out:     # finals: one fresh pass
+            render_chunked(edl, edl_path, fps, out_w, out_h, venc, wav, out, a.workers, "preview" if a.preview else "final")
+            return
+        cmd = ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{out_w}x{out_h}", "-r", str(fps),
+               "-i", "-", "-ss", f"{a.start:.4f}", "-t", f"{end - a.start:.4f}", "-i", wav,
+               *venc, "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "320k", "-movflags", "+faststart", "-shortest", out]
+        ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+        t0 = time.time()
+        with Pool(a.workers, initializer=_init, initargs=(edl_path, out_w)) as pool:
+            for k, buf in enumerate(pool.imap(_frame, frames, chunksize=4)):
+                ff.stdin.write(buf)
+                if k % 150 == 0:
+                    el = time.time() - t0
+                    print(f"  frame {k}/{len(frames)}  {el:.0f}s elapsed  ({(k + 1) / max(el, 1e-3):.1f} fps)", flush=True)
+        ff.stdin.close()
+        ff.wait()
+        print(f"done in {time.time() - t0:.0f}s -> {out}")
 
 
 if __name__ == "__main__":
