@@ -8,16 +8,24 @@ This folder is the **studio** (the app + engine). Each film lives in its own pro
 
 Trips can be imported from a Polarsteps data export (`studio.py polarsteps <p> <zip>`, or in the web app): see section 2b of the skill. The user's own per-step context in `project.json` always wins over the export.
 
-**You can't hear the song, so the studio writes it down:** the **song kit** (`tools/song_kit.py`) turns the song into a folder you read instead of listening, `song/<slug>/` in the project: the song map (named sections, moments, every bar with its chord, loudness, voice/drums/bass/other and sung words), the timed lyric with its melody, a lanes picture, and `song-story.md`, which you write with the user. The audio models run on an NVIDIA GPU when there is one (Sam's: RTX 4060, 8 GB). Read the song folder before any creative decision (skill §1).
+**You can't hear the song, so the studio writes it down:** the **song kit** (`tools/song_kit.py`) turns the song into a folder you read instead of listening, `song/<slug>/` in the project: the song map (named sections, moments, every bar with its chord, loudness, voice/drums/bass/other and sung words), the timed lyric with its melody, a lanes picture, and `song-story.md`, which you write with the user. The audio models run on an NVIDIA GPU when there is one (Sam's: RTX 4060, 8 GB). Read the song folder before any creative decision (skill §1). The lyrics come from the user first (project.json `song.lyrics`: plain text, LRC or word-timed LRC; `[Verse]` / `[Chorus]` tags name the sections; plain lines are placed where Whisper hears them), else LRCLIB, else a Whisper transcription. Without the model downloads the stems and beats are estimated offline, and `report.json` / the song map say so.
 
 ## Layout
-- `app/`: local web app (`server.py`, standard library only, 127.0.0.1; `static/index.html`). Start it with **`Aftermovie Studio.bat`** or `tools/studio.py serve` (http://127.0.0.1:8765). Its **The song** page is the song viewer: the song folder's lanes on a canvas that plays along (sections, loudness + moments, melody + bass notes, chords, beats, the four stems, lyrics), solo listening per stem, a beat click, and the song story. What the user sees there is what you read in `song/<slug>/`. Internal `_projects` open by URL only (`#_name/song`).
+- `app/`: local web app (`server.py`, standard library only, 127.0.0.1; `static/index.html`). Start it with **`Aftermovie Studio.bat`** or `tools/studio.py serve` (http://127.0.0.1:8765). Its **The song** page is the song viewer: the song folder's lanes on a canvas that plays along (sections, loudness + moments, melody + bass notes, chords, beats, the four stems, lyrics), solo listening per stem, a beat click, the song story, and the **lyric timing editor** (*Fix the timing*: Enter as lines start, drag in the lyrics lane, nudges, Align with Whisper, add the lines Whisper heard; saving writes LRC to project.json and analyses the song again). What the user sees there is what you read in `song/<slug>/`. Internal `_projects` open by URL only (`#_name/song`).
 - `tools/`: the pipeline and engine. **`tools/README.md` has the full EDL / layer / effect reference.**
   - `studio.py`: every command, run per project. It sets `AM_PROJECT`, so each tool reads and writes inside `projects/<p>/`.
     - Set up: `new`, `list`, `polarsteps`, `ingest`, `cast`, `song` (remake the song folder). Plain `python tools/studio.py …` works too: it re-runs itself with `.venv`.
     - Look at photos and pick music: `sheets`, `shotlog`, `moodboard`, `songs`, `vibe`, `gallery`.
     - Make the film: `draft`, `build <p> [film]`, `board`, `preview`, `stills`, `final`.
     - Anything else: `run <p> <tool.py> …`, `serve`, `doctor`, `check` (regression check of every finished film).
+    - Claude on its own: `direct` (the unattended director with a time budget: a preview round, never the final;
+      `--revise`, `--continue`, `--auto-continue`), `critique` (the critic), `story` (Claude drafts the song story),
+      `clock`, `stop`, `note-done` (mark a review note done with its fix), `permtest` (check the director's sandbox).
+  - `director.py` (the unattended run: the session, the critic watcher, the user's notes mid-run, Claude's usage limit,
+    Continue the last run), `critic.py` (a cheaper model with fresh eyes reports on a preview → `review/critic/`),
+    `eyes.py` (contact sheets of a render with the song and the captions in the margin). Their shared code:
+    `am/session.py`, `am/claude.py`, `am/notes.py`, `am/renderlock.py`, `am/song.py`, `am/util.py`. The briefs and
+    prompts: `templates/`. The studio's side of it: `tools/INTERNALS.md`.
   - `am/`: the engine.
     - `common.py`: project paths, fonts, metadata.
     - `grade.py`: grading presets `consumer_film` / `golden` / `punchy`.
@@ -33,20 +41,22 @@ Trips can be imported from a Polarsteps data export (`studio.py polarsteps <p> <
     - `checks.py`: the EDL checks shared by the build lint and QA (reading time, captions + their sources, must-haves, near-duplicates, treatments).
     - `device.py`: GPU or CPU for the audio models, one model at a time (`AM_DEVICE=cpu` forces the CPU).
     - `listen.py`: the song kit's ears (loudness, stem envelopes, CREPE pitch → notes, chords + key, structure, the CLAP check of beatless stretches). `songdoc.py`: its writers (markdown, JSON, lane pictures).
-  - Analysis tools: `analyze_photos.py`, `cluster_faces.py`, `cast.py`, `shotlog.py`, `separate.py`, `fetch_lyrics.py`, `transcribe_lyrics.py` (Whisper, when LRCLIB has no synced lyrics), `analyze_audio.py`, `align_words.py`, `find_joins.py`, **`song_kit.py`** (the song folder), `song_map.py` (film time per bar for an edit with a join), `import_polarsteps.py`, `song_check.py`.
+  - Analysis tools: `analyze_photos.py`, `cluster_faces.py`, `cast.py`, `shotlog.py`, `separate.py`, `fetch_lyrics.py`, `transcribe_lyrics.py` (Whisper, when LRCLIB has no synced lyrics or to place the user's plain lyrics), `align_lyrics.py` (the user's lyrics: where they live, their tags, Whisper placement; `studio.py align-lyrics <p>`), `analyze_audio.py`, `align_words.py`, `find_joins.py`, **`song_kit.py`** (the song folder), `song_map.py` (film time per bar for an edit with a join), `import_polarsteps.py`, `song_check.py`.
   - Lyric repairs: `fix_lyrics.py` (applies project.json `lyrics_fix`; `align_words.py` runs it after every ingest).
   - Output: `render.py` (chunk cache for previews), `board.py` (storyboard + caption board), `qa.py`, `check.py`, `templates/build_template.py`.
 - `.claude/skills/`: `aftermovie` (the director workflow and house rules) and `aftermovie-songs` (song suggestions).
+- `templates/`: the unattended director's briefs (`director-brief.md`, `revise-brief.md`), the critic's prompt, the
+  song-story prompt. `tests/`: `test_director.py` with a stand-in for Claude (`fake_claude.py`).
 - `assets/`: fonts (OFL / Apache) and the Natural Earth map. `models/`: OpenCV YuNet + SFace.
 - `setup.ps1`, `requirements.txt`, `Aftermovie Studio.bat`: install and launch.
 
 A project folder holds:
-- `project.json`: the brief, the song, status, chapters, per-step context (`label`, `note`, `who`, `skip`), song suggestions, must-haves (`must_use`, `order`), `lyrics_fix` and the review `rounds`.
+- `project.json`: the brief, the song, status, chapters, per-step context (`label`, `note`, `who`, `skip`), song suggestions, must-haves (`must_use`, `order`), `lyrics_fix`, the song's own lyrics (`song.lyrics`, + `lyrics_synced` / `lyrics_set` from the timing editor; another song's under `songs.<slug>`) and the review `rounds`.
 - `photos/`: stills and clips. `music/`: the song.
 - `song/<slug>/`: the song folder (song kit): `README.md`, `song-map.md`, `lyrics.md`, `song-story.md` (yours to write, never overwritten), `overview.png`, `pages/`, `song-map.json`, `envelopes.json`, `report.json`.
 - `cache/`: photos.json, cast.json, shotlog, audio/<slug>.json + png, stems (+ `model.txt`), lyrics, graded, render, qa, and for trips `trip.json`.
 - `out/`: EDLs, previews, finals, notes, treatment, shot log, `<v>_board.json` + `board/` (storyboard), `<v>_changes.json` (what the last build changed), `rounds/` (each preview round's small video).
-- `review/notes.json`: the user's timestamped notes from the web app. `review/captions.json`: the lines they ticked or vetoed on the caption board.
+- `review/notes.json`: the user's timestamped notes from the web app. `review/captions.json`: the lines they ticked or vetoed on the caption board. `review/critic/`: the critic's notes on previews.
 - `build.py` or `build_<film>.py`: the film builders.
 
 **In git** (see `.gitignore`): the studio, plus each project's small files (`project.json`, builders, its `CLAUDE.md`, `review/`, `directions/`, the `.md`/`.json` in `out/`, and the `.md` files in `song/<slug>/`). Photos, music, `cache/` and rendered video stay local; share finished films as GitHub Release assets, never as commits (GitHub rejects files over 100 MB).
@@ -76,12 +86,17 @@ Follow the `/aftermovie <project>` skill. In short:
 2. People: the who's-who page, then `cast`. Look at every photo with `sheets` and write the shot log.
 3. Keep the interview short. Write `out/treatment.md` and check in with the user.
 4. Builder: `templates/build_template.py` + `am.kit.Film`, or copy a reference builder. Render stills, then `preview` (it also runs QA).
-5. Address their notes from `review/notes.json`. Run `final` only after approval.
+5. Address their notes from `review/notes.json` (mark each done with `studio.py note-done <p> <id> "<fix>"`). Run
+   `final` only after approval.
+6. Or the user lets Claude direct alone (the Direct page / `studio.py direct`): the same workflow without the
+   interview, a preview round as the result, the critic (a cheaper model) looking at every preview, the user's notes
+   reaching the run within seconds, and Claude's usage limit waited out or the run continued later. The skill's
+   "Unattended runs" section and `tools/INTERNALS.md` say how.
 
 ## Environment (Windows)
 - **Python:** always run tools with `.venv\Scripts\python`, which has librosa 1.0, opencv 5, torch 2.14 **with CUDA 12.6**, torchaudio, demucs, beat_this, torchcrepe, transformers and pillow-heif. Prefix with `PYTHONIOENCODING=utf-8` (the console is cp1252) and use `-W ignore`.
 - **ffmpeg and GPU:** ffmpeg 8.1 is on PATH. An NVIDIA GPU (Sam's: RTX 4060, 8 GB, with 16 GB RAM) is used for `h264_nvenc` and for the audio models: Demucs `htdemucs_ft` stems, beat_this, the MMS lyric aligner, CREPE pitch, CLAP and Whisper. They load one at a time (peak ~1.5-2 GB VRAM) through `am/device.py`; set `AM_DEVICE=cpu` to keep the GPU free (e.g. while a final renders). Without a GPU everything still runs, slower (CPU builds, CREPE tiny, htdemucs). Render workers scale to the CPU.
-- **Model downloads** (first use, Hugging Face / torch caches in the user profile): htdemucs_ft ~320 MB, CLAP ~800 MB, Whisper large-v3-turbo ~1.6 GB (only for songs without synced lyrics).
+- **Model downloads** (first use, Hugging Face / torch caches in the user profile): htdemucs_ft ~320 MB, CLAP ~800 MB, Whisper large-v3-turbo ~1.6 GB (only for songs without synced lyrics, or to place the user's plain lyrics). Without them ingest still runs: estimated stems, the fallback beat tracker, lyrics by estimate, all said in the song folder.
 - **Bash heredocs mangle quotes and backslashes.** For non-trivial code patches, write a small `.py` patch script with the Write tool and run it.
 - **Timing:**
   - A preview (960×540) takes ~1–2 min; a final 1080p ~6 min for 3 min of film. A preview whose timeline is unchanged (only text, photos or looks changed) re-renders just the changed chunks (seconds); any timing change renders it whole. Finals always render in one fresh pass.

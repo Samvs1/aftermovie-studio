@@ -29,9 +29,12 @@ same headlessly); the user picks one and adds its MP3.
 ## 1. Analysis: read the song before anything else
 Needs `cache/photos.json`, `cache/audio/<slug>.json` and the **song folder `song/<slug>/`**. If missing (or photos
 were added since): `studio.py ingest <p>` (run in the background; ~2-4 min with the GPU; progress in
-`cache/status.json`). `studio.py song <p>` remakes just the song folder (~40 s). Lyrics need the song's artist + title in
-project.json (`song`); with no synced lyrics on LRCLIB, ingest transcribes the vocal stem with Whisper (set
-`song.language`, e.g. `"nl"`, for non-English songs).
+`cache/status.json`). `studio.py song <p>` remakes just the song folder (~40 s); `studio.py ingest <p> --song-only`
+analyses the song again without the photos. Lyrics, in order: the user's own (project.json `song.lyrics`, or
+`songs.<slug>.lyrics` for another song; the brief page and The song page's timing editor write them), else LRCLIB by
+the song's artist + title, else Whisper transcribing the vocal stem (set `song.language`, e.g. `"nl"`, for non-English
+songs). The user's plain-text lines are placed where Whisper heard them; `[Verse]` / `[Chorus]` tags in their lyric
+name the sections (`sections_from` in song-map.json says where the names came from).
 
 You can't hear the song, so the song folder is your ears. Read it in this order:
 1. `song/<slug>/README.md` (notation: `17:2.5` = `F.beat(17, 2.5)`; V D B O; LUFS; stars), then `report.json`
@@ -40,7 +43,11 @@ You can't hear the song, so the song folder is your ears. Read it in this order:
    close with film), the named sections, the **moments** (★★★ = the song's own peaks and turns), then bar by bar.
 3. Look at `overview.png` (the whole song in lanes); open `pages/bars_*.png` for any stretch you will cut tightly.
 4. `lyrics.md`: when each line is sung, the hook, the melody (peak notes, held words: holds are where a photo can stay).
-Section names are inferred from repetition + lyric; if the bars say otherwise, trust the bars and say so.
+Section names are inferred from repetition + lyric (or are the user's own tags); if the bars say otherwise, trust the
+bars and say so. `report.json` says honestly what is an estimate: stems "fallback" (no Demucs: rough lanes, notes,
+chords), beats from the fallback tracker (check bar 0 and the downbeats), words "not force-aligned" (where Whisper
+heard them, ~0.2 s, or estimated), a decoder lag. Re-analyse once the models can download; tell the user which
+timestamps to check by ear.
 The user sees the same data on the studio's **The song** page (it plays along, solos stems, clicks the beat): point
 them there with a time or a bar when you ask about a moment ("listen to 2:17, bar 43: the drums come back").
 If the aligner gets a line wrong in a way you confirmed on the vocal stem (a long held first note it skips, a word it
@@ -48,7 +55,9 @@ puts late), write the repair as data in project.json `lyrics_fix` (`held_lines`,
 transcribed words: see `tools/fix_lyrics.py`), re-run ingest (or `analyze_audio.py` + `align_words.py` + `song`).
 The fix is applied on every run, so it never has to be remembered. Never patch cache files by hand.
 **Transcribed lyrics** (`lyrics_meta.source` starts with "transcribed") can mishear: show the user `lyrics.md` and
-fix the text with them before any caption quotes it.
+fix the text with them before any caption quotes it. When line *times* are wrong (rough estimates, a missed line),
+point the user to The song page's **Fix the timing** (tap Enter as lines start, drag, Align with Whisper, add the
+lines Whisper heard: `lyrics_meta.heard_only`); it saves LRC to project.json and analyses the song again.
 
 ## 2. People
 `cache/cast.json` comes from the web app's Who's who page (`people: {id: {name, nick, from, city, credit, core, clusters}}`).
@@ -202,6 +211,12 @@ re-run until clean.
 Re-renders are fast when they can be: with exactly the same timeline (no shot boundary, transition or song-edit
 change), only the chunks around changed shots are rendered again; any timing change renders the whole film fresh.
 That is purely a speed-up. **Never shape an edit to keep the cache**: when a fix needs new timing, retime freely.
+**Fresh eyes: the studio's critic.** A cheaper model looks at the preview's frames (a tile per shot with the song and
+its captions, the ★★★ moments, a beat sheet, QA's cut sheets) against your treatment, the brief and these house rules,
+and reports back in text, ambition first: `studio.py critique <p> out/<version>_preview.mp4 [--focus "..."]` (2-4 min;
+`review/critic/`, also on the Review page). It does the image-heavy looking so you don't have to open every still;
+open only the pictures it names that you need. You decide what to take: push harder where it says you played safe,
+ignore what's wrong. It can't hear either.
 Write `out/<version>_notes.md` (what changed, structure table, QA, what to check by ear: the join, any
 tape-stop/ending). Tell the user: "open the studio → Review" (Film for the video and notes, **Storyboard & captions** to tick or veto
 every line you wrote), the timestamps to listen to, and your open questions (roles, anything they should veto).
@@ -217,13 +232,32 @@ downstream as a whole (what now lands on which bar, lyric and hit, whether the p
 idea still lands) instead of squeezing the change in locally. Small fixes stay small; timing fixes get a fresh look at
 the flow. Keep your full creative range in a fix round.
 Bump the version only if the user wants to compare; otherwise rebuild in place (the studio keeps every preview round
-for comparing). Mark notes `done: true` and give each a `fix` ("what changed", shown under the note in the studio),
+for comparing). Mark each note done with its `fix` ("what changed", shown under the note in the studio) through
+`studio.py note-done <p> <id> "<what changed>"` (never by editing `review/notes.json`: the web app writes it too),
 re-preview, summarise what changed per note (`out/<version>_changes.json` lists every shot that changed). Save durable
 feedback as memory.
 
 ## 9. Final (only after explicit approval)
 `studio.py final <p> <version>` → `out/<version>.mp4` (1080p master) + `out/<version>_share.mp4` (720p for
 group chats) + QA on the master. Update the notes file and project.json status. Hand over both paths.
+
+## Unattended runs: `studio.py direct` (the studio's Direct page)
+The user can also let you direct alone for a time budget: `studio.py direct <p> --budget 90m` runs you headless with
+a brief (`templates/director-brief.md`; a review round: `--revise`, `templates/revise-brief.md`). The same workflow and
+house rules, with these differences (the brief says them too):
+- Nobody answers questions: skip the interview (§4), decide from the brief and the photos, never guess a name or an
+  event; write your assumptions and the questions you'd have asked into `out/<version>_notes.md`. No direction picked:
+  make the three directions with style frames anyway (the user sees them in the studio) and build the one you believe in.
+- Deliver a preview round (`studio.py preview`, QA clean) and its notes; never `studio.py final`.
+- The engine (`tools/`), the skills, `photos/`, `music/` and the user's review files are read-only; build from the
+  vocabulary and list any engine feature you wished you had in the notes. Answer the user's notes with `note-done`.
+- The studio messages you: time warnings (`studio.py clock <p>` prints the time left), the critic's notes on every
+  preview (it looks by itself: don't do a full look of your own), the user's notes from the Review page (they can hear;
+  treat them as review notes), a nudge to use the time left. Keep a log in `out/director_log.md`: a continued run
+  (after Claude's usage limit, or a stop) starts from it.
+- Full reign: do it all yourself, or deploy agents (the Agent tool, in the background, each with its model and a narrow
+  brief) where that makes the film bolder or faster. Renders queue one at a time on the machine.
+The studio's side of it (the runner, the sandbox, the usage limit, Continue the last run) is in `tools/INTERNALS.md`.
 
 ## Engine changes
 New films often need new engine features. Before and after changing `tools/am/`, run `studio.py check` (or `check <p>`):

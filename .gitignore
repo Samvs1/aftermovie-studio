@@ -34,3 +34,7 @@ projects/*/song/*/*
 !projects/*/song/*/*.md
 # the public-domain style-sample photos are small and needed to re-render app/static/styles
 !projects/_style-samples/photos/
+
+# the studio's own run-time files (the render queue's lock) and the tests' throwaway projects
+/cache/
+projects/_test*/

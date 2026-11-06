@@ -22,6 +22,35 @@ studio.py polarsteps <p> <export.zip> [--list | --trip ID]     import a Polarste
 - First-draft builder: `templates/build_template.py`.
 - Planning: the song folder `song/<slug>/` (`song_kit.py`); `song_map.py <slug> --segments ...` for film time per bar.
 
+## The autonomous director, the critic, the eyes
+```
+studio.py direct <p> --budget 90m [--model opus] [--effort max] [--critic-model sonnet|haiku|opus|off] [--critic-max 6]
+                     [--ultracode] [--max-usd N] [--seed-notes "..."] [--revise] [--continue] [--auto-continue|--no-auto-continue]
+                     [--no-nudge] [--dry-run]
+studio.py critique <p> <out/v1_preview.mp4 | v1> [--model sonnet] [--effort medium] [--focus "..."] [--max-usd 2] [--no-look]
+studio.py story <p>          studio.py clock <p>          studio.py stop <p>          studio.py permtest <p> [--model haiku]
+studio.py note-done <p> <id> "<what changed>" [--undo]
+studio.py run <p> eyes.py look out/v1_preview.mp4          studio.py run <p> eyes.py strip out/v1_preview.mp4 --at 63.4
+```
+- `director.py`: the unattended run. One Claude Code session (headless, stream-json, `--permission-mode dontAsk`, a
+  sandbox: the studio, `photos/`, `music/`, the user's review files and the other projects read-only, no network) with
+  a time budget; it delivers a preview round (`studio.py preview`), never the final. The runner sends time warnings,
+  the critic's notes, the user's notes left on the Review page during the run, a nudge to use time left; it ends the
+  session at the deadline plus a grace; the run settings go to the end of `out/<version>_notes.md` and project.json
+  `runs`. `--revise`: a review round on the open notes and vetoed lines of the latest version. Claude's usage limit:
+  `--auto-continue` waits for the reset with the clock stopped; `--continue` carries on the last run in its own
+  conversation. Files: `cache/director/run-N/` (brief, events, status), `out/director_log.md` (the director's log).
+- `critic.py`: one headless call on a cheaper model with read-only tools (`templates/critic-prompt.md`): the eyes'
+  pictures, the treatment, the brief, the house rules, QA, the caption board → `review/critic/<video>_NN.md + .json`
+  (scores: ambition, song fit, story, craft, readability; problems with film times; what works; where it plays safe).
+- `eyes.py`: `look` → `cache/eyes/<video>/` sheets (a tile per shot: film time, bar:beat, section, the sung line with
+  the word in [brackets], photos, every line of text with its source), the ★★/★★★ moments, a beat sheet of the
+  loudest section, `index.md`; `strip --at T` → consecutive frames around a moment.
+- `am/notes.py` writes `review/notes.json` safely (the web app, the runner and `note-done` all write it);
+  `am/renderlock.py` queues video renders one at a time per machine (`AM_RENDER_LOCK=0` turns it off).
+- The studio's side (the session plumbing, the usage limit, Continue the last run, the web app's endpoints):
+  `tools/INTERNALS.md`.
+
 ## Rebuild and re-render a film
 ```
 .venv\Scripts\python tools\studio.py build elevate cool_kids          # builder -> out\cool_kids_edl.json
@@ -42,13 +71,25 @@ whole film. `--full` ignores the cache; finals always render in one pass.
 | photo rotation, faces, embeddings | `analyze_photos.py` | `cache/photos.json` (+ manual `cache/rotation_overrides.json`) |
 | face clusters → people | `cluster_faces.py`, `cast.py` | `cache/face_clusters.json`, `cache/cast.json` (names), `cache/faces_people.json` |
 | shot log | `shotlog.py` | `out/shot_log.md`, `out/shot_log.html` |
-| stems (analysis only) | `separate.py` (htdemucs_ft on the GPU, htdemucs on the CPU) | `cache/stems/<song>/` + `model.txt` |
-| synced lyrics (LRCLIB) | `fetch_lyrics.py <slug> "<artist>" "<title>"` | `cache/lyrics/<slug>_search.json` |
-| lyrics when LRCLIB has none | `transcribe_lyrics.py <slug> [--language nl]` (Whisper on the vocal stem) | `cache/lyrics/<slug>_transcribed.json` |
-| music analysis | `analyze_audio.py` (applies `lyrics_fix.text`) | `cache/audio/<song>.json` + `.png` |
-| sung word onsets | `align_words.py <slug>` (forced alignment on the vocal stem) | rewrites `lyrics[].words[].t` (keeps `t_lrc`), then applies project.json `lyrics_fix` (`fix_lyrics.py`) |
+| stems (analysis only) | `separate.py [slug] [--fallback]` (htdemucs_ft on the GPU, htdemucs on the CPU; without Demucs or its weights: estimated stems, HPSS + bands + stereo centre, `model.txt` = "fallback ...", tried again on the next analysis) | `cache/stems/<song>/` + `model.txt` |
+| the user's own lyrics | project.json `song.lyrics` (another song: `songs.<slug>.lyrics`): plain text, LRC, word-timed LRC; `[Verse 1]` / `[Chorus]` tags name the sections (`align_lyrics.py` reads them) | used instead of LRCLIB |
+| synced lyrics (LRCLIB) | `fetch_lyrics.py <slug> "<artist>" "<title>"` (only when the song has no lyrics of the user's) | `cache/lyrics/<slug>_search.json` |
+| Whisper on the vocal stem | `transcribe_lyrics.py <slug> [--language nl] [--force]`: when LRCLIB has none, or to place the user's plain-text lines; reused while the song file is the same | `cache/lyrics/<slug>_transcribed.json` |
+| plain lyrics placed on Whisper's words | `align_lyrics.py [slug] [--in lines.json]` (`studio.py align-lyrics <p> [slug]`: Whisper first) | `cache/lyrics/<slug>_aligned.json` (lines, `heard_only`, stats); `analyze_audio.py` does the same itself |
+| music analysis | `analyze_audio.py [slug] [--fallback-beats]` (applies `lyrics_fix.text`; without beat_this: librosa's tracker with a moving tempo, `beat_tracker` says which) | `cache/audio/<song>.json` + `.png` |
+| sung word onsets | `align_words.py <slug>` (forced alignment on the vocal stem; the user's own word times are kept) | rewrites `lyrics[].words[].t` (keeps `t_lrc`), then applies project.json `lyrics_fix` (`fix_lyrics.py`) |
 | single-join finder | `find_joins.py <slug>` | ranked joins between identical passages + vocal-gap cut points |
 | the song folder | `song_kit.py [slug]` (`studio.py song <p>`) | `song/<slug>/`: README, song-map.md/.json, lyrics.md, song-story.md, overview.png, pages/, envelopes.json, report.json |
+
+The song's lyrics, in order: the user's own (project.json) → LRCLIB's synced lyrics → a Whisper transcription. The
+user's LRC is matched to the file like an LRCLIB candidate; LRC saved by the lyric timing editor on The song page
+(`lyrics_synced`) is used as it is: the lines in `lyrics_set` (set by hand) exactly, the others where Whisper heard
+them. Plain text is placed where Whisper heard its words (forgiving mishearings; a chorus written once comes back as
+repeats; what Whisper heard that is in no line goes to `lyrics_meta.heard_only`), else spread over the singing by
+estimate, and the song folder says so. New fields in `cache/audio/<slug>.json` (old ones unchanged): `beat_tracker`,
+`lyrics[].part` / `stanza` (the user's tags and stanzas), `lyrics[].end_src: "user"`, `words[].src` (`user` |
+`whisper`), `lyrics_meta.whisper` / `heard_only` / `whisper_note`. `studio.py ingest <p> --song-only` analyses just the
+song (`--slug` another song in music/, `--fallback` the offline stems and beats, `--no-transcribe` no Whisper).
 
 ## EDL reference
 All coordinates are in 1920×1080 design pixels, and all times are in film seconds.

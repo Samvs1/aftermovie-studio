@@ -1,6 +1,6 @@
 """Writers for the song kit (tools/song_kit.py): README, song map, timed lyrics, the song-story skeleton, the JSON files
 and the lane pictures (overview + 16-bar pages)."""
-import json, os
+import json, os, re
 import numpy as np
 
 STAR = {1: "★", 2: "★★", 3: "★★★"}
@@ -42,6 +42,39 @@ def shape(m):
     return " → ".join(out)
 
 
+def tagged(m):
+    return str(m.get("sections_from") or "").startswith("the lyric's")
+
+
+def sections_note(m):
+    if tagged(m):
+        return ("named by the user's own `[Verse]` / `[Chorus]` tags in the lyric (`tag` in song-map.json); each starts on "
+                "the bar of its first sung line. Where nobody sings, the sound decides (intro / instrumental / break / outro).")
+    return ("names come from repetition (the *sound* letter: sections with the same letter share chords and texture) and "
+            "the lyric (lines that come back = chorus; a stanza break in the user's lyric = a boundary). A *sound* letter "
+            "like `AB` = merged from two classes.")
+
+
+def sections_caveat(m):
+    if tagged(m):
+        return ("Section names are the user's own (their lyric's tags); a section starts where its first line is sung, so "
+                "a part whose music starts earlier (an instrumental lead into a chorus) shows that in the bars before it.")
+    return ("Section names are inferred: if the bar map says otherwise (who sings what, where the hook is), trust your "
+            "reading and say so in `song-story.md`.")
+
+
+def words_note(m):
+    """How the lyric's word times were made, honestly: the user's, force-aligned, Whisper's, or estimated."""
+    ws = [w for x in m["lyrics"] for w in x["words"]]
+    if ws and all(w.get("src") == "user" for w in ws):
+        return "user"
+    if any("fa" in w and w.get("src") != "user" for w in ws):
+        return "aligned"
+    if any(w.get("src") == "whisper" for w in ws):
+        return "whisper"
+    return "estimate"
+
+
 # ------------------------------------------------------------------ song-map.md
 def song_map_md(m):
     t, k, ld, mu, vo = m["tempo"], m["key"], m["loudness"], m["music"], m["vocals"]
@@ -57,7 +90,11 @@ def song_map_md(m):
          + (f"; before it: {mu['start']:.0f} s of {mu['before']['kind']}" if mu.get("before") else "")
          + (f"; after it: {m['duration'] - mu['end']:.0f} s of {mu['after']['kind']}" if mu.get("after") else ""),
          f"- **Loudness** {ld['integrated_lufs']:g} LUFS integrated over the music, loudness range {ld['range_lu']:g} LU"]
-    if t.get("other_grid"):
+    tc = [e for e in m["moments"] if "tempo change" in e["kind"]]
+    if tc:
+        L.append("- **Tempo changes** " + "; ".join(f"{_tempo_txt(e)} at {mmss(e['t'])} (bar {e['pos'].split(':')[0]})"
+                                                     for e in tc) + ": bar lengths change there (see the bar times)")
+    if t.get("other_grid") and not tc:
         def feel(b):
             r = b / t["bpm"]
             return "half-time" if abs(r - 0.5) < 0.08 else "double-time" if abs(r - 2) < 0.2 else "mixed"
@@ -72,10 +109,18 @@ def song_map_md(m):
                  f"(mostly {vo['core'][0]}–{vo['core'][1]})"
                  + (f"; first word {mmss(vo['first'])}, last {mmss(vo['last'])}" if vo.get("first") is not None else ""))
     L.append(f"- **Shape** {shape(m)}")
+    if m.get("sections_from"):
+        L.append(f"- **Sections** from {m['sections_from']}")
     lm = m.get("lyrics_meta") or {}
     if m["lyrics"]:
-        L.append(f"- **Lyrics** {lm.get('source', '?')} ({len(m['lyrics'])} lines), words force-aligned on the vocal stem: "
-                 "word times are when they are *sung*. Full text: `lyrics.md`")
+        how = words_note(m)
+        L.append(f"- **Lyrics** {lm.get('source', '?')} ({len(m['lyrics'])} lines), "
+                 + {"user": "word times from the user's word-timed lyrics",
+                    "aligned": "words force-aligned on the vocal stem: word times are when they are *sung*",
+                    "whisper": "**not force-aligned**: line and word times are where Whisper heard them (~0.2 s)",
+                    "estimate": "**word times estimated (not force-aligned)**: line starts are close, words inside a "
+                                "line are not"}[how]
+                 + ". Full text: `lyrics.md`")
     else:
         L.append("- **Lyrics** none found: sections are named by sound only")
     L += ["", "## Sections",
@@ -120,6 +165,11 @@ def song_map_md(m):
     return "\n".join(L) + "\n"
 
 
+def _tempo_txt(e):
+    g = re.search(r"tempo ([^·]*?BPM)", e["text"])
+    return g.group(1).strip() if g else e["text"]
+
+
 # ------------------------------------------------------------------ lyrics.md
 def lyrics_md(m):
     title = f"{m['artist']} – {m['title']}" if m.get("artist") else m["file"]
@@ -129,8 +179,11 @@ def lyrics_md(m):
         return "\n".join(L + ["No lyrics: either an instrumental, or none were found (LRCLIB). The song map names sections by sound."]) + "\n"
     L.append(f"Source: {lm.get('source', '?')}" + (f" #{lm['id']} ({lm.get('album')})" if lm.get("id") else "")
              + (f", matched to this file with z = {lm['match_z']}" if lm.get("match_z") is not None else "")
-             + ". Times are when each line's first word is **sung** (forced alignment on the vocal stem). "
-             "`bar:beat` as `F.beat()` takes it. A caption for a line goes on the 8th at or just before that time (`F.cue`).")
+             + ". Times are when each line's first word is **sung**"
+             + {"user": " (the user's own word times)", "aligned": " (forced alignment on the vocal stem)",
+                "whisper": " (where Whisper heard it: **not force-aligned**, ~0.2 s; check before tight timing)",
+                "estimate": " (**estimated: not force-aligned**, check before timing captions to it)"}[words_note(m)]
+             + ". `bar:beat` as `F.beat()` takes it. A caption for a line goes on the 8th at or just before that time (`F.cue`).")
     reps = {}
     for x in m["lyrics"]:
         if x["repeat"]:
@@ -184,6 +237,7 @@ def story_md(m):
 
 # ------------------------------------------------------------------ README.md
 def readme_md(m, report):
+    warn = report.get("warnings") or []
     return f"""# The song folder: how to read it
 
 Made by `tools/song_kit.py` from the mix, the Demucs stems and the aligned lyrics (`studio.py song <project>` remakes it).
@@ -209,13 +263,11 @@ look at `overview.png`, read `lyrics.md`, then write `song-story.md` with the us
   matter more than values: +3 LU is clearly louder, +6 LU is a big lift.
 - **V D B O** (0-9): **V** = how much of the bar is sung (9 = sung all through); **D / B / O** = how loud the drums,
   bass and *other* (guitars, keys, synths, strings) are against their own loudest bars (0 = not playing, 9 = full).
-- **Sections**: names come from repetition (the *sound* letter: sections with the same letter share chords and
-  texture) and the lyric (lines that come back = chorus). A *sound* letter like `AB` = merged from two classes.
+- **Sections**: {sections_note(m)}
 - **Moments**: ★ (cut on it if it's handy) → ★★★ (the song's own peaks and turns: build the film's big ideas here).
 
 ## Caveats
-- Section names are inferred: if the bar map says otherwise (who sings what, where the hook is), trust your reading
-  and say so in `song-story.md`.
+- {sections_caveat(m)}
 - Chords are major/minor triads from the *other* + *bass* stems (no 7ths/sus): good for where harmony changes,
   approximate for spelling. Key: {m['key']['name']} (fit {m['key']['score']:.2f} vs {m['key']['runner_up']} {m['key']['runner_up_score']:.2f}).
 - Notes come from pitch tracking (CREPE) on the vocal / bass stems: reliable for contour, highest notes and holds;
@@ -223,8 +275,9 @@ look at `overview.png`, read `lyrics.md`, then write `song-story.md` with the us
 - What fills a stretch without a beat (film, talking, ambience, silence) comes from a zero-shot audio tagger (CLAP).
   Genre, mood and instrument tags were tested and left out: too often wrong. The song's character is for you to
   read from the measurements, the lyric and the user.
-- Made {report['created']} on {report['device']['gpu'] or 'the CPU'}; stems: {report['models']['stems']}.
-"""
+- Made {report['created']} on {report['device']['gpu'] or 'the CPU'}; stems: {report['models']['stems']}; beats:
+  {report['models'].get('beats') or 'beat_this final0'}.
+""" + ("".join(f"- **Warning:** {w}\n" for w in warn) if warn else "")
 
 
 # ------------------------------------------------------------------ pictures

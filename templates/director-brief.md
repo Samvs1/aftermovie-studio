@@ -1,0 +1,28 @@
+Make the aftermovie for this project: our photos and one song, cut into a film where every cut, caption and photo lands on the music.
+
+What I want: a film that feels hand-cut to the music and authored, indie, very creative, high effort, with its own visual language drawn from this song and these photos. My brief (project.json, below) is a starting point, not a spec: go further, and the less I wrote, the more is up to you. A bold idea beats a safe one; surprise me. Of my brief, only "never show / mention" (`avoid`) is a hard rule, and the people, places and stories in it are facts: never invent what happened or who did it.
+{{direction}}
+
+- The song is {{song_file}} ({{duration}} s), analysed in song/{{slug}}/: read its README.md first. It has the song written down (sections, the big moments, every bar with its chord and loudness, what the voice / drums / bass / other do, each sung word), because you can't hear it.
+- The photos are in photos/ ({{photos}}){{trip}}. {{people}}
+- Follow the director's workflow in {{skill}} (the same as the interactive /aftermovie skill) from where this project is (its §0 "Where are we?"), with its house rules: they never bend, whatever the style. Read {{stylebook}} before any creative decision.
+- Work on your own from start to finish: nobody answers questions in this run. Skip the interview: decide from my brief and the photos, never guess a name or an event, and keep your assumptions and the questions you would have asked for the notes (below). {{direction_rule}}
+- Deliver a preview I can review: `{{python}} {{tools}}/studio.py preview {{project}} <version>` (it renders the 960 px preview, runs QA and records a review round) with every QA gate clean, and out/<version>_notes.md (the skill's §7: what you made and why, the structure, QA, the timestamps I should check by ear, your assumptions and your open questions for me). Never run `studio.py final`: the 1080p final waits until I approve a preview (house rule 11).
+- You have about {{budget}}; check the clock. Spend it making the film better, not just finishing: the shot log, the song story, a treatment, the build, the storyboard (`board`), stills, previews, {{previews}}, revise. A preview takes {{render_time}}; leave time for the last one and its QA.
+- Label every line of text with where it came from (`F.said`): I check them on the caption board.
+- You can't hear the audio or watch the video. Don't say you listened to or watched something you didn't. When you say something looks right, it's because you looked at frames.
+- Keep all your work inside this project folder.
+
+---
+Notes from the studio (how this machine works):
+- This folder is the project `{{project}}`. The skill writes commands from the studio folder (`.venv\Scripts\python tools\studio.py <cmd> <project>`); from here run them as `{{python}} {{tools}}/studio.py <cmd> {{project}} ...` (plain `python` may not have the libraries). `{{python}} {{tools}}/studio.py run {{project}} <tool> ...` runs any tool inside the project.
+- The studio's own folders ({{tools}}/, the skills, assets/, app/, templates/) are read-only in an unattended run, and so are photos/, music/ and my review files (review/notes.json, review/captions.json). The engine can't be changed here: build what the film needs from its vocabulary (the stylebook, {{tools}}/README.md, `studio.py gallery {{project}}` shows every look on these photos) and write any engine feature you wished you had into the notes for me. {{refs}}
+- The clock: you started at {{started}}; the budget ends at **{{deadline}}**. `{{python}} {{tools}}/studio.py clock {{project}}` prints the time left. The studio messages you as time runs down, and stops the session a few minutes after the deadline: have the preview rendered before then.
+- Keep a log in out/director_log.md (plan, decisions, every build and preview with what you looked at): a later run, or a continuation of this one, starts from it. Read the big song files once; afterwards use your notes.{{critic}}
+- I may watch a preview in the studio while you work and leave notes on it: they come to you as messages. Treat them like review notes: mark each one done with a one-line fix, `{{note_done}}`.
+- Renders queue one at a time on this machine (the render queue): a second render waits for the first.
+
+## You have full reign
+**You set how bold this film is.** Nobody downstream can make it bolder than your concept: not an agent, not the critic, who can only push what is there. Commit to the boldest language and the strongest signature moments you can make well in this time, a film only this song and this group could have, that we remember after one watch. When something plays safe, push it further; when something bold isn't landing, make it land (timing, staging, room, set-up and payoff), never retreat to the safe version.
+
+How you make the film is yours. Do all of it yourself, or deploy agents where that makes the film bolder, better or faster (for example: one that writes the shot log from the contact sheets while you read the song, one that tries a signature moment's builder): nothing requires agents, and nothing holds you back from them. If you use them: the Agent tool with `run_in_background: true` (you're told when one finishes), each with its `model` (the top model for creative builder code; Sonnet or Haiku for a mechanical task that needs some judgment, like logging photos), and a narrow brief (the treatment, the files it may write, what it must not settle for; never "read the song folder"). {{looking}} One film, one look: you own the builder and its shared helpers; agents build on them rather than copy them. Renders queue one at a time, and what agents cost is part of this run.{{ultracode}}

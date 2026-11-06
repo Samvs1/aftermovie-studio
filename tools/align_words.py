@@ -2,6 +2,10 @@
 
   python tools/align_words.py <slug> [--dry]
 
+The MMS aligner's weights (~1.2 GB) download on first use from dl.fbaipublicfiles.com; without them (or without
+torch) the word times stay the estimates analyze_audio.py made, or where Whisper heard them (the song kit says
+"not force-aligned"). Lines whose every word the user timed (word-timed LRC) are left as they are.
+
 LRC word times are interpolated inside each line and can run a few hundred ms late, so captions keyed
 to them pop up after the word is sung. This aligns every line separately on the isolated vocals, in a
 window from just before the line to just after the next line starts. '*' wildcards at both ends absorb
@@ -15,9 +19,12 @@ to ~0.1 s; inside a line, LRC spreads words evenly over held notes and runs up t
 """
 import argparse, json, os, re, sys
 import numpy as np
-import torch
-import torchaudio
 import librosa
+try:
+    import torch
+    import torchaudio
+except Exception as _ex:                      # no torch here: nothing to align with (ingest carries on without it)
+    sys.exit(f"torch / torchaudio are not installed ({type(_ex).__name__}): word times stay estimates")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from am.common import CACHE  # noqa: E402
@@ -90,15 +97,22 @@ def main():
     a = ap.parse_args()
     path = os.path.join(CACHE, "audio", f"{a.slug}.json")
     d = json.load(open(path, encoding="utf-8"))
-    voc, _ = librosa.load(os.path.join(CACHE, "stems", a.slug, "vocals.wav"), sr=SR, mono=True)
-    bundle = torchaudio.pipelines.MMS_FA
-    model = bundle.get_model(with_star=True).to(DEV)                # ~1.3 GB of VRAM on the GPU
-    tok = bundle.get_tokenizer()
-    aligner = bundle.get_aligner()
     lines = d.get("lyrics") or []
     if not lines:
         print("no lyrics in the analysis: nothing to align")
         return
+    if all(w.get("src") == "user" for L in lines for w in L.get("words", [])):
+        print("every word was timed by the user (enhanced LRC): nothing to align")
+        return
+    voc, _ = librosa.load(os.path.join(CACHE, "stems", a.slug, "vocals.wav"), sr=SR, mono=True)
+    bundle = torchaudio.pipelines.MMS_FA
+    try:
+        print("   loading the MMS aligner (first use downloads ~1.2 GB from dl.fbaipublicfiles.com)", flush=True)
+        model = bundle.get_model(with_star=True).to(DEV)            # ~1.3 GB of VRAM on the GPU
+    except Exception as ex:
+        sys.exit(f"the MMS aligner could not be loaded ({type(ex).__name__}: {str(ex)[:160]}): word times stay estimates")
+    tok = bundle.get_tokenizer()
+    aligner = bundle.get_aligner()
     for L in lines:                          # re-runs start from the LRC times, not from an earlier alignment
         for w in L.get("words", []):
             if "t_lrc" in w:
@@ -107,7 +121,7 @@ def main():
     report = []
     for li, L in enumerate(lines):
         ws = L.get("words", [])
-        if not ws:
+        if not ws or all(w.get("src") == "user" for w in ws):      # the user timed every word of it: kept exactly
             continue
         lrc = [w.get("t_lrc", w["t"]) for w in ws]
         t0 = lrc[0] - 1.2

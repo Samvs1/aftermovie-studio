@@ -146,7 +146,8 @@ def project_state(name):
             "songs": song_folders(name, d),
             "versions": versions, "notes": jload(os.path.join(d, "review", "notes.json"), []), "files": files,
             "captions": jload(os.path.join(d, "review", "captions.json"), {}),
-            "job": job_state(name)}
+            "job": job_state(name), "director": director_state(name, brief=False), "critiques": critiques_state(name, d),
+            "story_job": (pj.get("status") or {}).get("story")}
 
 
 def song_folders(name, d):
@@ -224,9 +225,139 @@ def save_brief(name, body):
                                                   "label": line[:60]})
         pj["chapters"] = chs
     if "song" in body and isinstance(body["song"], dict):
-        pj["song"] = dict(pj.get("song") or {}, **{k: str(v)[:200] for k, v in body["song"].items() if k in ("artist", "title", "file")})
+        pj["song"] = dict(pj.get("song") or {}, **{k: str(v)[:200] for k, v in body["song"].items()
+                                                   if k in ("artist", "title", "file", "language")})
+        if "lyrics" in body["song"]:                    # the user's own lyrics for the project's song (align_lyrics.py)
+            set_lyrics(d, pj["song"], body["song"]["lyrics"])
     studio.save_project(d, pj)
     return pj
+
+
+# ------------------------------------------------------------------ the user's own lyrics (tools/align_lyrics.py)
+SLUG = re.compile(r"[a-z0-9_]{1,60}")
+
+
+def set_lyrics(d, entry, text, keep_old=True):
+    """The lyrics of one song (entry = project.json "song" or "songs"[slug]): plain text, LRC or word-timed LRC. Other
+    lyrics than before are no longer the ones timed on this song in the editor (lyrics_synced, lyrics_set dropped);
+    the text they replace is kept in cache/lyrics/."""
+    import align_lyrics as AL
+    text = str(text or "").replace("\r\n", "\n").lstrip("\ufeff")[:60000]
+    old = AL.lyrics_text(entry)
+    if text.strip() == old.strip():
+        return False
+    if keep_old and old.strip():
+        os.makedirs(os.path.join(d, "cache", "lyrics"), exist_ok=True)
+        open(os.path.join(d, "cache", "lyrics", f"lyrics_{time.strftime('%Y%m%d-%H%M%S')}.txt"), "w",
+             encoding="utf-8").write(old)
+    entry.pop("lyrics_synced", None)
+    entry.pop("lyrics_set", None)
+    if text.strip():
+        entry["lyrics"] = text
+    else:
+        entry.pop("lyrics", None)
+    return True
+
+
+def song_of(d, slug):
+    """(slug, file) of an analysed song in the project (cache/audio/<slug>.json), for the lyric timing editor."""
+    if not SLUG.fullmatch(str(slug or "")):
+        raise ValueError("bad song slug")
+    A = jload(os.path.join(d, "cache", "audio", f"{slug}.json"), None)
+    if not A or not A.get("file"):
+        raise ValueError(f"the song {slug} isn't analysed yet")
+    return slug, A["file"]
+
+
+def lrc_time(t):
+    m, s_ = divmod(max(0.0, float(t)), 60)
+    return f"{int(m):02d}:{s_:05.2f}"
+
+
+def lyric_structure(rows):
+    """The LRC lines (rows of (t, line, set, part, stanza) in time order) with the lyric's tags and stanza breaks put
+    back: "[Chorus]" above a line whose part differs from the one above it, a blank line between two stanzas. A line
+    with neither (a repeat Whisper heard, a line added in the editor) goes on in the part above it; a repeat that has a
+    part but sits inside another part (the parts above and below it agree) stays in that part."""
+    out, cur, cur_st = [], None, None
+    for k, (_, line, _, part, st) in enumerate(rows):
+        if part and st is None:
+            nxt = next((r[3] for r in rows[k + 1:] if r[4] is not None), None)
+            if cur and nxt == cur:
+                part = cur
+        if part and part != cur:
+            out += ([""] if out else []) + [f"[{part}]"]
+            cur, cur_st = part, st
+        elif st is not None:
+            if cur_st is not None and st != cur_st:
+                out.append("")
+            cur_st = st
+        out.append(line)
+    return out
+
+
+def save_lyric_timing(name, body):
+    """The lyric timing editor (The song page): body {slug, lines: [{t, end?, text, words?, set, part?, stanza?}]}.
+    Every line with its start, its end where the user set one (a time tag after the last word: "[00:12.00] hold the
+    light <00:14.10>") and its words' times where the user's LRC had them, becomes LRC in that song's lyrics
+    (project.json song.lyrics, or songs.<slug>.lyrics), marked as timed on this very song file ("lyrics_synced": no
+    offset search). The lyric's own structure stays in it ([Chorus] tags above each part, blank lines between stanzas),
+    so the analysis still names the sections from the tags. The lines the user set by hand are listed in "lyrics_set"
+    (their start times): the analysis keeps those exactly and places every other line where Whisper heard it. The
+    lyrics it replaces are kept in cache/lyrics/. Then the song is analysed again (ingest --song-only: stems reused)."""
+    import align_lyrics as AL
+    d = pdir(name)
+    slug, file = song_of(d, body.get("slug"))
+    out = []
+    for x in body.get("lines") or []:
+        text = re.sub(r"\s+", " ", str(x.get("text") or "")).strip()[:400]
+        t = float(x.get("t"))
+        if not text:
+            continue
+        if not 0 <= t < 6 * 3600:
+            raise ValueError(f"a line starts at {t} s: that's not in the song")
+        ws = x.get("words") or []
+        if ws and " ".join(str(w[0]) for w in ws) == text:            # word-timed (enhanced LRC): keep the word times
+            text = " ".join(f"<{lrc_time(float(wt))}> {w}" for w, wt in ws)
+        end = x.get("end")
+        if end is not None and t + 0.05 < float(end) < 6 * 3600:      # when the line stops
+            text += f" <{lrc_time(float(end))}>"
+        part = re.sub(r"[\[\]\s]+", " ", str(x.get("part") or "")).strip()[:80] or None
+        st = x.get("stanza")
+        out.append((t, f"[{lrc_time(t)}] {text}", bool(x.get("set")), part, st if isinstance(st, int) else None))
+    if len(out) < 3:
+        raise ValueError("at least 3 lyric lines are needed")
+    if job_state(name).get("running"):
+        raise RuntimeError("something is running on this project: wait for it to finish, then save again")
+    pj = jload(os.path.join(d, "project.json"), {})
+    entry = AL.lyrics_entry(pj, slug, file, create=True)
+    set_lyrics(d, entry, "\n".join(lyric_structure(sorted(out, key=lambda z: z[0]))) + "\n")
+    entry["lyrics_synced"] = True
+    entry["lyrics_set"] = [round(int(m) * 60 + float(s_), 2) for t, _, mine, _, _ in out if mine
+                           for m, s_ in [lrc_time(t).split(":")]]        # as the LRC reads back
+    studio.save_project(d, pj)
+    if body.get("analyse", True):
+        start_job(name, "ingest", ["ingest", name, "--song-only", "--slug", slug])
+    return {"ok": True, "lines": len(out)}
+
+
+def align_lyrics(name, body):
+    """The timing editor's "Align with Whisper": body {slug, lines: [{text}]} goes to studio.py align-lyrics (Whisper
+    transcribes the vocal stem once per song, then align_lyrics.py matches the lines to what it heard) as a background
+    job "align"; the editor reads cache/lyrics/<slug>_aligned.json when the job is done."""
+    d = pdir(name)
+    slug, _ = song_of(d, body.get("slug"))
+    lines = [{"text": re.sub(r"\s+", " ", str(x.get("text") or "")).strip()[:400]} for x in body.get("lines") or []]
+    if len([x for x in lines if x["text"]]) < 2:
+        raise ValueError("at least 2 lyric lines are needed")
+    cd = os.path.join(d, "cache", "lyrics")
+    os.makedirs(cd, exist_ok=True)
+    if os.path.exists(os.path.join(cd, f"{slug}_aligned.json")):
+        os.remove(os.path.join(cd, f"{slug}_aligned.json"))
+    inp = os.path.join(cd, f"{slug}_align_in.json")
+    json.dump(lines, open(inp, "w", encoding="utf-8"), ensure_ascii=False)
+    start_job(name, "align", ["align-lyrics", name, slug, "--in", inp])
+    return {"ok": True}
 
 
 def save_cast(name, body):
@@ -290,31 +421,29 @@ def polarsteps_list(name, zpath):
 
 
 def add_note(name, body):
+    """A note at a moment of a version. Written through am/notes.py (a lock, a re-read, an atomic replace): a running
+    director's runner forwards notes and the director marks them done (`studio.py note-done`) in the same file."""
+    from am.notes import update_notes
     d = pdir(name)
-    p = os.path.join(d, "review", "notes.json")
-    os.makedirs(os.path.dirname(p), exist_ok=True)
-    notes = jload(p, [])
     v = str(body.get("version", ""))[:80]
     rounds = [r for r in (jload(os.path.join(d, "project.json"), {}).get("rounds") or {}).get(v, []) if r.get("kind") == "preview"]
-    notes.append({"id": int(time.time() * 1000), "version": v, "t": round(float(body.get("t", 0)), 2),
-                  "text": str(body.get("text", ""))[:2000], "done": False, "at": time.strftime("%Y-%m-%d %H:%M"),
-                  "round": rounds[-1]["n"] if rounds else None})
-    json.dump(notes, open(p, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
-    return notes
+    n = {"id": int(time.time() * 1000), "version": v, "t": round(float(body.get("t", 0)), 2),
+         "text": str(body.get("text", ""))[:2000], "done": False, "at": time.strftime("%Y-%m-%d %H:%M"),
+         "round": rounds[-1]["n"] if rounds else None}
+    return update_notes(d, lambda notes: notes.append(n))
 
 
 def edit_note(name, body):
+    from am.notes import update_notes
     d = pdir(name)
-    p = os.path.join(d, "review", "notes.json")
-    notes = jload(p, [])
-    if body.get("delete"):
-        notes = [n for n in notes if n["id"] != body["id"]]
-    else:
+
+    def fn(notes):
+        if body.get("delete"):
+            return [n for n in notes if n.get("id") != body.get("id")]
         for n in notes:
-            if n["id"] == body.get("id"):
+            if n.get("id") == body.get("id"):
                 n["done"] = bool(body.get("done"))
-    json.dump(notes, open(p, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
-    return notes
+    return update_notes(d, fn)
 
 
 def caption(name, body):
@@ -356,6 +485,203 @@ def approve(name, body):
                                        stage="approved: ready for the final render")
     studio.save_project(d, pj)
     return pj
+
+
+# ------------------------------------------------------------------ the autonomous director, the critic, the story draft
+DIRECTOR_KEYS = ("model", "effort", "budget", "critic_model", "critic_effort", "ultracode", "max_usd", "auto_continue")
+EFFORTS = ("low", "medium", "high", "xhigh", "max")
+MODEL_RE = re.compile(r"[A-Za-z0-9._\[\]-]{1,60}")
+
+
+def director_state(name, brief=True):
+    """The latest director run (cache/director/current.json + its status.json) for the Direct page: its state, the
+    clock, the live log, the agents, the costs per model with the total, the critiques; and "continuable" (Continue
+    the last run) once it's over."""
+    import director
+    d = pdir(name)
+    cur = jload(os.path.join(d, "cache", "director", "current.json"), None)
+    if not cur:
+        return None
+    st = jload(os.path.join(d, cur["dir"], "status.json"), {}) or {}
+    out = {k: st.get(k, cur.get(k)) for k in ("run", "state", "kind", "model", "model_used", "effort", "budget", "budget_s",
+                                               "started", "deadline", "elapsed_s", "wall_s", "cost_usd", "turns", "version",
+                                               "preview", "stop_reason", "result", "messages_sent", "claude_version",
+                                               "critic_model", "critic_cost_usd", "version_critique", "version_scores",
+                                               "ultracode", "max_usd", "budget_hit", "agents", "model_usage", "background",
+                                               "working", "auto_continue", "paused", "pauses", "paused_s", "active_s", "left_s",
+                                               "cut_off", "continues", "waiting_until", "resets_at", "seed_notes")}
+    out["critiques"] = [dict(c, url=f"/p/{name}/{c['file']}") for c in st.get("critiques") or [] if c.get("file")]
+    out["costs"], out["total_usd"] = director.cost_rows(out), director.total_cost(out)
+    out["events"] = st.get("events", [])[-200:]
+    out["now"] = time.time()
+    out["active"] = bool(director.run_active(d))
+    c = director.continuable(d)
+    out["continuable"] = {k: c.get(k) for k in ("run", "kind", "why", "ended", "left_s", "budget_s", "resets_at", "limit", "cut",
+                                                "resumable", "version")} if c else None
+    if brief and os.path.exists(os.path.join(d, cur["dir"], "brief.md")):
+        out["brief"] = f"/p/{name}/{cur['dir']}/brief.md"
+    if os.path.exists(os.path.join(d, cur["dir"], "messages.md")):
+        out["messages"] = f"/p/{name}/{cur['dir']}/messages.md"
+    return out
+
+
+def critiques_state(name, d):
+    """The critic's notes in this project (review/critic/*.json), newest first, with their reports' URLs; and which
+    renders it is looking at right now."""
+    try:
+        import critic
+        cs = critic.critiques(d)
+        busy = critic.any_pending(d)
+    except Exception:
+        return {"items": [], "pending": []}
+    out = []
+    for c in reversed(cs[-80:]):
+        f = c.get("file")
+        if f and os.path.exists(os.path.join(d, f)):
+            out.append({k: c.get(k) for k in ("video", "version", "scores", "verdict", "model", "cost_usd", "at", "problems", "keep", "safe")}
+                       | {"file": f, "url": f"/p/{name}/{f}?v={int(os.path.getmtime(os.path.join(d, f)))}"})
+    return {"items": out, "pending": busy}
+
+
+def busy_elsewhere(name):
+    """A director run going on in this project that this web app didn't start (`studio.py direct` from a terminal):
+    said, so a second one isn't started over it."""
+    import director
+    j = JOBS.get(name)
+    if j and j["proc"].poll() is None:
+        return None
+    if director.run_active(pdir(name)):
+        return "a director run is going on in this project (not started here): let it finish, or stop it first"
+    return None
+
+
+def budget_of(x, default):
+    budget = str(x or default).strip()
+    return budget + "m" if re.fullmatch(r"\d+", budget) else budget
+
+
+def cap_of(x):
+    try:
+        cap = float(str(x or "").strip().lstrip("$") or 0)
+    except ValueError:
+        cap = 0
+    return cap if 0 < cap <= 10000 else 0
+
+
+def on(x):
+    return x is True or str(x).lower() in ("1", "true", "on")
+
+
+def direct_args(name, body):
+    """The Direct page's form -> `studio.py direct`: one director (effort default max), the critic, ultracode, an
+    optional cost cap in dollars; auto_continue; revise (a review round); continue (Continue the last run: without a
+    budget, what it had left). Anything out of range is left to the defaults."""
+    cont = on(body.get("continue"))
+    args = ["direct", name] + ([] if cont and not str(body.get("budget") or "").strip() else
+                               ["--budget", budget_of(body.get("budget"), "90m")])
+    args += ["--effort", body.get("effort") if body.get("effort") in EFFORTS else "max"]
+    for key, flag in (("model", "--model"), ("critic_model", "--critic-model")):
+        if MODEL_RE.fullmatch(str(body.get(key) or "")):
+            args += [flag, str(body[key])]
+    if on(body.get("ultracode")):
+        args.append("--ultracode")
+    if cap_of(body.get("max_usd")):
+        args += ["--max-usd", f"{cap_of(body['max_usd']):g}"]
+    if str(body.get("seed_notes") or "").strip():
+        args += ["--seed-notes", str(body["seed_notes"])[:4000]]
+    if on(body.get("revise")) and not cont:
+        args.append("--revise")
+    if cont:
+        args.append("--continue")
+    if "auto_continue" in body:
+        args.append("--auto-continue" if on(body.get("auto_continue")) else "--no-auto-continue")
+    if body.get("nudge") is False:
+        args.append("--no-nudge")
+    return args
+
+
+def save_director(name, body):
+    """The Direct form's settings, kept as they change (project.json "director")."""
+    d = pdir(name)
+    pj = jload(os.path.join(d, "project.json"), {})
+    cur = dict(pj.get("director") or {})
+    for k in DIRECTOR_KEYS:
+        if k in body:
+            v = body[k]
+            if k in ("ultracode", "auto_continue"):
+                cur[k] = on(v)
+            elif k == "max_usd":
+                cur[k] = cap_of(v) or None
+            elif k == "effort":
+                cur[k] = v if v in EFFORTS else "max"
+            elif k in ("model", "critic_model", "critic_effort"):
+                if MODEL_RE.fullmatch(str(v or "")):
+                    cur[k] = str(v)
+            else:
+                cur[k] = str(v or "")[:20]
+    pj["director"] = cur
+    studio.save_project(d, pj)
+    return pj
+
+
+def start_direct(name, body):
+    why = busy_elsewhere(name)
+    if why:
+        raise RuntimeError(why)
+    if any(k in body for k in DIRECTOR_KEYS):
+        save_director(name, body)
+    start_job(name, "direct", direct_args(name, body))
+    return {"ok": True}
+
+
+def start_critique(name, body):
+    """The Review page's "Ask the critic": a render in the project (or a version: its newest render), as the job
+    "critique"."""
+    d = pdir(name)
+    target = str(body.get("video") or body.get("version") or "").replace("\\", "/").strip("/")
+    if target.endswith(".mp4"):
+        full = os.path.abspath(os.path.join(d, target))
+        if not full.startswith(os.path.abspath(d) + os.sep) or not os.path.isfile(full):
+            raise ValueError("no such video in this project")
+    elif not re.fullmatch(r"[A-Za-z0-9_.-]{1,80}", target):
+        raise ValueError("no such version")
+    args = ["critique", name, target]
+    if MODEL_RE.fullmatch(str(body.get("model") or "")):
+        args += ["--model", str(body["model"])]
+    if str(body.get("focus") or "").strip():
+        args += ["--focus", str(body["focus"])[:600]]
+    start_job(name, "critique", args)
+    return {"ok": True}
+
+
+def stop_job(name):
+    """Stop the project's job: a director run wraps up cleanly (asked through cache/director/STOP; forced after 3 min
+    if it hangs), the critic is ended with what it started, anything else terminated. A run started from the command
+    line is asked the same way."""
+    import director
+    from am.claude import kill_tree
+    d = pdir(name)
+    j = JOBS.get(name)
+    if not j or j["proc"].poll() is not None:
+        if director.run_active(d):
+            director.request_stop(d)
+            return {"ok": True, "stopping": "asked it to stop (it was started from the command line): it wraps up cleanly"}
+        return {"ok": True, "running": False}
+    if j["job"] == "direct":
+        director.request_stop(d)
+
+        def force():
+            time.sleep(180)
+            if j["proc"].poll() is None:
+                kill_tree(j["proc"])
+        threading.Thread(target=force, daemon=True).start()
+        return {"ok": True, "stopping": "the director wraps up within a minute or two"}
+    if j["job"] in ("critique", "story", "songs"):    # with the claude call they started: they'd keep spending
+        kill_tree(j["proc"])
+        return {"ok": True}
+    j["proc"].terminate()
+    return {"ok": True}
+
 
 
 # ------------------------------------------------------------------ HTTP
@@ -439,6 +765,8 @@ class H(BaseHTTPRequestHandler):
                 return self.send_json(project_state(parts[2]))
             if parts[0] == "api" and parts[1] == "p" and len(parts) == 4 and parts[3] == "job":
                 return self.send_json(job_state(parts[2]))
+            if parts[0] == "api" and parts[1] == "p" and len(parts) == 4 and parts[3] == "director":
+                return self.send_json(director_state(parts[2]))
             if parts[:2] == ["api", "doctor"]:
                 r = subprocess.run([PY, os.path.join(TOOLS, "studio.py"), "doctor"], capture_output=True, text=True, encoding="utf-8",
                                    errors="replace", cwd=ENGINE, env=dict(os.environ, PYTHONIOENCODING="utf-8"))
@@ -478,6 +806,26 @@ class H(BaseHTTPRequestHandler):
                     sub = "music"
                 elif ext in studio.IMG_IN or ext in studio.VID_IN:
                     sub = "photos"
+                elif ext in (".lrc", ".txt"):                # a lyrics file: the song's lyrics (project.json)
+                    n = int(self.headers.get("Content-Length") or 0)
+                    if n > 400000:
+                        return self.send_json({"error": "that lyrics file is too big"}, 400)
+                    raw = self.rfile.read(n)
+                    try:
+                        text = raw.decode("utf-8")
+                    except UnicodeDecodeError:
+                        text = raw.decode("cp1252", errors="replace")
+                    pj = jload(os.path.join(d, "project.json"), {})
+                    slug = q.get("song", [""])[0]
+                    import align_lyrics as AL
+                    if slug:
+                        slug, file = song_of(d, slug)
+                        entry = AL.lyrics_entry(pj, slug, file, create=True)
+                    else:
+                        entry = pj.setdefault("song", {})
+                    set_lyrics(d, entry, text)
+                    studio.save_project(d, pj)
+                    return self.send_json({"ok": True, "kind": "lyrics", "name": fn})
                 else:
                     return self.send_json({"error": f"unsupported file type {ext}"}, 400)
                 dst = os.path.join(d, sub, fn)
@@ -528,6 +876,10 @@ class H(BaseHTTPRequestHandler):
                 name, act = parts[2], parts[3]
                 if act == "brief":
                     return self.send_json(save_brief(name, body))
+                if act == "lyrics-timing":                       # the lyric timing editor: LRC, then analyse again
+                    return self.send_json(save_lyric_timing(name, body))
+                if act == "lyrics-align":                        # ... "Align with Whisper": job "align"
+                    return self.send_json(align_lyrics(name, body))
                 if act == "delete":
                     d = pdir(name)
                     fn = safe_name(body.get("name", ""))
@@ -585,9 +937,15 @@ class H(BaseHTTPRequestHandler):
                 if act == "must":
                     return self.send_json(must(name, body))
                 if act == "stop":
-                    j = JOBS.get(name)
-                    if j and j["proc"].poll() is None:
-                        j["proc"].terminate()
+                    return self.send_json(stop_job(name))
+                if act == "direct":                                # the autonomous director (tools/director.py)
+                    return self.send_json(start_direct(name, body))
+                if act == "director-settings":
+                    return self.send_json(save_director(name, body))
+                if act == "critique":
+                    return self.send_json(start_critique(name, body))
+                if act == "story-draft":                           # Claude drafts the song story (headless)
+                    start_job(name, "story", ["story", name])
                     return self.send_json({"ok": True})
             self.send_json({"error": "not found"}, 404)
         except FileNotFoundError:

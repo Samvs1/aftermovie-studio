@@ -7,7 +7,6 @@ Writes out/<version>_board.json and out/board/<version>/<shot>.jpg (480 px). The
 the Storyboard tab, where the user ticks or vetoes each line (review/captions.json; read by F.save() and qa.py).
 """
 import argparse, json, os, shutil, sys, time
-from multiprocessing import Pool
 
 import numpy as np
 
@@ -15,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from am import checks  # noqa: E402
 from am.common import CACHE, OUT, ROOT, project  # noqa: E402
 from am.music import MusicMap  # noqa: E402
-from render import _frame, _init, default_workers  # noqa: E402
+from render import Pool, _frame, _init, default_workers  # noqa: E402
 
 WIDTH = 480
 
